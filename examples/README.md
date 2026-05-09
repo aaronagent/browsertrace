@@ -46,16 +46,6 @@ playwright install chromium
 
 ## Troubleshooting
 
-### Demo Output Isolation
-
-By default BrowserTrace stores SQLite data and screenshots in
-`~/.browsertrace/`. To keep example output isolated, set `BROWSERTRACE_HOME`:
-
-```bash
-BROWSERTRACE_HOME=/tmp/browsertrace-demo python examples/stagehand_wrapper_example.py
-BROWSERTRACE_HOME=/tmp/browsertrace-demo browsertrace
-```
-
 ### Port Already in Use
 
 If `http://127.0.0.1:3000` is already in use, you may see an error like:
@@ -65,8 +55,19 @@ Error: listen EADDRINUSE 127.0.0.1:3000
 ```
 
 To resolve, either:
-- Stop any other process using port 3000: `lsof -i :3000 | xargs kill`
-- Or set a different port if BrowserTrace supports a `PORT` environment variable
+
+- Find the process using port 3000, then stop only that process:
+
+```bash
+lsof -nP -iTCP:3000 -sTCP:LISTEN
+kill <PID>
+```
+
+- Or run BrowserTrace on another port:
+
+```bash
+BROWSERTRACE_PORT=4000 browsertrace
+```
 
 ### Finding Your Demo Run
 
