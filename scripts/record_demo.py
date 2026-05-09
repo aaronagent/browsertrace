@@ -2,22 +2,47 @@
 
 Captures frames at ~15fps while:
   1. Showing the runs index
-  2. Clicking into the Tokyo failure run
+  2. Opening the latest failed run, or BROWSERTRACE_DEMO_RUN_ID if set
   3. Slowly scrolling the timeline top -> bottom
 
 Output: /tmp/bt-frames/*.png  ->  combined later with gifski.
 """
-import asyncio, shutil, time
+import asyncio
+import json
+import os
+import shutil
+import time
+import urllib.request
 from pathlib import Path
-from playwright.async_api import async_playwright
 
-TOKYO_RUN_ID = "b3357b77-4e56-4674-8854-005ce77ceacb"
 BASE = "http://127.0.0.1:3000"
 FRAMES = Path("/tmp/bt-frames")
 FPS = 15
 WIDTH, HEIGHT = 1280, 800
 
+
+def resolve_demo_run_id(base: str = BASE) -> str:
+    override = os.environ.get("BROWSERTRACE_DEMO_RUN_ID")
+    if override:
+        return override
+
+    url = f"{base}/api/runs?status=failed&limit=1"
+    with urllib.request.urlopen(url) as resp:
+        payload = json.loads(resp.read().decode("utf-8"))
+
+    runs = payload.get("runs") or []
+    if not runs:
+        raise RuntimeError(
+            "No failed BrowserTrace runs found. Run "
+            "`python examples/no_api_failure_demo.py` or set "
+            "BROWSERTRACE_DEMO_RUN_ID."
+        )
+    return runs[0]["id"]
+
+
 async def main():
+    from playwright.async_api import async_playwright
+
     if FRAMES.exists():
         shutil.rmtree(FRAMES)
     FRAMES.mkdir(parents=True)
@@ -41,8 +66,9 @@ async def main():
         await asyncio.sleep(0.3)
         await snap(22)
 
-        # 2) Navigate into Tokyo run — hold ~1.5s at top
-        await page.goto(f"{BASE}/run/{TOKYO_RUN_ID}")
+        # 2) Navigate into failed run — hold ~1.5s at top
+        run_id = resolve_demo_run_id(BASE)
+        await page.goto(f"{BASE}/run/{run_id}")
         await page.wait_for_load_state("networkidle")
         await asyncio.sleep(0.3)
         await snap(22)
@@ -63,4 +89,5 @@ async def main():
 
     print(f"Captured {frame_idx} frames in {FRAMES}")
 
-asyncio.run(main())
+if __name__ == "__main__":
+    asyncio.run(main())
