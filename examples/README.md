@@ -136,3 +136,15 @@ $env:BROWSERTRACE_HOME = "$env:TEMP\browsertrace-demo"
 python examples/no_api_failure_demo.py
 browsertrace
 ```
+## Public Export Flow
+
+After creating a demo run, export it for safe sharing:
+
+```bash
+browsertrace demo
+browsertrace list
+browsertrace export <run_id> --public -o public.html
+```
+
+> Note: `--public` omits prompts, model I/O, screenshots, and URLs.
+> Attach the generated `public.html` file manually to share it.
