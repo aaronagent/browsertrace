@@ -44,6 +44,50 @@ pip install playwright
 playwright install chromium
 ```
 
+## Troubleshooting
+
+### Demo Output Isolation
+
+By default BrowserTrace stores SQLite data and screenshots in
+`~/.browsertrace/`. To keep example output isolated, set `BROWSERTRACE_HOME`:
+
+```bash
+BROWSERTRACE_HOME=/tmp/browsertrace-demo python examples/stagehand_wrapper_example.py
+BROWSERTRACE_HOME=/tmp/browsertrace-demo browsertrace
+```
+
+### Port Already in Use
+
+If `http://127.0.0.1:3000` is already in use, you may see an error like:
+
+```
+Error: listen EADDRINUSE 127.0.0.1:3000
+```
+
+To resolve, either:
+- Stop any other process using port 3000: `lsof -i :3000 | xargs kill`
+- Or set a different port if BrowserTrace supports a `PORT` environment variable
+
+### Finding Your Demo Run
+
+To list all local BrowserTrace demo runs:
+
+```bash
+browsertrace list
+```
+
+This shows run IDs, timestamps, and status for each stored trace.
+
+### Creating a Share-Safe Export
+
+To export a trace without sensitive data (prompt/model I/O, screenshots, URLs):
+
+```bash
+browsertrace export <run_id> --public -o public.html
+```
+
+This creates a share-safe HTML file suitable for sharing with others.
+
 ## Where Traces Are Stored
 
 By default BrowserTrace stores SQLite data and screenshots in
