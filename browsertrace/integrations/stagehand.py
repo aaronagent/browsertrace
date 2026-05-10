@@ -70,7 +70,12 @@ class _TracedPage:
                     step_id, status="error", error=f"{type(e).__name__}: {e}"
                 )
                 raise
-            self.bt_run.update_step(step_id, model_output={"result": result})
+            output = _serialize_result(result)
+            model_output = {"result": output}
+            evidence = _extract_stagehand_evidence(output)
+            if evidence:
+                model_output["stagehand_evidence"] = evidence
+            self.bt_run.update_step(step_id, model_output=model_output)
             return result
         return traced
 
@@ -85,3 +90,65 @@ def wrap_stagehand(page: Any, tracer: Tracer, name: str = "stagehand run") -> _T
     (e.g. to call `.close()` or read `.id`).
     """
     return _TracedPage(page, tracer, name)
+
+
+def _serialize_result(result: Any) -> Any:
+    if hasattr(result, "model_dump"):
+        try:
+            return result.model_dump(exclude_none=True)
+        except Exception:
+            pass
+    if hasattr(result, "dict"):
+        try:
+            return result.dict()
+        except Exception:
+            pass
+    if isinstance(result, (dict, list, tuple, str, int, float, bool)) or result is None:
+        return result
+    if hasattr(result, "__dict__"):
+        return vars(result)
+    return str(result)
+
+
+def _extract_stagehand_evidence(output: Any) -> dict[str, Any]:
+    evidence: dict[str, Any] = {}
+    selectors = _find_values(output, "selector", "selectors", "css_selector", "cssSelector")
+    descriptions = _find_values(output, "description")
+    methods = _find_values(output, "method")
+
+    if selectors:
+        evidence["selectors"] = selectors
+    if descriptions:
+        evidence["descriptions"] = descriptions
+    if methods:
+        evidence["methods"] = methods
+
+    return evidence
+
+
+def _find_values(value: Any, *keys: str) -> list[str]:
+    found: list[str] = []
+    seen: set[str] = set()
+
+    def visit(item: Any) -> None:
+        if isinstance(item, dict):
+            for key, child in item.items():
+                if key in keys:
+                    add(child)
+                visit(child)
+        elif isinstance(item, (list, tuple)):
+            for child in item:
+                visit(child)
+
+    def add(item: Any) -> None:
+        values = item if isinstance(item, (list, tuple)) else [item]
+        for value in values:
+            if value is None:
+                continue
+            serialized = str(value)
+            if serialized and serialized not in seen:
+                seen.add(serialized)
+                found.append(serialized)
+
+    visit(value)
+    return found
