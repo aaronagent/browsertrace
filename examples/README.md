@@ -98,6 +98,12 @@ browsertrace export <run_id> --public -o public.html
 | `multipage_failure.py` | You want a multi-page Playwright failure demo | Local Chromium | `python examples/multipage_failure.py` |
 | `browseruse_example.py` | You already use Browser Use and want to attach tracing | Browser Use + LLM | `python examples/browseruse_example.py` |
 
+Browser Use users who pass run hooks directly to
+`agent.run(on_step_start=..., on_step_end=...)` should use
+`create_run_hooks`; see the
+[Browser Use debugging guide](https://aaronlab.github.io/browsertrace/browser-use-debugging.html)
+for the current run-hook path.
+
 For Playwright examples, install the browser runtime first:
 
 ```bash

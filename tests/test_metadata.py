@@ -2055,6 +2055,24 @@ def test_examples_readme_includes_playwright_sync_snapshot_recipe():
     assert "sync Playwright" in examples_readme
 
 
+def test_examples_readme_links_browser_use_run_hooks_guide():
+    project_root = Path(__file__).resolve().parents[1]
+    examples_readme = (project_root / "examples" / "README.md").read_text()
+    example_matrix = examples_readme.split("## Example Matrix", 1)[1].split(
+        "For Playwright examples", 1
+    )[0]
+
+    assert "`browser_use_callback_demo.py`" in example_matrix
+    assert "`browseruse_example.py`" in example_matrix
+    assert "`agent.run(on_step_start=..., on_step_end=...)`" in example_matrix
+    assert "`create_run_hooks`" in example_matrix
+    assert (
+        "[Browser Use debugging guide](https://aaronlab.github.io/browsertrace/browser-use-debugging.html)"
+        in example_matrix
+    )
+    assert "Browser Use + LLM" in example_matrix
+
+
 def test_owner_profile_actions_include_browsertrace_pin_step():
     project_root = Path(__file__).resolve().parents[1]
     owner_docs = {
