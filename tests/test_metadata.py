@@ -2088,6 +2088,31 @@ def test_examples_readme_links_browser_use_run_hooks_guide():
     assert "Browser Use + LLM" in example_matrix
 
 
+def test_examples_readme_links_stagehand_and_skyvern_guides_near_matrix():
+    project_root = Path(__file__).resolve().parents[1]
+    examples_readme = (project_root / "examples" / "README.md").read_text()
+    example_matrix = examples_readme.split("## Example Matrix", 1)[1].split(
+        "For Playwright examples", 1
+    )[0]
+
+    assert (
+        "| `stagehand_wrapper_example.py` | You want to see Stagehand-style `act` and `extract` calls recorded | None |"
+        in example_matrix
+    )
+    assert (
+        "| `skyvern_wrapper_example.py` | You want to see Skyvern-style task calls recorded | None |"
+        in example_matrix
+    )
+    assert (
+        "[Stagehand debugging guide](https://aaronlab.github.io/browsertrace/stagehand-debugging.html)"
+        in example_matrix
+    )
+    assert (
+        "[Skyvern debugging guide](https://aaronlab.github.io/browsertrace/skyvern-debugging.html)"
+        in example_matrix
+    )
+
+
 def test_owner_profile_actions_mark_browsertrace_pin_complete():
     project_root = Path(__file__).resolve().parents[1]
     owner_docs = {

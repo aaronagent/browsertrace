@@ -103,6 +103,12 @@ Browser Use users who pass run hooks directly to
 [Browser Use debugging guide](https://aaronlab.github.io/browsertrace/browser-use-debugging.html)
 for the current run-hook path.
 
+If you are adapting the no-service wrapper examples, see the
+[Stagehand debugging guide](https://aaronlab.github.io/browsertrace/stagehand-debugging.html)
+or the
+[Skyvern debugging guide](https://aaronlab.github.io/browsertrace/skyvern-debugging.html)
+for the current integration paths.
+
 For Playwright examples, install the browser runtime first:
 
 ```bash
