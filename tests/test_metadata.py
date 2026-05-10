@@ -372,6 +372,27 @@ def test_playwright_llm_guide_links_first_pr_recipe_for_small_contributions():
     assert "reposts" not in guide.lower()
 
 
+def test_integration_guides_link_share_safe_export_recipe():
+    project_root = Path(__file__).resolve().parents[1]
+    recipe_url = (
+        "https://github.com/aaronlab/browsertrace/blob/main/examples/README.md"
+        "#creating-a-share-safe-export"
+    )
+
+    for filename in [
+        "playwright-llm-debugging.html",
+        "stagehand-debugging.html",
+        "skyvern-debugging.html",
+    ]:
+        guide = (project_root / "docs" / filename).read_text()
+        share_section = guide.split("<h2>Share only what is safe</h2>", 1)[1].split(
+            "</section>", 1
+        )[0]
+
+        assert recipe_url in share_section, filename
+        assert "share-safe export recipe" in share_section, filename
+
+
 def test_playwright_llm_guide_mentions_sync_snapshot_helper():
     project_root = Path(__file__).resolve().parents[1]
     guide = (project_root / "docs" / "playwright-llm-debugging.html").read_text()
