@@ -2113,6 +2113,31 @@ def test_examples_readme_links_stagehand_and_skyvern_guides_near_matrix():
     )
 
 
+def test_examples_readme_links_playwright_llm_and_computer_use_guides_near_matrix():
+    project_root = Path(__file__).resolve().parents[1]
+    examples_readme = (project_root / "examples" / "README.md").read_text()
+    example_matrix = examples_readme.split("## Example Matrix", 1)[1].split(
+        "For Playwright examples", 1
+    )[0]
+
+    assert (
+        "| `playwright_llm_loop_example.py` | You want Playwright + LLM-shaped prompt, DOM, selector, retry, and failure fields without a browser | None |"
+        in example_matrix
+    )
+    assert (
+        "| `computer_use_loop_example.py` | You want a generic observe-decide-act computer-use trace | None |"
+        in example_matrix
+    )
+    assert (
+        "[Playwright + LLM debugging guide](https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html)"
+        in example_matrix
+    )
+    assert (
+        "[computer-use debugging guide](https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html)"
+        in example_matrix
+    )
+
+
 def test_owner_profile_actions_mark_browsertrace_pin_complete():
     project_root = Path(__file__).resolve().parents[1]
     owner_docs = {

@@ -109,6 +109,12 @@ or the
 [Skyvern debugging guide](https://aaronlab.github.io/browsertrace/skyvern-debugging.html)
 for the current integration paths.
 
+For the no-service Playwright + LLM and custom computer-use loops, see the
+[Playwright + LLM debugging guide](https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html)
+or the
+[computer-use debugging guide](https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html)
+for the current debugging flow and field coverage.
+
 For Playwright examples, install the browser runtime first:
 
 ```bash
