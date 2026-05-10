@@ -261,7 +261,7 @@ uvx --from "browsertrace[ui]" browsertrace demo
 uvx --from "browsertrace[ui]" browsertrace</code></pre>
       </div>
       <p>Open <code>http://127.0.0.1:3000</code> and inspect the failed checkout-agent run before adding BrowserTrace to your own Playwright script. From a source checkout, <code>python examples/playwright_llm_loop_example.py</code> creates a no-network Playwright + LLM-shaped trace with prompt/messages, DOM and accessibility snippets, selector, retry, and error fields.</p>
-      <p>If your script uses Playwright's sync API instead of <code>playwright.async_api</code>, BrowserTrace also supports <code>run.snapshot_sync(page, action=...)</code>; see the <a href="../examples/#playwright-sync-api-snapshot">sync Playwright snapshot example</a>.</p>
+      <p>If your script uses Playwright's sync API instead of <code>playwright.async_api</code>, BrowserTrace also supports <code>run.snapshot_sync(page, action=...)</code>; see the <a href="https://github.com/aaronlab/browsertrace/blob/main/examples/README.md#playwright-sync-api-snapshot">sync Playwright snapshot example</a>.</p>
     </section>
 
     <section>

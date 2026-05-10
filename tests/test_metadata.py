@@ -352,7 +352,10 @@ def test_playwright_llm_guide_mentions_sync_snapshot_helper():
     guide = (project_root / "docs" / "playwright-llm-debugging.html").read_text()
 
     assert "run.snapshot_sync(page, action=...)" in guide
-    assert "../examples/#playwright-sync-api-snapshot" in guide
+    assert (
+        "https://github.com/aaronlab/browsertrace/blob/main/examples/README.md"
+        "#playwright-sync-api-snapshot"
+    ) in guide
     assert "Playwright's sync API" in guide
 
 
