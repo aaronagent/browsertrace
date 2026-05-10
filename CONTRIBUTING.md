@@ -16,6 +16,16 @@ uv run --python 3.11 --extra dev pytest -q
 
 The test suite should pass before opening a pull request.
 
+When reporting local first-run or trace-inspection problems, include the compact
+JSON CLI troubleshooting output when possible. These checks are also useful for
+CI logs and AI/coding-agent debugging:
+
+```bash
+browsertrace doctor --json
+browsertrace list --status failed --json
+browsertrace show <run_id> --json
+```
+
 Please also follow `CODE_OF_CONDUCT.md` in issues, discussions, reviews, and
 pull requests.
 
