@@ -2877,6 +2877,7 @@ def test_feature_request_template_links_first_pr_recipe():
     assert "first contribution small and reviewable" in template
     assert "stars" not in template.lower()
     assert "upvotes" not in template.lower()
+    assert "reposts" not in template.lower()
 
 
 def test_feature_request_template_links_security_policy_for_sensitive_reports():
@@ -2885,9 +2886,15 @@ def test_feature_request_template_links_security_policy_for_sensitive_reports():
         project_root / ".github" / "ISSUE_TEMPLATE" / "feature_request.yml"
     ).read_text()
 
-    assert "SECURITY.md" in template
+    assert (
+        "[Security Policy](https://github.com/aaronlab/browsertrace/blob/main/SECURITY.md)"
+        in template
+    )
     assert "security-sensitive reports" in template
     assert "private trace data" in template
+    assert "stars" not in template.lower()
+    assert "upvotes" not in template.lower()
+    assert "reposts" not in template.lower()
 
 
 def test_cloud_interest_template_links_first_pr_recipe():
