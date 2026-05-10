@@ -2653,6 +2653,9 @@ browsertrace show <run_id> --json
         "local first-run issues, CI failures, or AI/coding-agent troubleshooting replies"
         in reply
     )
+    assert "https://github.com/aaronlab/browsertrace/blob/main/SECURITY.md" in reply
+    assert "security-sensitive reports or changes" in reply
+    assert "private trace data" in reply
     assert recipe in reply
     assert "debugging/workflow details" in reply
     assert "stars" not in reply.lower()
