@@ -2342,6 +2342,9 @@ browsertrace show <run_id> --json
     assert "First PR Recipe" in reply_workflow
     assert "CONTRIBUTING.md#first-pr-recipe" in reply_workflow
     assert "first contribution small and reviewable" in reply_workflow
+    assert "https://github.com/aaronlab/browsertrace/blob/main/SECURITY.md" in reply_workflow
+    assert "security-sensitive reports or changes" in reply_workflow
+    assert "private trace data" in reply_workflow
     assert "stars" not in reply_workflow.lower()
     assert "upvotes" not in reply_workflow.lower()
     assert "reposts" not in reply_workflow.lower()
