@@ -325,6 +325,12 @@ pass the temp path explicitly instead:
 ```python
 tracer = Tracer(home=tmp_path)
 ```
+
+When this recipe works, the isolated store contains `db.sqlite` under the
+temporary path instead of `~/.browsertrace/`. The recorded run is named
+`pytest isolated trace`, and the example does not require screenshots, a
+browser, network access, or API keys.
+
 ## Public Export Flow
 
 After creating a demo run, export it for safe sharing:
