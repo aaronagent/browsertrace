@@ -335,6 +335,12 @@ browsertrace list
 browsertrace export <run_id> --public -o public.html
 ```
 
+After export succeeds, `public.html` should appear in the current directory.
+Open the file locally to confirm it shows the run timeline, status, and error
+details while omitting prompts/model I/O, screenshots, and URLs. If the export
+reports an ambiguous run ID prefix, copy more characters from the full `Run ID:`
+printed by `browsertrace demo`, then rerun the export command.
+
 Windows PowerShell:
 
 ```powershell
