@@ -216,6 +216,10 @@ editing code:
 | `BROWSERTRACE_HOME` | changes the trace store directory |
 | `BROWSERTRACE_PORT` | changes the local UI port |
 
+Example values: use `BROWSERTRACE_HOME=/tmp/browsertrace-demo` when you want an
+isolated local demo store, and use `BROWSERTRACE_PORT=4000` when port `3000` is
+already in use.
+
 ### Port Already in Use
 
 If `http://127.0.0.1:3000` is already in use, you may see an error like:
