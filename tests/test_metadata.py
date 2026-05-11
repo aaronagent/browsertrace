@@ -4558,3 +4558,30 @@ def test_launch_control_room_has_current_audit_and_uvx_fallback():
     assert "traffic views 112/41 unique, clones 5965/1214 unique" in launch
     assert f'uvx --from "{pypi_spec}" browsertrace doctor' in launch
     assert f'uvx --from "{pypi_spec}" browsertrace demo' in launch
+
+
+def test_owner_next_actions_links_stack_debugging_guides():
+    project_root = Path(__file__).resolve().parents[1]
+
+    expected = [
+        ("docs/launch/owner-next-actions.md", "Stack debugging guides:"),
+        ("docs/launch/owner-next-actions.zh-CN.md", "Stack 调试指南："),
+    ]
+
+    stack_guides = [
+        "Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html",
+        "Stagehand guide: https://aaronlab.github.io/browsertrace/stagehand-debugging.html",
+        "Skyvern guide: https://aaronlab.github.io/browsertrace/skyvern-debugging.html",
+        "Playwright + LLM guide: https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html",
+        "Computer-use guide: https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html",
+    ]
+
+    for relpath, section_header in expected:
+        text = (project_root / relpath).read_text(encoding="utf-8")
+        section = text.split(section_header, 1)[1].split("##", 1)[0]
+
+        for guide in stack_guides:
+            assert guide in section
+        assert "stars" not in section.lower()
+        assert "upvotes" not in section.lower()
+        assert "reposts" not in section.lower()

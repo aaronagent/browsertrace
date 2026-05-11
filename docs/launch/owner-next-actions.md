@@ -64,6 +64,14 @@ Fast copy/paste blocks:
 - First browser-form directories:
   `docs/launch/directory-submission-sheet.md#first-browser-form-directory-field-notes`
 
+Stack debugging guides:
+
+- Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
+- Stagehand guide: https://aaronlab.github.io/browsertrace/stagehand-debugging.html
+- Skyvern guide: https://aaronlab.github.io/browsertrace/skyvern-debugging.html
+- Playwright + LLM guide: https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html
+- Computer-use guide: https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html
+
 ## 1. PyPI Published
 
 PyPI is no longer the install blocker. BrowserTrace is published as version

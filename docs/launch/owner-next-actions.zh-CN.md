@@ -61,6 +61,14 @@ timing。两者都是用具体失败场景来征集真实 workflow 反馈。
 - 第一批浏览器表单目录：
   `docs/launch/directory-submission-sheet.md#first-browser-form-directory-field-notes`
 
+Stack 调试指南：
+
+- Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
+- Stagehand guide: https://aaronlab.github.io/browsertrace/stagehand-debugging.html
+- Skyvern guide: https://aaronlab.github.io/browsertrace/skyvern-debugging.html
+- Playwright + LLM guide: https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html
+- Computer-use guide: https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html
+
 ## 1. PyPI 已发布
 
 PyPI 已经不再是安装阻塞。BrowserTrace 已发布为 `0.1.17`：
