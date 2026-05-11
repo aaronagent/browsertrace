@@ -15,6 +15,13 @@ Relevant stack guides when changing an adapter, example, or stack-specific doc:
 - Playwright + LLM guide: https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html
 - Computer-use guide: https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html
 
+When touching adapter docs, examples, exports, or troubleshooting copy, keep
+the AOS mapping note research-only. BrowserTrace is not making an AOS
+compliance claim yet. Current mapping research connects BrowserTrace fields to
+tool request/result records, step correlation, URI-style screenshot/video
+artifacts, URL metadata, model I/O summaries, and explicit redaction state.
+Track the research in https://github.com/aaronlab/browsertrace/issues/237.
+
 ## Summary
 
 - What changed:

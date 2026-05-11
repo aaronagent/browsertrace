@@ -299,6 +299,17 @@ async with tracer.run("custom computer-use agent") as run:
     </section>
 
     <section>
+      <h2 id="debug-persistent-browser-session-recovery">Debug persistent browser session recovery</h2>
+      <p>Some computer-use agents fail before a screenshot or URL exists because the persistent browser profile cannot be reused safely. A trace should capture the browser launch, connect, and recovery boundary instead of relying only on a stale profile lock file or process name.</p>
+      <ul>
+        <li>Record <code>session_mode</code>, browser/session/target id, and a redacted profile id or user data directory token.</li>
+        <li>Capture the CDP attach/probe timing, endpoint, timeout, error, and final connection state.</li>
+        <li>Preserve detected process ids, lock/probe results, approval source, and recovery action, such as reuse, attach, isolated-session fallback, user-approved reset, or blocked reset.</li>
+        <li>Keep local paths, usernames, process details, cookies, and profile contents redacted by default for public exports.</li>
+      </ul>
+    </section>
+
+    <section>
       <h2>Export a trace for review</h2>
       <pre><code>browsertrace list
 browsertrace export &lt;run_id&gt; -o full.html

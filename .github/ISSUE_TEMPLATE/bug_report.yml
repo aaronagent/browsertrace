@@ -48,6 +48,19 @@ body:
       description: Attach an exported HTML trace or paste relevant `browsertrace show <id>` output if possible. For public sharing, run `browsertrace export <run_id> --public -o public.html` to omit prompt/model I/O, screenshots, and URLs.
     validations:
       required: false
+  - type: textarea
+    id: wrong-target-evidence
+    attributes:
+      label: Wrong-target evidence, if relevant
+      description: If the agent clicked the wrong element, include the selected element, intended element, nearby candidates, bounding boxes, accessible name/role/text, and whether a tooltip or label only appears after hover. Keep prompts, credentials, customer data, and unredacted traces private.
+      placeholder: |
+        Selected: ...
+        Intended: ...
+        Nearby candidates / boxes: ...
+        Accessible name, role, text: ...
+        Tooltip or hover-only label: ...
+    validations:
+      required: false
   - type: markdown
     attributes:
       value: |

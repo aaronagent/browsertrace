@@ -24,6 +24,7 @@ Open these in a browser:
 - https://github.com/aaronlab/browsertrace
 - https://aaronlab.github.io/browsertrace/
 - https://aaronlab.github.io/browsertrace/debug-browser-agent-failure.html
+- https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html
 - https://aaronlab.github.io/browsertrace/browser-use-debugging.html
 - https://github.com/aaronlab/browsertrace/releases/download/v0.1.17/browsertrace-demo-public.html
 
@@ -86,6 +87,11 @@ event-bus lock timing determines whether one bad session blocks others. That
 needs method timing and browser/session evidence, not just a generic timeout
 line.
 
+For custom computer-use agents, I also keep seeing persistent browser recovery
+fail before screenshots or URLs exist. Profile lock files and process names are
+not enough; the useful trace boundary is session mode, a redacted profile id,
+CDP attach/probe timing, recovery action, and final connection state.
+
 BrowserTrace records each step locally: screenshot, URL, action, model input,
 model output, status, and error. You open the local UI, click a run, and jump
 straight to the failed step.
@@ -141,6 +147,16 @@ Use the closest guide when a technical reply needs workflow-specific context:
 - Skyvern guide: https://aaronlab.github.io/browsertrace/skyvern-debugging.html
 - Playwright + LLM guide: https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html
 - Computer-use guide: https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html
+
+## AOS Mapping Research
+
+Use this only if a Show HN commenter asks whether BrowserTrace maps to OWASP
+AOS. BrowserTrace is not an AOS compliance claim yet. Current research maps the
+closest BrowserTrace concepts to tool request/result records, step correlation,
+URI-style screenshot/video artifacts, URL metadata, model I/O summaries, and
+explicit redaction state.
+
+Tracker: https://github.com/aaronlab/browsertrace/issues/237
 
 ## Likely Questions
 

@@ -72,7 +72,23 @@ VNC, or CDP connection failures, the connect/probe result, capture start,
 capture stop, timeout, cleanup, and resource leak detection can be more useful
 than screenshots alone.
 
-## Stack-Specific Guides
+## Persistent browser recovery fails before screenshots
+
+For a useful technical reply, move the trace boundary earlier than the first
+browser step. Persistent browser sessions can fail during profile selection,
+launch, attach, or recovery before a screenshot or URL exists.
+
+The useful evidence shape is: `session_mode`, redacted profile id or user data
+directory token, browser/session/target id when available, profile lock or stale
+process signal, CDP attach/probe timing and timeout, detected process ids,
+approval source, recovery action, and final connection state.
+
+For public sharing, keep local profile paths, usernames, process details,
+cookies, and profile contents redacted by default.
+
+Guide: https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html
+
+## Stack-Specific Reply Links
 
 Use the closest guide when a reply needs workflow-specific context:
 
@@ -81,6 +97,16 @@ Use the closest guide when a reply needs workflow-specific context:
 - Skyvern guide: https://aaronlab.github.io/browsertrace/skyvern-debugging.html
 - Playwright + LLM guide: https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html
 - Computer-use guide: https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html
+
+## Does this map to OWASP AOS?
+
+This is not an AOS compliance claim yet. The current research direction maps
+BrowserTrace concepts to tool request/result records, step correlation,
+URI-style screenshot/video artifacts, URL metadata, model I/O summaries, and
+explicit redaction state.
+
+The active browser/GUI artifact mapping tracker is:
+https://github.com/aaronlab/browsertrace/issues/237
 
 ## Can I share traces with a teammate?
 

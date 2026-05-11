@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Common AI browser-agent failure patterns and the trace evidence BrowserTrace keeps for each one.">
+  <meta property="og:title" content="Browser agent failure patterns">
+  <meta property="og:description" content="Debug browser-agent failures by preserving screenshots, URLs, actions, model output, status, errors, and recovery evidence in one local timeline.">
+  <meta property="og:image" content="https://aaronlab.github.io/browsertrace/social-preview.png">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html">
+  <link rel="alternate" type="text/plain" title="llms.txt" href="./llms.txt">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Browser agent failure patterns",
+    "description": "Common AI browser-agent failure patterns and the trace evidence BrowserTrace keeps for each one.",
+    "url": "https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html",
+    "codeRepository": "https://github.com/aaronlab/browsertrace",
+    "programmingLanguage": "Python",
+    "isPartOf": {
+      "@type": "SoftwareSourceCode",
+      "name": "BrowserTrace",
+      "codeRepository": "https://github.com/aaronlab/browsertrace"
+    }
+  }
+  </script>
+  <title>Browser Agent Failure Patterns · BrowserTrace</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #172026;
+      --muted: #5f6b76;
+      --line: #d9e1e7;
+      --paper: #f7f9fb;
+      --panel: #ffffff;
+      --accent: #0f766e;
+      --code: #102026;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    a {
+      color: #0369a1;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    header {
+      background: var(--panel);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar,
+    main,
+    footer {
+      width: min(960px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding: 14px 0;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    nav {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      font-size: 14px;
+    }
+
+    main {
+      padding: 36px 0 54px;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 820px;
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+
+    .dek {
+      max-width: 780px;
+      margin: 18px 0 24px;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.45;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 22px 0 6px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--ink);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .button.primary {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    section {
+      margin-top: 34px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: 25px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 18px 0 8px;
+      font-size: 18px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    p {
+      max-width: 820px;
+      margin: 10px 0;
+    }
+
+    ul {
+      max-width: 820px;
+      margin: 10px 0 0;
+      padding-left: 22px;
+    }
+
+    li + li {
+      margin-top: 5px;
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.94em;
+      color: var(--code);
+    }
+
+    .pattern {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      margin-top: 14px;
+    }
+
+    .pattern h2 {
+      font-size: 22px;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 18px 0 34px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <div class="brand">BrowserTrace</div>
+      <nav aria-label="Primary">
+        <a href="./">Live demo</a>
+        <a href="./debug-browser-agent-failure.html">Walkthrough</a>
+        <a href="./integrations.html">Integrations</a>
+        <a href="./browser-use-debugging.html">Browser Use</a>
+        <a href="./stagehand-debugging.html">Stagehand</a>
+        <a href="./skyvern-debugging.html">Skyvern</a>
+        <a href="https://github.com/aaronlab/browsertrace">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="eyebrow">Failure patterns</div>
+    <h1>Browser agent failure patterns</h1>
+    <p class="dek">Most browser-agent failures are not explained by a stack trace alone. These are the failure shapes BrowserTrace is designed to preserve in one local timeline before you export a public-safe report.</p>
+    <div class="actions" aria-label="Primary actions">
+      <a class="button primary" href="https://github.com/aaronlab/browsertrace">View repo</a>
+      <a class="button" href="./trace.html">Open exported trace</a>
+      <a class="button" href="./integrations.html">Integration snippets</a>
+    </div>
+
+    <section class="pattern">
+      <h2>Browser Use icon-only target mismatch</h2>
+      <p>The screenshot shows the right plus icon, but the agent clicks a nearby toolbar button because the intended control has no stable accessible name. Tooltip text may appear only after hover and may not be associated with the actual clickable element.</p>
+      <h3>Trace evidence to keep</h3>
+      <ul>
+        <li>Screenshot and candidate bounding boxes for the intended icon, nearby controls, and the clicked element.</li>
+        <li>Live button HTML, not only the intended fixed markup.</li>
+        <li>Accessibility snapshot before hover and after hover.</li>
+        <li>Model output and action label that explain why the wrong target ranked higher.</li>
+      </ul>
+      <p>Related community case: <a href="https://github.com/browser-use/browser-use/issues/4801">browser-use/browser-use#4801</a>. BrowserTrace guide: <a href="./browser-use-debugging.html">Debug Browser Use failures</a>.</p>
+    </section>
+
+    <section class="pattern">
+      <h2>Browser Use new-tab desync</h2>
+      <p>A click or Enter action can open a new tab while the agent keeps reasoning from the stale page context. The symptom is repeated retries against the old page even though the expected element exists in the new tab.</p>
+      <h3>Trace evidence to keep</h3>
+      <ul>
+        <li>Page ids, tab indexes, URL, and title before and after the action.</li>
+        <li><code>pages_before</code>, <code>pages_after</code>, and <code>new_pages</code> with probe status.</li>
+        <li>The action id that created the new page and the focused page before and after the step.</li>
+        <li>Recommended recovery action such as <code>switch_tab</code>, stored as evidence instead of inferred from later retries.</li>
+      </ul>
+      <p>Related community case: <a href="https://github.com/browser-use/browser-use/issues/4758">browser-use/browser-use#4758</a>. BrowserTrace guide: <a href="./browser-use-debugging.html#debug-new-tab-desync">Debug new-tab desync</a>.</p>
+    </section>
+
+    <section class="pattern">
+      <h2>Browser Use remote CDP hang</h2>
+      <p>A remote browser session can look connected while one CDP request never returns. Screenshot capture, DOM snapshot, browser-state collection, and recovery can then spend the whole timeout window or block other sessions through lock timing.</p>
+      <h3>Trace evidence to keep</h3>
+      <ul>
+        <li>Event id, browser/session/target id, and CDP method name.</li>
+        <li>Request id, start/end/duration, timeout, result, or transport error.</li>
+        <li>Websocket ping/pong timestamps near the stalled method.</li>
+        <li>event-bus lock wait/acquire/release timing and recovery decision.</li>
+      </ul>
+      <p>Related community case: <a href="https://github.com/browser-use/browser-use/issues/4579">browser-use/browser-use#4579</a>. BrowserTrace guide: <a href="./browser-use-debugging.html#debug-remote-cdp-hangs">Debug remote CDP hangs</a>.</p>
+    </section>
+
+    <section class="pattern">
+      <h2>Screenshot blob poisons model context</h2>
+      <p>A screenshot blob can break future model turns when raw image bytes are copied into conversation history. The safer boundary is an artifact record plus compact metadata, with pixels passed only when the next model call needs a typed image content block.</p>
+      <h3>Trace evidence to keep</h3>
+      <ul>
+        <li><code>artifact_path</code> or artifact id for durable local debugging.</li>
+        <li>Image dimensions, media type, digest, status, and error metadata.</li>
+        <li>Whether the image was sent to the model, omitted, resized, or redacted.</li>
+        <li>Public export redaction state for screenshots, URLs, and model I/O.</li>
+      </ul>
+      <p>Related community case: <a href="https://github.com/browser-use/browser-use/issues/4742">browser-use/browser-use#4742</a>. BrowserTrace guide: <a href="./playwright-llm-debugging.html#keep-browser-artifacts-out-of-long-term-model-context">Keep browser artifacts out of long-term model context</a>.</p>
+    </section>
+
+    <section class="pattern">
+      <h2>Stagehand custom-tool replay gap</h2>
+      <p>A cache can replay normal page actions while skipping a <code>custom_tool</code> that mutated page state, filled credentials, or ran side-effectful code. Replay and diagnostic tracing need different contracts.</p>
+      <h3>Trace evidence to keep</h3>
+      <ul>
+        <li>Tool name, serialized args, stable tool-call or step id, status, and error.</li>
+        <li>Whether the tool is replay-safe, replay-blocked, or manually rehydrated.</li>
+        <li>URL/page id, observation id, screenshot id, result summary, and error context.</li>
+        <li>Redaction boundary for credentials and sensitive tool args.</li>
+      </ul>
+      <p>Related community case: <a href="https://github.com/browserbase/stagehand/issues/1558">browserbase/stagehand#1558</a>. BrowserTrace guide: <a href="./stagehand-debugging.html#debug-custom-tool-replay-gaps">Debug custom tool replay gaps</a>.</p>
+    </section>
+
+    <section class="pattern">
+      <h2>Stagehand semantic verification boundary</h2>
+      <p>A semantic verification layer around <code>act</code> can prevent unsafe or ambiguous actions, but the verifier result needs to be visible as its own action boundary instead of collapsed into a boolean.</p>
+      <h3>Trace evidence to keep</h3>
+      <ul>
+        <li>Action proposal with instruction, action type, selector, role, text, and confidence when available.</li>
+        <li>Target evidence: URL, screenshot id, DOM snapshot id, candidate elements, and semantic endpoint evidence.</li>
+        <li>Verification result with verifier type, status, reason, and whether execution was allowed.</li>
+        <li>Execution outcome: executed, blocked, escalated, failed, URL after, and error.</li>
+      </ul>
+      <p>Related community case: <a href="https://github.com/browserbase/stagehand/issues/1880">browserbase/stagehand#1880</a>. BrowserTrace guide: <a href="./stagehand-debugging.html#debug-semantic-verification-boundaries">Debug semantic verification boundaries</a>.</p>
+    </section>
+
+    <section class="pattern">
+      <h2>Skyvern action confidence gap</h2>
+      <p>Confidence is useful diagnostic metadata, but it is not authorization and does not prove a click, submit, or extraction target was correct. High confidence can still pair with stale context, the wrong target, or a consequence larger than the model expected.</p>
+      <h3>Trace evidence to keep</h3>
+      <ul>
+        <li>Action proposal with target evidence, model rationale, and confidence value.</li>
+        <li>Authorization decision with policy/scope checks, approvals, or blocks.</li>
+        <li>Execution result with state delta, error, retry, or rollback decision.</li>
+        <li>VNC screenshot and CDP DOM/console/network slices linked to the same workflow step.</li>
+      </ul>
+      <p>Related community cases: <a href="https://github.com/Skyvern-AI/skyvern/issues/5637">Skyvern-AI/skyvern#5637</a> and <a href="https://github.com/Skyvern-AI/skyvern/issues/3260">Skyvern-AI/skyvern#3260</a>. BrowserTrace guide: <a href="./skyvern-debugging.html#debug-action-confidence-and-authorization">Debug action confidence and authorization</a>.</p>
+    </section>
+
+    <section class="pattern">
+      <h2>Skyvern VNC/CDP debug integration</h2>
+      <p>Visual VNC evidence and CDP browser-state evidence are much harder to use when they are stored as separate logs. Link them to the same task, workflow, and step ids so a reviewer can see which visual window each DOM, console, or network slice explains.</p>
+      <h3>Trace evidence to keep</h3>
+      <ul>
+        <li>Connect/probe start, success, timeout, cleanup, and retry or recovery decision.</li>
+        <li>VNC screenshot or recording artifact ids linked to CDP DOM snapshot or selected-element summaries.</li>
+        <li>Task id, workflow id, step id, URL, frame/page id, action/tool name, status, and error.</li>
+        <li>Redaction state for screenshots, URLs, headers, cookies, and form values before public export.</li>
+      </ul>
+      <p>Related community case: <a href="https://github.com/Skyvern-AI/skyvern/issues/3260">Skyvern-AI/skyvern#3260</a>. BrowserTrace guide: <a href="./skyvern-debugging.html#debug-vnc-and-cdp-evidence-together">Debug VNC and CDP evidence together</a>.</p>
+    </section>
+
+    <section class="pattern">
+      <h2>Skyvern multi-session VNC control drift</h2>
+      <p>In local and self-hosted deployments, a live VNC view can become disconnected from the workflow session it is supposed to explain. The browser may still be reachable through CDP while the VNC stream has no frames, points at a shared display, or loses manual Take Control state after reconnect.</p>
+      <h3>Trace evidence to keep</h3>
+      <ul>
+        <li>VNC stream identity, CDP target identity, workflow/task/session/page ids, and redacted display id.</li>
+        <li>Manual-control lease state: agent/manual owner, acquire/renew/release timestamps, persisted-across-reconnect flag, and release reason.</li>
+        <li>Isolation metadata showing whether the run had its own X display, container, or browser context.</li>
+        <li>Failure cause category: no VNC server, connected without frames, stale stream, manual-control lease lost, or display conflict.</li>
+      </ul>
+      <p>Related community case: <a href="https://github.com/Skyvern-AI/skyvern/issues/4392">Skyvern-AI/skyvern#4392</a>. BrowserTrace guide: <a href="./skyvern-debugging.html#debug-multi-session-vnc-and-take-control-drift">Debug multi-session VNC and Take Control drift</a>.</p>
+    </section>
+
+    <section class="pattern">
+      <h2>Persistent browser recovery before first screenshot</h2>
+      <p>Some custom computer-use agents fail during persistent browser recovery before a screenshot or URL exists because profile reuse, lock files, stale process detection, or CDP attach timing prevents a browser session from becoming usable.</p>
+      <h3>Trace evidence to keep</h3>
+      <ul>
+        <li><code>session_mode</code>, browser/session/target id, and redacted profile id.</li>
+        <li>Launch, connect, CDP attach/probe timing, timeout, and error fields.</li>
+        <li>Detected process ids, approval source, recovery action, and final connection state.</li>
+        <li>Redaction state for local profile paths, process details, URLs, and screenshots.</li>
+      </ul>
+      <p>BrowserTrace guide: <a href="./computer-use-agent-debugging.html#debug-persistent-browser-session-recovery">Debug persistent browser session recovery</a>.</p>
+    </section>
+
+    <section>
+      <h2>Public-safe sharing</h2>
+      <p>Use <code>browsertrace export &lt;run_id&gt; --public -o public.html</code> before attaching a trace to a public issue or community thread. The public export omits model input/output, screenshots, and URLs by default.</p>
+    </section>
+  </main>
+
+  <footer>
+    MIT licensed. BrowserTrace is local-first and stores traces on your machine.
+  </footer>
+</body>
+</html>

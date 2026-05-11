@@ -276,6 +276,25 @@ def test_homepage_names_current_adapter_surfaces():
     assert "Skyvern task/workflow wrapper" in homepage
 
 
+def test_homepage_and_readme_link_failure_patterns_page():
+    project_root = Path(__file__).resolve().parents[1]
+    homepage = (project_root / "docs" / "index.html").read_text()
+    readme = (project_root / "README.md").read_text()
+
+    assert 'href="./browser-agent-failure-patterns.html">Failure patterns</a>' in homepage
+    assert (
+        "[Failure patterns](https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html)"
+        in readme
+    )
+    assert "browser-agent-failure-patterns.html" in readme
+    assert "Browser Use new-tab desync" in readme
+    assert "Stagehand semantic verification boundary" in readme
+    assert "Skyvern multi-session VNC control drift" in readme
+    assert "stars" not in homepage.lower()
+    assert "upvotes" not in homepage.lower()
+    assert "reposts" not in homepage.lower()
+
+
 def test_homepage_intro_uses_mobile_friendly_copy():
     project_root = Path(__file__).resolve().parents[1]
     homepage = (project_root / "docs" / "index.html").read_text()
@@ -298,6 +317,8 @@ def test_homepage_intro_uses_mobile_friendly_copy():
     assert "font-size: clamp(34px, 6vw, 60px)" not in homepage
     assert "@media (max-width: 620px)" in homepage
     assert "@media (max-width: 420px)" in homepage
+    assert "max-width: min(100%, 20ch)" in homepage
+    assert "max-width: 16ch" not in homepage
 
 
 def test_homepage_intro_uses_natural_title_wrapping():
@@ -317,6 +338,15 @@ def test_homepage_intro_uses_natural_title_wrapping():
     assert ".title-line" not in homepage
 
 
+def test_homepage_mobile_title_has_line_length_guard():
+    project_root = Path(__file__).resolve().parents[1]
+    homepage = (project_root / "docs" / "index.html").read_text()
+
+    assert "@media (max-width: 620px)" in homepage
+    assert "max-width: min(100%, 20ch);" in homepage
+    assert "max-width: 16ch;" not in homepage
+
+
 def test_homepage_intro_actions_do_not_squeeze_copy_column():
     project_root = Path(__file__).resolve().parents[1]
     homepage = (project_root / "docs" / "index.html").read_text()
@@ -331,6 +361,36 @@ def test_homepage_intro_actions_do_not_squeeze_copy_column():
     assert "justify-content: flex-start" in actions_css.group("body")
     assert "justify-self: start" in actions_css.group("body")
     assert "width: 100%" in actions_css.group("body")
+
+
+def test_homepage_mobile_nav_and_actions_do_not_push_trace_down():
+    project_root = Path(__file__).resolve().parents[1]
+    homepage = (project_root / "docs" / "index.html").read_text()
+    mobile_css = re.search(
+        r"@media \(max-width: 620px\) \{(?P<body>.*?)\n    \}\n\n    @media \(max-width: 420px\)",
+        homepage,
+        re.S,
+    )
+
+    assert mobile_css is not None
+    mobile_body = mobile_css.group("body")
+    assert re.search(
+        r"\.topbar\s*\{[^}]*flex-wrap: nowrap;[^}]*align-items: center;",
+        mobile_body,
+        re.S,
+    )
+    assert re.search(
+        r"nav\s*\{[^}]*flex-wrap: nowrap;[^}]*overflow-x: auto;[^}]*min-width: 0;",
+        mobile_body,
+        re.S,
+    )
+    assert re.search(r"nav a\s*\{[^}]*white-space: nowrap;", mobile_body, re.S)
+    assert re.search(
+        r"\.actions\s*\{[^}]*flex-wrap: nowrap;[^}]*overflow-x: auto;",
+        mobile_body,
+        re.S,
+    )
+    assert re.search(r"\.actions \.button\s*\{[^}]*flex: 0 0 auto;", mobile_body, re.S)
 
 
 def test_homepage_intro_no_longer_needs_tablet_sidebar_override():
@@ -565,6 +625,61 @@ def test_trace_demo_page_has_discovery_metadata():
     assert metadata["isPartOf"]["codeRepository"] == "https://github.com/aaronlab/browsertrace"
 
 
+def test_failure_patterns_page_has_discovery_metadata_and_examples():
+    project_root = Path(__file__).resolve().parents[1]
+    page = (project_root / "docs" / "browser-agent-failure-patterns.html").read_text()
+
+    assert '<link rel="canonical" href="https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html">' in page
+    assert '<link rel="alternate" type="text/plain" title="llms.txt" href="./llms.txt">' in page
+    assert "Browser agent failure patterns" in page
+    assert "icon-only target mismatch" in page
+    assert "remote CDP hang" in page
+    assert "new-tab desync" in page
+    assert "screenshot blob" in page
+    assert "custom-tool replay gap" in page
+    assert "semantic verification boundary" in page
+    assert "action confidence gap" in page
+    assert "VNC/CDP debug integration" in page
+    assert "multi-session VNC control drift" in page
+    assert "persistent browser recovery" in page
+    assert "browser-use/browser-use#4801" in page
+    assert "browser-use/browser-use#4758" in page
+    assert "browser-use/browser-use#4579" in page
+    assert "browserbase/stagehand#1558" in page
+    assert "browserbase/stagehand#1880" in page
+    assert "Skyvern-AI/skyvern#3260" in page
+    assert "Skyvern-AI/skyvern#4392" in page
+    assert "stars" not in page.lower()
+    assert "upvotes" not in page.lower()
+    assert "reposts" not in page.lower()
+
+    match = re.search(
+        r'<script type="application/ld\+json">\s*(.*?)\s*</script>',
+        page,
+        re.S,
+    )
+
+    assert match is not None
+    metadata = json.loads(match.group(1))
+    assert metadata["@context"] == "https://schema.org"
+    assert metadata["@type"] == "TechArticle"
+    assert metadata["headline"] == "Browser agent failure patterns"
+    assert metadata["url"] == "https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html"
+    assert metadata["isPartOf"]["name"] == "BrowserTrace"
+    assert metadata["isPartOf"]["codeRepository"] == "https://github.com/aaronlab/browsertrace"
+
+
+def test_failure_patterns_page_guide_fragment_links_have_targets():
+    project_root = Path(__file__).resolve().parents[1]
+    page = (project_root / "docs" / "browser-agent-failure-patterns.html").read_text()
+    fragment_links = re.findall(r'href="(?P<href>\./(?P<path>[^"#]+)#(?P<fragment>[^"]+))"', page)
+
+    assert fragment_links
+    for href, path, fragment in fragment_links:
+        target = (project_root / "docs" / path).read_text()
+        assert f'id="{fragment}"' in target, href
+
+
 def test_launch_kit_page_links_first_pr_recipe_for_small_contributions():
     project_root = Path(__file__).resolve().parents[1]
     page = (project_root / "docs" / "launch" / "index.html").read_text()
@@ -603,6 +718,33 @@ def test_launch_kit_page_has_discovery_metadata():
     assert metadata["url"] == "https://aaronlab.github.io/browsertrace/launch/"
     assert metadata["isPartOf"]["name"] == "BrowserTrace"
     assert metadata["isPartOf"]["codeRepository"] == "https://github.com/aaronlab/browsertrace"
+
+
+def test_launch_kit_page_links_owner_short_packets():
+    project_root = Path(__file__).resolve().parents[1]
+    page = (project_root / "docs" / "launch" / "index.html").read_text()
+
+    assert "Owner packets" in page
+    owner_packets = page.split('<h2 id="owner-packets">Owner packets</h2>', 1)[1].split(
+        '<h2 id="links">Links</h2>',
+        1,
+    )[0]
+
+    for href in [
+        "owner-social-post-packet.md",
+        "owner-email-send-packet.md",
+        "owner-launch-submission-packet.md",
+        "monitoring-runbook.md",
+    ]:
+        assert f'href="{href}"' in owner_packets, href
+
+    assert "X, LinkedIn, WeChat, and Jike" in owner_packets
+    assert "console.dev and AgDex" in owner_packets
+    assert "Show HN and Product Hunt" in owner_packets
+    assert "Post-launch checks" in owner_packets
+    assert "stars" not in owner_packets.lower()
+    assert "votes" not in owner_packets.lower()
+    assert "reposts" not in owner_packets.lower()
 
 
 def test_docs_include_pypi_quickstart_after_publish():
@@ -764,6 +906,31 @@ def test_github_profile_draft_includes_json_cli_troubleshooting_note():
     assert "reposts" not in note.lower()
 
 
+def test_github_profile_draft_links_stack_guides_from_troubleshooting_note():
+    project_root = Path(__file__).resolve().parents[1]
+    profile_draft = (
+        project_root / "docs" / "launch" / "github-profile-readme.md"
+    ).read_text()
+    assert "## Troubleshooting" in profile_draft
+    note = profile_draft.split("## Troubleshooting", 1)[1].split(
+        "## Current Focus", 1
+    )[0]
+    stack_guides = [
+        "Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html",
+        "Stagehand guide: https://aaronlab.github.io/browsertrace/stagehand-debugging.html",
+        "Skyvern guide: https://aaronlab.github.io/browsertrace/skyvern-debugging.html",
+        "Playwright + LLM guide: https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html",
+        "Computer-use guide: https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html",
+    ]
+
+    assert "Stack-Specific Reply Links" in note
+    for guide in stack_guides:
+        assert guide in note
+    assert "stars" not in note.lower()
+    assert "upvotes" not in note.lower()
+    assert "reposts" not in note.lower()
+
+
 def test_show_hn_contribution_reply_points_to_current_good_first_queue():
     project_root = Path(__file__).resolve().parents[1]
     packet = (
@@ -837,6 +1004,27 @@ def test_readme_links_private_reports_near_feedback():
     assert "hosted sharing" not in readme
 
 
+def test_readme_includes_aos_mapping_research_note_near_feedback():
+    project_root = Path(__file__).resolve().parents[1]
+    readme = (project_root / "README.md").read_text()
+    feedback_section = readme.split("## Report A Browser-Agent Failure", 1)[1].split(
+        "## Why not just use ___?", 1
+    )[0]
+
+    assert "### AOS Mapping Research" in feedback_section
+    assert "not an AOS compliance claim" in feedback_section
+    assert "tool request/result" in feedback_section
+    assert "step correlation" in feedback_section
+    assert "URI-style screenshot/video artifacts" in feedback_section
+    assert "URL metadata" in feedback_section
+    assert "model I/O summaries" in feedback_section
+    assert "explicit redaction state" in feedback_section
+    assert "https://github.com/aaronlab/browsertrace/issues/237" in feedback_section
+    assert "stars" not in feedback_section.lower()
+    assert "upvotes" not in feedback_section.lower()
+    assert "reposts" not in feedback_section.lower()
+
+
 def test_support_page_links_stack_debugging_guides():
     project_root = Path(__file__).resolve().parents[1]
     support = (project_root / "SUPPORT.md").read_text()
@@ -854,6 +1042,28 @@ def test_support_page_links_stack_debugging_guides():
     assert "stars" not in support.lower()
     assert "upvotes" not in support.lower()
     assert "reposts" not in support.lower()
+
+
+def test_support_page_includes_aos_mapping_research_note():
+    project_root = Path(__file__).resolve().parents[1]
+    support = (project_root / "SUPPORT.md").read_text()
+
+    assert "## AOS Mapping Research" in support
+    research_note = support.split("## AOS Mapping Research", 1)[1].split(
+        "## Bugs", 1
+    )[0]
+
+    assert "not an AOS compliance claim" in research_note
+    assert "tool request/result" in research_note
+    assert "step correlation" in research_note
+    assert "URI-style screenshot/video artifacts" in research_note
+    assert "URL metadata" in research_note
+    assert "model I/O summaries" in research_note
+    assert "explicit redaction state" in research_note
+    assert "https://github.com/aaronlab/browsertrace/issues/237" in research_note
+    assert "stars" not in research_note.lower()
+    assert "upvotes" not in research_note.lower()
+    assert "reposts" not in research_note.lower()
 
 
 def test_readme_clarifies_cloud_features_are_not_required_for_local_oss():
@@ -2618,9 +2828,138 @@ def test_llms_txt_includes_browser_use_icon_only_failure_shape():
     llms = (project_root / "docs" / "llms.txt").read_text()
 
     assert "## Known Failure Shapes" in llms
+    assert (
+        "Failure patterns page: https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html"
+        in llms
+    )
     assert "Browser Use icon-only target mismatch" in llms
     assert "tooltip text is not" in llms
     assert "candidate bounding boxes" in llms
+    assert "stars" not in llms.lower()
+    assert "upvotes" not in llms.lower()
+
+
+def test_llms_txt_includes_browser_use_remote_cdp_failure_shape():
+    project_root = Path(__file__).resolve().parents[1]
+    llms = (project_root / "docs" / "llms.txt").read_text()
+
+    assert "Browser Use remote CDP hang" in llms
+    assert "websocket still appears open" in llms
+    assert "event-bus lock timing" in llms
+    assert "CDP method, request id, start/end/duration" in llms
+    assert "stars" not in llms.lower()
+    assert "upvotes" not in llms.lower()
+
+
+def test_llms_txt_includes_browser_use_new_tab_desync_shape():
+    project_root = Path(__file__).resolve().parents[1]
+    llms = (project_root / "docs" / "llms.txt").read_text()
+
+    assert "Browser Use new-tab desync" in llms
+    assert "stale page context" in llms
+    assert "`pages_before`" in llms
+    assert "`pages_after`" in llms
+    assert "`new_pages`" in llms
+    assert "`recommended_next_action`" in llms
+    assert "`switch_tab`" in llms
+    assert "stars" not in llms.lower()
+    assert "upvotes" not in llms.lower()
+
+
+def test_llms_txt_includes_stagehand_custom_tool_replay_shape():
+    project_root = Path(__file__).resolve().parents[1]
+    llms = (project_root / "docs" / "llms.txt").read_text()
+
+    assert "Stagehand custom tool replay gap" in llms
+    assert "replay contract" in llms
+    assert "diagnostic trace contract" in llms
+    assert "replay-safe" in llms
+    assert "raw credentials" in llms
+    assert "stars" not in llms.lower()
+    assert "upvotes" not in llms.lower()
+
+
+def test_llms_txt_includes_stagehand_semantic_verification_shape():
+    project_root = Path(__file__).resolve().parents[1]
+    llms = (project_root / "docs" / "llms.txt").read_text()
+
+    assert "Stagehand semantic verification boundary" in llms
+    assert "inspectable action record" in llms
+    assert "action proposal" in llms
+    assert "candidate elements" in llms
+    assert "verifier type" in llms
+    assert "verification status/reason" in llms
+    assert "executed, blocked, or escalated" in llms
+    assert "stars" not in llms.lower()
+    assert "upvotes" not in llms.lower()
+
+
+def test_llms_txt_includes_skyvern_action_confidence_shape():
+    project_root = Path(__file__).resolve().parents[1]
+    llms = (project_root / "docs" / "llms.txt").read_text()
+
+    assert "Skyvern action confidence gap" in llms
+    assert "confidence is diagnostic" in llms
+    assert "authorized execution" in llms
+    assert "action proposal" in llms
+    assert "authorization decision" in llms
+    assert "execution result" in llms
+    assert "stars" not in llms.lower()
+    assert "upvotes" not in llms.lower()
+
+
+def test_llms_txt_includes_skyvern_vnc_cdp_debug_shape():
+    project_root = Path(__file__).resolve().parents[1]
+    llms = (project_root / "docs" / "llms.txt").read_text()
+
+    assert "Skyvern VNC/CDP debug integration" in llms
+    assert "task, workflow, and step ids" in llms
+    assert "VNC screenshot or" in llms
+    assert "CDP DOM snapshot" in llms
+    assert "frame/page id" in llms
+    assert "retry or recovery decision" in llms
+    assert "connection lifecycle events" in llms
+    assert "redaction state" in llms
+    assert "stars" not in llms.lower()
+    assert "upvotes" not in llms.lower()
+
+
+def test_llms_txt_includes_skyvern_multi_session_vnc_shape():
+    project_root = Path(__file__).resolve().parents[1]
+    llms = (project_root / "docs" / "llms.txt").read_text()
+
+    assert "Skyvern multi-session VNC control drift" in llms
+    assert "VNC stream identity" in llms
+    assert "CDP target identity" in llms
+    assert "manual-control lease" in llms
+    assert "display conflict" in llms
+    assert "Take Control" in llms
+    assert "stars" not in llms.lower()
+    assert "upvotes" not in llms.lower()
+
+
+def test_llms_txt_includes_playwright_artifact_boundary_shape():
+    project_root = Path(__file__).resolve().parents[1]
+    llms = (project_root / "docs" / "llms.txt").read_text()
+
+    assert "Playwright + LLM artifact boundary" in llms
+    assert "base64 screenshots" in llms
+    assert "typed image content block" in llms
+    assert "artifact id, dimensions, digest, status, and error" in llms
+    assert "stars" not in llms.lower()
+    assert "upvotes" not in llms.lower()
+
+
+def test_llms_txt_includes_computer_use_persistent_browser_recovery_shape():
+    project_root = Path(__file__).resolve().parents[1]
+    llms = (project_root / "docs" / "llms.txt").read_text()
+
+    assert "Computer-use persistent browser recovery" in llms
+    assert "profile lock" in llms
+    assert "CDP attach/probe" in llms
+    assert "session_mode" in llms
+    assert "recovery action" in llms
+    assert "redacted profile id" in llms
     assert "stars" not in llms.lower()
     assert "upvotes" not in llms.lower()
 
@@ -2643,6 +2982,50 @@ browsertrace show <run_id> --json
     assert "https://github.com/aaronlab/browsertrace/issues/213" not in llms
     assert 'pip install "browsertrace[ui]"' in llms
     assert "hosted sharing" not in llms
+
+
+def test_llms_txt_links_stack_guides_from_troubleshooting_prompt():
+    project_root = Path(__file__).resolve().parents[1]
+    llms = (project_root / "docs" / "llms.txt").read_text()
+    troubleshooting_prompt = llms.split("## Troubleshooting Prompt", 1)[1].split(
+        "## Positioning", 1
+    )[0]
+    stack_guides = [
+        "Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html",
+        "Stagehand guide: https://aaronlab.github.io/browsertrace/stagehand-debugging.html",
+        "Skyvern guide: https://aaronlab.github.io/browsertrace/skyvern-debugging.html",
+        "Playwright + LLM guide: https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html",
+        "Computer-use guide: https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html",
+    ]
+
+    assert "Stack-specific troubleshooting links" in troubleshooting_prompt
+    for guide in stack_guides:
+        assert guide in troubleshooting_prompt
+    assert "stars" not in troubleshooting_prompt.lower()
+    assert "upvotes" not in troubleshooting_prompt.lower()
+    assert "reposts" not in troubleshooting_prompt.lower()
+
+
+def test_llms_txt_includes_aos_mapping_research_note():
+    project_root = Path(__file__).resolve().parents[1]
+    llms = (project_root / "docs" / "llms.txt").read_text()
+
+    assert "## AOS Mapping Research" in llms
+    research_note = llms.split("## AOS Mapping Research", 1)[1].split(
+        "## Positioning", 1
+    )[0]
+
+    assert "not an AOS compliance claim" in research_note
+    assert "tool request/result" in research_note
+    assert "step correlation" in research_note
+    assert "URI-style screenshot/video artifacts" in research_note
+    assert "URL metadata" in research_note
+    assert "model I/O summaries" in research_note
+    assert "explicit redaction state" in research_note
+    assert "https://github.com/aaronlab/browsertrace/issues/237" in research_note
+    assert "stars" not in research_note.lower()
+    assert "upvotes" not in research_note.lower()
+    assert "reposts" not in research_note.lower()
 
 
 def test_press_kit_includes_current_trial_and_contribution_paths():
@@ -2688,6 +3071,28 @@ def test_press_kit_links_stack_debugging_guides():
     assert "reposts" not in guide_section.lower()
 
 
+def test_press_kit_includes_aos_mapping_research_note():
+    project_root = Path(__file__).resolve().parents[1]
+    press_kit = (project_root / "docs" / "launch" / "press-kit.md").read_text()
+
+    assert "## AOS Mapping Research" in press_kit
+    research_note = press_kit.split("## AOS Mapping Research", 1)[1].split(
+        "## Short Description", 1
+    )[0]
+
+    assert "not an AOS compliance claim" in research_note
+    assert "tool request/result" in research_note
+    assert "step correlation" in research_note
+    assert "URI-style screenshot/video artifacts" in research_note
+    assert "URL metadata" in research_note
+    assert "model I/O summaries" in research_note
+    assert "explicit redaction state" in research_note
+    assert "https://github.com/aaronlab/browsertrace/issues/237" in research_note
+    assert "stars" not in research_note.lower()
+    assert "upvotes" not in research_note.lower()
+    assert "reposts" not in research_note.lower()
+
+
 def test_press_kit_includes_json_cli_troubleshooting_reply():
     project_root = Path(__file__).resolve().parents[1]
     press_kit = (project_root / "docs" / "launch" / "press-kit.md").read_text()
@@ -2717,6 +3122,7 @@ def test_core_guides_advertise_llms_txt():
 
     for filename in [
         "debug-browser-agent-failure.html",
+        "browser-agent-failure-patterns.html",
         "browser-use-debugging.html",
         "stagehand-debugging.html",
         "skyvern-debugging.html",
@@ -2765,6 +3171,119 @@ def test_browser_use_guide_documents_icon_only_click_targets():
     assert "browser-use/browser-use#4801" in page
 
 
+def test_browser_use_guide_documents_new_tab_desync():
+    project_root = Path(__file__).resolve().parents[1]
+    page = (project_root / "docs" / "browser-use-debugging.html").read_text()
+
+    assert "Debug new-tab desync" in page
+    assert "stale page context" in page
+    assert "<code>pages_before</code>" in page
+    assert "<code>pages_after</code>" in page
+    assert "<code>new_pages</code>" in page
+    assert "<code>switch_tab</code>" in page
+    assert "browser topology change" in page
+    assert "browser-use/browser-use#4758" in page
+
+
+def test_browser_use_guide_documents_remote_cdp_hangs():
+    project_root = Path(__file__).resolve().parents[1]
+    page = (project_root / "docs" / "browser-use-debugging.html").read_text()
+
+    assert "Debug remote CDP hangs" in page
+    assert "websocket still looks connected" in page
+    assert "event-bus lock timing" in page
+    assert "CDP method, request id, start/end/duration" in page
+    assert "browser-use/browser-use#4579" in page
+
+
+def test_stagehand_guide_documents_custom_tool_replay_gaps():
+    project_root = Path(__file__).resolve().parents[1]
+    page = (project_root / "docs" / "stagehand-debugging.html").read_text()
+
+    assert "Debug custom tool replay gaps" in page
+    assert "replay contract" in page
+    assert "diagnostic trace contract" in page
+    assert "replay-safe" in page
+    assert "raw credentials" in page
+    assert "browserbase/stagehand#1558" in page
+
+
+def test_stagehand_guide_documents_semantic_verification_boundaries():
+    project_root = Path(__file__).resolve().parents[1]
+    page = (project_root / "docs" / "stagehand-debugging.html").read_text()
+
+    assert "Debug semantic verification boundaries" in page
+    assert "inspectable action boundary" in page
+    assert "action proposal" in page
+    assert "target evidence" in page
+    assert "semantic endpoint evidence" in page
+    assert "verification result" in page
+    assert "executed, blocked, escalated" in page
+    assert "browserbase/stagehand#1880" in page
+
+
+def test_skyvern_guide_documents_action_confidence_authorization():
+    project_root = Path(__file__).resolve().parents[1]
+    page = (project_root / "docs" / "skyvern-debugging.html").read_text()
+
+    assert "Debug action confidence and authorization" in page
+    assert "confidence is diagnostic" in page
+    assert "authorized execution" in page
+    assert "action proposal" in page
+    assert "authorization decision" in page
+    assert "execution result" in page
+    assert "Skyvern-AI/skyvern#5637" in page
+
+
+def test_skyvern_guide_documents_vnc_cdp_debug_integration():
+    project_root = Path(__file__).resolve().parents[1]
+    page = (project_root / "docs" / "skyvern-debugging.html").read_text()
+
+    assert "Debug VNC and CDP evidence together" in page
+    assert "VNC visual debugging" in page
+    assert "CDP browser-state capture" in page
+    assert "connect/probe start" in page
+    assert "VNC screenshot or recording artifact ids" in page
+    assert "CDP DOM snapshot" in page
+    assert "retry or recovery decision" in page
+    assert "Skyvern-AI/skyvern#3260" in page
+
+
+def test_skyvern_guide_documents_multi_session_vnc_control():
+    project_root = Path(__file__).resolve().parents[1]
+    page = (project_root / "docs" / "skyvern-debugging.html").read_text()
+
+    assert "Debug multi-session VNC and Take Control drift" in page
+    assert "VNC stream identity" in page
+    assert "CDP target identity" in page
+    assert "manual-control lease" in page
+    assert "display conflict" in page
+    assert "Skyvern-AI/skyvern#4392" in page
+
+
+def test_playwright_guide_documents_artifact_boundary():
+    project_root = Path(__file__).resolve().parents[1]
+    page = (project_root / "docs" / "playwright-llm-debugging.html").read_text()
+
+    assert "Keep browser artifacts out of long-term model context" in page
+    assert "base64 screenshots" in page
+    assert "typed image content block" in page
+    assert "artifact id, dimensions, digest, status, and error" in page
+    assert "browser artifact boundary" in page
+
+
+def test_computer_use_guide_documents_persistent_browser_recovery():
+    project_root = Path(__file__).resolve().parents[1]
+    page = (project_root / "docs" / "computer-use-agent-debugging.html").read_text()
+
+    assert "Debug persistent browser session recovery" in page
+    assert "profile lock" in page
+    assert "CDP attach/probe" in page
+    assert "session_mode" in page
+    assert "recovery action" in page
+    assert "redacted profile id" in page
+
+
 def test_sitemap_exposes_llms_txt_and_core_discovery_pages():
     project_root = Path(__file__).resolve().parents[1]
     sitemap = (project_root / "docs" / "sitemap.xml").read_text()
@@ -2773,6 +3292,7 @@ def test_sitemap_exposes_llms_txt_and_core_discovery_pages():
         "",
         "llms.txt",
         "debug-browser-agent-failure.html",
+        "browser-agent-failure-patterns.html",
         "browser-use-debugging.html",
         "stagehand-debugging.html",
         "skyvern-debugging.html",
@@ -2791,6 +3311,7 @@ def test_public_html_pages_have_open_graph_urls():
         "docs/debug-browser-agent-failure.html": "https://aaronlab.github.io/browsertrace/debug-browser-agent-failure.html",
         "docs/integrations.html": "https://aaronlab.github.io/browsertrace/integrations.html",
         "docs/compare-browser-agent-debugging.html": "https://aaronlab.github.io/browsertrace/compare-browser-agent-debugging.html",
+        "docs/browser-agent-failure-patterns.html": "https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html",
         "docs/browser-use-debugging.html": "https://aaronlab.github.io/browsertrace/browser-use-debugging.html",
         "docs/stagehand-debugging.html": "https://aaronlab.github.io/browsertrace/stagehand-debugging.html",
         "docs/skyvern-debugging.html": "https://aaronlab.github.io/browsertrace/skyvern-debugging.html",
@@ -2829,6 +3350,43 @@ def test_launch_copy_includes_pypi_trial_after_publish():
         assert f'uvx --from "{pypi_spec}" browsertrace doctor' in text, relpath
         assert f'uvx --from "{pypi_spec}" browsertrace demo' in text, relpath
         assert "pypi" in text.lower(), relpath
+
+
+def test_owner_launch_copy_surfaces_failure_patterns_page():
+    project_root = Path(__file__).resolve().parents[1]
+    failure_patterns_url = (
+        "https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html"
+    )
+
+    for relpath in [
+        "docs/launch/channel-copy.md",
+        "docs/launch/day-1-publish-packet.md",
+        "docs/launch/day-2-show-hn-packet.md",
+        "docs/launch/day-4-product-hunt-packet.md",
+        "docs/launch/directory-submission-sheet.md",
+        "docs/launch/owner-next-actions.md",
+        "docs/launch/owner-next-actions.zh-CN.md",
+        "docs/launch/owner-publish-queue.md",
+    ]:
+        text = (project_root / relpath).read_text()
+        assert failure_patterns_url in text, relpath
+
+
+def test_secondary_launch_materials_surface_failure_patterns_page():
+    project_root = Path(__file__).resolve().parents[1]
+    failure_patterns_url = (
+        "https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html"
+    )
+
+    for relpath in [
+        "docs/launch/press-kit.md",
+        "docs/launch/outreach-targets.md",
+        "docs/launch/day-3-targeted-communities-packet.md",
+        "docs/launch/tutorial-post.md",
+        "docs/launch/chinese-tutorial-post.md",
+    ]:
+        text = (project_root / relpath).read_text()
+        assert failure_patterns_url in text, relpath
 
 
 def test_x_launch_copy_fits_non_premium_post_limit():
@@ -2929,8 +3487,8 @@ def test_response_templates_link_stack_debugging_guides():
         project_root / "docs" / "launch" / "response-templates.md"
     ).read_text()
 
-    assert "## Stack-Specific Guides" in templates
-    guide_section = templates.split("## Stack-Specific Guides", 1)[1].split(
+    assert "## Stack-Specific Reply Links" in templates
+    guide_section = templates.split("## Stack-Specific Reply Links", 1)[1].split(
         "## Can I share traces with a teammate?", 1
     )[0]
     stack_guides = [
@@ -2946,6 +3504,30 @@ def test_response_templates_link_stack_debugging_guides():
     assert "stars" not in guide_section.lower()
     assert "upvotes" not in guide_section.lower()
     assert "reposts" not in guide_section.lower()
+
+
+def test_response_templates_include_aos_mapping_reply_note():
+    project_root = Path(__file__).resolve().parents[1]
+    templates = (
+        project_root / "docs" / "launch" / "response-templates.md"
+    ).read_text()
+
+    assert "## Does this map to OWASP AOS?" in templates
+    reply = templates.split("## Does this map to OWASP AOS?", 1)[1].split(
+        "## Can I share traces with a teammate?", 1
+    )[0]
+
+    assert "not an AOS compliance claim" in reply
+    assert "tool request/result" in reply
+    assert "step correlation" in reply
+    assert "URI-style screenshot/video artifacts" in reply
+    assert "URL metadata" in reply
+    assert "model I/O summaries" in reply
+    assert "explicit redaction state" in reply
+    assert "https://github.com/aaronlab/browsertrace/issues/237" in reply
+    assert "stars" not in reply.lower()
+    assert "upvotes" not in reply.lower()
+    assert "reposts" not in reply.lower()
 
 
 def test_response_templates_include_skyvern_vnc_cdp_debug_reply():
@@ -2964,6 +3546,29 @@ def test_response_templates_include_skyvern_vnc_cdp_debug_reply():
     assert "CDP DOM snapshot" in reply
     assert "connect/probe result" in reply
     assert "redaction state" in reply
+    assert "stars" not in reply.lower()
+    assert "upvotes" not in reply.lower()
+    assert "reposts" not in reply.lower()
+
+
+def test_response_templates_include_persistent_browser_recovery_reply():
+    project_root = Path(__file__).resolve().parents[1]
+    templates = (
+        project_root / "docs" / "launch" / "response-templates.md"
+    ).read_text()
+
+    assert "## Persistent browser recovery fails before screenshots" in templates
+    reply = templates.split(
+        "## Persistent browser recovery fails before screenshots", 1
+    )[1].split("## Stack-Specific Reply Links", 1)[0]
+
+    assert "session_mode" in reply
+    assert "redacted profile id" in reply
+    assert "profile lock" in reply
+    assert "CDP attach/probe timing" in reply
+    assert "recovery action" in reply
+    assert "final connection state" in reply
+    assert "https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html" in reply
     assert "stars" not in reply.lower()
     assert "upvotes" not in reply.lower()
     assert "reposts" not in reply.lower()
@@ -3065,17 +3670,40 @@ def test_owner_publish_queue_links_stack_debugging_guides_for_replies():
     assert "reposts" not in reply_workflow.lower()
 
 
+def test_owner_publish_queue_includes_aos_mapping_reply_note():
+    project_root = Path(__file__).resolve().parents[1]
+    queue = (project_root / "docs" / "launch" / "owner-publish-queue.md").read_text()
+    reply_workflow = queue.split("## Reply Workflow", 1)[1].split(
+        "## Metrics Check", 1
+    )[0]
+
+    assert "AOS mapping research" in reply_workflow
+    assert "not an AOS compliance claim" in reply_workflow
+    assert "tool request/result" in reply_workflow
+    assert "step correlation" in reply_workflow
+    assert "URI-style screenshot/video artifacts" in reply_workflow
+    assert "URL metadata" in reply_workflow
+    assert "model I/O summaries" in reply_workflow
+    assert "explicit redaction state" in reply_workflow
+    assert "https://github.com/aaronlab/browsertrace/issues/237" in reply_workflow
+    assert "stars" not in reply_workflow.lower()
+    assert "upvotes" not in reply_workflow.lower()
+    assert "reposts" not in reply_workflow.lower()
+
+
 def test_owner_publish_queue_records_current_awesome_list_pr_count():
     project_root = Path(__file__).resolve().parents[1]
     queue = (project_root / "docs" / "launch" / "owner-publish-queue.md").read_text()
 
-    assert "thirteen focused PRs are open" in queue
+    assert "fifteen focused PRs are open" in queue
     assert "the three prepared PRs" not in queue
     assert "ai-boost/awesome-harness-engineering#23" in queue
     assert "Agent-Tools/awesome-autonomous-web#21" in queue
     assert "e2b-dev/awesome-ai-sdks#187" in queue
     assert "jim-schwoebel/awesome_ai_agents#266" in queue
     assert "ranpox/awesome-computer-use#24" in queue
+    assert "trycua/acu#26" in queue
+    assert "Scottcjn/awesome-agents#16" in queue
     assert "clihub-ai/clihub#1" in queue
     assert "E2B CLA check has passed" in queue
     assert "steel-dev/awesome-web-agents#56" in queue
@@ -3126,6 +3754,29 @@ browsertrace show <run_id> --json
     assert "reposts" not in reply_shortcuts.lower()
 
 
+def test_day_1_publish_packet_links_stack_debugging_guides_for_replies():
+    project_root = Path(__file__).resolve().parents[1]
+    packet = (project_root / "docs" / "launch" / "day-1-publish-packet.md").read_text()
+
+    assert "## Stack-Specific Reply Links" in packet
+    guide_section = packet.split("## Stack-Specific Reply Links", 1)[1].split(
+        "## Day 1 Log", 1
+    )[0]
+    stack_guides = [
+        "Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html",
+        "Stagehand guide: https://aaronlab.github.io/browsertrace/stagehand-debugging.html",
+        "Skyvern guide: https://aaronlab.github.io/browsertrace/skyvern-debugging.html",
+        "Playwright + LLM guide: https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html",
+        "Computer-use guide: https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html",
+    ]
+
+    for guide in stack_guides:
+        assert guide in guide_section
+    assert "stars" not in guide_section.lower()
+    assert "upvotes" not in guide_section.lower()
+    assert "reposts" not in guide_section.lower()
+
+
 def test_day_1_publish_packet_links_security_policy_for_sensitive_reports():
     project_root = Path(__file__).resolve().parents[1]
     packet = (project_root / "docs" / "launch" / "day-1-publish-packet.md").read_text()
@@ -3166,6 +3817,54 @@ browsertrace show <run_id> --json
     assert "reposts" not in triage.lower()
 
 
+def test_day_3_targeted_communities_link_stack_debugging_guides_for_replies():
+    project_root = Path(__file__).resolve().parents[1]
+    packet = (
+        project_root / "docs" / "launch" / "day-3-targeted-communities-packet.md"
+    ).read_text()
+
+    assert "## Stack-Specific Reply Links" in packet
+    guide_section = packet.split("## Stack-Specific Reply Links", 1)[1].split(
+        "## Stop Rules", 1
+    )[0]
+    stack_guides = [
+        "Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html",
+        "Stagehand guide: https://aaronlab.github.io/browsertrace/stagehand-debugging.html",
+        "Skyvern guide: https://aaronlab.github.io/browsertrace/skyvern-debugging.html",
+        "Playwright + LLM guide: https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html",
+        "Computer-use guide: https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html",
+    ]
+
+    for guide in stack_guides:
+        assert guide in guide_section
+    assert "stars" not in guide_section.lower()
+    assert "upvotes" not in guide_section.lower()
+    assert "reposts" not in guide_section.lower()
+
+
+def test_day_3_targeted_communities_include_computer_use_recovery_angle():
+    project_root = Path(__file__).resolve().parents[1]
+    packet = (
+        project_root / "docs" / "launch" / "day-3-targeted-communities-packet.md"
+    ).read_text()
+
+    assert "## Custom Computer-Use Agents" in packet
+    section = packet.split("## Custom Computer-Use Agents", 1)[1].split(
+        "## Directories And Newsletters", 1
+    )[0]
+
+    assert "session_mode" in section
+    assert "redacted profile id" in section
+    assert "profile lock" in section
+    assert "CDP attach/probe timing" in section
+    assert "recovery action" in section
+    assert "final connection state" in section
+    assert "https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html" in section
+    assert "stars" not in section.lower()
+    assert "upvotes" not in section.lower()
+    assert "reposts" not in section.lower()
+
+
 def test_day_3_targeted_communities_tracks_directory_submission_queue():
     project_root = Path(__file__).resolve().parents[1]
     packet = (
@@ -3180,6 +3879,7 @@ def test_day_3_targeted_communities_tracks_directory_submission_queue():
         "OSS AI Hub",
         "FOSSHUNTER",
         "AgentsTide",
+        "AgentsIndex",
         "BuilderAI Tools",
         "CLIHunt",
         "DeepYard",
@@ -3197,6 +3897,7 @@ def test_day_3_targeted_communities_tracks_directory_submission_queue():
 
     assert "docs/launch/directory-submission-sheet.md" in directories
     assert "hello@agentstide.com" in directories
+    assert "Observability and Monitoring" in directories
     assert "AI Observability & Evaluation" in directories
     assert "self-service live demo/PyPI trial" in directories
     assert "stars" not in directories.lower()
@@ -3223,11 +3924,29 @@ def test_directory_submission_sheet_records_agentfirst_pr_submission():
     assert "Submitted PR" in sheet
 
 
-def test_directory_submission_sheet_records_current_awesome_list_pr_count():
+def test_directory_submission_sheet_records_agentsindex_owner_submission():
     project_root = Path(__file__).resolve().parents[1]
     sheet = (project_root / "docs" / "launch" / "directory-submission-sheet.md").read_text()
 
-    assert "12 PRs open; monitor feedback; e2b CLA passed" in sheet
+    assert "AgentsIndex" in sheet
+    assert "https://agentsindex.ai/submit" in sheet
+    assert "owner sign-in" in sheet
+    assert "Observability and Monitoring" in sheet
+    assert "public-safe export" in sheet
+    assert "stars" not in sheet.split("AgentsIndex:", 1)[1].split(
+        "AgentKart:", 1
+    )[0].lower()
+
+
+def test_directory_submission_sheet_avoids_stale_awesome_list_pr_count():
+    project_root = Path(__file__).resolve().parents[1]
+    sheet = (project_root / "docs" / "launch" / "directory-submission-sheet.md").read_text()
+
+    assert (
+        "Tracked PRs are open, including Scottcjn/awesome-agents#16; monitor feedback; e2b CLA passed"
+        in sheet
+    )
+    assert "12 PRs open" not in sheet
     assert "3 PRs open" not in sheet
     assert "github-awesome-list-submissions.md" in sheet
 
@@ -3296,6 +4015,10 @@ def test_directory_submission_sheet_includes_agdex_email_template():
     assert "AI browser-agent" in agdex
     assert "screenshot shows the" in agdex
     assert "tooltip" in agdex
+    assert "persistent browser recovery" in agdex
+    assert "profile lock" in agdex
+    assert "CDP attach/probe timing" in agdex
+    assert "recovery action" in agdex
     assert "Do not ask for stars" in agdex
 
 
@@ -3319,6 +4042,10 @@ def test_directory_submission_sheet_includes_console_dev_email_template():
     assert "A concrete failure case" in console
     assert "Browser Use agent can see the right plus icon" in console
     assert "failed-step evidence" in console
+    assert "persistent browser recovery" in console
+    assert "profile lock" in console
+    assert "CDP attach/probe timing" in console
+    assert "recovery action" in console
     assert "Do not ask for stars" in console
 
 
@@ -3345,9 +4072,129 @@ def test_owner_short_checklists_surface_ready_email_submissions():
         assert "AI Observability & Evaluation" in unblock, relpath
         assert "hello@agentstide.com" in unblock, relpath
         assert "fresh-browser-use-debugging-angle" in unblock, relpath
+        assert "fresh-chinese-computer-use-recovery-angle" in unblock, relpath
         assert "Browser Use" in unblock, relpath
         assert "stars" not in unblock.lower(), relpath
         assert "upvotes" not in unblock.lower(), relpath
+
+
+def test_owner_email_send_packet_is_short_and_linked():
+    project_root = Path(__file__).resolve().parents[1]
+    packet = (
+        project_root / "docs" / "launch" / "owner-email-send-packet.md"
+    ).read_text()
+
+    assert "To: hello@console.dev" in packet
+    assert "Subject: Devtools suggestion: BrowserTrace" in packet
+    assert "To: agdex.ai@gmail.com" in packet
+    assert "Subject: Tool submission: BrowserTrace" in packet
+    assert "https://github.com/aaronlab/browsertrace" in packet
+    assert "https://aaronlab.github.io/browsertrace/" in packet
+    assert "browser-agent-failure-patterns.html" in packet
+    assert "Browser Use new-tab desync" in packet
+    assert "Stagehand semantic verification boundary" in packet
+    assert "Skyvern VNC/CDP debug integration" in packet
+    assert "browsertrace-demo-public.html" in packet
+    assert "Do not ask for stars" in packet
+    assert "upvotes" not in packet.lower()
+
+    for relpath in [
+        "docs/launch/owner-next-actions.md",
+        "docs/launch/owner-next-actions.zh-CN.md",
+        "docs/launch/owner-publish-queue.md",
+    ]:
+        text = (project_root / relpath).read_text()
+        assert "docs/launch/owner-email-send-packet.md" in text, relpath
+
+
+def test_owner_social_post_packet_is_short_and_linked():
+    project_root = Path(__file__).resolve().parents[1]
+    packet = (
+        project_root / "docs" / "launch" / "owner-social-post-packet.md"
+    ).read_text()
+
+    assert "## X" in packet
+    assert "## LinkedIn" in packet
+    assert "## WeChat Group" in packet
+    assert "## Jike" in packet
+    assert "docs/demo.mp4" in packet
+    assert "https://github.com/aaronlab/browsertrace" in packet
+    assert "https://aaronlab.github.io/browsertrace/" in packet
+    assert "browser-agent-failure-patterns.html" in packet
+    assert "Browser Use new-tab desync" in packet
+    assert "Stagehand semantic verification boundary" in packet
+    assert "Skyvern VNC/CDP debug integration" in packet
+    assert "Do not ask for stars" in packet
+    assert "upvotes" not in packet.lower()
+
+    for relpath in [
+        "docs/launch/owner-next-actions.md",
+        "docs/launch/owner-next-actions.zh-CN.md",
+        "docs/launch/owner-publish-queue.md",
+    ]:
+        text = (project_root / relpath).read_text()
+        assert "docs/launch/owner-social-post-packet.md" in text, relpath
+
+
+def test_owner_launch_submission_packet_is_short_and_linked():
+    project_root = Path(__file__).resolve().parents[1]
+    packet = (
+        project_root / "docs" / "launch" / "owner-launch-submission-packet.md"
+    ).read_text()
+
+    assert "## Show HN" in packet
+    assert "Show HN: BrowserTrace - record and replay AI browser-agent runs to find bugs" in packet
+    assert "## Product Hunt" in packet
+    assert "Tagline:" in packet
+    assert "Replay failed AI browser-agent runs" in packet
+    assert "Maker comment:" in packet
+    assert "https://github.com/aaronlab/browsertrace" in packet
+    assert "https://aaronlab.github.io/browsertrace/" in packet
+    assert "browser-agent-failure-patterns.html" in packet
+    assert "Browser Use new-tab desync" in packet
+    assert "Stagehand semantic verification boundary" in packet
+    assert "Skyvern VNC/CDP debug integration" in packet
+    assert "Do not ask for votes" in packet
+    assert "upvotes" not in packet.lower()
+
+    for relpath in [
+        "docs/launch/owner-next-actions.md",
+        "docs/launch/owner-next-actions.zh-CN.md",
+        "docs/launch/owner-publish-queue.md",
+    ]:
+        text = (project_root / relpath).read_text()
+        assert "docs/launch/owner-launch-submission-packet.md" in text, relpath
+
+
+def test_launch_monitoring_runbook_covers_current_targets():
+    project_root = Path(__file__).resolve().parents[1]
+    runbook = (project_root / "docs" / "launch" / "monitoring-runbook.md").read_text()
+    launch = (project_root / "LAUNCH.md").read_text()
+
+    assert "gh repo view aaronlab/browsertrace --json stargazerCount,forkCount,watchers,url,homepageUrl" in runbook
+    assert "git status --short --branch" in runbook
+    assert "gh run list --repo aaronlab/browsertrace --branch main --limit 8" in runbook
+    assert "scripts/launch_metrics.py --append" in runbook
+    assert "docs/launch/metrics-log.md" in runbook
+    assert "jq null-safe" in runbook
+    assert "SINCE_UTC" in runbook
+    assert "2026-05-11T17:00:00Z" not in runbook
+
+    for target in [
+        "bradvin/agentfirst.directory#30",
+        "e2b-dev/awesome-ai-sdks#187",
+        "clihub-ai/clihub#1",
+        "victorcheeney/clis#3",
+        "browser-use/browser-use#4816",
+        "browserbase/stagehand#2102",
+        "Skyvern-AI/skyvern#5931",
+        "aaronlab/browsertrace#270",
+        "aaronlab/browsertrace#307",
+        "Scottcjn/awesome-agents#16",
+    ]:
+        assert target in runbook
+
+    assert "docs/launch/monitoring-runbook.md" in launch
 
 
 def test_directory_submission_sheet_links_first_pr_recipe_for_small_contributions():
@@ -3418,6 +4265,10 @@ def test_show_hn_packet_uses_concrete_browser_use_failure_shape():
     assert "screenshot shows the right plus icon" in first_comment
     assert "tooltip text is not an" in first_comment
     assert "target evidence" in first_comment
+    assert "persistent browser recovery" in first_comment
+    assert "Profile lock files" in first_comment
+    assert "CDP attach/probe timing" in first_comment
+    assert "recovery action" in first_comment
     assert "stars" not in first_comment.lower()
     assert "upvotes" not in first_comment.lower()
     assert "reposts" not in first_comment.lower()
@@ -3446,6 +4297,28 @@ def test_show_hn_packet_links_stack_debugging_guides_for_replies():
     assert "reposts" not in guide_section.lower()
 
 
+def test_show_hn_packet_includes_aos_mapping_research_note():
+    project_root = Path(__file__).resolve().parents[1]
+    packet = (project_root / "docs" / "launch" / "day-2-show-hn-packet.md").read_text()
+
+    assert "## AOS Mapping Research" in packet
+    research_note = packet.split("## AOS Mapping Research", 1)[1].split(
+        "## Likely Questions", 1
+    )[0]
+
+    assert "not an AOS compliance claim" in research_note
+    assert "tool request/result" in research_note
+    assert "step correlation" in research_note
+    assert "URI-style screenshot/video artifacts" in research_note
+    assert "URL metadata" in research_note
+    assert "model I/O summaries" in research_note
+    assert "explicit redaction state" in research_note
+    assert "https://github.com/aaronlab/browsertrace/issues/237" in research_note
+    assert "stars" not in research_note.lower()
+    assert "upvotes" not in research_note.lower()
+    assert "reposts" not in research_note.lower()
+
+
 def test_product_hunt_packet_includes_json_cli_reply_note():
     project_root = Path(__file__).resolve().parents[1]
     packet = (project_root / "docs" / "launch" / "day-4-product-hunt-packet.md").read_text()
@@ -3466,6 +4339,51 @@ browsertrace show <run_id> --json
     assert "reposts" not in reply_notes.lower()
 
 
+def test_product_hunt_packet_links_stack_debugging_guides_for_replies():
+    project_root = Path(__file__).resolve().parents[1]
+    packet = (project_root / "docs" / "launch" / "day-4-product-hunt-packet.md").read_text()
+
+    assert "## Stack-Specific Reply Links" in packet
+    guide_section = packet.split("## Stack-Specific Reply Links", 1)[1].split(
+        "## Metrics", 1
+    )[0]
+    stack_guides = [
+        "Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html",
+        "Stagehand guide: https://aaronlab.github.io/browsertrace/stagehand-debugging.html",
+        "Skyvern guide: https://aaronlab.github.io/browsertrace/skyvern-debugging.html",
+        "Playwright + LLM guide: https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html",
+        "Computer-use guide: https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html",
+    ]
+
+    for guide in stack_guides:
+        assert guide in guide_section
+    assert "stars" not in guide_section.lower()
+    assert "upvotes" not in guide_section.lower()
+    assert "reposts" not in guide_section.lower()
+
+
+def test_product_hunt_packet_includes_aos_mapping_research_note():
+    project_root = Path(__file__).resolve().parents[1]
+    packet = (project_root / "docs" / "launch" / "day-4-product-hunt-packet.md").read_text()
+
+    assert "## AOS Mapping Research" in packet
+    research_note = packet.split("## AOS Mapping Research", 1)[1].split(
+        "## Metrics", 1
+    )[0]
+
+    assert "not an AOS compliance claim" in research_note
+    assert "tool request/result" in research_note
+    assert "step correlation" in research_note
+    assert "URI-style screenshot/video artifacts" in research_note
+    assert "URL metadata" in research_note
+    assert "model I/O summaries" in research_note
+    assert "explicit redaction state" in research_note
+    assert "https://github.com/aaronlab/browsertrace/issues/237" in research_note
+    assert "stars" not in research_note.lower()
+    assert "upvotes" not in research_note.lower()
+    assert "reposts" not in research_note.lower()
+
+
 def test_product_hunt_packet_uses_concrete_browser_use_failure_shape():
     project_root = Path(__file__).resolve().parents[1]
     packet = (project_root / "docs" / "launch" / "day-4-product-hunt-packet.md").read_text()
@@ -3477,6 +4395,11 @@ def test_product_hunt_packet_uses_concrete_browser_use_failure_shape():
     assert "Browser Use agent saw the right plus icon" in maker_comment
     assert "tooltip text was not" in maker_comment
     assert "target evidence" in maker_comment
+    assert "persistent browser recovery" in maker_comment
+    assert "Profile lock files" in maker_comment
+    assert "CDP attach/probe" in maker_comment
+    assert "recovery action" in maker_comment
+    assert "stars" not in maker_comment.lower()
     assert "upvotes" not in maker_comment.lower()
     assert "reposts" not in maker_comment.lower()
 
@@ -3570,6 +4493,51 @@ browsertrace show <run_id> --json
     assert "reposts" not in reply.lower()
 
 
+def test_channel_copy_links_stack_debugging_guides_for_replies():
+    project_root = Path(__file__).resolve().parents[1]
+    copy = (project_root / "docs" / "launch" / "channel-copy.md").read_text()
+
+    assert "## Stack-Specific Reply Links" in copy
+    guide_section = copy.split("## Stack-Specific Reply Links", 1)[1].split(
+        "## Artifact Boundary Reply", 1
+    )[0]
+    stack_guides = [
+        "Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html",
+        "Stagehand guide: https://aaronlab.github.io/browsertrace/stagehand-debugging.html",
+        "Skyvern guide: https://aaronlab.github.io/browsertrace/skyvern-debugging.html",
+        "Playwright + LLM guide: https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html",
+        "Computer-use guide: https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html",
+    ]
+
+    for guide in stack_guides:
+        assert guide in guide_section
+    assert "stars" not in guide_section.lower()
+    assert "upvotes" not in guide_section.lower()
+    assert "reposts" not in guide_section.lower()
+
+
+def test_channel_copy_includes_aos_mapping_research_note():
+    project_root = Path(__file__).resolve().parents[1]
+    copy = (project_root / "docs" / "launch" / "channel-copy.md").read_text()
+
+    assert "## AOS Mapping Research" in copy
+    research_note = copy.split("## AOS Mapping Research", 1)[1].split(
+        "## Artifact Boundary Reply", 1
+    )[0]
+
+    assert "not an AOS compliance claim" in research_note
+    assert "tool request/result" in research_note
+    assert "step correlation" in research_note
+    assert "URI-style screenshot/video artifacts" in research_note
+    assert "URL metadata" in research_note
+    assert "model I/O summaries" in research_note
+    assert "explicit redaction state" in research_note
+    assert "https://github.com/aaronlab/browsertrace/issues/237" in research_note
+    assert "stars" not in research_note.lower()
+    assert "upvotes" not in research_note.lower()
+    assert "reposts" not in research_note.lower()
+
+
 def test_channel_copy_includes_fresh_browser_use_debugging_angle():
     project_root = Path(__file__).resolve().parents[1]
     copy = (project_root / "docs" / "launch" / "channel-copy.md").read_text()
@@ -3581,6 +4549,47 @@ def test_channel_copy_includes_fresh_browser_use_debugging_angle():
     assert "https://aaronlab.github.io/browsertrace/browser-use-debugging.html" in section
     assert 'aria-label="Create Test"' in section
     assert "candidate boxes" in section
+    assert "stars" not in section.lower()
+    assert "upvotes" not in section.lower()
+    assert "reposts" not in section.lower()
+
+
+def test_channel_copy_includes_fresh_computer_use_recovery_angle():
+    project_root = Path(__file__).resolve().parents[1]
+    copy = (project_root / "docs" / "launch" / "channel-copy.md").read_text()
+    section = copy.split(
+        "## Fresh Computer-Use Persistent Browser Recovery Angle", 1
+    )[1].split("## X", 1)[0]
+
+    assert "Persistent browser failures often happen before any screenshot exists" in section
+    assert "profile lock" in section
+    assert "CDP attach/probe timing" in section
+    assert "session_mode" in section
+    assert "recovery action" in section
+    assert (
+        "https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html"
+        in section
+    )
+    assert "stars" not in section.lower()
+    assert "upvotes" not in section.lower()
+    assert "reposts" not in section.lower()
+
+
+def test_channel_copy_includes_fresh_chinese_computer_use_recovery_angle():
+    project_root = Path(__file__).resolve().parents[1]
+    copy = (project_root / "docs" / "launch" / "channel-copy.md").read_text()
+    section = copy.split(
+        "## Fresh Chinese Computer-Use Recovery Angle", 1
+    )[1].split("## X", 1)[0]
+
+    assert "第一张截图之前" in section
+    assert "profile lock" in section
+    assert "session_mode" in section
+    assert "redacted profile id" in section
+    assert "CDP attach/probe timing" in section
+    assert "recovery action" in section
+    assert "final connection state" in section
+    assert "https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html" in section
     assert "stars" not in section.lower()
     assert "upvotes" not in section.lower()
     assert "reposts" not in section.lower()
@@ -3650,6 +4659,71 @@ def test_tutorial_post_links_security_policy_for_sensitive_reports():
     assert "private trace data" in reply
 
 
+def test_tutorial_post_links_stack_debugging_guides_for_replies():
+    project_root = Path(__file__).resolve().parents[1]
+    tutorial = (project_root / "docs" / "launch" / "tutorial-post.md").read_text()
+
+    assert "## Stack-Specific Reply Links" in tutorial
+    guide_section = tutorial.split("## Stack-Specific Reply Links", 1)[1].split(
+        "## Try it", 1
+    )[0]
+    stack_guides = [
+        "Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html",
+        "Stagehand guide: https://aaronlab.github.io/browsertrace/stagehand-debugging.html",
+        "Skyvern guide: https://aaronlab.github.io/browsertrace/skyvern-debugging.html",
+        "Playwright + LLM guide: https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html",
+        "Computer-use guide: https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html",
+    ]
+
+    for guide in stack_guides:
+        assert guide in guide_section
+    assert "stars" not in guide_section.lower()
+    assert "upvotes" not in guide_section.lower()
+    assert "reposts" not in guide_section.lower()
+
+
+def test_tutorial_post_includes_persistent_browser_recovery_section():
+    project_root = Path(__file__).resolve().parents[1]
+    tutorial = (project_root / "docs" / "launch" / "tutorial-post.md").read_text()
+
+    assert "## When failure happens before screenshots" in tutorial
+    section = tutorial.split("## When failure happens before screenshots", 1)[
+        1
+    ].split("## Record your own run", 1)[0]
+
+    assert "profile lock" in section
+    assert "session_mode" in section
+    assert "redacted profile id" in section
+    assert "CDP attach/probe timing" in section
+    assert "recovery action" in section
+    assert "final connection state" in section
+    assert "stars" not in section.lower()
+    assert "upvotes" not in section.lower()
+    assert "reposts" not in section.lower()
+
+
+def test_tutorial_post_includes_aos_mapping_research_note():
+    project_root = Path(__file__).resolve().parents[1]
+    tutorial = (project_root / "docs" / "launch" / "tutorial-post.md").read_text()
+
+    assert "## AOS Mapping Research" in tutorial
+    research_note = tutorial.split("## AOS Mapping Research", 1)[1].split(
+        "## Try it", 1
+    )[0]
+
+    assert "not an AOS compliance claim" in research_note
+    assert "tool request/result" in research_note
+    assert "step correlation" in research_note
+    assert "URI-style screenshot/video artifacts" in research_note
+    assert "URL metadata" in research_note
+    assert "model I/O summaries" in research_note
+    assert "explicit redaction state" in research_note
+    assert "https://github.com/aaronlab/browsertrace/issues/237" in research_note
+    assert "stars" not in research_note.lower()
+    assert "upvotes" not in research_note.lower()
+    assert "reposts" not in research_note.lower()
+
+
 def test_tutorial_post_links_first_pr_recipe_for_small_contributions():
     project_root = Path(__file__).resolve().parents[1]
     tutorial = (project_root / "docs" / "launch" / "tutorial-post.md").read_text()
@@ -3706,6 +4780,77 @@ def test_chinese_tutorial_post_links_security_policy_for_sensitive_reports():
     assert "https://github.com/aaronlab/browsertrace/blob/main/SECURITY.md" in reply
     assert "security-sensitive reports or changes" in reply
     assert "private trace data" in reply
+
+
+def test_chinese_tutorial_post_links_stack_debugging_guides_for_replies():
+    project_root = Path(__file__).resolve().parents[1]
+    tutorial = (
+        project_root / "docs" / "launch" / "chinese-tutorial-post.md"
+    ).read_text()
+
+    assert "## Stack 调试指南链接" in tutorial
+    guide_section = tutorial.split("## Stack 调试指南链接", 1)[1].split(
+        "## Links", 1
+    )[0]
+    stack_guides = [
+        "Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html",
+        "Stagehand guide: https://aaronlab.github.io/browsertrace/stagehand-debugging.html",
+        "Skyvern guide: https://aaronlab.github.io/browsertrace/skyvern-debugging.html",
+        "Playwright + LLM guide: https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html",
+        "Computer-use guide: https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html",
+    ]
+
+    for guide in stack_guides:
+        assert guide in guide_section
+    assert "stars" not in guide_section.lower()
+    assert "upvotes" not in guide_section.lower()
+    assert "reposts" not in guide_section.lower()
+
+
+def test_chinese_tutorial_post_includes_persistent_browser_recovery_section():
+    project_root = Path(__file__).resolve().parents[1]
+    tutorial = (
+        project_root / "docs" / "launch" / "chinese-tutorial-post.md"
+    ).read_text()
+
+    assert "## 有些失败发生在第一张截图之前" in tutorial
+    section = tutorial.split("## 有些失败发生在第一张截图之前", 1)[1].split(
+        "## 60 秒试一下", 1
+    )[0]
+
+    assert "profile lock" in section
+    assert "session_mode" in section
+    assert "redacted profile id" in section
+    assert "CDP attach/probe timing" in section
+    assert "recovery action" in section
+    assert "final connection state" in section
+    assert "stars" not in section.lower()
+    assert "upvotes" not in section.lower()
+    assert "reposts" not in section.lower()
+
+
+def test_chinese_tutorial_post_includes_aos_mapping_research_note():
+    project_root = Path(__file__).resolve().parents[1]
+    tutorial = (
+        project_root / "docs" / "launch" / "chinese-tutorial-post.md"
+    ).read_text()
+
+    assert "## AOS mapping research 回复" in tutorial
+    research_note = tutorial.split("## AOS mapping research 回复", 1)[1].split(
+        "## Links", 1
+    )[0]
+
+    assert "not an AOS compliance claim" in research_note
+    assert "tool request/result" in research_note
+    assert "step correlation" in research_note
+    assert "URI-style screenshot/video artifacts" in research_note
+    assert "URL metadata" in research_note
+    assert "model I/O summaries" in research_note
+    assert "explicit redaction state" in research_note
+    assert "https://github.com/aaronlab/browsertrace/issues/237" in research_note
+    assert "stars" not in research_note.lower()
+    assert "upvotes" not in research_note.lower()
+    assert "reposts" not in research_note.lower()
 
 
 def test_chinese_tutorial_post_links_first_pr_recipe_for_small_contributions():
@@ -3929,6 +5074,53 @@ def test_chinese_owner_next_actions_link_security_policy_for_sensitive_reports()
     assert "private trace data" in reply
 
 
+def test_chinese_owner_next_actions_link_stack_guides_for_troubleshooting_replies():
+    project_root = Path(__file__).resolve().parents[1]
+    checklist = (
+        project_root / "docs" / "launch" / "owner-next-actions.zh-CN.md"
+    ).read_text()
+    reply = checklist.split("## 回复本地首跑 / CI / agent 调试问题", 1)[1].split(
+        "## 7. 每做完一个动作就记录指标", 1
+    )[0]
+    stack_guides = [
+        "Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html",
+        "Stagehand guide: https://aaronlab.github.io/browsertrace/stagehand-debugging.html",
+        "Skyvern guide: https://aaronlab.github.io/browsertrace/skyvern-debugging.html",
+        "Playwright + LLM guide: https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html",
+        "Computer-use guide: https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html",
+    ]
+
+    assert "Stack 调试指南链接" in reply
+    for guide in stack_guides:
+        assert guide in reply
+    assert "stars" not in reply.lower()
+    assert "upvotes" not in reply.lower()
+    assert "reposts" not in reply.lower()
+
+
+def test_chinese_owner_next_actions_include_aos_mapping_reply_note():
+    project_root = Path(__file__).resolve().parents[1]
+    checklist = (
+        project_root / "docs" / "launch" / "owner-next-actions.zh-CN.md"
+    ).read_text()
+    reply = checklist.split("## 回复本地首跑 / CI / agent 调试问题", 1)[1].split(
+        "## 7. 每做完一个动作就记录指标", 1
+    )[0]
+
+    assert "AOS mapping research" in reply
+    assert "not an AOS compliance claim" in reply
+    assert "tool request/result" in reply
+    assert "step correlation" in reply
+    assert "URI-style screenshot/video artifacts" in reply
+    assert "URL metadata" in reply
+    assert "model I/O summaries" in reply
+    assert "explicit redaction state" in reply
+    assert "https://github.com/aaronlab/browsertrace/issues/237" in reply
+    assert "stars" not in reply.lower()
+    assert "upvotes" not in reply.lower()
+    assert "reposts" not in reply.lower()
+
+
 def test_chinese_owner_next_actions_link_first_pr_recipe_for_small_contributions():
     project_root = Path(__file__).resolve().parents[1]
     checklist = (
@@ -3987,6 +5179,51 @@ browsertrace show <run_id> --json
     assert "reposts" not in reply.lower()
 
 
+def test_directory_submission_sheet_links_stack_debugging_guides_for_replies():
+    project_root = Path(__file__).resolve().parents[1]
+    sheet = (project_root / "docs" / "launch" / "directory-submission-sheet.md").read_text()
+
+    assert "## Stack-Specific Reply Links" in sheet
+    guide_section = sheet.split("## Stack-Specific Reply Links", 1)[1].split(
+        "## Tracking", 1
+    )[0]
+    stack_guides = [
+        "Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html",
+        "Stagehand guide: https://aaronlab.github.io/browsertrace/stagehand-debugging.html",
+        "Skyvern guide: https://aaronlab.github.io/browsertrace/skyvern-debugging.html",
+        "Playwright + LLM guide: https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html",
+        "Computer-use guide: https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html",
+    ]
+
+    for guide in stack_guides:
+        assert guide in guide_section
+    assert "stars" not in guide_section.lower()
+    assert "upvotes" not in guide_section.lower()
+    assert "reposts" not in guide_section.lower()
+
+
+def test_directory_submission_sheet_includes_aos_mapping_research_note():
+    project_root = Path(__file__).resolve().parents[1]
+    sheet = (project_root / "docs" / "launch" / "directory-submission-sheet.md").read_text()
+
+    assert "## AOS Mapping Research" in sheet
+    research_note = sheet.split("## AOS Mapping Research", 1)[1].split(
+        "## Tracking", 1
+    )[0]
+
+    assert "not an AOS compliance claim" in research_note
+    assert "tool request/result" in research_note
+    assert "step correlation" in research_note
+    assert "URI-style screenshot/video artifacts" in research_note
+    assert "URL metadata" in research_note
+    assert "model I/O summaries" in research_note
+    assert "explicit redaction state" in research_note
+    assert "https://github.com/aaronlab/browsertrace/issues/237" in research_note
+    assert "stars" not in research_note.lower()
+    assert "upvotes" not in research_note.lower()
+    assert "reposts" not in research_note.lower()
+
+
 def test_outreach_targets_include_json_cli_troubleshooting_reply():
     project_root = Path(__file__).resolve().parents[1]
     targets = (project_root / "docs" / "launch" / "outreach-targets.md").read_text()
@@ -4009,6 +5246,51 @@ browsertrace show <run_id> --json
     assert "stars" not in reply.lower()
     assert "upvotes" not in reply.lower()
     assert "reposts" not in reply.lower()
+
+
+def test_outreach_targets_link_stack_debugging_guides_for_replies():
+    project_root = Path(__file__).resolve().parents[1]
+    targets = (project_root / "docs" / "launch" / "outreach-targets.md").read_text()
+
+    assert "## Stack-Specific Reply Links" in targets
+    guide_section = targets.split("## Stack-Specific Reply Links", 1)[1].split(
+        "## First Targeted Community Posts", 1
+    )[0]
+    stack_guides = [
+        "Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html",
+        "Stagehand guide: https://aaronlab.github.io/browsertrace/stagehand-debugging.html",
+        "Skyvern guide: https://aaronlab.github.io/browsertrace/skyvern-debugging.html",
+        "Playwright + LLM guide: https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html",
+        "Computer-use guide: https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html",
+    ]
+
+    for guide in stack_guides:
+        assert guide in guide_section
+    assert "stars" not in guide_section.lower()
+    assert "upvotes" not in guide_section.lower()
+    assert "reposts" not in guide_section.lower()
+
+
+def test_outreach_targets_include_aos_mapping_research_note():
+    project_root = Path(__file__).resolve().parents[1]
+    targets = (project_root / "docs" / "launch" / "outreach-targets.md").read_text()
+
+    assert "## AOS Mapping Research" in targets
+    research_note = targets.split("## AOS Mapping Research", 1)[1].split(
+        "## First Targeted Community Posts", 1
+    )[0]
+
+    assert "not an AOS compliance claim" in research_note
+    assert "tool request/result" in research_note
+    assert "step correlation" in research_note
+    assert "URI-style screenshot/video artifacts" in research_note
+    assert "URL metadata" in research_note
+    assert "model I/O summaries" in research_note
+    assert "explicit redaction state" in research_note
+    assert "https://github.com/aaronlab/browsertrace/issues/237" in research_note
+    assert "stars" not in research_note.lower()
+    assert "upvotes" not in research_note.lower()
+    assert "reposts" not in research_note.lower()
 
 
 def test_outreach_targets_records_current_awesome_list_pr_count():
@@ -4083,6 +5365,42 @@ browsertrace show <run_id> --json
     assert "stars" not in reply.lower()
     assert "upvotes" not in reply.lower()
     assert "reposts" not in reply.lower()
+
+
+def test_search_indexing_submission_links_stack_debugging_guides_for_replies():
+    project_root = Path(__file__).resolve().parents[1]
+    submission = (
+        project_root / "docs" / "launch" / "search-indexing-submission.md"
+    ).read_text()
+
+    assert "## Stack-Specific Reply Links" in submission
+    guide_section = submission.split("## Stack-Specific Reply Links", 1)[1].split(
+        "## Google Search Console", 1
+    )[0]
+    stack_guides = [
+        "Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html",
+        "Stagehand guide: https://aaronlab.github.io/browsertrace/stagehand-debugging.html",
+        "Skyvern guide: https://aaronlab.github.io/browsertrace/skyvern-debugging.html",
+        "Playwright + LLM guide: https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html",
+        "Computer-use guide: https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html",
+    ]
+
+    for guide in stack_guides:
+        assert guide in guide_section
+    assert "stars" not in guide_section.lower()
+    assert "upvotes" not in guide_section.lower()
+    assert "reposts" not in guide_section.lower()
+
+
+def test_search_indexing_submission_includes_failure_patterns_url():
+    project_root = Path(__file__).resolve().parents[1]
+    submission = (
+        project_root / "docs" / "launch" / "search-indexing-submission.md"
+    ).read_text()
+    url = "https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html"
+
+    assert f"| Failure patterns | `{url}` |" in submission
+    assert f'"{url}"' in submission
 
 
 def test_bug_report_template_requests_json_cli_troubleshooting_checks():
@@ -4334,6 +5652,25 @@ def test_pull_request_template_links_stack_debugging_guides():
     assert "reposts" not in template.lower()
 
 
+def test_pull_request_template_has_research_only_aos_mapping_note():
+    project_root = Path(__file__).resolve().parents[1]
+    template = (project_root / ".github" / "PULL_REQUEST_TEMPLATE.md").read_text()
+    normalized = " ".join(template.split())
+
+    assert "AOS mapping note research-only" in normalized
+    assert "not making an AOS compliance claim yet" in normalized
+    assert "tool request/result records" in normalized
+    assert "step correlation" in normalized
+    assert "URI-style screenshot/video artifacts" in normalized
+    assert "URL metadata" in normalized
+    assert "model I/O summaries" in normalized
+    assert "explicit redaction state" in normalized
+    assert "https://github.com/aaronlab/browsertrace/issues/237" in normalized
+    assert "stars" not in template.lower()
+    assert "upvotes" not in template.lower()
+    assert "reposts" not in template.lower()
+
+
 def test_security_policy_has_private_report_path_without_email_placeholder():
     project_root = Path(__file__).resolve().parents[1]
     policy = (project_root / "SECURITY.md").read_text()
@@ -4431,6 +5768,31 @@ browsertrace show <run_id> --json
     assert "reposts" not in reply.lower()
 
 
+def test_awesome_list_submission_notes_link_stack_debugging_guides_for_replies():
+    project_root = Path(__file__).resolve().parents[1]
+    notes = (
+        project_root / "docs" / "launch" / "github-awesome-list-submissions.md"
+    ).read_text()
+
+    assert "## Stack-Specific Reply Links" in notes
+    guide_section = notes.split("## Stack-Specific Reply Links", 1)[1].split(
+        "## Recommended Order", 1
+    )[0]
+    stack_guides = [
+        "Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html",
+        "Stagehand guide: https://aaronlab.github.io/browsertrace/stagehand-debugging.html",
+        "Skyvern guide: https://aaronlab.github.io/browsertrace/skyvern-debugging.html",
+        "Playwright + LLM guide: https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html",
+        "Computer-use guide: https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html",
+    ]
+
+    for guide in stack_guides:
+        assert guide in guide_section
+    assert "stars" not in guide_section.lower()
+    assert "upvotes" not in guide_section.lower()
+    assert "reposts" not in guide_section.lower()
+
+
 def test_awesome_list_submission_notes_record_steel_web_agents_pr():
     project_root = Path(__file__).resolve().parents[1]
     notes = (
@@ -4494,6 +5856,25 @@ def test_awesome_list_submission_notes_record_ranpox_computer_use_pr():
     assert "Projects" in notes
     assert "computer-use resources" in notes
     assert "supernalintelligence/Awesome-Gui-Agents" in notes
+
+
+def test_awesome_list_submission_notes_record_scottcjn_awesome_agents_pr():
+    project_root = Path(__file__).resolve().parents[1]
+    notes = (
+        project_root / "docs" / "launch" / "github-awesome-list-submissions.md"
+    ).read_text()
+    section = notes.split("## 13. Awesome Agents", 1)[1].split(
+        "## Skip List", 1
+    )[0]
+
+    assert "Scottcjn/awesome-agents" in notes
+    assert "https://github.com/Scottcjn/awesome-agents/pull/16" in notes
+    assert "Monitoring and Observability" in section
+    assert "not a duplicate" in section
+    assert "npx --yes awesome-lint README.md" in section
+    assert "stars" not in section.lower()
+    assert "upvotes" not in section.lower()
+    assert "reposts" not in section.lower()
 
 
 def test_targeted_outreach_copy_includes_uvx_trial_before_pypi():
@@ -4599,8 +5980,8 @@ def test_launch_control_room_has_current_audit_and_uvx_fallback():
     latest_metrics_timestamp = latest_metrics_row.split("|")[1].strip()
 
     assert latest_metrics_timestamp in launch
+    assert latest_metrics_row in launch
     assert "current monitor pass" in launch
-    assert "traffic views 112/41 unique, clones 5965/1214 unique" in launch
     assert f'uvx --from "{pypi_spec}" browsertrace doctor' in launch
     assert f'uvx --from "{pypi_spec}" browsertrace demo' in launch
 

@@ -13,19 +13,31 @@ Ask for workflow feedback from people building browser agents.
 If you only have one short session, do these in order and let Codex handle the
 follow-up verification, README updates, metrics, and issue comments:
 
+Current listing status: the tracked external GitHub list and directory
+submissions are still open and have not listed BrowserTrace on their default
+branches yet. Do not wait for those maintainers before publishing owner-channel
+posts or sending the prepared directory emails.
+
 Fastest fresh technical post: publish either Browser Use angle from
 `docs/launch/channel-copy.md` before or alongside the Day 1 posts:
 `#fresh-browser-use-debugging-angle` for icon-only target failures, or
 `#fresh-browser-use-remote-cdp-angle` for remote-CDP hangs and event-bus lock
-timing. Both ask for real workflow feedback through concrete failure modes.
+timing. If your audience builds custom computer-use agents, use
+`#fresh-computer-use-persistent-browser-recovery-angle` for persistent browser
+session recovery. These ask for real workflow feedback through concrete failure
+modes.
 
 1. Publish the Day 1 X/LinkedIn/WeChat/Jike posts from
    `docs/launch/day-1-publish-packet.md`, using `docs/demo.mp4`. When the
    platform supports alt text, use `Media Alt Text` from
    `docs/launch/day-1-publish-packet.md#media-alt-text`.
+   The shortest copy/paste version is
+   `docs/launch/owner-social-post-packet.md`.
 2. Send the ready owner-email submissions from
    `docs/launch/directory-submission-sheet.md`:
    `hello@console.dev` and `agdex.ai@gmail.com` for console.dev and AgDex.
+   The shortest copy/paste version is
+   `docs/launch/owner-email-send-packet.md`.
 3. If you have a second short pass, submit the browser-form directories from
    `docs/launch/directory-submission-sheet.md`:
    4agent.dev, AgentKart, OSS AI Hub, FOSSHUNTER, AgentsTide, and BuilderAI
@@ -47,20 +59,32 @@ and update the tracking issues.
 
 Fast copy/paste blocks:
 
+- Failure patterns page:
+  `https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html`
 - Fresh Browser Use angle:
   `docs/launch/channel-copy.md#fresh-browser-use-debugging-angle`
 - Fresh Browser Use remote-CDP angle:
   `docs/launch/channel-copy.md#fresh-browser-use-remote-cdp-angle`
+- Fresh computer-use persistent browser recovery angle:
+  `docs/launch/channel-copy.md#fresh-computer-use-persistent-browser-recovery-angle`
+- Fresh Chinese computer-use recovery angle:
+  `docs/launch/channel-copy.md#fresh-chinese-computer-use-recovery-angle`
 - X: `docs/launch/channel-copy.md#x`
 - X follow-up: `docs/launch/channel-copy.md#x-follow-up`
 - LinkedIn: `docs/launch/channel-copy.md#linkedin`
 - WeChat group: `docs/launch/channel-copy.md#wechat-group`
 - Jike: `docs/launch/channel-copy.md#jike`
+- 5-minute owner social post packet:
+  `docs/launch/owner-social-post-packet.md`
 - Show HN: `docs/launch/day-2-show-hn-packet.md#first-comment-draft`
 - Product Hunt: `docs/launch/day-4-product-hunt-packet.md#maker-comment`
+- 5-minute HN/Product Hunt submission packet:
+  `docs/launch/owner-launch-submission-packet.md`
 - console.dev email:
   `docs/launch/directory-submission-sheet.md#consoledev-email-draft`
 - AgDex email: `docs/launch/directory-submission-sheet.md#agdex-email-draft`
+- 5-minute owner email packet:
+  `docs/launch/owner-email-send-packet.md`
 - First browser-form directories:
   `docs/launch/directory-submission-sheet.md#first-browser-form-directory-field-notes`
 
@@ -187,6 +211,29 @@ docs/launch/outreach-targets.md
 
 Submit once per target. Do not repeatedly submit or ask for votes.
 
+Already-open GitHub listing PRs and issues:
+
+| Target | PR or issue |
+|---|---|
+| `bradvin/agentfirst.directory` | `https://github.com/bradvin/agentfirst.directory/pull/30`, enrichment check passed |
+| `angrykoala/awesome-browser-automation` | `https://github.com/angrykoala/awesome-browser-automation/pull/112` |
+| `mxschmitt/awesome-playwright` | `https://github.com/mxschmitt/awesome-playwright/pull/136` |
+| `Jenqyang/Awesome-AI-Agents` | `https://github.com/Jenqyang/Awesome-AI-Agents/pull/220` |
+| `wjhou/awesome-computer-use-agents` | `https://github.com/wjhou/awesome-computer-use-agents/pull/2` |
+| `cdxeve/awesome-computer-use-agents` | `https://github.com/cdxeve/awesome-computer-use-agents/pull/2` |
+| `steel-dev/awesome-web-agents` | `https://github.com/steel-dev/awesome-web-agents/pull/56` |
+| `ai-boost/awesome-harness-engineering` | `https://github.com/ai-boost/awesome-harness-engineering/pull/23` |
+| `Agent-Tools/awesome-autonomous-web` | `https://github.com/Agent-Tools/awesome-autonomous-web/pull/21` |
+| `e2b-dev/awesome-ai-sdks` | `https://github.com/e2b-dev/awesome-ai-sdks/pull/187`, CLA check passed |
+| `jim-schwoebel/awesome_ai_agents` | `https://github.com/jim-schwoebel/awesome_ai_agents/pull/266` |
+| `ranpox/awesome-computer-use` | `https://github.com/ranpox/awesome-computer-use/pull/24` |
+| `trycua/acu` | `https://github.com/trycua/acu/pull/26` |
+| `clihub-ai/clihub` | `https://github.com/clihub-ai/clihub/pull/1`, forked PR CI needs maintainer approval before it can run |
+| `victorcheeney/clis` | `https://github.com/victorcheeney/clis/issues/3`, CLIs.dev directory issue opened |
+
+Monitor maintainer feedback only. Do not open more awesome-list PRs unless the
+target is high-fit, non-duplicative, and not a low-quality mass submission.
+
 Tracking issue: https://github.com/aaronlab/browsertrace/issues/10
 
 ## 7. Monitor High-Fit GitHub Awesome List PRs
@@ -212,6 +259,7 @@ Current open high-fit PRs:
   maintainer feedback.
 - `jim-schwoebel/awesome_ai_agents#266`
 - `ranpox/awesome-computer-use#24`
+- `trycua/acu#26`
 - `clihub-ai/clihub#1` - registry PR is open; forked PR CI needs
   maintainer approval before it can run.
 - `victorcheeney/clis#3` - CLIs.dev directory issue is open.

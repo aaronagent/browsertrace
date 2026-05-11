@@ -48,6 +48,10 @@ Post only where the community rules allow it. The ask is feedback from people bu
    `docs/launch/directory-submission-sheet.md` as the queue.
 6. Product Hunt after the visual assets are strong enough for a broader audience.
 
+Use this technical link when a community or editor needs concrete failure
+patterns instead of a general product page:
+https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html
+
 ## Directory And Newsletter Pitch
 
 Use this for directories and newsletters that accept new tool suggestions. Keep
@@ -117,6 +121,27 @@ browsertrace doctor --json
 browsertrace list --status failed --json
 browsertrace show <run_id> --json
 ```
+
+## Stack-Specific Reply Links
+
+Use the closest guide when a community reply needs workflow-specific debugging
+context:
+
+- Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
+- Stagehand guide: https://aaronlab.github.io/browsertrace/stagehand-debugging.html
+- Skyvern guide: https://aaronlab.github.io/browsertrace/skyvern-debugging.html
+- Playwright + LLM guide: https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html
+- Computer-use guide: https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html
+
+## AOS Mapping Research
+
+If a community member asks whether BrowserTrace maps to OWASP AOS, keep the
+answer research-only. BrowserTrace is not an AOS compliance claim yet. Current
+research maps the closest BrowserTrace concepts to tool request/result records,
+step correlation, URI-style screenshot/video artifacts, URL metadata, model I/O summaries,
+and explicit redaction state.
+
+Tracker: https://github.com/aaronlab/browsertrace/issues/237
 
 ## First Targeted Community Posts
 

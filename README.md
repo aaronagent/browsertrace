@@ -33,6 +33,7 @@ computer-use agents.
 
 **Try it:** [live demo](https://aaronlab.github.io/browsertrace/) ·
 [debugging walkthrough](https://aaronlab.github.io/browsertrace/debug-browser-agent-failure.html) ·
+[Failure patterns](https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html) ·
 [integrations](https://aaronlab.github.io/browsertrace/integrations.html) ·
 [Browser Use guide](https://aaronlab.github.io/browsertrace/browser-use-debugging.html) ·
 [Stagehand guide](https://aaronlab.github.io/browsertrace/stagehand-debugging.html) ·
@@ -42,6 +43,10 @@ computer-use agents.
 [examples](examples/) ·
 [integration request](https://github.com/aaronlab/browsertrace/issues/new?template=integration_request.yml) ·
 [launch discussion](https://github.com/aaronlab/browsertrace/discussions/6)
+
+Concrete failure patterns now covered include Browser Use new-tab desync,
+Stagehand semantic verification boundary, Skyvern VNC/CDP debug integration,
+and Skyvern multi-session VNC control drift.
 
 For AI/coding agents, [`llms.txt`](llms.txt) provides concise project context,
 links, and troubleshooting prompts. The hosted copy lives at
@@ -519,6 +524,15 @@ For ordinary workflow feedback and broader browser-agent workflow feedback, use 
 [launch discussion](https://github.com/aaronlab/browsertrace/discussions/6).
 For private or sensitive reports, follow [SECURITY.md](SECURITY.md) instead of
 opening a public issue.
+
+### AOS Mapping Research
+
+BrowserTrace is not an AOS compliance claim yet. Current research maps the
+closest BrowserTrace concepts to tool request/result records, step correlation,
+URI-style screenshot/video artifacts, URL metadata, model I/O summaries, and
+explicit redaction state.
+
+Tracker: https://github.com/aaronlab/browsertrace/issues/237
 
 ## Why not just use ___?
 

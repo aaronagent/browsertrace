@@ -300,7 +300,7 @@ with hooks:
     </section>
 
     <section>
-      <h2>Debug icon-only click targets</h2>
+      <h2 id="debug-icon-only-click-targets">Debug icon-only click targets</h2>
       <p>If the screenshot shows the target but Browser Use clicks a nearby toolbar button, treat it as a visible-target versus accessible-target mismatch. Icon-only buttons often rely on hover tooltips, and that tooltip text may not be present in the accessibility tree when the agent ranks candidate elements.</p>
       <ul>
         <li>Capture the live button HTML, not only the intended fixed markup.</li>
@@ -310,6 +310,35 @@ with hooks:
       </ul>
       <p>The best app-side fix is an accessible name on the real button, for example <code>aria-label=&quot;Create Test&quot;</code>. Until the app can change, make the task prompt structural, such as "click the plus icon immediately next to the search field in the Functional toolbar", or use a deterministic selector for that step.</p>
       <p>Related community case: <a href="https://github.com/browser-use/browser-use/issues/4801">browser-use/browser-use#4801</a>.</p>
+    </section>
+
+    <section>
+      <h2 id="debug-new-tab-desync">Debug new-tab desync</h2>
+      <p>If a click or Enter action opens a new tab, Browser Use may keep reasoning from the stale page context unless the action result makes that browser-state delta explicit. The symptom is usually repeated retries against the old page while the expected element exists in the new tab.</p>
+      <ul>
+        <li>Record page ids and tab indexes before and after the action.</li>
+        <li>Capture <code>pages_before</code>, <code>pages_after</code>, and <code>new_pages</code> with URL/title probe status.</li>
+        <li>Link the new page back to the action id that created it.</li>
+        <li>Store the focused page before and after the action, not only the currently selected tab index.</li>
+        <li>Keep any recommended next action, such as <code>switch_tab</code>, as trace evidence instead of inferring it from later retries.</li>
+      </ul>
+      <p>In BrowserTrace terms, treat this as a browser topology change. The trace should explain whether the agent switched to the new page, stayed on the stale page, or attempted later actions before the new tab finished loading.</p>
+      <p>Related community case: <a href="https://github.com/browser-use/browser-use/issues/4758">browser-use/browser-use#4758</a>.</p>
+    </section>
+
+    <section>
+      <h2 id="debug-remote-cdp-hangs">Debug remote CDP hangs</h2>
+      <p>For Browserless or other remote-CDP providers, a failed Browser Use run may not be only a screenshot problem. A stale remote browser session can make one CDP request stop returning while the websocket still looks connected. If recovery holds a shared event-bus lock during that wait, one degraded browser session can delay unrelated sessions.</p>
+      <p>When you see screenshot capture, DOM snapshot, or browser-state collection timeouts, collect timing evidence before changing retry policy:</p>
+      <ul>
+        <li>Event id plus browser/session/target id.</li>
+        <li>CDP method, request id, start/end/duration, and result, error, or timeout.</li>
+        <li>Websocket ping/pong timestamps near the stuck request.</li>
+        <li>event-bus lock timing: wait, acquire, release, and whether recovery waits run while the lock is held.</li>
+        <li>Whether the browser session was marked unhealthy, retried, or reused after the failed state request.</li>
+      </ul>
+      <p>In BrowserTrace terms, treat this as method-timing and browser-session evidence, not just a red screenshot step. The trace should explain whether the CDP method failed fast, never returned, or blocked later state collection through recovery and lock timing.</p>
+      <p>Related community case: <a href="https://github.com/browser-use/browser-use/issues/4579">browser-use/browser-use#4579</a>.</p>
     </section>
 
     <section>

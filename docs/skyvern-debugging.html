@@ -293,6 +293,44 @@ skyvern.close()</code></pre>
     </section>
 
     <section>
+      <h2 id="debug-action-confidence-and-authorization">Debug action confidence and authorization</h2>
+      <p>For Skyvern-style browser agents, confidence is diagnostic. It is not the same as authorized execution, and it does not prove the selected action is correct. The failure to watch for is high confidence plus the wrong target, stale context, incomplete browser state, or an unsafe action boundary.</p>
+      <p>When Skyvern or a deeper adapter exposes the data, preserve three linked records for consequential actions:</p>
+      <ol>
+        <li><strong>action proposal</strong>: intended operation, target metadata, confidence, screenshot or DOM evidence, and candidate element references.</li>
+        <li><strong>authorization decision</strong>: policy or scope checks, required approvals, allowed, blocked, or escalated status, and reason.</li>
+        <li><strong>execution result</strong>: what actually happened, URL or state delta, status, error, and retry decision.</li>
+      </ol>
+      <p>Those linked IDs let a reviewer separate "high confidence plus allowed plus wrong target" from "high confidence plus blocked" or "low confidence plus escalated". That makes policy tuning possible without treating model confidence itself as the policy.</p>
+      <p>Related community case: <a href="https://github.com/Skyvern-AI/skyvern/issues/5637">Skyvern-AI/skyvern#5637</a>.</p>
+    </section>
+
+    <section>
+      <h2 id="debug-vnc-and-cdp-evidence-together">Debug VNC and CDP evidence together</h2>
+      <p>When a Skyvern workflow needs both VNC visual debugging and CDP browser-state capture, keep both streams linked to the same task or workflow step. Separate screenshots, DOM summaries, console or network snippets, and performance data are much less useful if the trace cannot show which action window they explain.</p>
+      <ul>
+        <li>Record connect/probe start, success, timeout, or cleanup events before the first browser action.</li>
+        <li>Link VNC screenshot or recording artifact ids with CDP DOM snapshot or selected-element summaries for the same time window.</li>
+        <li>Preserve task id, workflow id, step id, URL, frame/page id, action/tool name, status, error, and retry or recovery decision.</li>
+        <li>Track redaction state for screenshots, URLs, headers, cookies, and form values before public export.</li>
+      </ul>
+      <p>In BrowserTrace terms, connection and debug-session lifecycle is trace evidence too. A failed run can start before a screenshot exists if the browser session never attaches cleanly.</p>
+      <p>Related community case: <a href="https://github.com/Skyvern-AI/skyvern/issues/3260">Skyvern-AI/skyvern#3260</a>.</p>
+    </section>
+
+    <section>
+      <h2 id="debug-multi-session-vnc-and-take-control-drift">Debug multi-session VNC and Take Control drift</h2>
+      <p>In local or self-hosted deployments, a VNC stream can become a shared UI resource while workflows, CDP targets, and manual control state are per-session concerns. When those identities are implicit, a reviewer cannot tell whether the browser failed, the stream attached to the wrong display, or Take Control was lost after reconnect.</p>
+      <ul>
+        <li>Preserve VNC stream identity, CDP target identity, workflow id, task id, browser session id, browser context id, page id, and redacted display id.</li>
+        <li>Record the manual-control lease: agent/manual owner, acquire/renew/release timestamps, persisted-across-reconnect flag, and release reason.</li>
+        <li>Store isolation metadata: own X display, container, or browser context versus a shared display.</li>
+        <li>Classify failure causes such as no VNC server, connected without frames, stale VNC stream, manual-control lease lost, or display conflict.</li>
+      </ul>
+      <p>Related community case: <a href="https://github.com/Skyvern-AI/skyvern/issues/4392">Skyvern-AI/skyvern#4392</a>.</p>
+    </section>
+
+    <section>
       <h2>Share only what is safe</h2>
       <pre><code>browsertrace list
 browsertrace export &lt;run_id&gt; -o full.html

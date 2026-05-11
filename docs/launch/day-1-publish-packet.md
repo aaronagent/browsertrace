@@ -9,6 +9,7 @@ upvotes, or artificial engagement.
 - Repo: https://github.com/aaronlab/browsertrace
 - Live demo: https://aaronlab.github.io/browsertrace/
 - Walkthrough: https://aaronlab.github.io/browsertrace/debug-browser-agent-failure.html
+- Failure patterns: https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html
 - Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.17/browsertrace-demo-public.html
 - Launch discussion: https://github.com/aaronlab/browsertrace/discussions/6
 - Primary media: `docs/demo.mp4`
@@ -138,6 +139,17 @@ browsertrace doctor --json
 browsertrace list --status failed --json
 browsertrace show <run_id> --json
 ```
+
+## Stack-Specific Reply Links
+
+Use the closest guide when a Day 1 reply turns into a workflow-specific
+debugging question:
+
+- Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
+- Stagehand guide: https://aaronlab.github.io/browsertrace/stagehand-debugging.html
+- Skyvern guide: https://aaronlab.github.io/browsertrace/skyvern-debugging.html
+- Playwright + LLM guide: https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html
+- Computer-use guide: https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html
 
 ## Day 1 Log
 

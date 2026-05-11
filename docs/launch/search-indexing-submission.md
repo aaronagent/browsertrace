@@ -13,6 +13,7 @@ verification tokens, but the owner must sign in and verify ownership.
 | Robots | `https://aaronlab.github.io/browsertrace/robots.txt` |
 | Repository | `https://github.com/aaronlab/browsertrace` |
 | Debugging walkthrough | `https://aaronlab.github.io/browsertrace/debug-browser-agent-failure.html` |
+| Failure patterns | `https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html` |
 | Computer-use guide | `https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html` |
 | Integrations | `https://aaronlab.github.io/browsertrace/integrations.html` |
 | Launch kit | `https://aaronlab.github.io/browsertrace/launch/` |
@@ -37,6 +38,7 @@ Use this payload:
   "urlList": [
     "https://aaronlab.github.io/browsertrace/",
     "https://aaronlab.github.io/browsertrace/debug-browser-agent-failure.html",
+    "https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html",
     "https://aaronlab.github.io/browsertrace/integrations.html",
     "https://aaronlab.github.io/browsertrace/compare-browser-agent-debugging.html",
     "https://aaronlab.github.io/browsertrace/browser-use-debugging.html",
@@ -74,6 +76,17 @@ browsertrace doctor --json
 browsertrace list --status failed --json
 browsertrace show <run_id> --json
 ```
+
+## Stack-Specific Reply Links
+
+Use the closest guide when an indexing, crawl, or search-discovery follow-up
+turns into a workflow-specific debugging question:
+
+- Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
+- Stagehand guide: https://aaronlab.github.io/browsertrace/stagehand-debugging.html
+- Skyvern guide: https://aaronlab.github.io/browsertrace/skyvern-debugging.html
+- Playwright + LLM guide: https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html
+- Computer-use guide: https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html
 
 ## Google Search Console
 

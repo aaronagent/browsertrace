@@ -12,6 +12,10 @@ Value-first tutorial link for Reddit, Discord, and community posts:
 
 https://aaronlab.github.io/browsertrace/debug-browser-agent-failure.html
 
+Failure patterns link for posts that need a concrete technical hook:
+
+https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html
+
 Public-safe demo export for privacy-sensitive replies:
 
 https://github.com/aaronlab/browsertrace/releases/download/v0.1.17/browsertrace-demo-public.html
@@ -41,6 +45,26 @@ browsertrace doctor --json
 browsertrace list --status failed --json
 browsertrace show <run_id> --json
 ```
+
+## Stack-Specific Reply Links
+
+Use the closest guide when a technical reply needs workflow-specific context:
+
+- Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
+- Stagehand guide: https://aaronlab.github.io/browsertrace/stagehand-debugging.html
+- Skyvern guide: https://aaronlab.github.io/browsertrace/skyvern-debugging.html
+- Playwright + LLM guide: https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html
+- Computer-use guide: https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html
+
+## AOS Mapping Research
+
+Use this when someone asks whether BrowserTrace maps to OWASP AOS.
+BrowserTrace is not an AOS compliance claim yet. Current research maps the
+closest BrowserTrace concepts to tool request/result records, step correlation,
+URI-style screenshot/video artifacts, URL metadata, model I/O summaries, and
+explicit redaction state.
+
+Tracker: https://github.com/aaronlab/browsertrace/issues/237
 
 ## Artifact Boundary Reply
 
@@ -117,6 +141,58 @@ The evidence I would capture for this class of bug:
 BrowserTrace is trying to make these browser-agent failure boundaries inspectable instead of hiding them in logs.
 
 Guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
+```
+
+## Fresh Computer-Use Persistent Browser Recovery Angle
+
+Use this for custom computer-use agents, persistent browser profiles, and local
+browser session recovery failures. It is a technical debugging note, not a
+launch ask.
+
+Short post:
+
+```text
+Fresh computer-use debugging note:
+
+Persistent browser failures often happen before any screenshot exists.
+
+Do not trust profile lock files or process names alone. Capture session_mode, redacted profile id, CDP attach/probe timing, recovery action, and final connection state.
+```
+
+Follow-up with link:
+
+```text
+The useful trace boundary starts before the page opens:
+
+- profile selection and session_mode
+- profile lock or stale process signal
+- CDP attach/probe timing and timeout
+- approval source and recovery action
+- final connection state
+
+Guide: https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html
+```
+
+## Fresh Chinese Computer-Use Recovery Angle
+
+Use this for WeChat, Jike, or Chinese AI-builder groups when the audience is
+building custom computer-use agents or persistent browser sessions.
+
+```text
+最近遇到一个 browser agent 调试点：有些失败发生在第一张截图之前。
+
+比如 persistent browser session 复用失败，profile lock 或进程名看起来像线索，但不一定可信。真正需要记录的是：
+
+- session_mode
+- redacted profile id
+- CDP attach/probe timing
+- recovery action
+- final connection state
+
+我在 BrowserTrace 里把这个 failure shape 写成了 computer-use 调试指南，想听听做 browser agent / computer-use agent 的人：你们遇到过哪些 session recovery 问题？
+
+Guide: https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html
+Repo: https://github.com/aaronlab/browsertrace
 ```
 
 ## X
@@ -216,6 +292,8 @@ Hi HN,
 
 I've been building browser-using AI agents and kept hitting the same debugging loop: a multi-minute run fails, the logs show tool calls, but I cannot see what the agent actually saw at the browser step where things went wrong.
 
+Another failure class happens even earlier: persistent browser recovery can fail before any screenshot exists. For that, profile lock files are not enough; I want session_mode, redacted profile id, CDP attach/probe timing, recovery action, and final connection state in the trace.
+
 BrowserTrace is a small Python library plus local web UI that records each browser-agent step: screenshot, URL, action, model input, model output, status, and error. You open localhost:3000, click the run, and jump to the failed step.
 
 It is intentionally local-first:
@@ -268,6 +346,8 @@ Maker comment:
 I built BrowserTrace after losing too much time debugging browser-agent failures from logs alone.
 
 The agent would fail at step 47, but by then the browser was gone. I could see which code ran, but not what the model saw, clicked, or returned.
+
+Some failures happen before the first page screenshot too: persistent browser recovery, profile lock state, CDP attach/probe timing, and whether the agent reused, attached, reset, or fell back to an isolated session.
 
 BrowserTrace keeps the missing context locally:
 - screenshots

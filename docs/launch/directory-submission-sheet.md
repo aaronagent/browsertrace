@@ -9,6 +9,7 @@ upvotes, swaps, or artificial engagement.
 - Repo: https://github.com/aaronlab/browsertrace
 - Live demo: https://aaronlab.github.io/browsertrace/
 - Raw trace: https://aaronlab.github.io/browsertrace/trace.html
+- Failure patterns: https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html
 - Comparison: https://aaronlab.github.io/browsertrace/compare-browser-agent-debugging.html
 - Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
 - Stagehand guide: https://aaronlab.github.io/browsertrace/stagehand-debugging.html
@@ -63,6 +64,7 @@ Use-shaped callback demo.
 | AgentKart | Open-source AI agent marketplace readers | https://www.agentkart.ai/submit | Yes, owner account likely | Repo, live demo, Browser Use guide | Owner login likely required; Submit Agent form asks for agent name, description, and GitHub repository; skip if only runnable autonomous agents are accepted |
 | Agent Hub | Agent/MCP/skill directory readers | https://agent-hub.dev/ | Unknown | Live demo, repo, integrations | Blocked: no visible submit/contact route |
 | AgDex | AI agent ecosystem directory readers | https://agdex.ai/ | Yes, owner email | Live demo, repo, comparison | Contact page accepts tool submissions; send owner-email pitch to agdex.ai@gmail.com |
+| AgentsIndex | AI agent tool directory with observability category | https://agentsindex.ai/submit | Yes, owner sign-in | Live demo, repo, public-safe export | Submit tool after owner sign-in; use Observability and Monitoring fit and local-first browser-agent debugging angle |
 | 4agent.dev | Agent-builder tool directory readers | https://4agent.dev/submit | Yes, browser submission | Live demo, repo, Browser Use guide | Submit Tool form is visible; use Observability or Browser category, and tags such as browser agents, debugging, Playwright, tracing |
 | agentfirst.directory | Agent-first tooling ecosystem | https://agentfirst.directory/ | Maybe | Comparison, live demo, repo | Submitted PR: https://github.com/bradvin/agentfirst.directory/pull/30 |
 | OSS AI Hub | Open-source AI tools and agents | https://ossaihub.com/submit | Yes, browser submission | Repo, live demo, public-safe export | JavaScript submission page; submissions are reviewed for quality, relevance, and community value |
@@ -79,7 +81,7 @@ Use-shaped callback demo.
 | ToolHunter | Developer tools, AI agents, and open-source CLI directory | https://www.toolhunter.cc/ | Yes, browser submission | Repo, live demo, PyPI | Submit a Tool; use developer tools, AI agents, open-source CLI utilities angle |
 | ToolShelf | Curated developer tools directory with CLI and AI coding categories | https://toolshelf.dev/ | Yes, browser submission | Repo, docs, PyPI | Submit a Tool; use CLI Tools, AI Coding, or Developer Productivity depending on category choices |
 | CliHub | Agent-facing structured CLI registry | https://github.com/clihub-ai/clihub | No further owner action | Repo, PyPI, JSON CLI hints | Submitted PR: https://github.com/clihub-ai/clihub/pull/1; forked PR CI is action_required pending maintainer approval |
-| GitHub awesome lists | Curated developer discovery lists | docs/launch/github-awesome-list-submissions.md | Yes | Repo, live demo, relevant guide | 12 PRs open; monitor feedback; e2b CLA passed |
+| GitHub awesome lists | Curated developer discovery lists | docs/launch/github-awesome-list-submissions.md | Yes | Repo, live demo, relevant guide | Tracked PRs are open, including Scottcjn/awesome-agents#16; monitor feedback; e2b CLA passed |
 | Browser Use Discussions | Browser-agent practitioners | https://github.com/browser-use/browser-use/discussions/4816 | Yes | Browser Use guide, live trace, repo | Posted; no comments yet |
 | Stagehand Discussions | Browser automation and agent builders | https://github.com/browserbase/stagehand/discussions/2102 | Yes | Stagehand guide, live trace, repo | Posted; no comments yet |
 | Skyvern Discussions | Browser automation agent users | https://github.com/Skyvern-AI/skyvern/discussions/5931 | Yes | Skyvern guide, live trace, repo | Posted; no comments yet |
@@ -99,6 +101,21 @@ Repository: https://github.com/aaronlab/browsertrace
 Category: Observability, or Browser if only one category is accepted
 Tags: browser agents, debugging, Playwright, Browser Use, trace viewer
 Short description: Local-first trace viewer for failed AI browser-agent runs, with screenshots, URLs, actions, model I/O, errors, and public-safe HTML exports.
+```
+
+AgentsIndex:
+
+```text
+Tool name: BrowserTrace
+Website URL: https://aaronlab.github.io/browsertrace/
+Repository: https://github.com/aaronlab/browsertrace
+Category: Observability and Monitoring
+Short description:
+Local-first trace viewer for debugging failed AI browser-agent and computer-use
+runs with screenshots, URLs, actions, model I/O, status, errors, and redacted
+shareable HTML exports.
+Owner note: submit from the owner's signed-in browser session at
+https://agentsindex.ai/submit.
 ```
 
 AgentKart:
@@ -395,6 +412,11 @@ still appears open, and event-bus lock timing can decide whether one stale
 browser session blocks others. BrowserTrace is aimed at keeping that kind of
 method timing, browser/session evidence, and failed-step context inspectable.
 
+A third failure case: persistent browser recovery can fail before any screenshot
+or URL exists. BrowserTrace docs now call out the useful setup evidence:
+session_mode, redacted profile id, profile lock or stale process signal,
+CDP attach/probe timing, recovery action, and final connection state.
+
 Why it may fit console.dev:
 - It is interesting and useful to developers building Browser Use, Stagehand,
   Skyvern, Playwright + LLM, or custom computer-use agents.
@@ -444,6 +466,11 @@ Second use case: diagnosing a remote-CDP browser-agent run where a browser state
 collection request hangs while the websocket appears connected, so method
 timing and browser/session evidence matter as much as the final timeout.
 
+Third use case: diagnosing persistent browser recovery before the first
+screenshot exists, where profile lock state, redacted profile id,
+session_mode, CDP attach/probe timing, recovery action, and final connection
+state are the useful debugging evidence.
+
 Repository: https://github.com/aaronlab/browsertrace
 Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.17/browsertrace-demo-public.html
 Comparison: https://aaronlab.github.io/browsertrace/compare-browser-agent-debugging.html
@@ -479,6 +506,27 @@ browsertrace doctor --json
 browsertrace list --status failed --json
 browsertrace show <run_id> --json
 ```
+
+## Stack-Specific Reply Links
+
+Use the closest guide when a directory reviewer, listing editor, or visitor asks
+for workflow-specific debugging context:
+
+- Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
+- Stagehand guide: https://aaronlab.github.io/browsertrace/stagehand-debugging.html
+- Skyvern guide: https://aaronlab.github.io/browsertrace/skyvern-debugging.html
+- Playwright + LLM guide: https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html
+- Computer-use guide: https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html
+
+## AOS Mapping Research
+
+If a directory reviewer asks how BrowserTrace relates to OWASP AOS, keep the
+answer research-only. BrowserTrace is not an AOS compliance claim yet. Current
+research maps the closest BrowserTrace concepts to tool request/result records,
+step correlation, URI-style screenshot/video artifacts, URL metadata, model I/O summaries,
+and explicit redaction state.
+
+Tracker: https://github.com/aaronlab/browsertrace/issues/237
 
 ## Tracking
 

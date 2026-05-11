@@ -51,6 +51,12 @@ Live demo:
 https://aaronlab.github.io/browsertrace/
 ```
 
+Failure patterns:
+
+```text
+https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html
+```
+
 ## BrowserTrace 是什么
 
 BrowserTrace 可以理解成 AI browser agent 的本地飞行记录仪。
@@ -86,6 +92,27 @@ Playwright Trace Viewer 很适合调试浏览器自动化本身。
 BrowserTrace 关注的是这个交界面：浏览器状态 + agent action + model input/output。
 
 它不是替代 Playwright Trace Viewer，而是补上 LLM 决策上下文。
+
+## 有些失败发生在第一张截图之前
+
+还有一类 computer-use agent 问题更早：浏览器还没打开页面，第一张 screenshot
+和 URL 都没有，persistent browser session recovery 已经失败了。
+
+这时只看 profile lock 文件或进程名不够。更有用的 trace 边界应该记录：
+
+- `session_mode`
+- redacted profile id
+- browser/session id
+- CDP attach/probe timing
+- timeout 或 error
+- approval source
+- recovery action
+- final connection state
+
+这类信息能解释 agent 到底是复用已有浏览器、attach 到 remote debugging
+endpoint、fallback 到 isolated session，还是被要求人工确认后 reset。否则你只
+能看到“浏览器启动失败”，但不知道失败发生在 profile、CDP attach、锁判断，还
+是 recovery policy。
 
 ## 60 秒试一下
 
@@ -218,6 +245,28 @@ browsertrace doctor --json
 browsertrace list --status failed --json
 browsertrace show <run_id> --json
 ```
+
+## Stack 调试指南链接
+
+如果中文教程的回复变成某个具体工作流的调试问题，优先给最接近的指南：
+
+- Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
+- Stagehand guide: https://aaronlab.github.io/browsertrace/stagehand-debugging.html
+- Skyvern guide: https://aaronlab.github.io/browsertrace/skyvern-debugging.html
+- Playwright + LLM guide: https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html
+- Computer-use guide: https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html
+
+## AOS mapping research 回复
+
+如果有人问 BrowserTrace 和 OWASP AOS 的对应关系，保持研究口径：
+
+- BrowserTrace is not an AOS compliance claim yet.
+- Current AOS mapping research maps BrowserTrace concepts to tool request/result
+  records, step correlation, URI-style screenshot/video artifacts, URL metadata,
+  model I/O summaries, and explicit redaction state.
+- Tracker: https://github.com/aaronlab/browsertrace/issues/237
+
+不要把这段写成认证、审计通过、标准覆盖或任何互动请求。
 
 ## Links
 

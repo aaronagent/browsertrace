@@ -301,6 +301,13 @@ async with tracer.run("playwright llm agent") as run:
     </section>
 
     <section>
+      <h2 id="keep-browser-artifacts-out-of-long-term-model-context">Keep browser artifacts out of long-term model context</h2>
+      <p>For Playwright + LLM loops, the browser artifact boundary matters. Screenshots, URLs, and raw trace files should be durable local artifacts for debugging, not base64 screenshots copied into every future model turn.</p>
+      <p>Pass image pixels to the model only when the next model call needs a typed image content block. Otherwise, pass compact metadata such as artifact id, dimensions, digest, status, and error, while keeping the full screenshot available in the BrowserTrace timeline.</p>
+      <p>This keeps later prompts smaller and avoids confusing the model with stale browser evidence, while still letting humans inspect the exact screenshot and URL that produced the failed action.</p>
+    </section>
+
+    <section>
       <h2>Share only what is safe</h2>
       <pre><code>browsertrace list
 browsertrace export &lt;run_id&gt; -o full.html

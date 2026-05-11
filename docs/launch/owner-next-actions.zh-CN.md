@@ -11,19 +11,27 @@ browser agent 的人，失败时最缺什么调试信息？
 如果你只有一小段时间，按这个顺序做；后面的验证、README 更新、指标记录和
 issue comment 都交给 Codex 继续处理：
 
+当前收录状态：已跟踪的外部 GitHub list 和 directory 投稿都还在 open，
+上游默认分支里还没有正式收录 BrowserTrace。不要等这些 maintainer 合并后
+再发 owner 渠道；先发个人账号内容和已经准备好的目录邮件。
+
 最快的一条技术帖：先用 `docs/launch/channel-copy.md` 里的任意一个
 Browser Use angle，可以放在 Day 1 正式帖子之前或一起发：
 `#fresh-browser-use-debugging-angle` 针对 icon-only target 失败，
 `#fresh-browser-use-remote-cdp-angle` 针对 remote-CDP hang 和 event-bus lock
-timing。两者都是用具体失败场景来征集真实 workflow 反馈。
+timing。如果你的受众在做 custom computer-use agents，用
+`#fresh-computer-use-persistent-browser-recovery-angle` 针对 persistent browser
+session recovery。这些都是用具体失败场景来征集真实 workflow 反馈。
 
 1. 用 `docs/launch/day-1-publish-packet.md` 发 X、LinkedIn、微信群、即刻，
    主素材用 `docs/demo.mp4`。平台支持 alt text 时，用
    `docs/launch/day-1-publish-packet.md#media-alt-text` 里的
-   `Media Alt Text`。
+   `Media Alt Text`。最短复制版在
+   `docs/launch/owner-social-post-packet.md`。
 2. 用 `docs/launch/directory-submission-sheet.md` 发送已经准备好的 owner
    email 投稿：发给 console.dev 的 `hello@console.dev`，以及发给 AgDex 的
-   `agdex.ai@gmail.com`。
+   `agdex.ai@gmail.com`。最短复制版在
+   `docs/launch/owner-email-send-packet.md`。
 3. 如果还有第二小段时间，用 `docs/launch/directory-submission-sheet.md`
    提交这些浏览器表单目录：4agent.dev、AgentKart、OSS AI Hub、FOSSHUNTER、
    AgentsTide、BuilderAI Tools。AgentsTide 可用 `hello@agentstide.com`
@@ -44,20 +52,32 @@ timing。两者都是用具体失败场景来征集真实 workflow 反馈。
 
 快速复制入口：
 
+- Failure patterns page：
+  `https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html`
 - Fresh Browser Use angle：
   `docs/launch/channel-copy.md#fresh-browser-use-debugging-angle`
 - Fresh Browser Use remote-CDP angle：
   `docs/launch/channel-copy.md#fresh-browser-use-remote-cdp-angle`
+- Fresh computer-use persistent browser recovery angle：
+  `docs/launch/channel-copy.md#fresh-computer-use-persistent-browser-recovery-angle`
+- Fresh Chinese computer-use recovery angle：
+  `docs/launch/channel-copy.md#fresh-chinese-computer-use-recovery-angle`
 - X：`docs/launch/channel-copy.md#x`
 - X follow-up：`docs/launch/channel-copy.md#x-follow-up`
 - LinkedIn：`docs/launch/channel-copy.md#linkedin`
 - 微信群：`docs/launch/channel-copy.md#wechat-group`
 - 即刻：`docs/launch/channel-copy.md#jike`
+- 5 分钟 owner 社交帖发送包：
+  `docs/launch/owner-social-post-packet.md`
 - Show HN：`docs/launch/day-2-show-hn-packet.md#first-comment-draft`
 - Product Hunt：`docs/launch/day-4-product-hunt-packet.md#maker-comment`
+- 5 分钟 HN/Product Hunt 提交包：
+  `docs/launch/owner-launch-submission-packet.md`
 - console.dev 邮件：
   `docs/launch/directory-submission-sheet.md#consoledev-email-draft`
 - AgDex 邮件：`docs/launch/directory-submission-sheet.md#agdex-email-draft`
+- 5 分钟 owner 邮件发送包：
+  `docs/launch/owner-email-send-packet.md`
 - 第一批浏览器表单目录：
   `docs/launch/directory-submission-sheet.md#first-browser-form-directory-field-notes`
 
@@ -216,6 +236,7 @@ docs/launch/github-awesome-list-submissions.md
 | `e2b-dev/awesome-ai-sdks` | `https://github.com/e2b-dev/awesome-ai-sdks/pull/187`，CLA 已通过，继续等待维护者反馈 |
 | `jim-schwoebel/awesome_ai_agents` | `https://github.com/jim-schwoebel/awesome_ai_agents/pull/266` |
 | `ranpox/awesome-computer-use` | `https://github.com/ranpox/awesome-computer-use/pull/24` |
+| `trycua/acu` | `https://github.com/trycua/acu/pull/26` |
 | `clihub-ai/clihub` | `https://github.com/clihub-ai/clihub/pull/1`，registry PR 已打开，forked PR CI 需要维护者批准后才能运行 |
 | `victorcheeney/clis` | `https://github.com/victorcheeney/clis/issues/3`，CLIs.dev 目录 issue 已打开 |
 
@@ -253,6 +274,28 @@ browsertrace doctor --json
 browsertrace list --status failed --json
 browsertrace show <run_id> --json
 ```
+
+### Stack 调试指南链接
+
+当回复变成具体工作流调试问题时，优先给最贴近的指南：
+
+- Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
+- Stagehand guide: https://aaronlab.github.io/browsertrace/stagehand-debugging.html
+- Skyvern guide: https://aaronlab.github.io/browsertrace/skyvern-debugging.html
+- Playwright + LLM guide: https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html
+- Computer-use guide: https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html
+
+### AOS mapping research 回复
+
+如果有人问 BrowserTrace 和 OWASP AOS 的对应关系，保持研究口径：
+
+- BrowserTrace is not an AOS compliance claim yet.
+- Current AOS mapping research maps BrowserTrace concepts to tool request/result
+  records, step correlation, URI-style screenshot/video artifacts, URL metadata,
+  model I/O summaries, and explicit redaction state.
+- Tracker: https://github.com/aaronlab/browsertrace/issues/237
+
+不要把这段写成认证、审计通过、标准覆盖或任何互动请求。
 
 ## 7. 每做完一个动作就记录指标
 

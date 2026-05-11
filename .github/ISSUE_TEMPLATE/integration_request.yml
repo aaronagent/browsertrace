@@ -47,6 +47,19 @@ body:
         - label: Workflow state or task metadata
         - label: Error message and failed step
   - type: textarea
+    id: target-evidence
+    attributes:
+      label: Target-selection evidence, if relevant
+      description: For wrong-target failures, include the selected element, intended element, nearby candidates, bounding boxes, accessible name/role/text, and whether the tooltip or label only appears after hover. If sharing trace evidence publicly, use `browsertrace export <run_id> --public -o public.html`.
+      placeholder: |
+        Selected: ...
+        Intended: ...
+        Nearby candidates / boxes: ...
+        Accessible name, role, text: ...
+        Tooltip or hover-only label: ...
+    validations:
+      required: false
+  - type: textarea
     id: hooks
     attributes:
       label: Relevant hooks or API calls

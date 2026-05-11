@@ -40,6 +40,13 @@ the public-safe demo HTML:
 https://github.com/aaronlab/browsertrace/releases/download/v0.1.17/browsertrace-demo-public.html
 ```
 
+For a compact list of browser-agent failure patterns and trace evidence to
+collect, use:
+
+```text
+https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html
+```
+
 ## What to inspect first
 
 Start at the first red step. Ask:
@@ -51,6 +58,20 @@ Start at the first red step. Ask:
 5. Was the failure caused by the current step, or did an earlier step set up the wrong state?
 
 That sequence usually finds the bug faster than reading logs from the top.
+
+## When failure happens before screenshots
+
+Some computer-use failures happen before the first page screenshot or URL
+exists. Persistent browser sessions can fail during profile selection, launch,
+CDP attach/probe, or recovery.
+
+In that case, do not rely only on a profile lock file or process name. The trace
+needs an earlier boundary: `session_mode`, redacted profile id, browser/session
+id when available, CDP attach/probe timing, timeout or error, approval source,
+recovery action, and final connection state.
+
+That is why the computer-use guide treats browser session recovery as traceable
+evidence, not just setup code before the agent starts.
 
 ## Record your own run
 
@@ -106,6 +127,27 @@ browsertrace doctor --json
 browsertrace list --status failed --json
 browsertrace show <run_id> --json
 ```
+
+## Stack-Specific Reply Links
+
+Use the closest guide when a tutorial reply turns into a workflow-specific
+debugging question:
+
+- Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
+- Stagehand guide: https://aaronlab.github.io/browsertrace/stagehand-debugging.html
+- Skyvern guide: https://aaronlab.github.io/browsertrace/skyvern-debugging.html
+- Playwright + LLM guide: https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html
+- Computer-use guide: https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html
+
+## AOS Mapping Research
+
+Use this only if a tutorial reader asks whether BrowserTrace maps to OWASP
+AOS. BrowserTrace is not an AOS compliance claim yet. Current research maps
+the closest BrowserTrace concepts to tool request/result records, step correlation,
+URI-style screenshot/video artifacts, URL metadata, model I/O summaries, and
+explicit redaction state.
+
+Tracker: https://github.com/aaronlab/browsertrace/issues/237
 
 ## Try it
 

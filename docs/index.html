@@ -278,6 +278,29 @@
     }
 
     @media (max-width: 620px) {
+      .topbar {
+        width: min(1180px, calc(100% - 24px));
+        flex-wrap: nowrap;
+        align-items: center;
+      }
+
+      nav {
+        flex: 1 1 auto;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        min-width: 0;
+        scrollbar-width: none;
+      }
+
+      nav::-webkit-scrollbar {
+        display: none;
+      }
+
+      nav a {
+        flex: 0 0 auto;
+        white-space: nowrap;
+      }
+
       main {
         width: min(1180px, calc(100% - 24px));
         padding-top: 22px;
@@ -286,6 +309,7 @@
       h1 {
         font-size: 34px;
         line-height: 1.08;
+        max-width: min(100%, 20ch);
       }
 
       .dek {
@@ -296,6 +320,21 @@
       .meta {
         gap: 8px;
         font-size: 13px;
+      }
+
+      .actions {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 2px;
+        scrollbar-width: none;
+      }
+
+      .actions::-webkit-scrollbar {
+        display: none;
+      }
+
+      .actions .button {
+        flex: 0 0 auto;
       }
     }
 
@@ -318,6 +357,7 @@
         <a href="https://github.com/aaronlab/browsertrace">GitHub</a>
         <a href="./debug-browser-agent-failure.html">Walkthrough</a>
         <a href="./integrations.html">Integrations</a>
+        <a href="./browser-agent-failure-patterns.html">Failure patterns</a>
         <a href="./compare-browser-agent-debugging.html">Compare</a>
         <a href="./browser-use-debugging.html">Browser Use</a>
         <a href="./stagehand-debugging.html">Stagehand</a>
@@ -349,6 +389,7 @@
       <div class="actions" aria-label="Actions">
         <a class="button primary" href="https://github.com/aaronlab/browsertrace">View repo</a>
         <a class="button" href="./debug-browser-agent-failure.html">Read walkthrough</a>
+        <a class="button" href="./browser-agent-failure-patterns.html">Failure patterns</a>
         <a class="button" href="./compare-browser-agent-debugging.html">Compare tools</a>
         <a class="button" href="./browser-use-debugging.html">Browser Use guide</a>
         <a class="button" href="./stagehand-debugging.html">Stagehand guide</a>

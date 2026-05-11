@@ -54,6 +54,9 @@ Current posted threads, for monitoring only:
 - Stagehand: https://github.com/browserbase/stagehand/discussions/2102
 - Skyvern: https://github.com/Skyvern-AI/skyvern/discussions/5931
 
+Technical link for future targeted replies:
+https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html
+
 Do not repost to those three communities unless a maintainer asks for a new
 thread or the original thread receives concrete feedback that needs a follow-up.
 
@@ -263,6 +266,38 @@ Metrics:
 uv run --python 3.11 python scripts/launch_metrics.py --append --note "after Skyvern discussion: <URL>"
 ```
 
+## Custom Computer-Use Agents
+
+Use this only in communities or existing threads where people are building
+custom computer-use agents, persistent browser profiles, or local browser
+session recovery logic.
+
+Short reply for relevant threads:
+
+```text
+If the failure happens before the first screenshot or URL exists, I would trace
+the persistent browser recovery boundary instead of only the agent step:
+
+- session_mode
+- redacted profile id
+- profile lock or stale process signal
+- CDP attach/probe timing and timeout
+- approval source and recovery action
+- final connection state
+
+Computer-use guide:
+https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html
+
+Repo:
+https://github.com/aaronlab/browsertrace
+```
+
+Metrics:
+
+```bash
+uv run --python 3.11 python scripts/launch_metrics.py --append --note "after computer-use community reply: <URL>"
+```
+
 ## Directories And Newsletters
 
 Use these after `v0.1.17` because the release has the packaged demo command and
@@ -279,6 +314,8 @@ Best targets:
 - FOSSHUNTER: open-source tool discovery; submit once from the owner account.
 - AgentsTide: AI agents and browser-agent directory; use the visible submit
   path, with `hello@agentstide.com` as email fallback.
+- AgentsIndex: AI agent tool directory; submit after owner sign-in under
+  Observability and Monitoring.
 - BuilderAI Tools: open-source AI developer tools directory; use
   `AI Observability & Evaluation`.
 - CLIHunt: AI agent and developer-tool registry; use category Other if no
@@ -357,6 +394,17 @@ browsertrace show <run_id> --json
   https://github.com/aaronlab/browsertrace/labels/good%20first%20issue
   Then link the First PR Recipe:
   https://github.com/aaronlab/browsertrace/blob/main/CONTRIBUTING.md#first-pr-recipe keeps the first contribution small and reviewable.
+
+## Stack-Specific Reply Links
+
+Use the closest guide when a targeted-community reply turns into a
+workflow-specific debugging question:
+
+- Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
+- Stagehand guide: https://aaronlab.github.io/browsertrace/stagehand-debugging.html
+- Skyvern guide: https://aaronlab.github.io/browsertrace/skyvern-debugging.html
+- Playwright + LLM guide: https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html
+- Computer-use guide: https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html
 
 ## Stop Rules
 

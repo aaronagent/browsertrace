@@ -18,6 +18,7 @@ to explain why a browser run failed.
 - Live demo page: https://aaronlab.github.io/browsertrace/
 - Raw exported trace: https://aaronlab.github.io/browsertrace/trace.html
 - Debugging walkthrough: https://aaronlab.github.io/browsertrace/debug-browser-agent-failure.html
+- Failure patterns page: https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html
 - Comparison guide: https://aaronlab.github.io/browsertrace/compare-browser-agent-debugging.html
 - Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
 - Stagehand guide: https://aaronlab.github.io/browsertrace/stagehand-debugging.html
@@ -49,11 +50,61 @@ to explain why a browser run failed.
 
 ## Known Failure Shapes
 
+- Failure patterns page: https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html
 - Browser Use icon-only target mismatch: the screenshot shows the right plus
   icon, but the agent clicks a nearby toolbar button because tooltip text is not
   an accessible name. Route users to the Browser Use guide and ask for live
   button HTML, accessibility snapshot, candidate bounding boxes, and the
   clicked element.
+- Browser Use remote CDP hang: a browser-state request can stall while the
+  websocket still appears open, and event-bus lock timing can decide whether
+  one stale browser session blocks unrelated sessions. Route users to the
+  Browser Use guide and ask for event id, browser/session/target id, and the
+  exact CDP method, request id, start/end/duration. Include websocket ping/pong
+  timestamps, lock timing, and recovery or unhealthy-session decisions.
+- Browser Use new-tab desync: a click or Enter action can open a new tab while
+  the agent keeps acting on the stale page context. Preserve page ids, tab
+  indexes, focused page before/after, `pages_before`, `pages_after`,
+  `new_pages`, action id, URL/title probe status, and any
+  `recommended_next_action` such as `switch_tab`.
+- Stagehand custom tool replay gap: when cached normal page actions replay but
+  a custom tool is skipped, separate the replay contract from the diagnostic trace contract.
+  For replay, capture tool name, serialized args, stable
+  tool-call or step id, status/error, and whether the tool is replay-safe. For
+  debugging, preserve a redacted boundary with URL/page id, result summary,
+  screenshot or observation ids, and errors. Avoid storing raw credentials.
+- Stagehand semantic verification boundary: verification should create an
+  inspectable action record, not only a boolean. Preserve the action proposal,
+  selected selector/role/text, target evidence, candidate elements, screenshot
+  or DOM snapshot ids, verifier type, verification status/reason, and execution
+  outcome such as executed, blocked, or escalated.
+- Skyvern action confidence gap: confidence is diagnostic, not authorized execution
+  or proof that the selected action is correct. For consequential actions, preserve
+  linked action proposal, authorization decision, and execution result records,
+  including target evidence, policy/scope checks, approvals, state delta, error,
+  and retry decision.
+- Skyvern VNC/CDP debug integration: visual and browser-state evidence should
+  share the same task, workflow, and step ids. Preserve VNC screenshot or
+  recording artifact ids, CDP DOM snapshot or selected-element summaries, URL,
+  frame/page id, action/tool name, status/error, retry or recovery decision,
+  connection lifecycle events, and redaction state for screenshots, URLs,
+  headers, cookies, and form values.
+- Skyvern multi-session VNC control drift: local or self-hosted VNC views can
+  drift from the workflow session or lose Take Control after reconnects.
+  Preserve VNC stream identity, CDP target identity, manual-control lease state,
+  workflow/task/session/display ids, isolation metadata, display conflict or
+  stale-stream failure causes, and reconnect/cleanup events.
+- Playwright + LLM artifact boundary: keep screenshots, URLs, and raw trace
+  files as durable local artifacts, not base64 screenshots copied into every
+  future model turn. Pass image pixels only when the next model call needs a
+  typed image content block; otherwise pass compact metadata such as artifact id, dimensions, digest, status, and error.
+- Computer-use persistent browser recovery: persistent browser agents can fail
+  before screenshot or URL capture because profile reuse, profile lock state, or
+  stale process detection blocks launch or attach. Capture launch/connect/recovery
+  events with `session_mode`, browser/session/target id, redacted profile id,
+  CDP attach/probe timing, timeout/error, detected process ids, approval source,
+  recovery action, and final connection state. Redact local profile paths and
+  process details by default.
 
 ## Quickstart
 
@@ -96,6 +147,24 @@ browsertrace doctor --json
 browsertrace list --status failed --json
 browsertrace show <run_id> --json
 ```
+
+Stack-specific troubleshooting links:
+
+- Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
+- Stagehand guide: https://aaronlab.github.io/browsertrace/stagehand-debugging.html
+- Skyvern guide: https://aaronlab.github.io/browsertrace/skyvern-debugging.html
+- Playwright + LLM guide: https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html
+- Computer-use guide: https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html
+
+## AOS Mapping Research
+
+BrowserTrace is not an AOS compliance claim yet. Current research maps the
+closest BrowserTrace concepts to tool request/result records, step correlation,
+URI-style screenshot/video artifacts, URL metadata, model I/O summaries, and
+explicit redaction state.
+
+Track the browser/GUI artifact mapping research here:
+https://github.com/aaronlab/browsertrace/issues/237
 
 ## Positioning
 

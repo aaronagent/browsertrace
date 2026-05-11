@@ -47,6 +47,17 @@ browsertrace list --status failed --json
 browsertrace show <run_id> --json
 ```
 
+## Stack-Specific Reply Links
+
+Use the closest guide when an awesome-list maintainer or reader asks for
+workflow-specific debugging context:
+
+- Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
+- Stagehand guide: https://aaronlab.github.io/browsertrace/stagehand-debugging.html
+- Skyvern guide: https://aaronlab.github.io/browsertrace/skyvern-debugging.html
+- Playwright + LLM guide: https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html
+- Computer-use guide: https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html
+
 ## Recommended Order
 
 | Priority | Target | Fit | Section | Owner action |
@@ -62,6 +73,8 @@ browsertrace show <run_id> --json
 | 9 | `e2b-dev/awesome-ai-sdks` | Strong | top-level tool entry | Submitted: https://github.com/e2b-dev/awesome-ai-sdks/pull/187; E2B CLA passed |
 | 10 | `jim-schwoebel/awesome_ai_agents` | Medium | `Building` -> `Tools` | Submitted: https://github.com/jim-schwoebel/awesome_ai_agents/pull/266 |
 | 11 | `ranpox/awesome-computer-use` | Strong | `Projects` | Submitted: https://github.com/ranpox/awesome-computer-use/pull/24 |
+| 12 | `trycua/acu` | Strong | `Open Source` -> `Automation` | Submitted: https://github.com/trycua/acu/pull/26 |
+| 13 | `Scottcjn/awesome-agents` | Strong | `Monitoring and Observability` | Submitted: https://github.com/Scottcjn/awesome-agents/pull/16 |
 | Skip | `e2b-dev/awesome-ai-agents` | Weak | n/a | Main list is for agents, not tools |
 | Skip | `supernalintelligence/Awesome-Gui-Agents` | Weak | n/a | Main list catalogs GUI agents, not developer/debugging tools; referenced contribution file is missing |
 | Skip | `ZJU-REAL/Awesome-GUI-Agents` | Weak | n/a | Strong topic match, but current README is primarily papers, datasets, and benchmarks rather than developer/debugging tools |
@@ -485,6 +498,80 @@ Verification:
 git diff --check
 ```
 
+## 12. ACU - Awesome Agents for Computer Use
+
+Target:
+
+```text
+https://github.com/trycua/acu
+```
+
+Status: submitted as https://github.com/trycua/acu/pull/26.
+
+Fit notes:
+
+- The target list curates resources about AI agents for Computer Use, including
+  open-source projects, frameworks, tools, and automation.
+- BrowserTrace fits as local debugging and trace tooling for failed
+  browser-agent and computer-use runs.
+- The PR adds one neutral `Open Source` -> `Automation` entry and does not ask
+  for stars, votes, or reciprocal placement.
+
+Submitted entry:
+
+```markdown
+- [BrowserTrace](https://github.com/aaronlab/browsertrace)
+  - Local-first trace viewer for failed browser-agent and computer-use runs
+  - Records screenshots, URLs, actions, model I/O, status, errors, and public-safe HTML exports
+```
+
+Verification:
+
+```bash
+git diff --check
+```
+
+## 13. Awesome Agents
+
+Target:
+
+```text
+https://github.com/Scottcjn/awesome-agents
+```
+
+Status: submitted as https://github.com/Scottcjn/awesome-agents/pull/16.
+
+Fit notes:
+
+- The target list explicitly covers AI agent platforms, frameworks, protocols,
+  tools, resources, and observability tools.
+- BrowserTrace fits the `Monitoring and Observability` section as a debugging
+  and trace viewer for failed browser-agent and computer-use runs.
+- The PR adds one neutral entry, follows the required
+  `[Name](link) - Description.` format, and does not include engagement
+  requests or reciprocal placement.
+- `Scottcjn/awesome-agents#12` proposes `agenttrace`, but BrowserTrace is not a duplicate.
+  It focuses on browser-agent/computer-use failure evidence rather than general
+  coding-agent session telemetry.
+
+Submitted entry:
+
+```markdown
+- [BrowserTrace](https://github.com/aaronlab/browsertrace) - Local-first trace viewer for debugging failed AI browser-agent and computer-use runs with screenshots, URLs, actions, model output, status, and redacted shareable exports.
+```
+
+Verification:
+
+```bash
+git diff --check
+curl -L -s -o /dev/null -w '%{http_code}\n' https://github.com/aaronlab/browsertrace
+npx --yes awesome-lint README.md
+```
+
+Note: `awesome-lint` reports existing target-repository issues such as duplicate
+links, ToC/license checks, and unrelated list-item formatting. The BrowserTrace
+row is not in the reported failures.
+
 ## Skip List
 
 - `e2b-dev/awesome-ai-agents`: the README says the list is only for AI
@@ -493,6 +580,9 @@ git diff --check
 - `supernalintelligence/Awesome-Gui-Agents`: the README focuses on GUI agents
   rather than developer/debugging tools, and its referenced contribution file is
   not present in the repository.
+- `opendilab/awesome-ui-agents`: strong topic match, but the `Tools` section
+  uses a paper-style format with authors, year, key, and code links rather than
+  a general developer/debugging tool format.
 - `ZJU-REAL/Awesome-GUI-Agents`: the repository is a strong topic match, but
   the current README focuses on papers, datasets, and benchmarks rather than
   developer/debugging tools.

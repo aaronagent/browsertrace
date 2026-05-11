@@ -33,6 +33,8 @@ uvx --from "browsertrace[ui]" browsertrace
 gh repo view aaronlab/browsertrace --json stargazerCount,forkCount,watchers,url,homepageUrl
 ```
 
+- Monitoring runbook: `docs/launch/monitoring-runbook.md`
+
 - Primary launch asset: `docs/demo.mp4`
 - README animation: `docs/demo.gif`
 - Static poster: `docs/demo-poster.png`
@@ -83,7 +85,7 @@ Codex can prepare assets, update the repo, write copy, audit links, and monitor 
   reusable source asset for future launch previews.
 - Submit `https://aaronlab.github.io/browsertrace/sitemap.xml` in Google Search
   Console and Bing Webmaster Tools.
-- Monitor the thirteen open third-party awesome-list and directory PRs plus the
+- Monitor the fifteen open third-party awesome-list and directory PRs plus the
   CLIs.dev submission issue, and respond only if maintainers ask for changes.
   Do not open additional list PRs unless the target is clearly high-fit and
   non-duplicative.
@@ -113,7 +115,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-11T08:09:11+00:00 | 3 | 998 | 14 | 0 | 11 | 0 | 28 | current monitor pass after #268 completed in 37b67b6 and replacement good-first issue #269 opened: https://github.com/aaronlab/browsertrace/issues/269; CI success 25658145526 and Pages success 25658145528; star goal remains incomplete; traffic views 112/41 unique, clones 5965/1214 unique |
+| 2026-05-11T20:01:43+00:00 | 3 | 998 | 17 | 0 | 12 | 1 | 31 | current monitor pass after contributor PR #308 merged and issue #304 closed; owner packets now surfaced on launch kit; star goal remains incomplete; traffic views 294/111 unique, clones 12398/2207 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 

@@ -10,6 +10,7 @@ keywords = [
     "ai",
     "agent",
     "agent-observability",
+    "agent-tracing",
     "ai-agent-debugging",
     "browser",
     "browser-agent",
@@ -25,6 +26,7 @@ keywords = [
     "playwright",
     "skyvern",
     "stagehand",
+    "trace-viewer",
 ]
 classifiers = [
     "Development Status :: 3 - Alpha",

@@ -293,6 +293,35 @@ page.bt_run.close()</code></pre>
     </section>
 
     <section>
+      <h2 id="debug-custom-tool-replay-gaps">Debug custom tool replay gaps</h2>
+      <p>If a Stagehand cache can replay normal page actions but skips a <code>custom_tool</code>, separate the replay contract from the diagnostic trace contract before changing cache behavior.</p>
+      <p>For replay, the cache needs enough data to call the current tool implementation again: tool name, serialized arguments, stable tool-call or step id, original status or error, and whether the tool is replay-safe. Credential-fill, payment, submit, or other side-effectful tools should require explicit opt-in before replay.</p>
+      <p>For debugging, the trace can preserve a richer boundary even when replay is disabled:</p>
+      <ol>
+        <li>Tool name and redacted argument summary.</li>
+        <li>Returned result summary, status, and error.</li>
+        <li>Timestamp or step index.</li>
+        <li>URL or page id before and after the tool call.</li>
+        <li>Optional screenshot or observation id before and after the tool call.</li>
+      </ol>
+      <p>That makes a skipped custom tool visible instead of letting the run continue with missing page state. Avoid storing raw credentials or sensitive tool args by default; prefer a redacted shape plus a runtime hook that can rehydrate secrets when replay is explicitly allowed.</p>
+      <p>Related community case: <a href="https://github.com/browserbase/stagehand/issues/1558">browserbase/stagehand#1558</a>.</p>
+    </section>
+
+    <section>
+      <h2 id="debug-semantic-verification-boundaries">Debug semantic verification boundaries</h2>
+      <p>If you add a semantic verification layer around <code>act</code>, keep the verifier result as an inspectable action boundary, not only a boolean. The useful debugging question is not just whether verification passed; it is why the target was authorized, blocked, or marked ambiguous.</p>
+      <ol>
+        <li>Record the action proposal: instruction, action type, selected selector, role, text, and confidence when available.</li>
+        <li>Record the target evidence: URL, screenshot id, DOM snapshot id, candidate elements, and semantic endpoint evidence.</li>
+        <li>Record the verification result: verifier type, status, and reason.</li>
+        <li>Record the execution outcome: executed, blocked, escalated, failed, URL after, and error.</li>
+      </ol>
+      <p>That split makes failure classes visible later: high-confidence proposal with failed verification, passed verification with wrong post-action state, ambiguous verification that still executed, or skipped verification before a later page-state failure.</p>
+      <p>Related community case: <a href="https://github.com/browserbase/stagehand/issues/1880">browserbase/stagehand#1880</a>.</p>
+    </section>
+
+    <section>
       <h2>Share only what is safe</h2>
       <pre><code>browsertrace list
 browsertrace export &lt;run_id&gt; -o full.html
