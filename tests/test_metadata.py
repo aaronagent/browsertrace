@@ -3423,6 +3423,29 @@ def test_show_hn_packet_uses_concrete_browser_use_failure_shape():
     assert "reposts" not in first_comment.lower()
 
 
+def test_show_hn_packet_links_stack_debugging_guides_for_replies():
+    project_root = Path(__file__).resolve().parents[1]
+    packet = (project_root / "docs" / "launch" / "day-2-show-hn-packet.md").read_text()
+
+    assert "## Stack-Specific Reply Links" in packet
+    guide_section = packet.split("## Stack-Specific Reply Links", 1)[1].split(
+        "## Likely Questions", 1
+    )[0]
+    stack_guides = [
+        "Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html",
+        "Stagehand guide: https://aaronlab.github.io/browsertrace/stagehand-debugging.html",
+        "Skyvern guide: https://aaronlab.github.io/browsertrace/skyvern-debugging.html",
+        "Playwright + LLM guide: https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html",
+        "Computer-use guide: https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html",
+    ]
+
+    for guide in stack_guides:
+        assert guide in guide_section
+    assert "stars" not in guide_section.lower()
+    assert "upvotes" not in guide_section.lower()
+    assert "reposts" not in guide_section.lower()
+
+
 def test_product_hunt_packet_includes_json_cli_reply_note():
     project_root = Path(__file__).resolve().parents[1]
     packet = (project_root / "docs" / "launch" / "day-4-product-hunt-packet.md").read_text()
@@ -3727,6 +3750,28 @@ browsertrace show <run_id> --json
     assert "stars" not in reply.lower()
     assert "upvotes" not in reply.lower()
     assert "reposts" not in reply.lower()
+
+
+def test_owner_next_actions_link_stack_debugging_guides_for_owner_replies():
+    project_root = Path(__file__).resolve().parents[1]
+    checklist = (project_root / "docs" / "launch" / "owner-next-actions.md").read_text()
+    fast_copy = checklist.split("Fast copy/paste blocks:", 1)[1].split(
+        "## 1. PyPI Published", 1
+    )[0]
+    stack_guides = [
+        "Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html",
+        "Stagehand guide: https://aaronlab.github.io/browsertrace/stagehand-debugging.html",
+        "Skyvern guide: https://aaronlab.github.io/browsertrace/skyvern-debugging.html",
+        "Playwright + LLM guide: https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html",
+        "Computer-use guide: https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html",
+    ]
+
+    assert "Stack-specific guide links" in fast_copy
+    for guide in stack_guides:
+        assert guide in fast_copy
+    assert "stars" not in fast_copy.lower()
+    assert "upvotes" not in fast_copy.lower()
+    assert "reposts" not in fast_copy.lower()
 
 
 def test_owner_next_actions_preserves_external_awesome_list_pr_numbers():

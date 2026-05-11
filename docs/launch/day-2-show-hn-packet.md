@@ -132,6 +132,16 @@ Do not:
 - Defend the project against every negative comment.
 - Delete and repost if the first submission performs badly.
 
+## Stack-Specific Reply Links
+
+Use the closest guide when a technical reply needs workflow-specific context:
+
+- Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
+- Stagehand guide: https://aaronlab.github.io/browsertrace/stagehand-debugging.html
+- Skyvern guide: https://aaronlab.github.io/browsertrace/skyvern-debugging.html
+- Playwright + LLM guide: https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html
+- Computer-use guide: https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html
+
 ## Likely Questions
 
 How is this different from Playwright Trace Viewer?
