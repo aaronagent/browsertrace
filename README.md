@@ -34,6 +34,10 @@ computer-use agents.
 **Try it:** [live demo](https://aaronlab.github.io/browsertrace/) ·
 [debugging walkthrough](https://aaronlab.github.io/browsertrace/debug-browser-agent-failure.html) ·
 [integrations](https://aaronlab.github.io/browsertrace/integrations.html) ·
+[Browser Use guide](https://aaronlab.github.io/browsertrace/browser-use-debugging.html) ·
+[Stagehand guide](https://aaronlab.github.io/browsertrace/stagehand-debugging.html) ·
+[Skyvern guide](https://aaronlab.github.io/browsertrace/skyvern-debugging.html) ·
+[Playwright + LLM guide](https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html) ·
 [computer-use guide](https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html) ·
 [examples](examples/) ·
 [integration request](https://github.com/aaronlab/browsertrace/issues/new?template=integration_request.yml) ·
