@@ -602,7 +602,8 @@ For concise contributor expectations and a welcoming baseline, read
 To choose the right bug, feature, integration, or cloud/team template, use the
 [issue template chooser](https://github.com/aaronlab/browsertrace/issues/new/choose).
 Before opening a PR, use the [pull request template](.github/PULL_REQUEST_TEMPLATE.md)
-and include a linked issue and test commands.
+and include a linked issue and test commands; check `git diff --stat` and
+`git diff --summary` for unexpected deleted or renamed files.
 For security-sensitive reports or private trace data, follow
 [SECURITY.md](SECURITY.md) before sharing details publicly.
 

@@ -1356,6 +1356,9 @@ def test_readme_links_pull_request_template_near_contributing():
         in contributing_section
     )
     assert "linked issue and test commands" in contributing_section
+    assert "git diff --stat" in contributing_section
+    assert "git diff --summary" in contributing_section
+    assert "unexpected deleted or renamed files" in contributing_section
     assert 'pip install "browsertrace[ui]"' in readme
     assert "hosted sharing" not in readme
 
