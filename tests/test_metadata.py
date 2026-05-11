@@ -5208,6 +5208,25 @@ def test_pull_request_template_links_stack_debugging_guides():
     assert "reposts" not in template.lower()
 
 
+def test_pull_request_template_has_research_only_aos_mapping_note():
+    project_root = Path(__file__).resolve().parents[1]
+    template = (project_root / ".github" / "PULL_REQUEST_TEMPLATE.md").read_text()
+    normalized = " ".join(template.split())
+
+    assert "AOS mapping note research-only" in normalized
+    assert "not making an AOS compliance claim yet" in normalized
+    assert "tool request/result records" in normalized
+    assert "step correlation" in normalized
+    assert "URI-style screenshot/video artifacts" in normalized
+    assert "URL metadata" in normalized
+    assert "model I/O summaries" in normalized
+    assert "explicit redaction state" in normalized
+    assert "https://github.com/aaronlab/browsertrace/issues/237" in normalized
+    assert "stars" not in template.lower()
+    assert "upvotes" not in template.lower()
+    assert "reposts" not in template.lower()
+
+
 def test_security_policy_has_private_report_path_without_email_placeholder():
     project_root = Path(__file__).resolve().parents[1]
     policy = (project_root / "SECURITY.md").read_text()
