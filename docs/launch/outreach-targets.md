@@ -125,6 +125,12 @@ real reply or question to reference.
    - Link to the existing BrowserTrace Skyvern adapter issue if asked for a
      tracking thread.
 
+## OWASP AOS Research Mapping Note
+
+BrowserTrace is not currently presented as an OWASP AOS compliance implementation. Current research mapping work focuses on aligning BrowserTrace metadata and browser artifacts with selected OWASP AOS trace concepts, including tool request/result records, step correlation, URI-style screenshot and video artifacts, URL metadata, model I/O summaries, and explicit redaction state tracking.
+
+See: Research: map BrowserTrace browser artifacts to OWASP AOS trace fields (#237).
+
 ## Do Not Do
 
 - Do not mass-post the same link to many communities.
