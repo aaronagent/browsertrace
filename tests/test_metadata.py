@@ -4609,7 +4609,7 @@ def test_owner_next_actions_links_stack_debugging_guides():
     project_root = Path(__file__).resolve().parents[1]
 
     expected = [
-        ("docs/launch/owner-next-actions.md", "Stack debugging guides:"),
+        ("docs/launch/owner-next-actions.md", "Stack-specific guide links:"),
         ("docs/launch/owner-next-actions.zh-CN.md", "Stack 调试指南："),
     ]
 

@@ -64,7 +64,7 @@ Fast copy/paste blocks:
 - First browser-form directories:
   `docs/launch/directory-submission-sheet.md#first-browser-form-directory-field-notes`
 
-Stack debugging guides:
+Stack-specific guide links:
 
 - Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
 - Stagehand guide: https://aaronlab.github.io/browsertrace/stagehand-debugging.html
