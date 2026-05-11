@@ -71,6 +71,11 @@ browsertrace export --help
 browsertrace export <run_id> --public -o public.html
 ```
 
+A healthy `browsertrace --help` output should list the main commands, including
+`serve`, `doctor`, `demo`, `list`, `show`, and `export`.
+`browsertrace export --help` should mention public-safe export options such as
+`--public` and an output path like `-o public.html` or `--out public.html`.
+
 ### BrowserTrace command cheat sheet
 
 | Command | Use when |
