@@ -181,6 +181,11 @@ browsertrace list --status failed --json
 browsertrace show <run_id> --json
 ```
 
+Expected output:
+- `browsertrace doctor --json` prints JSON describing your local install, configuration, and trace-store status.
+- `browsertrace list --status failed --json` prints recent failed runs as JSON, including run IDs and status values you can feed into automation.
+- `browsertrace show <run_id> --json` prints one run as JSON, including run details and step timeline data for that run.
+
 For compact AI/coding-agent troubleshooting context, use
 [`docs/llms.txt`](../docs/llms.txt); it includes JSON CLI checks, project links,
 and prompts.
