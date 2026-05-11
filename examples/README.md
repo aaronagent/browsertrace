@@ -115,6 +115,22 @@ or the
 [computer-use debugging guide](https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html)
 for the current debugging flow and field coverage.
 
+### Quick local verification for a no-service wrapper example
+
+For a compact first-run check, the Stagehand wrapper example should create one
+successful local trace that you can verify from the terminal before opening the UI:
+
+```bash
+BROWSERTRACE_HOME=/tmp/browsertrace-demo python examples/stagehand_wrapper_example.py
+BROWSERTRACE_HOME=/tmp/browsertrace-demo browsertrace list --limit 5
+BROWSERTRACE_HOME=/tmp/browsertrace-demo browsertrace show <run_id>
+```
+
+Expect `browsertrace list --limit 5` to show a recent
+`demo: stagehand checkout flow` run, and `browsertrace show <run_id>` to list
+two successful steps: `act: click the checkout button` and
+`extract: extract the order total`.
+
 For Playwright examples, install the browser runtime first:
 
 ```bash
