@@ -112,6 +112,8 @@ Use the guide closest to the example or agent stack you are trying:
 - Playwright + LLM guide: https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html
 - Computer-use guide: https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html
 
+For help deciding when to use BrowserTrace alongside other debugging tools, see the comparison guide: https://aaronlab.github.io/browsertrace/compare-browser-agent-debugging.html
+
 Browser Use users who pass run hooks directly to
 `agent.run(on_step_start=..., on_step_end=...)` should use
 `create_run_hooks`; see the
