@@ -126,6 +126,7 @@ targets:
 
 - `aaronlab/browsertrace#345`
 - `aaronlab/browsertrace#349`
+- `aaronlab/browsertrace#350`
 
 ```bash
 gh issue list --repo aaronlab/browsertrace --state open --limit 40 \
@@ -134,7 +135,7 @@ gh issue list --repo aaronlab/browsertrace --state open --limit 40 \
 gh pr list --repo aaronlab/browsertrace --state open --limit 20 \
   --json number,title,author,updatedAt,url,isDraft
 
-for num in 345 349; do
+for num in 345 349 350; do
   gh issue view "$num" --repo aaronlab/browsertrace \
     --json number,title,state,comments,updatedAt,url
 done
