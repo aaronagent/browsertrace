@@ -22,9 +22,17 @@ under `Applications` -> `Tools`.
 Your Browser Use agent failed. Logs say what code ran, but not what the agent
 actually saw, clicked, returned, or why the first red step happened.
 
+The current demo story is concrete: Browser Use tries to upload
+`file:///tmp/browsertrace-report.html`, navigates to the local file path
+instead, and the upload preview never appears.
+
 BrowserTrace records each Browser Use step as a local timeline: screenshot,
 URL, action, model input, model output, status, and error. Open the local UI
 and jump straight to the failed browser state.
+
+When you have a failed Browser Use run and a known-good run for the same task,
+`browsertrace compare <failed_run_id> <success_run_id>` reports the first
+divergent action, URL, status, or error.
 
 It is a local debugging artifact channel, not another prompt-history blob:
 screenshots, URLs, and model I/O stay in the local trace store, and

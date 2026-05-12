@@ -90,6 +90,10 @@ def test_readme_intro_is_browser_use_first_for_pypi_description():
     assert "> Local replay debugger for Browser Use failures." in intro
     assert "Your Browser Use agent failed." in intro
     assert "Browser Use is the primary path." in intro
+    assert "file:///tmp/browsertrace-report.html" in intro
+    assert "upload preview never appears" in intro
+    assert "`browsertrace compare <failed_run_id> <success_run_id>`" in intro
+    assert "divergent action, URL, status, or error" in intro
     assert "Local flight recorder" not in intro
     assert "AI browser agents" not in intro
 
