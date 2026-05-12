@@ -1031,3 +1031,4 @@ uv run --python 3.11 python scripts/launch_metrics.py --json
 | 2026-05-12T11:01:43+00:00 | 3 | 998 | 20 | 0 | 12 | 0 | 40 | current monitor pass after homepage Awesome-AI-Agents listing and IndexNow refresh: https://github.com/aaronlab/browsertrace/issues/16#issuecomment-4429832604; traffic views 354/132 unique, clones 16382/2819 unique |
 | 2026-05-12T11:33:37+00:00 | 3 | 998 | 20 | 0 | 12 | 0 | 40 | current monitor pass after Browser Use local HTML upload navigation docs coverage for #349; traffic views 354/132 unique, clones 16382/2819 unique |
 | 2026-05-12T11:39:24+00:00 | 3 | 998 | 20 | 0 | 11 | 0 | 40 | current monitor pass after README mentions Browser Use remote CDP hangs for #350; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-12T11:42:02+00:00 | 3 | 998 | 20 | 0 | 10 | 0 | 40 | current monitor pass after #350 closed with README remote CDP docs coverage; traffic views 354/132 unique, clones 16382/2819 unique |
