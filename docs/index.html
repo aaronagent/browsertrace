@@ -184,6 +184,10 @@
       font-size: 14px;
     }
 
+    .listing + .listing {
+      margin-top: 6px;
+    }
+
     .trace {
       height: min(760px, 72vh);
       min-height: 520px;
@@ -336,19 +340,13 @@
 
       .actions {
         gap: 8px;
-        flex-wrap: nowrap;
-        overflow-x: auto;
+        flex-wrap: wrap;
+        overflow-x: visible;
         padding-bottom: 6px;
-        scrollbar-width: none;
-        -webkit-overflow-scrolling: touch;
-      }
-
-      .actions::-webkit-scrollbar {
-        display: none;
       }
 
       .actions .button {
-        flex: 0 0 auto;
+        flex: 1 1 148px;
       }
     }
 
@@ -394,11 +392,8 @@
           <span>Local-first</span>
           <span>No signup</span>
           <span aria-label="Primary Browser Use run hooks" title="Primary Browser Use run hooks">Browser Use-first</span>
-          <span aria-label="Secondary Stagehand wrapper" title="Secondary Stagehand wrapper">Stagehand</span>
-          <span aria-label="Secondary Skyvern task/workflow wrapper" title="Secondary Skyvern task/workflow wrapper">Skyvern</span>
-          <span>Playwright + LLM</span>
-          <span>Computer Use</span>
         </div>
+        <p class="listing">Also supports Stagehand, Skyvern, Playwright + LLM, and custom computer-use workflows as secondary integrations.</p>
         <p class="listing">Listed in <a href="https://github.com/Jenqyang/Awesome-AI-Agents">Awesome-AI-Agents</a> under Applications -&gt; Tools.</p>
       </div>
       <div class="actions" aria-label="Actions">
@@ -406,11 +401,6 @@
         <a class="button" href="https://github.com/aaronlab/browsertrace">View repo</a>
         <a class="button" href="./debug-browser-agent-failure.html">Replay walkthrough</a>
         <a class="button" href="./browser-agent-failure-patterns.html">Failure patterns</a>
-        <a class="button" href="./compare-browser-agent-debugging.html">Compare tools</a>
-        <a class="button" href="./stagehand-debugging.html">Stagehand guide</a>
-        <a class="button" href="./skyvern-debugging.html">Skyvern guide</a>
-        <a class="button" href="./playwright-llm-debugging.html">Playwright + LLM guide</a>
-        <a class="button" href="./computer-use-agent-debugging.html">Computer Use guide</a>
       </div>
     </section>
 

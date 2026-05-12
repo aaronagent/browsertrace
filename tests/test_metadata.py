@@ -369,8 +369,11 @@ def test_homepage_names_current_adapter_surfaces():
     homepage = (project_root / "docs" / "index.html").read_text()
 
     assert "Browser Use run hooks" in homepage
-    assert "Stagehand wrapper" in homepage
-    assert "Skyvern task/workflow wrapper" in homepage
+    assert (
+        "Also supports Stagehand, Skyvern, Playwright + LLM, and custom computer-use workflows "
+        "as secondary integrations."
+        in homepage
+    )
 
 
 def test_homepage_and_readme_link_failure_patterns_page():
@@ -407,14 +410,11 @@ def test_homepage_intro_uses_mobile_friendly_copy():
         'aria-label="Primary Browser Use run hooks" title="Primary Browser Use run hooks">Browser Use-first</span>'
         in homepage
     )
-    assert (
-        'aria-label="Secondary Stagehand wrapper" title="Secondary Stagehand wrapper">Stagehand</span>'
-        in homepage
-    )
-    assert (
-        'aria-label="Secondary Skyvern task/workflow wrapper" title="Secondary Skyvern task/workflow wrapper">Skyvern</span>'
-        in homepage
-    )
+    intro = homepage.split('<section class="trace"', 1)[0]
+    assert "Stagehand</span>" not in intro
+    assert "Skyvern</span>" not in intro
+    assert "Playwright + LLM</span>" not in intro
+    assert "Also supports Stagehand, Skyvern, Playwright + LLM" in intro
     assert "font-size: clamp(34px, 6vw, 60px)" not in homepage
     assert "@media (max-width: 620px)" in homepage
     assert "@media (max-width: 420px)" in homepage
@@ -506,7 +506,7 @@ def test_homepage_intro_actions_do_not_squeeze_copy_column():
     assert "width: 100%" in actions_css.group("body")
 
 
-def test_homepage_mobile_nav_and_actions_scroll_without_tall_button_stack():
+def test_homepage_mobile_nav_stays_scrollable_and_actions_wrap_compactly():
     project_root = Path(__file__).resolve().parents[1]
     homepage = (project_root / "docs" / "index.html").read_text()
     mobile_css = re.search(
@@ -529,16 +529,16 @@ def test_homepage_mobile_nav_and_actions_scroll_without_tall_button_stack():
     )
     assert re.search(r"nav a\s*\{[^}]*white-space: nowrap;", mobile_body, re.S)
     assert re.search(
-        r"\.actions\s*\{[^}]*flex-wrap: nowrap;[^}]*overflow-x: auto;",
+        r"\.actions\s*\{[^}]*flex-wrap: wrap;[^}]*overflow-x: visible;",
         mobile_body,
         re.S,
     )
     assert re.search(
-        r"\.actions \.button\s*\{[^}]*flex: 0 0 auto;",
+        r"\.actions \.button\s*\{[^}]*flex: 1 1 148px;",
         mobile_body,
         re.S,
     )
-    assert ".actions::-webkit-scrollbar" in mobile_body
+    assert ".actions::-webkit-scrollbar" not in mobile_body
 
 
 def test_homepage_intro_no_longer_needs_tablet_sidebar_override():
