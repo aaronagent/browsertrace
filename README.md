@@ -142,6 +142,13 @@ and prompts. The hosted copy is [`docs/llms.txt`](docs/llms.txt).
 - Workflow discussion after `browsertrace demo`: https://github.com/aaronlab/browsertrace/discussions/6.
 - Use the [example matrix](examples/#example-matrix) to choose another runnable demo after `browsertrace demo`.
 - The example matrix lists no-service examples.
+- For Browser Use-shaped no-service checks from a source checkout, run
+  `python examples/browser_use_callback_demo.py`,
+  `python examples/browser_use_run_hooks_demo.py`,
+  `browsertrace list --limit 5`, and `browsertrace show <run_id>`.
+  Expect `demo: browser-use callback flow`,
+  `demo: browser-use run hooks flow`, `search_google(query=BrowserTrace)`,
+  and `click(selector=#result-1)`.
 - `browsertrace show <run_id>` inspects a listed run from the terminal and prints its step timeline with action labels, status, and errors.
 - `browsertrace show <run_id> --json` prints one run as JSON with run details and step actions.
 - `browsertrace export <run_id> --public -o public.html` creates a public-safe, self-contained HTML report from a listed run that you can attach to a bug report or issue.

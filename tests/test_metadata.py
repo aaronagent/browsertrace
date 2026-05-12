@@ -2122,6 +2122,24 @@ def test_readme_explains_no_service_examples_near_install_checks():
     assert "hosted sharing" not in readme
 
 
+def test_readme_includes_browser_use_no_service_demo_expected_output():
+    project_root = Path(__file__).resolve().parents[1]
+    readme = (project_root / "README.md").read_text()
+    install_section = readme.split("## Install From PyPI", 1)[1].split(
+        "For a walkthrough", 1
+    )[0]
+
+    assert "python examples/browser_use_callback_demo.py" in install_section
+    assert "python examples/browser_use_run_hooks_demo.py" in install_section
+    assert "demo: browser-use callback flow" in install_section
+    assert "demo: browser-use run hooks flow" in install_section
+    assert "browsertrace show <run_id>" in install_section
+    assert "search_google(query=BrowserTrace)" in install_section
+    assert "click(selector=#result-1)" in install_section
+    assert "stars" not in install_section.lower()
+    assert "upvotes" not in install_section.lower()
+
+
 def test_readme_links_recent_runs_near_install_tag():
     project_root = Path(__file__).resolve().parents[1]
     readme = (project_root / "README.md").read_text()
