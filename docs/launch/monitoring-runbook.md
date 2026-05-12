@@ -119,7 +119,7 @@ then inspect any recently claimed issue or open contributor PR. Current focused
 targets:
 
 - `aaronlab/browsertrace#345`
-- `aaronlab/browsertrace#347`
+- `aaronlab/browsertrace#349`
 
 ```bash
 gh issue list --repo aaronlab/browsertrace --state open --limit 40 \

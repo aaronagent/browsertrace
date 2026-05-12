@@ -117,7 +117,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T06:39:04+00:00 | 3 | 998 | 20 | 0 | 10 | 0 | 40 | current monitor pass after contributor PR #348 merged, issue #347 closed, and AI-Browser-Tools PR #1 opened/tracked: https://github.com/danielrosehill/AI-Browser-Tools/pull/1; star goal remains incomplete; traffic views 294/111 unique, clones 12398/2207 unique |
+| 2026-05-12T06:41:49+00:00 | 3 | 998 | 20 | 0 | 11 | 0 | 40 | current monitor pass after replacement good-first issue #349 opened for Browser Use local HTML upload navigation mistakes: https://github.com/aaronlab/browsertrace/issues/349; star goal remains incomplete; traffic views 294/111 unique, clones 12398/2207 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
