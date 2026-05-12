@@ -421,6 +421,18 @@ def test_homepage_intro_uses_mobile_friendly_copy():
     assert "text-wrap: wrap" in homepage
 
 
+def test_homepage_surfaces_failed_vs_good_compare_value():
+    project_root = Path(__file__).resolve().parents[1]
+    homepage = (project_root / "docs" / "index.html").read_text()
+    intro = homepage.split('<section class="trace"', 1)[0]
+
+    assert "failed-vs-good run differences" in homepage
+    assert "<code>browsertrace compare</code>" in intro
+    assert "known-good run" in intro
+    assert "first divergent action, URL, status, or error" in intro
+    assert 'href="./compare-browser-agent-debugging.html">Compare runs</a>' in intro
+
+
 def test_homepage_download_links_use_current_release():
     project_root = Path(__file__).resolve().parents[1]
     homepage = (project_root / "docs" / "index.html").read_text()
@@ -4930,6 +4942,9 @@ def test_owner_social_post_packet_is_short_and_linked():
     assert "live demo now replays the local HTML upload navigation failure" in packet
     assert "file:///tmp/browsertrace-report.html" in packet
     assert "upload preview never appeared" in packet
+    assert "v0.1.19 adds `browsertrace compare" in packet
+    assert "failed vs good runs" in packet
+    assert "first divergent action, URL, status, or error" in packet
     assert "secondary integrations" in packet
     assert "Stagehand" in packet
     assert "Skyvern" in packet

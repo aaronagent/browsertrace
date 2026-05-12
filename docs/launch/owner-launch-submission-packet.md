@@ -46,7 +46,7 @@ I've been building with Browser Use and kept hitting the same debugging loop: a 
 
 Concrete Browser Use failure shapes include new-tab desync, local HTML upload navigation being misread as a URL, remote CDP hangs, and icon-only buttons where the screenshot looks obvious but the accessible target is missing.
 
-BrowserTrace is a small Python library plus local web UI that records each Browser Use step: screenshot, URL, action, model input, model output, status, and error. You open localhost:3000, click the run, and jump to the failed step.
+BrowserTrace is a small Python library plus local web UI that records each Browser Use step: screenshot, URL, action, model input, model output, status, and error. You open localhost:3000, click the run, and jump to the failed step. If you have a known-good run for the same task, `browsertrace compare <failed_run_id> <success_run_id>` reports the first divergent action, URL, status, or error before you open the UI.
 
 It is intentionally local-first: no signup, no cloud, SQLite plus filesystem, MIT licensed. Browser Use is the primary path; Stagehand, Skyvern, Playwright + LLM scripts, and custom computer-use agents are secondary integrations.
 
@@ -107,6 +107,8 @@ The agent would fail at step 47, but by then the browser was gone. I could see w
 Concrete Browser Use failure shapes include new-tab desync, local HTML upload navigation mistakes, remote CDP hangs, and icon-only buttons where the screenshot looks obvious but the accessible target is missing.
 
 BrowserTrace keeps the missing context locally: screenshots, URLs, actions, model input/output, failed-step errors, and exportable HTML traces, including `--public` for public sharing.
+
+If you have one failed Browser Use run and one successful run for the same task, `browsertrace compare <failed_run_id> <success_run_id>` reports the first divergent action, URL, status, or error before you open the local UI.
 
 Browser Use is the primary path. Stagehand, Skyvern, Playwright + LLM scripts, and custom computer-use agents are secondary integrations.
 

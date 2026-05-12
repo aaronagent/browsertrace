@@ -234,6 +234,12 @@ Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging
 Repo: https://github.com/aaronlab/browsertrace
 ```
 
+```text
+v0.1.19 adds `browsertrace compare`: give it a failed Browser Use run and a known-good run, and it reports the first divergent action, URL, status, or error.
+
+That is the fastest path from "the agent failed" to "this is where it drifted."
+```
+
 ## X Follow-Up
 
 Non-Premium-safe follow-up. Post each `text` block as one X post.
@@ -255,8 +261,14 @@ pip install "browsertrace[ui]"
 browsertrace doctor
 browsertrace demo
 browsertrace
+```
 
-I want feedback from people building with Browser Use: what state should a trace capture when a run fails?
+```text
+Then compare a failed Browser Use run with a good run:
+
+browsertrace compare <failed_run_id> <success_run_id>
+
+I want feedback from Browser Use builders: what state should a trace capture when a run fails?
 ```
 
 ## LinkedIn
@@ -274,8 +286,11 @@ BrowserTrace records each step as a local timeline:
 - Model input/output
 - Step status and error
 - Exportable HTML trace, with a redacted sharing mode
+- Failed-vs-known-good comparison with `browsertrace compare`
 
 Browser Use is the primary path. Stagehand, Skyvern, Playwright + LLM scripts, and custom computer-use agents are secondary integrations.
+
+If you have one failed Browser Use run and one successful run for the same task, `browsertrace compare <failed_run_id> <success_run_id>` reports the first divergent action, URL, status, or error before you open the local UI.
 
 Live demo: https://aaronlab.github.io/browsertrace/
 Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
@@ -307,7 +322,7 @@ I've been building with Browser Use and kept hitting the same debugging loop: a 
 
 Concrete Browser Use failure shapes include new-tab desync, local HTML upload navigation being misread as a URL, remote CDP hangs, and icon-only buttons where the screenshot looks obvious but the accessible target is missing.
 
-BrowserTrace is a small Python library plus local web UI that records each Browser Use step: screenshot, URL, action, model input, model output, status, and error. You open localhost:3000, click the run, and jump to the failed step.
+BrowserTrace is a small Python library plus local web UI that records each Browser Use step: screenshot, URL, action, model input, model output, status, and error. You open localhost:3000, click the run, and jump to the failed step. If you have a known-good run for the same task, `browsertrace compare <failed_run_id> <success_run_id>` reports the first divergent action, URL, status, or error before you open the UI.
 
 It is intentionally local-first:
 - no signup
@@ -372,6 +387,7 @@ BrowserTrace keeps the missing context locally:
 - actions
 - model input/output
 - failed-step errors
+- failed-vs-known-good comparison with `browsertrace compare`
 - exportable HTML traces, including `--public` for public sharing
 
 Browser Use is the primary path. Stagehand, Skyvern, Playwright + LLM scripts, and custom computer-use agents are secondary integrations.
@@ -450,8 +466,11 @@ BrowserTrace 会本地记录每一步：
 - action
 - model input/output
 - 错误步骤
+- failed run 和 good run 的第一处分歧
 
 本地跑，不上云，MIT 开源。
+
+新版还加了 `browsertrace compare <failed_run_id> <success_run_id>`：同一个 Browser Use 任务有失败和成功两条记录时，可以先在命令行看到第一处 action、URL、status 或 error 分歧。
 
 Live demo: https://aaronlab.github.io/browsertrace/
 Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
@@ -467,7 +486,7 @@ GitHub: https://github.com/aaronlab/browsertrace
 
 以前 Browser Use 挂了，只能看一堆 log，很难知道它当时看到了什么、为什么点错、哪一步开始偏了。
 
-BrowserTrace 会把每一步录成 timeline：截图、URL、动作、模型输入输出、错误信息。打开本地 UI 就能直接跳到失败步骤。
+BrowserTrace 会把每一步录成 timeline：截图、URL、动作、模型输入输出、错误信息。打开本地 UI 就能直接跳到失败步骤；如果同一个任务有 failed run 和 good run，也可以用 `browsertrace compare` 先找第一处 action、URL、status 或 error 分歧。
 
 先适合 Browser Use，也保留 Stagehand / Skyvern / Playwright + LLM / computer-use secondary integrations。
 

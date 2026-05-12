@@ -38,7 +38,9 @@ I wanted to suggest BrowserTrace for your developer tools queue.
 BrowserTrace is an MIT-licensed local debugger for Browser Use failures. It
 records each Browser Use step as a timeline with screenshot, URL, action, model
 input/output, status, and error, then exports a standalone HTML trace with
-optional redaction.
+optional redaction. When a failed Browser Use run has a known-good baseline,
+`browsertrace compare <failed_run_id> <success_run_id>` reports the first
+divergent action, URL, status, or error before the developer opens the UI.
 
 It is useful for developers building Browser Use workflows, especially when a
 failed run needs screenshot, URL, model decision, and failed-step evidence in
@@ -82,7 +84,9 @@ Short description:
 BrowserTrace is an MIT-licensed local debugger for Browser Use failures. It
 records each Browser Use step as a timeline with screenshot, URL, action, model
 input/output, status, and error, then exports a standalone HTML trace with
-optional redaction.
+optional redaction. When a failed Browser Use run has a known-good baseline,
+`browsertrace compare <failed_run_id> <success_run_id>` reports the first
+divergent action, URL, status, or error before the developer opens the UI.
 
 Example use case:
 Debugging a Browser Use run where logs do not show the screenshot, URL, action,

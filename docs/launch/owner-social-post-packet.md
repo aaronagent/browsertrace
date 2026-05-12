@@ -22,6 +22,12 @@ Current demo angle:
   the page navigates to the local file path and the upload preview never
   appeared. Use this as the concrete story in the first post when possible.
 
+Current compare angle:
+
+- `v0.1.19` adds `browsertrace compare <failed_run_id> <success_run_id>` for
+  Browser Use runs with a known-good baseline. It reports the first divergent
+  action, URL, status, or error before the user opens the local UI.
+
 Optional credibility note:
 
 - BrowserTrace is now listed in `Jenqyang/Awesome-AI-Agents` under
@@ -45,9 +51,9 @@ action, model output, status, and the failed step highlighted in red.
 Use this if you only have one minute. Attach `docs/demo.mp4`.
 
 ```text
-Browser Use failed but logs do not show what the agent saw?
+Browser Use failed but logs do not show what changed?
 
-I built BrowserTrace: a local replay debugger for Browser Use failures. It records screenshot, URL, action, model output, and the first red step.
+BrowserTrace replays screenshot, URL, action, model output, and the first red step. v0.1.19 adds `browsertrace compare` for failed vs good runs.
 
 What should it capture?
 https://github.com/aaronlab/browsertrace
@@ -78,6 +84,12 @@ It records each failed Browser Use run as a local timeline:
 
 Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
 Live demo: https://aaronlab.github.io/browsertrace/
+```
+
+```text
+v0.1.19 adds `browsertrace compare`: give it a failed Browser Use run and a known-good run, and it reports the first divergent action, URL, status, or error.
+
+That is the fastest path from "the agent failed" to "this is where it drifted."
 ```
 
 ```text
@@ -112,8 +124,11 @@ BrowserTrace records each step as a local timeline:
 - Model input/output
 - Step status and error
 - Exportable HTML trace, with a redacted sharing mode
+- Failed-vs-known-good comparison with `browsertrace compare`
 
 Browser Use is the primary path. Stagehand, Skyvern, Playwright + LLM scripts, and custom computer-use agents are supported as secondary integrations.
+
+If you have one failed Browser Use run and one successful run for the same task, `browsertrace compare <failed_run_id> <success_run_id>` reports the first divergent action, URL, status, or error before you open the local UI.
 
 The live demo now replays the local HTML upload navigation failure: a Browser Use-shaped run tries to upload file:///tmp/browsertrace-report.html, navigates to the local file path instead, and the upload preview never appeared.
 
@@ -140,8 +155,11 @@ BrowserTrace 会本地记录每一步：
 - action
 - model input/output
 - 错误步骤
+- failed run 和 good run 的第一处分歧
 
 本地跑，不上云，MIT 开源。
+
+新版还加了 `browsertrace compare <failed_run_id> <success_run_id>`：同一个 Browser Use 任务有失败和成功两条记录时，可以先在命令行看到第一处 action、URL、status 或 error 分歧。
 
 现在 live demo 展示的是一个具体 Browser Use 失败：它想上传 file:///tmp/browsertrace-report.html，但页面跳到了本地文件路径，upload preview never appeared。
 
@@ -162,7 +180,7 @@ GitHub: https://github.com/aaronlab/browsertrace
 
 以前 Browser Use 挂了，只能看一堆 log，很难知道它当时看到了什么、为什么点错、哪一步开始偏了。
 
-BrowserTrace 会把每一步录成 timeline：截图、URL、动作、模型输入输出、错误信息。打开本地 UI 就能直接跳到失败步骤。
+BrowserTrace 会把每一步录成 timeline：截图、URL、动作、模型输入输出、错误信息。打开本地 UI 就能直接跳到失败步骤；如果同一个任务有 failed run 和 good run，也可以用 `browsertrace compare` 先找第一处 action、URL、status 或 error 分歧。
 
 现在 live demo 回放的就是 local HTML upload navigation failure：Browser Use 想上传 file:///tmp/browsertrace-report.html，但实际跳到了本地文件路径，upload preview never appeared。
 
