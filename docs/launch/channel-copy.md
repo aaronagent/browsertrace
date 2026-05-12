@@ -473,6 +473,8 @@ BrowserTrace 会本地记录每一步：
 
 新版还加了 `browsertrace compare <failed_run_id> <success_run_id>`：同一个 Browser Use 任务有失败和成功两条记录时，可以先在命令行看到第一处 action、URL、status 或 error 分歧。
 
+现在 live demo 展示的是一个具体 Browser Use 失败：它想上传 file:///tmp/browsertrace-report.html，但页面跳到了本地文件路径，上传预览没有出现。
+
 Live demo: https://aaronlab.github.io/browsertrace/
 Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
 GitHub: https://github.com/aaronlab/browsertrace
@@ -488,6 +490,8 @@ GitHub: https://github.com/aaronlab/browsertrace
 以前 Browser Use 挂了，只能看一堆 log，很难知道它当时看到了什么、为什么点错、哪一步开始偏了。
 
 BrowserTrace 会把每一步录成 timeline：截图、URL、动作、模型输入输出、错误信息。打开本地 UI 就能直接跳到失败步骤；如果同一个任务有 failed run 和 good run，也可以用 `browsertrace compare` 先找第一处 action、URL、status 或 error 分歧。
+
+现在 live demo 回放的就是 local HTML upload navigation failure：Browser Use 想上传 file:///tmp/browsertrace-report.html，但实际跳到了本地文件路径，上传预览没有出现。
 
 先适合 Browser Use，也保留 Stagehand / Skyvern / Playwright + LLM / computer-use secondary integrations。
 
