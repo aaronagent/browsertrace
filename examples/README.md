@@ -111,6 +111,7 @@ Use the guide closest to the example or agent stack you are trying:
 - Skyvern guide: https://aaronlab.github.io/browsertrace/skyvern-debugging.html
 - Playwright + LLM guide: https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html
 - Computer-use guide: https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html
+- Failure patterns overview: https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html
 
 Browser Use users who pass run hooks directly to
 `agent.run(on_step_start=..., on_step_end=...)` should use
