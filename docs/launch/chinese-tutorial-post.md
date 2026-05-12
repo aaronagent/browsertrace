@@ -142,10 +142,10 @@ http://127.0.0.1:3000
 点击：
 
 ```text
-demo: checkout agent fails on disabled button
+demo: Browser Use local HTML upload navigation failure
 ```
 
-你会看到一个失败的 checkout agent trace。它不是为了展示复杂 UI，而是为了复现一个最小调试循环：agent 以为按钮可点，但页面状态实际上不允许继续。
+你会看到一个失败的 Browser Use 本地 HTML 上传 trace。它不是为了展示复杂 UI，而是为了复现一个最小调试循环：agent 以为自己在上传文件，但 URL 已经跳到了本地 HTML 路径，上传页面上的 preview 从未出现。
 
 如果你不想本地安装，也可以直接看导出的静态 trace：
 

@@ -864,6 +864,18 @@ def test_trace_demo_page_has_discovery_metadata():
     assert metadata["isPartOf"]["codeRepository"] == "https://github.com/aaronlab/browsertrace"
 
 
+def test_trace_demo_page_uses_browser_use_first_failure_story():
+    project_root = Path(__file__).resolve().parents[1]
+    page = (project_root / "docs" / "trace.html").read_text()
+
+    assert "demo: Browser Use local HTML upload navigation failure" in page
+    assert "Browser Use navigated away from the upload page" in page
+    assert "file:///tmp/browsertrace-report.html" in page
+    assert "assert uploaded file preview" in page
+    assert "demo: checkout agent fails on disabled button" not in page
+    assert "click disabled checkout button" not in page
+
+
 def test_failure_patterns_page_has_discovery_metadata_and_examples():
     project_root = Path(__file__).resolve().parents[1]
     page = (project_root / "docs" / "browser-agent-failure-patterns.html").read_text()
@@ -2284,7 +2296,8 @@ def test_readme_explains_demo_run_title_near_install_checks():
     )[0]
 
     assert (
-        "The demo run is named `demo: checkout agent fails on disabled button` "
+        "The demo run is named "
+        "`demo: Browser Use local HTML upload navigation failure` "
         "in the local UI"
     ) in install_section
     assert 'pip install "browsertrace[ui]"' in install_section
@@ -2398,7 +2411,7 @@ def test_readme_groups_install_tips_as_compact_list():
         "- The local UI binds to `127.0.0.1` by default",
         "- After `browsertrace` starts the local UI, open `http://127.0.0.1:3000` and inspect the demo run",
         "- `browsertrace` prints `BrowserTrace UI: http://127.0.0.1:<port>` when the local server starts",
-        "- The demo run is named `demo: checkout agent fails on disabled button` in the local UI",
+        "- The demo run is named `demo: Browser Use local HTML upload navigation failure` in the local UI",
         "- `BROWSERTRACE_HOME=/tmp/browsertrace-demo browsertrace demo` writes demo traces to an isolated trace store",
         "- By default, BrowserTrace stores local traces under `~/.browsertrace/`; set `BROWSERTRACE_HOME` to use an isolated trace store",
         '- Windows PowerShell users can set `$env:BROWSERTRACE_HOME = "$env:TEMP\\browsertrace-demo"` before running BrowserTrace commands',

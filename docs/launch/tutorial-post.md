@@ -29,7 +29,7 @@ browsertrace demo
 browsertrace
 ```
 
-Open `http://127.0.0.1:3000`, then click `demo: checkout agent fails on disabled button`.
+Open `http://127.0.0.1:3000`, then click `demo: Browser Use local HTML upload navigation failure`.
 
 The timeline shows the steps the agent took, including screenshots, actions, model input/output, and the failed step.
 

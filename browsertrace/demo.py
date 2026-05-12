@@ -9,7 +9,7 @@ from typing import Union
 from .tracer import Tracer
 
 
-DEMO_NAME = "demo: checkout agent fails on disabled button"
+DEMO_NAME = "demo: Browser Use local HTML upload navigation failure"
 
 PNG_1X1 = base64.b64decode(
     "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/p9sAAAAASUVORK5CYII="
@@ -25,58 +25,76 @@ def create_demo_run(home: Union[str, Path, None] = None) -> str:
         with tracer.run(DEMO_NAME) as run:
             run_id = run.id
             run.step(
-                action="open checkout page",
-                url="https://shop.example.test/checkout",
+                action="open Browser Use upload page",
+                url="https://app.example.test/upload",
                 screenshot=PNG_1X1,
                 model_input={
-                    "task": "Complete checkout for the current cart.",
-                    "observation": "Checkout page loaded.",
+                    "task": "Upload the local HTML report with Browser Use.",
+                    "browser_state": {
+                        "url": "about:blank",
+                        "title": "New tab",
+                    },
                 },
                 model_output={
-                    "thought": "I need to inspect the checkout form before submitting.",
-                    "next_action": "inspect form",
+                    "thought": "Open the app upload page before attaching the local file.",
+                    "action": "go_to_url",
+                    "url": "https://app.example.test/upload",
                 },
             )
             run.step(
-                action="inspect payment form",
-                url="https://shop.example.test/checkout",
+                action="select local HTML fixture",
+                url="https://app.example.test/upload",
                 screenshot=PNG_1X1,
                 model_input={
-                    "visible_fields": ["email", "card", "shipping"],
-                    "button_text": "Place order",
+                    "browser_state": {
+                        "url": "https://app.example.test/upload",
+                        "title": "Upload report",
+                    },
+                    "file_input": "input[type=file]",
+                    "candidate_file": "file:///tmp/browsertrace-report.html",
                 },
                 model_output={
-                    "thought": "All fields appear complete. I should click the primary checkout button.",
-                    "selector": "button.checkout.primary",
-                    "next_action": "click",
+                    "thought": "The upload control needs the local HTML file.",
+                    "action": "upload_file",
+                    "path": "file:///tmp/browsertrace-report.html",
+                    "expected": "preview renders uploaded HTML",
                 },
             )
             run.step(
-                action="model selects checkout button",
-                url="https://shop.example.test/checkout",
+                action="Browser Use navigates to local file path",
+                url="file:///tmp/browsertrace-report.html",
                 screenshot=PNG_1X1,
                 model_input={
-                    "dom_snippet": "<button class='checkout primary' disabled>Place order</button>",
+                    "previous_url": "https://app.example.test/upload",
+                    "selected_action": "upload_file",
+                    "path": "file:///tmp/browsertrace-report.html",
                 },
                 model_output={
-                    "thought": "The primary checkout button is the correct target.",
-                    "selector": "button.checkout.primary",
-                    "risk": "The model missed the disabled attribute.",
+                    "action": "navigate",
+                    "url": "file:///tmp/browsertrace-report.html",
+                    "risk": "The local file path was treated as a navigation target instead of an upload payload.",
                 },
             )
             failed_step = run.step(
-                action="click disabled checkout button",
-                url="https://shop.example.test/checkout",
+                action="assert uploaded file preview",
+                url="file:///tmp/browsertrace-report.html",
                 screenshot=PNG_1X1,
-                model_input={"selector": "button.checkout.primary"},
+                model_input={
+                    "expected_url": "https://app.example.test/upload",
+                    "actual_url": "file:///tmp/browsertrace-report.html",
+                    "expected_preview": "browsertrace-report.html",
+                },
                 model_output={
-                    "action": "click",
-                    "selector": "button.checkout.primary",
-                    "expected": "Order confirmation page",
+                    "status": "failed",
+                    "missing": "uploaded file preview",
+                    "actual_url": "file:///tmp/browsertrace-report.html",
                 },
             )
             try:
-                raise RuntimeError("button was disabled; click did not submit the form")
+                raise RuntimeError(
+                    "Browser Use navigated away from the upload page; "
+                    "upload preview never appeared"
+                )
             except RuntimeError as exc:
                 run.update_step(
                     failed_step,

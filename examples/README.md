@@ -50,7 +50,7 @@ browsertrace
 ```
 
 Open `http://127.0.0.1:3000` and inspect
-`demo: checkout agent fails on disabled button`. From a source checkout,
+`demo: Browser Use local HTML upload navigation failure`. From a source checkout,
 `python examples/no_api_failure_demo.py` creates the same trace.
 
 For a downloadable public-safe export that omits prompt/model I/O, screenshots,

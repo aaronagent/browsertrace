@@ -5,7 +5,7 @@ Run:
     browsertrace
 
 Then open http://127.0.0.1:3000 and click
-"demo: checkout agent fails on disabled button".
+"demo: Browser Use local HTML upload navigation failure".
 """
 
 from __future__ import annotations
@@ -17,7 +17,10 @@ from browsertrace.demo import create_demo_run
 
 def main() -> None:
     create_demo_run(home=os.environ.get("BROWSERTRACE_HOME"))
-    print("Run failed as expected: RuntimeError: button was disabled; click did not submit the form")
+    print(
+        "Run failed as expected: RuntimeError: Browser Use navigated away "
+        "from the upload page; upload preview never appeared"
+    )
     print("Done. Run `browsertrace` and open http://127.0.0.1:3000")
 
 

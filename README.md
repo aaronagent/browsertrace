@@ -81,7 +81,7 @@ shows healthy `browsertrace doctor` output for the `Home:`, `Database:`,
 `Runs:`, and `UI dependencies:` status lines.
 
 Open `http://127.0.0.1:3000`, click
-`demo: checkout agent fails on disabled button`, and inspect the failed step.
+`demo: Browser Use local HTML upload navigation failure`, and inspect the failed step.
 
 ## Install From PyPI
 
@@ -154,7 +154,7 @@ and prompts. The hosted copy is [`docs/llms.txt`](docs/llms.txt).
 - The local UI binds to `127.0.0.1` by default; `BROWSERTRACE_PORT` changes only the port.
 - After `browsertrace` starts the local UI, open `http://127.0.0.1:3000` and inspect the demo run.
 - `browsertrace` prints `BrowserTrace UI: http://127.0.0.1:<port>` when the local server starts.
-- The demo run is named `demo: checkout agent fails on disabled button` in the local UI.
+- The demo run is named `demo: Browser Use local HTML upload navigation failure` in the local UI.
 - `BROWSERTRACE_HOME=/tmp/browsertrace-demo browsertrace demo` writes demo traces to an isolated trace store.
 - By default, BrowserTrace stores local traces under `~/.browsertrace/`; set `BROWSERTRACE_HOME` to use an isolated trace store. For pytest/local isolation, see the [isolated trace storage recipe](examples/#testing-with-isolated-trace-storage).
 - Windows PowerShell users can set `$env:BROWSERTRACE_HOME = "$env:TEMP\browsertrace-demo"` before running BrowserTrace commands.

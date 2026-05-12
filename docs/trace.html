@@ -1,1 +1,95 @@
-<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Inspect a BrowserTrace exported AI browser-agent failure with screenshots, URLs, model I/O, and a failed-step timeline.'><meta property='og:title' content='BrowserTrace exported failure trace'><meta property='og:description' content='Inspect a BrowserTrace exported AI browser-agent failure with screenshots, URLs, model I/O, and a failed-step timeline.'><meta property='og:image' content='https://aaronlab.github.io/browsertrace/social-preview.png'><meta property='og:type' content='article'><meta property='og:url' content='https://aaronlab.github.io/browsertrace/trace.html'><meta name='twitter:card' content='summary_large_image'><link rel='canonical' href='https://aaronlab.github.io/browsertrace/trace.html'><link rel='alternate' type='text/plain' title='llms.txt' href='./llms.txt'><script type='application/ld+json'>{"@context":"https://schema.org","@type":"TechArticle","headline":"BrowserTrace exported failure trace","url":"https://aaronlab.github.io/browsertrace/trace.html","description":"Inspect a BrowserTrace exported AI browser-agent failure with screenshots, URLs, model I/O, and a failed-step timeline.","isPartOf":{"@type":"SoftwareSourceCode","name":"BrowserTrace","codeRepository":"https://github.com/aaronlab/browsertrace"}}</script><title>BrowserTrace export · demo: checkout agent fails on disabled button</title><style>body{font:14px/1.5 -apple-system,system-ui,sans-serif;color:#1a1a1a;background:#fafafa;margin:0;padding:24px;max-width:1100px;margin:auto}h1{font-size:20px;margin:0 0 12px}.meta{color:#6b7280;font-size:13px;margin-bottom:24px}.step{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:16px;margin-bottom:12px;display:grid;grid-template-columns:240px 1fr;gap:16px}.step.error{border-color:#fca5a5;box-shadow:0 0 0 3px rgba(220,38,38,.08)}.step img{max-width:100%;border-radius:4px}code{background:#f3f4f6;padding:1px 4px;border-radius:3px;font-size:12px}pre{background:#f3f4f6;padding:12px;border-radius:6px;font-size:12px;overflow:auto}.badge{display:inline-block;padding:2px 8px;border-radius:12px;font-size:11px;font-weight:600;text-transform:uppercase}.badge.ok{background:#d1fae5;color:#059669}.badge.error{background:#fee2e2;color:#dc2626}@media(max-width:720px){body{padding:14px}.step{grid-template-columns:1fr}}</style></head><body><p>Improving this exported trace demo or a debugging note? Use the <a href="https://github.com/aaronlab/browsertrace/blob/main/CONTRIBUTING.md#first-pr-recipe">First PR Recipe</a> to keep the first contribution small and reviewable.</p><h1>demo: checkout agent fails on disabled button</h1><div class=meta>id=9a265f9f-fa52-45db-b5e3-e75ee56bec22 · status=failed · 4 steps</div><pre style='background:#fee2e2;color:#dc2626'>RuntimeError: button was disabled; click did not submit the form</pre><div class='step'><div><img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/p9sAAAAASUVORK5CYII=' alt='step 0'></div><div><div style='font-size:11px;color:#6b7280;font-weight:600'>STEP 0</div><div style='font-size:15px'>open checkout page <span class='badge ok'>ok</span></div><div style='font-size:12px;color:#6b7280'><code>https://shop.example.test/checkout</code></div><details><summary>Model input</summary><pre>{&quot;task&quot;: &quot;Complete checkout for the current cart.&quot;, &quot;observation&quot;: &quot;Checkout page loaded.&quot;}</pre></details><details><summary>Model output</summary><pre>{&quot;thought&quot;: &quot;I need to inspect the checkout form before submitting.&quot;, &quot;next_action&quot;: &quot;inspect form&quot;}</pre></details></div></div><div class='step'><div><img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/p9sAAAAASUVORK5CYII=' alt='step 1'></div><div><div style='font-size:11px;color:#6b7280;font-weight:600'>STEP 1</div><div style='font-size:15px'>inspect payment form <span class='badge ok'>ok</span></div><div style='font-size:12px;color:#6b7280'><code>https://shop.example.test/checkout</code></div><details><summary>Model input</summary><pre>{&quot;visible_fields&quot;: [&quot;email&quot;, &quot;card&quot;, &quot;shipping&quot;], &quot;button_text&quot;: &quot;Place order&quot;}</pre></details><details><summary>Model output</summary><pre>{&quot;thought&quot;: &quot;All fields appear complete. I should click the primary checkout button.&quot;, &quot;selector&quot;: &quot;button.checkout.primary&quot;, &quot;next_action&quot;: &quot;click&quot;}</pre></details></div></div><div class='step'><div><img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/p9sAAAAASUVORK5CYII=' alt='step 2'></div><div><div style='font-size:11px;color:#6b7280;font-weight:600'>STEP 2</div><div style='font-size:15px'>model selects checkout button <span class='badge ok'>ok</span></div><div style='font-size:12px;color:#6b7280'><code>https://shop.example.test/checkout</code></div><details><summary>Model input</summary><pre>{&quot;dom_snippet&quot;: &quot;&lt;button class='checkout primary' disabled&gt;Place order&lt;/button&gt;&quot;}</pre></details><details><summary>Model output</summary><pre>{&quot;thought&quot;: &quot;The primary checkout button is the correct target.&quot;, &quot;selector&quot;: &quot;button.checkout.primary&quot;, &quot;risk&quot;: &quot;The model missed the disabled attribute.&quot;}</pre></details></div></div><div class='step error'><div><img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/p9sAAAAASUVORK5CYII=' alt='step 3'></div><div><div style='font-size:11px;color:#6b7280;font-weight:600'>STEP 3</div><div style='font-size:15px'>click disabled checkout button <span class='badge error'>error</span></div><div style='font-size:12px;color:#6b7280'><code>https://shop.example.test/checkout</code></div><pre style='background:#fee2e2;color:#dc2626'>RuntimeError: button was disabled; click did not submit the form</pre><details><summary>Model input</summary><pre>{&quot;selector&quot;: &quot;button.checkout.primary&quot;}</pre></details><details><summary>Model output</summary><pre>{&quot;action&quot;: &quot;click&quot;, &quot;selector&quot;: &quot;button.checkout.primary&quot;, &quot;expected&quot;: &quot;Order confirmation page&quot;}</pre></details></div></div></body></html>
+<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <meta name='description' content='Inspect a BrowserTrace exported Browser Use failure with screenshots, URLs, model I/O, and a failed-step timeline.'>
+  <meta property='og:title' content='BrowserTrace exported failure trace'>
+  <meta property='og:description' content='Inspect a BrowserTrace exported Browser Use failure with screenshots, URLs, model I/O, and a failed-step timeline.'>
+  <meta property='og:image' content='https://aaronlab.github.io/browsertrace/social-preview.png'>
+  <meta property='og:type' content='article'>
+  <meta property='og:url' content='https://aaronlab.github.io/browsertrace/trace.html'>
+  <meta name='twitter:card' content='summary_large_image'>
+  <link rel='canonical' href='https://aaronlab.github.io/browsertrace/trace.html'>
+  <link rel='alternate' type='text/plain' title='llms.txt' href='./llms.txt'>
+  <script type='application/ld+json'>
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "BrowserTrace exported failure trace",
+    "url": "https://aaronlab.github.io/browsertrace/trace.html",
+    "description": "Inspect a BrowserTrace exported Browser Use failure with screenshots, URLs, model I/O, and a failed-step timeline.",
+    "isPartOf": {
+      "@type": "SoftwareSourceCode",
+      "name": "BrowserTrace",
+      "codeRepository": "https://github.com/aaronlab/browsertrace"
+    }
+  }
+  </script>
+  <title>BrowserTrace export · demo: Browser Use local HTML upload navigation failure</title>
+  <style>
+    body{font:14px/1.5 -apple-system,system-ui,sans-serif;color:#1a1a1a;background:#fafafa;margin:0;padding:24px;max-width:1100px;margin:auto}
+    h1{font-size:20px;margin:0 0 12px}
+    .meta{color:#6b7280;font-size:13px;margin-bottom:24px}
+    .step{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:16px;margin-bottom:12px;display:grid;grid-template-columns:240px 1fr;gap:16px}
+    .step.error{border-color:#fca5a5;box-shadow:0 0 0 3px rgba(220,38,38,.08)}
+    .step img{max-width:100%;border-radius:4px}
+    code{background:#f3f4f6;padding:1px 4px;border-radius:3px;font-size:12px}
+    pre{background:#f3f4f6;padding:12px;border-radius:6px;font-size:12px;overflow:auto}
+    .badge{display:inline-block;padding:2px 8px;border-radius:12px;font-size:11px;font-weight:600;text-transform:uppercase}
+    .badge.ok{background:#d1fae5;color:#059669}.badge.error{background:#fee2e2;color:#dc2626}
+    @media(max-width:720px){body{padding:14px}.step{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <p>Improving this exported trace demo or a debugging note? Use the <a href="https://github.com/aaronlab/browsertrace/blob/main/CONTRIBUTING.md#first-pr-recipe">First PR Recipe</a> to keep the first contribution small and reviewable.</p>
+  <h1>demo: Browser Use local HTML upload navigation failure</h1>
+  <div class=meta>id=161a3ba7-0894-47fd-b270-47bc75a3b730 &middot; status=failed &middot; 4 steps</div>
+  <pre style='background:#fee2e2;color:#dc2626'>RuntimeError: Browser Use navigated away from the upload page; upload preview never appeared</pre>
+
+  <div class='step'>
+    <div><img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/p9sAAAAASUVORK5CYII=' alt='step 0'></div>
+    <div>
+      <div style='font-size:11px;color:#6b7280;font-weight:600'>STEP 0</div>
+      <div style='font-size:15px'>open Browser Use upload page <span class='badge ok'>ok</span></div>
+      <div style='font-size:12px;color:#6b7280'><code>https://app.example.test/upload</code></div>
+      <details><summary>Model input</summary><pre>{&quot;task&quot;: &quot;Upload the local HTML report with Browser Use.&quot;, &quot;browser_state&quot;: {&quot;url&quot;: &quot;about:blank&quot;, &quot;title&quot;: &quot;New tab&quot;}}</pre></details>
+      <details><summary>Model output</summary><pre>{&quot;thought&quot;: &quot;Open the app upload page before attaching the local file.&quot;, &quot;action&quot;: &quot;go_to_url&quot;, &quot;url&quot;: &quot;https://app.example.test/upload&quot;}</pre></details>
+    </div>
+  </div>
+
+  <div class='step'>
+    <div><img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/p9sAAAAASUVORK5CYII=' alt='step 1'></div>
+    <div>
+      <div style='font-size:11px;color:#6b7280;font-weight:600'>STEP 1</div>
+      <div style='font-size:15px'>select local HTML fixture <span class='badge ok'>ok</span></div>
+      <div style='font-size:12px;color:#6b7280'><code>https://app.example.test/upload</code></div>
+      <details><summary>Model input</summary><pre>{&quot;browser_state&quot;: {&quot;url&quot;: &quot;https://app.example.test/upload&quot;, &quot;title&quot;: &quot;Upload report&quot;}, &quot;file_input&quot;: &quot;input[type=file]&quot;, &quot;candidate_file&quot;: &quot;file:///tmp/browsertrace-report.html&quot;}</pre></details>
+      <details><summary>Model output</summary><pre>{&quot;thought&quot;: &quot;The upload control needs the local HTML file.&quot;, &quot;action&quot;: &quot;upload_file&quot;, &quot;path&quot;: &quot;file:///tmp/browsertrace-report.html&quot;, &quot;expected&quot;: &quot;preview renders uploaded HTML&quot;}</pre></details>
+    </div>
+  </div>
+
+  <div class='step'>
+    <div><img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/p9sAAAAASUVORK5CYII=' alt='step 2'></div>
+    <div>
+      <div style='font-size:11px;color:#6b7280;font-weight:600'>STEP 2</div>
+      <div style='font-size:15px'>Browser Use navigates to local file path <span class='badge ok'>ok</span></div>
+      <div style='font-size:12px;color:#6b7280'><code>file:///tmp/browsertrace-report.html</code></div>
+      <details><summary>Model input</summary><pre>{&quot;previous_url&quot;: &quot;https://app.example.test/upload&quot;, &quot;selected_action&quot;: &quot;upload_file&quot;, &quot;path&quot;: &quot;file:///tmp/browsertrace-report.html&quot;}</pre></details>
+      <details><summary>Model output</summary><pre>{&quot;action&quot;: &quot;navigate&quot;, &quot;url&quot;: &quot;file:///tmp/browsertrace-report.html&quot;, &quot;risk&quot;: &quot;The local file path was treated as a navigation target instead of an upload payload.&quot;}</pre></details>
+    </div>
+  </div>
+
+  <div class='step error'>
+    <div><img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/p9sAAAAASUVORK5CYII=' alt='step 3'></div>
+    <div>
+      <div style='font-size:11px;color:#6b7280;font-weight:600'>STEP 3</div>
+      <div style='font-size:15px'>assert uploaded file preview <span class='badge error'>error</span></div>
+      <div style='font-size:12px;color:#6b7280'><code>file:///tmp/browsertrace-report.html</code></div>
+      <pre style='background:#fee2e2;color:#dc2626'>RuntimeError: Browser Use navigated away from the upload page; upload preview never appeared</pre>
+      <details><summary>Model input</summary><pre>{&quot;expected_url&quot;: &quot;https://app.example.test/upload&quot;, &quot;actual_url&quot;: &quot;file:///tmp/browsertrace-report.html&quot;, &quot;expected_preview&quot;: &quot;browsertrace-report.html&quot;}</pre></details>
+      <details><summary>Model output</summary><pre>{&quot;status&quot;: &quot;failed&quot;, &quot;missing&quot;: &quot;uploaded file preview&quot;, &quot;actual_url&quot;: &quot;file:///tmp/browsertrace-report.html&quot;}</pre></details>
+    </div>
+  </div>
+</body>
+</html>

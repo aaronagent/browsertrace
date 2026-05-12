@@ -311,17 +311,17 @@ def test_cli_demo_creates_failed_demo_run(cli):
 
     assert rc == 0
     out = buf.getvalue()
-    assert "demo: checkout agent fails on disabled button" in out
+    assert "demo: Browser Use local HTML upload navigation failure" in out
     assert "browsertrace" in out
 
     with sqlite3.connect(home / "db.sqlite") as conn:
         run = conn.execute(
             "SELECT id, status, error FROM runs WHERE name=?",
-            ("demo: checkout agent fails on disabled button",),
+            ("demo: Browser Use local HTML upload navigation failure",),
         ).fetchone()
         assert run is not None
         assert run[1] == "failed"
-        assert "button was disabled" in run[2]
+        assert "Browser Use navigated away from the upload page" in run[2]
         steps = conn.execute(
             "SELECT COUNT(*) FROM steps WHERE run_id=?",
             (run[0],),

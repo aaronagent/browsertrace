@@ -22,14 +22,14 @@ def test_no_api_failure_demo_creates_failed_trace(tmp_path, monkeypatch):
             (run[0],),
         ).fetchall()
 
-    assert run[1] == "demo: checkout agent fails on disabled button"
+    assert run[1] == "demo: Browser Use local HTML upload navigation failure"
     assert run[2] == "failed"
     assert "RuntimeError" in run[3]
     assert len(steps) == 4
-    assert steps[3][1] == "click disabled checkout button"
+    assert steps[3][1] == "assert uploaded file preview"
     assert steps[3][2] == "error"
-    assert "button was disabled" in steps[3][3]
-    assert "button.checkout.primary" in steps[3][4]
+    assert "Browser Use navigated away from the upload page" in steps[3][3]
+    assert "file:///tmp/browsertrace-report.html" in steps[3][4]
 
 
 def test_skyvern_wrapper_example_creates_completed_trace(tmp_path, monkeypatch):
