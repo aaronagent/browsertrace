@@ -5154,6 +5154,20 @@ def test_chinese_owner_next_actions_preserves_external_awesome_list_pr_numbers()
     assert "Jenqyang/Awesome-AI-Agents/pull/222" not in awesome_prs
 
 
+def test_chinese_owner_next_actions_summary_mentions_first_merged_listing():
+    project_root = Path(__file__).resolve().parents[1]
+    checklist = (
+        project_root / "docs" / "launch" / "owner-next-actions.zh-CN.md"
+    ).read_text()
+    summary = checklist.split("最快的一条技术帖：", 1)[0]
+
+    assert "Jenqyang/Awesome-AI-Agents#220" in summary
+    assert "已合并" in summary
+    assert "已收录" in summary
+    assert "都还在 open" not in summary
+    assert "还没有正式收录 BrowserTrace" not in summary
+
+
 def test_owner_next_actions_link_security_policy_for_sensitive_reports():
     project_root = Path(__file__).resolve().parents[1]
     checklist = (project_root / "docs" / "launch" / "owner-next-actions.md").read_text()

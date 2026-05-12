@@ -11,9 +11,10 @@ browser agent 的人，失败时最缺什么调试信息？
 如果你只有一小段时间，按这个顺序做；后面的验证、README 更新、指标记录和
 issue comment 都交给 Codex 继续处理：
 
-当前收录状态：已跟踪的外部 GitHub list 和 directory 投稿都还在 open，
-上游默认分支里还没有正式收录 BrowserTrace。不要等这些 maintainer 合并后
-再发 owner 渠道；先发个人账号内容和已经准备好的目录邮件。
+当前收录状态：已跟踪的外部 GitHub list 里已有一个接受 BrowserTrace：
+`Jenqyang/Awesome-AI-Agents#220` 已合并/已收录到默认分支。其余已跟踪的
+list 和 directory 投稿仍在 open。不要等这些 maintainer 全部合并后再发
+owner 渠道；先发个人账号内容和已经准备好的目录邮件。
 
 最快的一条技术帖：先用 `docs/launch/channel-copy.md` 里的任意一个
 Browser Use angle，可以放在 Day 1 正式帖子之前或一起发：
