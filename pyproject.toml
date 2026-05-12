@@ -1,7 +1,7 @@
 [project]
 name = "browsertrace"
 version = "0.1.17"
-description = "See what your AI browser agent did and why it failed."
+description = "Replay failed Browser Use runs locally with screenshots, model I/O, failed-step timelines, and public-safe exports."
 readme = "README.md"
 requires-python = ">=3.11"
 license = {text = "MIT"}

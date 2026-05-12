@@ -45,6 +45,13 @@ def test_pyproject_has_launch_discovery_metadata():
     pyproject = tomllib.loads((project_root / "pyproject.toml").read_text())
     project = pyproject["project"]
 
+    assert (
+        project["description"]
+        == "Replay failed Browser Use runs locally with screenshots, model I/O, failed-step timelines, and public-safe exports."
+    )
+    assert "Browser Use" in project["description"]
+    assert "AI browser agent" not in project["description"]
+
     keywords = set(project["keywords"])
     assert {
         "ai-agent-debugging",
