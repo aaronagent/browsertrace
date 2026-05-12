@@ -193,6 +193,22 @@ def test_core_guides_have_tech_article_json_ld():
         assert metadata["codeRepository"] == "https://github.com/aaronlab/browsertrace", filename
 
 
+def test_failure_patterns_page_has_stable_section_anchors():
+    project_root = Path(__file__).resolve().parents[1]
+    page = (project_root / "docs" / "browser-agent-failure-patterns.html").read_text()
+
+    expected_anchors = {
+        "debug-icon-only-click-targets",
+        "debug-remote-cdp-hangs",
+        "debug-stagehand-semantic-verification-boundary",
+        "debug-skyvern-vnc-cdp-integration",
+        "debug-persistent-browser-session-recovery",
+    }
+
+    for anchor in expected_anchors:
+        assert f'<h2 id="{anchor}">' in page
+
+
 def test_windows_powershell_first_run_docs_cover_env_vars():
     project_root = Path(__file__).resolve().parents[1]
     docs_text = "\n".join(
