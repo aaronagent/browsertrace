@@ -19,6 +19,20 @@ verification tokens, but the owner must sign in and verify ownership.
 | Launch kit | `https://aaronlab.github.io/browsertrace/launch/` |
 | IndexNow key | `https://aaronlab.github.io/browsertrace/3df02991e8016363298751d1477a766e.txt` |
 
+## Latest Public Index Check
+
+Checked on 2026-05-12 UTC:
+
+```text
+site:aaronlab.github.io/browsertrace BrowserTrace
+site:aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html BrowserTrace
+site:aaronlab.github.io/browsertrace/debug-browser-agent-failure.html BrowserTrace
+```
+
+The public search query check did not return indexed BrowserTrace Pages results.
+Keep Google Search Console and Bing Webmaster Tools submission as an owner-only
+priority.
+
 ## IndexNow
 
 Codex can submit BrowserTrace URLs to IndexNow after this key file is live on
