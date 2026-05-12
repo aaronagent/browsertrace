@@ -117,7 +117,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T13:56:32+00:00 | 3 | 998 | 21 | 0 | 10 | 0 | 40 | current monitor pass after homepage contributing line gained a direct good-first issue queue link next to the First PR Recipe; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-12T14:47:14+00:00 | 3 | 998 | 21 | 0 | 10 | 0 | 40 | current monitor pass after external Signal Atlas discovery signal surfaced browsertrace in AI Coding leaderboard: https://www.getrank.top/; exact-match HN/Product Hunt searches still did not surface an owner launch; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
