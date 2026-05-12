@@ -115,7 +115,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T00:50:05+00:00 | 3 | 998 | 17 | 0 | 10 | 0 | 35 | current monitor pass after contributor PR #336 merged and issue #333 closed; issue #335 remains the open unclaimed good-first task; star goal remains incomplete; traffic views 294/111 unique, clones 12398/2207 unique |
+| 2026-05-12T01:15:59+00:00 | 3 | 998 | 17 | 0 | 10 | 0 | 35 | current monitor pass after monitoring runbook added secondary standards/telemetry watch targets for OWASP AOS and UI-Trace; traffic views 294/111 unique, clones 12398/2207 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 

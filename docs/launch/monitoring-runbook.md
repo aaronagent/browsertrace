@@ -131,7 +131,7 @@ SINCE_UTC="${SINCE_UTC:?Set SINCE_UTC to the monitor start time, e.g. YYYY-MM-DD
 gh api 'notifications?all=true&participating=true&per_page=50' |
   jq -c --arg since "$SINCE_UTC" '[.[] |
     select(((.updated_at | fromdateiso8601) >= ($since | fromdateiso8601)) and
-    (.repository.full_name | test("browsertrace|agentfirst|awesome|trycua|clihub|clis|browser-use|stagehand|skyvern"; "i"))) |
+    (.repository.full_name | test("browsertrace|agentfirst|awesome|trycua|clihub|clis|browser-use|stagehand|skyvern|agent-observability-standard|helmdeck"; "i"))) |
     {repo:.repository.full_name, subject:.subject.title, type:.subject.type, updated_at, unread, reason, url:.subject.url, latest_comment_url:.subject.latest_comment_url}
   ]'
 ```
@@ -163,7 +163,41 @@ gh api graphql \
 
 Reply only if there is useful technical context to add.
 
-## 5. Traffic and Discovery Sources
+## 5. Secondary Technical Threads
+
+These are not launch/listing submissions. Monitor them for standards or
+telemetry feedback that may shape BrowserTrace's browser/GUI artifact model.
+Reply only if maintainers ask a concrete question or if a concise technical
+clarification would help the thread.
+
+- `OWASP/www-project-agent-observability-standard#74`
+- `tosin2013/helmdeck#117`
+
+```bash
+while read repo num; do
+  gh issue view "$num" --repo "$repo" \
+    --json number,title,state,closedAt,url,updatedAt,comments |
+    jq -c --arg repo "$repo" '{
+      repo:$repo,
+      number,
+      state,
+      closedAt,
+      updatedAt,
+      url,
+      commentCount:(.comments|length),
+      latestComment:(if (.comments|length) > 0 then {
+        author:.comments[-1].author.login,
+        createdAt:.comments[-1].createdAt,
+        body:((.comments[-1].body // "")|gsub("\n";" ")|.[0:180])
+      } else null end)
+    }'
+done <<'EOF'
+OWASP/www-project-agent-observability-standard 74
+tosin2013/helmdeck 117
+EOF
+```
+
+## 6. Traffic and Discovery Sources
 
 Use traffic data to choose the next legitimate growth action. Do not treat
 traffic as goal completion; only `stargazerCount > 1000` completes the goal.
@@ -193,7 +227,7 @@ Use the source signal conservatively:
 - Do not open additional directory/list PRs from traffic alone; only use high-fit
   targets that accept developer tools and are not duplicates.
 
-## 6. Metrics
+## 7. Metrics
 
 Append a row only when there is a meaningful state change, such as a new post,
 submission, accepted listing, maintainer request, contributor reply, release,
@@ -208,7 +242,7 @@ uv run --python 3.11 python scripts/launch_metrics.py --append --note "<note>"
 Keep `docs/launch/metrics-log.md` and the `Current latest audit` row in
 `LAUNCH.md` aligned with the latest meaningful metrics row.
 
-## 7. After Each Push
+## 8. After Each Push
 
 ```bash
 gh run list --repo aaronlab/browsertrace --branch main --limit 8

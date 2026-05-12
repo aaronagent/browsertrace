@@ -4326,9 +4326,13 @@ def test_launch_monitoring_runbook_covers_current_targets():
         "Skyvern-AI/skyvern#5931",
         "aaronlab/browsertrace#335",
         "Scottcjn/awesome-agents#16",
+        "OWASP/www-project-agent-observability-standard#74",
+        "tosin2013/helmdeck#117",
     ]:
         assert target in runbook
 
+    assert "agent-observability-standard|helmdeck" in runbook
+    assert "## 5. Secondary Technical Threads" in runbook
     assert "aaronlab/browsertrace#333" not in runbook
     assert "aaronlab/browsertrace#331" not in runbook
     assert "aaronlab/browsertrace#329" not in runbook
