@@ -1911,7 +1911,7 @@ def test_readme_explains_public_safe_export_near_install_tag():
 
     assert (
         "`browsertrace export <run_id> --public -o public.html` creates a "
-        "public-safe HTML export"
+        "public-safe, self-contained HTML report"
     ) in install_section
     assert "from a listed run" in install_section
     assert 'pip install "browsertrace[ui]"' in install_section
@@ -1955,9 +1955,10 @@ def test_readme_explains_self_contained_export_near_install_checks():
     )[0]
 
     assert (
-        "`browsertrace export <run_id> --public -o public.html` writes a "
-        "self-contained HTML report you can attach to a bug report or issue"
+        "`browsertrace export <run_id> --public -o public.html` creates a "
+        "public-safe, self-contained HTML report"
     ) in install_section
+    assert "you can attach to a bug report or issue" in install_section
     assert "Public-safe export omits model I/O, screenshots, and URLs" in install_section
     assert 'pip install "browsertrace[ui]"' in install_section
     assert "hosted sharing" not in readme
@@ -2161,8 +2162,7 @@ def test_readme_groups_install_tips_as_compact_list():
         "- A longer run ID prefix fixes ambiguous `browsertrace show` or `browsertrace export` matches",
         "- `browsertrace show <run_id>` inspects a listed run from the terminal and prints its step timeline with action labels, status, and errors",
         "- `browsertrace show <run_id> --json` prints one run as JSON",
-        "- `browsertrace export <run_id> --public -o public.html` creates a public-safe HTML export",
-        "- `browsertrace export <run_id> --public -o public.html` writes a self-contained HTML report",
+        "- `browsertrace export <run_id> --public -o public.html` creates a public-safe, self-contained HTML report",
         "- `-o public.html` chooses the export filename",
         "- `browsertrace export` prints `Wrote <path>`",
         "- Public-safe export omits model I/O, screenshots, and URLs",
@@ -2899,6 +2899,21 @@ def test_readme_first_run_notes_have_single_browsertrace_show_bullet():
     assert "inspects a listed run from the terminal" in first_run_notes
     assert "prints its step timeline with action labels, status, and errors" in first_run_notes
     assert "- `browsertrace show <run_id> --json`" in first_run_notes
+
+
+def test_readme_first_run_notes_have_single_public_export_bullet():
+    project_root = Path(__file__).resolve().parents[1]
+    readme = (project_root / "README.md").read_text()
+    first_run_notes = readme.split("## Install From PyPI", 1)[1].split(
+        "If install or demo startup fails", 1
+    )[0]
+
+    command = "`browsertrace export <run_id> --public -o public.html`"
+    assert first_run_notes.count(f"- {command}") == 1
+    assert "public-safe, self-contained HTML report" in first_run_notes
+    assert "from a listed run that you can attach to a bug report or issue" in first_run_notes
+    assert "- Public-safe export omits model I/O, screenshots, and URLs." in first_run_notes
+    assert "- `--redact` only omits model I/O" in first_run_notes
 
 
 def test_llms_txt_points_to_current_contribution_path():
