@@ -120,7 +120,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T18:41:14+00:00 | 3 | 998 | 21 | 0 | 10 | 0 | 0 | current monitor pass after live GitHub profile README public-safe export link updated to v0.1.18: https://github.com/aaronlab/aaronlab/commit/2708502; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-12T18:45:25+00:00 | 3 | 998 | 21 | 0 | 10 | 0 | 0 | current monitor pass after open external submission issues victorcheeney/clis#3 and InftyAI/Awesome-LLMOps#430 were refreshed to Browser Use-first positioning; no new listing merged; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
