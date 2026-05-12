@@ -117,7 +117,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T05:26:23+00:00 | 3 | 998 | 19 | 0 | 10 | 0 | 112 | current monitor pass after public web search found a transient Signal Atlas search-index snippet listing BrowserTrace as a #4 hot tool on 2026-05-09; the live getrank.top page no longer lists it, so this is not counted as a current directory listing; star goal remains incomplete; traffic views 294/111 unique, clones 12398/2207 unique |
+| 2026-05-12T05:47:32+00:00 | 3 | 998 | 19 | 0 | 11 | 0 | 40 | current monitor pass after good-first issue #347 added for Browser Use empty model response parse failures: https://github.com/aaronlab/browsertrace/issues/347; star goal remains incomplete; traffic views 294/111 unique, clones 12398/2207 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
