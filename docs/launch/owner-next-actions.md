@@ -88,6 +88,8 @@ Fast copy/paste blocks:
   `docs/launch/owner-email-send-packet.md`
 - First browser-form directories:
   `docs/launch/directory-submission-sheet.md#first-browser-form-directory-field-notes`
+- Listing-fit maintainer reply:
+  `docs/launch/response-templates.md#maintainer-asks-whether-it-fits-this-list`
 
 Stack-specific guide links:
 

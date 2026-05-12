@@ -81,6 +81,8 @@ session recovery。这些都是用具体失败场景来征集真实 workflow 反
   `docs/launch/owner-email-send-packet.md`
 - 第一批浏览器表单目录：
   `docs/launch/directory-submission-sheet.md#first-browser-form-directory-field-notes`
+- 目录/awesome-list maintainer 询问是否适合收录时的回复：
+  `docs/launch/response-templates.md#maintainer-asks-whether-it-fits-this-list`
 
 Stack 调试指南：
 

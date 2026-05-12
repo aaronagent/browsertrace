@@ -5152,6 +5152,23 @@ def test_owner_next_actions_link_stack_debugging_guides_for_owner_replies():
     assert "reposts" not in fast_copy.lower()
 
 
+def test_owner_next_actions_link_listing_fit_reply_template():
+    project_root = Path(__file__).resolve().parents[1]
+    expected = [
+        ("docs/launch/owner-next-actions.md", "Fast copy/paste blocks:"),
+        ("docs/launch/owner-next-actions.zh-CN.md", "快速复制入口："),
+    ]
+
+    for relpath, section_header in expected:
+        checklist = (project_root / relpath).read_text(encoding="utf-8")
+        fast_copy = checklist.split(section_header, 1)[1].split("## 1.", 1)[0]
+
+        assert "docs/launch/response-templates.md#maintainer-asks-whether-it-fits-this-list" in fast_copy
+        assert "stars" not in fast_copy.lower()
+        assert "upvotes" not in fast_copy.lower()
+        assert "reposts" not in fast_copy.lower()
+
+
 def test_owner_next_actions_preserves_external_awesome_list_pr_numbers():
     project_root = Path(__file__).resolve().parents[1]
     checklist = (project_root / "docs" / "launch" / "owner-next-actions.md").read_text()
