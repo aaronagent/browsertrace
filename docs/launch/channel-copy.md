@@ -245,7 +245,7 @@ uvx --from "browsertrace[ui]" browsertrace doctor
 uvx --from "browsertrace[ui]" browsertrace demo
 uvx --from "browsertrace[ui]" browsertrace
 
-Open localhost:3000 and click the failed checkout demo.
+Open localhost:3000 and click `demo: Browser Use local HTML upload navigation failure`.
 ```
 
 ```text

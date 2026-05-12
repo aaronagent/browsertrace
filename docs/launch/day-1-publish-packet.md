@@ -42,8 +42,10 @@ uv run --python 3.11 python scripts/launch_metrics.py --append --note "before Da
 
 1. X
    - Attach `docs/demo.mp4`.
-   - Paste each `## X` text block from `docs/launch/channel-copy.md` as a
-     non-Premium-safe thread.
+   - If you only have one minute, publish the X single-post fallback from
+     `docs/launch/owner-social-post-packet.md#single-post`.
+   - Use the `## X` text blocks from `docs/launch/channel-copy.md` as a
+     non-Premium-safe thread only if you can stay online for replies.
    - Post each `## X Follow-Up` text block 30-90 minutes later, or sooner if
      someone asks how to try it.
    - Pin only if the post gets real replies.
@@ -85,7 +87,7 @@ browsertrace doctor
 browsertrace demo
 browsertrace
 
-Then open http://127.0.0.1:3000 and click the failed checkout demo.
+Then open http://127.0.0.1:3000 and click `demo: Browser Use local HTML upload navigation failure`.
 
 If someone only wants to inspect a share-safe export first, send:
 https://github.com/aaronlab/browsertrace/releases/download/v0.1.18/browsertrace-demo-public.html

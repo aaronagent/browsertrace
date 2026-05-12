@@ -4396,6 +4396,8 @@ browsertrace show <run_id> --json
     )
     assert recipe in reply_shortcuts
     assert "debugging/workflow details" in reply_shortcuts
+    assert "`demo: Browser Use local HTML upload navigation failure`" in reply_shortcuts
+    assert "failed checkout demo" not in reply_shortcuts
     assert "https://github.com/aaronlab/browsertrace/labels/good%20first%20issue" in reply_shortcuts
     assert "https://github.com/aaronlab/browsertrace/issues/213" not in reply_shortcuts
     assert "First PR Recipe" in reply_shortcuts
@@ -4404,6 +4406,21 @@ browsertrace show <run_id> --json
     assert "stars" not in reply_shortcuts.lower()
     assert "upvotes" not in reply_shortcuts.lower()
     assert "reposts" not in reply_shortcuts.lower()
+
+
+def test_day_1_publish_packet_prioritizes_x_single_post_fallback():
+    project_root = Path(__file__).resolve().parents[1]
+    packet = (project_root / "docs" / "launch" / "day-1-publish-packet.md").read_text()
+    publish_order = packet.split("## Publish Order", 1)[1].split(
+        "After each post", 1
+    )[0]
+
+    assert "X single-post fallback" in publish_order
+    assert "docs/launch/owner-social-post-packet.md#single-post" in publish_order
+    assert "only if you can stay online for replies" in publish_order
+    assert "stars" not in publish_order.lower()
+    assert "upvotes" not in publish_order.lower()
+    assert "reposts" not in publish_order.lower()
 
 
 def test_day_1_publish_packet_links_stack_debugging_guides_for_replies():
