@@ -8,6 +8,25 @@ Chinese version: `docs/launch/owner-next-actions.zh-CN.md`
 Do not ask for stars, upvotes, reposts, vote swaps, or artificial engagement.
 Ask for workflow feedback from people building browser agents.
 
+## Current Decision
+
+As of 2026-05-13, more broad directory work is not the highest-priority path.
+BrowserTrace has already been repositioned Browser Use-first, one external list
+has accepted it, and the remaining list PRs should wait for maintainer
+feedback.
+
+The current growth blocker is owner-channel publishing:
+
+1. Publish X, LinkedIn, WeChat, and Jike first from
+   `docs/launch/owner-social-post-packet.md`.
+2. Submit Show HN from `docs/launch/owner-launch-submission-packet.md` only if
+   you can stay available for several hours to answer technical comments.
+3. After any channel goes live, send the post URL, group name, or send note to
+   Codex so metrics can be logged and replies can be monitored.
+
+Do not open new low-conversion directory PRs just to create activity. Wait for
+maintainer feedback on the existing PRs and respond only to concrete requests.
+
 ## 10-Minute Owner Unblock
 
 If you only have one short session, do these in order and let Codex handle the

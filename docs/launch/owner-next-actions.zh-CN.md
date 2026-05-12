@@ -6,6 +6,22 @@
 不要买 star、刷 star、互赞、求 upvote、求转发。对外只问一件事：正在做
 browser agent 的人，失败时最缺什么调试信息？
 
+## 当前决定
+
+截至 2026-05-13，继续投泛目录不是最高优先级。BrowserTrace 已经完成
+Browser Use-first 定位，已有一个外部列表收录，其余列表 PR 继续等待维护者反馈。
+
+现在真正卡住增长的是 owner 渠道发布：
+
+1. 先发 X、LinkedIn、微信群和即刻，用
+   `docs/launch/owner-social-post-packet.md`。
+2. 如果接下来能连续在线几个小时回复技术评论，再提交 Show HN，用
+   `docs/launch/owner-launch-submission-packet.md`。
+3. 发完任意渠道后，把帖子 URL、群名或发送备注给 Codex；Codex 继续记录指标、
+   监控回复，并且只在有真实问题时协助回复。
+
+不要为了“看起来在推进”继续开新的低转化目录 PR；等维护者反馈再处理已有 PR。
+
 ## 10 分钟 Owner 解锁顺序
 
 如果你只有一小段时间，按这个顺序做；后面的验证、README 更新、指标记录和
