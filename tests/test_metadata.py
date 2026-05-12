@@ -1197,7 +1197,7 @@ def test_roadmap_records_current_launch_state():
 
     assert "`v0.1.17` is the current launch release." in roadmap
     assert 'pip install "browsertrace[ui]"' in roadmap
-    assert "Twelve focused PRs are open" in roadmap
+    assert "Sixteen focused PRs are open" in roadmap
     assert "E2B CLA check has passed" in roadmap
     assert "`v0.1.15` is the current launch release." not in roadmap
     assert "Three focused PRs are open" not in roadmap
@@ -3846,7 +3846,7 @@ def test_owner_publish_queue_records_current_awesome_list_pr_count():
     project_root = Path(__file__).resolve().parents[1]
     queue = (project_root / "docs" / "launch" / "owner-publish-queue.md").read_text()
 
-    assert "fifteen focused PRs are open" in queue
+    assert "sixteen focused PRs are open" in queue
     assert "the three prepared PRs" not in queue
     assert "ai-boost/awesome-harness-engineering#23" in queue
     assert "Agent-Tools/awesome-autonomous-web#21" in queue
@@ -3855,6 +3855,7 @@ def test_owner_publish_queue_records_current_awesome_list_pr_count():
     assert "ranpox/awesome-computer-use#24" in queue
     assert "trycua/acu#26" in queue
     assert "Scottcjn/awesome-agents#16" in queue
+    assert "browser-use/awesome-projects#6" in queue
     assert "clihub-ai/clihub#1" in queue
     assert "E2B CLA check has passed" in queue
     assert "steel-dev/awesome-web-agents#56" in queue
@@ -4094,7 +4095,7 @@ def test_directory_submission_sheet_avoids_stale_awesome_list_pr_count():
     sheet = (project_root / "docs" / "launch" / "directory-submission-sheet.md").read_text()
 
     assert (
-        "Tracked PRs are open, including Scottcjn/awesome-agents#16; monitor feedback; e2b CLA passed"
+        "Tracked PRs are open, including browser-use/awesome-projects#6; monitor feedback; e2b CLA passed"
         in sheet
     )
     assert "12 PRs open" not in sheet
@@ -4338,6 +4339,7 @@ def test_launch_monitoring_runbook_covers_current_targets():
         "clihub-ai/clihub#1",
         "victorcheeney/clis#3",
         "browser-use/browser-use#4816",
+        "browser-use/awesome-projects#6",
         "browserbase/stagehand#2102",
         "Skyvern-AI/skyvern#5931",
         "aaronlab/browsertrace#337",
@@ -5108,6 +5110,7 @@ def test_owner_next_actions_preserves_external_awesome_list_pr_numbers():
     assert "ranpox/awesome-computer-use#24" in awesome_prs
     assert "trycua/acu#26" in awesome_prs
     assert "Scottcjn/awesome-agents#16" in awesome_prs
+    assert "browser-use/awesome-projects#6" in awesome_prs
     assert "clihub-ai/clihub#1" in awesome_prs
     assert "victorcheeney/clis#3" in awesome_prs
     assert "E2B CLA check has passed" in awesome_prs
@@ -5137,6 +5140,7 @@ def test_chinese_owner_next_actions_preserves_external_awesome_list_pr_numbers()
     assert "ranpox/awesome-computer-use/pull/24" in awesome_prs
     assert "trycua/acu/pull/26" in awesome_prs
     assert "Scottcjn/awesome-agents/pull/16" in awesome_prs
+    assert "browser-use/awesome-projects/pull/6" in awesome_prs
     assert "clihub-ai/clihub/pull/1" in awesome_prs
     assert "victorcheeney/clis/issues/3" in awesome_prs
     assert "CLA 已通过" in awesome_prs
@@ -5470,7 +5474,7 @@ def test_outreach_targets_records_current_awesome_list_pr_count():
     project_root = Path(__file__).resolve().parents[1]
     targets = (project_root / "docs" / "launch" / "outreach-targets.md").read_text()
 
-    assert "Twelve focused PRs are already open" in targets
+    assert "Sixteen focused PRs are already open" in targets
     assert "E2B CLA check has passed" in targets
     assert "Three focused PRs" not in targets
     assert "Do not open more list PRs unless the target is clearly high-fit" in targets
@@ -6076,6 +6080,25 @@ def test_awesome_list_submission_notes_record_scottcjn_awesome_agents_pr():
     assert "Monitoring and Observability" in section
     assert "not a duplicate" in section
     assert "npx --yes awesome-lint README.md" in section
+    assert "stars" not in section.lower()
+    assert "upvotes" not in section.lower()
+    assert "reposts" not in section.lower()
+
+
+def test_awesome_list_submission_notes_record_browser_use_awesome_projects_pr():
+    project_root = Path(__file__).resolve().parents[1]
+    notes = (
+        project_root / "docs" / "launch" / "github-awesome-list-submissions.md"
+    ).read_text()
+    section = notes.split("## 14. Browser Use Awesome Projects", 1)[1].split(
+        "## Skip List", 1
+    )[0]
+
+    assert "browser-use/awesome-projects" in notes
+    assert "https://github.com/browser-use/awesome-projects/pull/6" in notes
+    assert "Integrations & Ease of Use" in section
+    assert "built on or inspired by browser-use" in section
+    assert "git diff --check" in section
     assert "stars" not in section.lower()
     assert "upvotes" not in section.lower()
     assert "reposts" not in section.lower()

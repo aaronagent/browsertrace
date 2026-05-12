@@ -75,6 +75,7 @@ workflow-specific debugging context:
 | 11 | `ranpox/awesome-computer-use` | Strong | `Projects` | Submitted: https://github.com/ranpox/awesome-computer-use/pull/24 |
 | 12 | `trycua/acu` | Strong | `Open Source` -> `Automation` | Submitted: https://github.com/trycua/acu/pull/26 |
 | 13 | `Scottcjn/awesome-agents` | Strong | `Monitoring and Observability` | Submitted: https://github.com/Scottcjn/awesome-agents/pull/16 |
+| 14 | `browser-use/awesome-projects` | Strong | `Integrations & Ease of Use` | Submitted: https://github.com/browser-use/awesome-projects/pull/6 |
 | Skip | `e2b-dev/awesome-ai-agents` | Weak | n/a | Main list is for agents, not tools |
 | Skip | `supernalintelligence/Awesome-Gui-Agents` | Weak | n/a | Main list catalogs GUI agents, not developer/debugging tools; referenced contribution file is missing |
 | Skip | `ZJU-REAL/Awesome-GUI-Agents` | Weak | n/a | Strong topic match, but current README is primarily papers, datasets, and benchmarks rather than developer/debugging tools |
@@ -571,6 +572,36 @@ npx --yes awesome-lint README.md
 Note: `awesome-lint` reports existing target-repository issues such as duplicate
 links, ToC/license checks, and unrelated list-item formatting. The BrowserTrace
 row is not in the reported failures.
+
+## 14. Browser Use Awesome Projects
+
+Target:
+
+```text
+https://github.com/browser-use/awesome-projects
+```
+
+Status: submitted as https://github.com/browser-use/awesome-projects/pull/6.
+
+Fit notes:
+
+- The README describes the list as projects built on or inspired by browser-use.
+- The `Integrations & Ease of Use` section accepts wrappers, APIs, or extensions
+  that simplify Browser Use workflows.
+- BrowserTrace fits that section as a local-first debugging and trace-viewing
+  integration for failed Browser Use runs.
+
+Submitted entry:
+
+```markdown
+*   [BrowserTrace](https://github.com/aaronlab/browsertrace) - A local-first trace viewer for failed Browser Use runs, with screenshots, URLs, actions, model I/O, status, errors, and public-safe HTML exports.
+```
+
+Verification:
+
+```bash
+git diff --check
+```
 
 ## Skip List
 

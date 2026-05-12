@@ -37,7 +37,7 @@ cannot be completed by a contributor PR.
 | [#16 Search console submission](https://github.com/aaronlab/browsertrace/issues/16) | Owner action needed for search consoles; IndexNow submitted | Starts long-tail indexing for the GitHub Pages docs and demos. |
 | [#9 Day 1 warm launch posts](https://github.com/aaronlab/browsertrace/issues/9) | Owner action needed | Publishes from the owner's X, LinkedIn, WeChat, and Jike accounts. |
 | [#10 Directory and newsletter submissions](https://github.com/aaronlab/browsertrace/issues/10) | Owner action needed | Reaches curated developer-tool directories and newsletters without repeated submissions. |
-| [#18 Awesome list submissions](https://github.com/aaronlab/browsertrace/issues/18) | Monitoring open PRs | Twelve focused PRs are open; E2B CLA check has passed; wait for maintainer feedback before any more list submissions. |
+| [#18 Awesome list submissions](https://github.com/aaronlab/browsertrace/issues/18) | Monitoring open PRs | Sixteen focused PRs are open; E2B CLA check has passed; wait for maintainer feedback before any more list submissions. |
 
 Completed launch prep:
 

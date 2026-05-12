@@ -33,6 +33,7 @@ Tracked PR targets:
 - `ranpox/awesome-computer-use#24`
 - `trycua/acu#26`
 - `Scottcjn/awesome-agents#16`
+- `browser-use/awesome-projects#6`
 - `clihub-ai/clihub#1`
 
 Use this jq null-safe loop so PRs with no comments do not fail the monitor pass:
@@ -74,6 +75,7 @@ jim-schwoebel/awesome_ai_agents 266
 ranpox/awesome-computer-use 24
 trycua/acu 26
 Scottcjn/awesome-agents 16
+browser-use/awesome-projects 6
 clihub-ai/clihub 1
 EOF
 ```
