@@ -3162,6 +3162,19 @@ def test_llms_txt_includes_browser_use_new_tab_desync_shape():
     assert "upvotes" not in llms.lower()
 
 
+def test_llms_txt_includes_browser_use_local_html_upload_navigation_shape():
+    project_root = Path(__file__).resolve().parents[1]
+    llms = (project_root / "docs" / "llms.txt").read_text()
+
+    assert "Browser Use local HTML upload navigation" in llms
+    assert "model-visible attachment" in llms
+    assert "local filename/extension/MIME type" in llms
+    assert "watchdog block reason" in llms
+    assert "allowed-domains state" in llms
+    assert "stars" not in llms.lower()
+    assert "upvotes" not in llms.lower()
+
+
 def test_llms_txt_includes_stagehand_custom_tool_replay_shape():
     project_root = Path(__file__).resolve().parents[1]
     llms = (project_root / "docs" / "llms.txt").read_text()

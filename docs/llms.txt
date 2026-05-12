@@ -69,6 +69,12 @@ to explain why a browser run failed.
   indexes, focused page before/after, `pages_before`, `pages_after`,
   `new_pages`, action id, URL/title probe status, and any
   `recommended_next_action` such as `switch_tab`.
+- Browser Use local HTML upload navigation: an uploaded local HTML file or
+  attachment name can be misread as a navigation target before the intended
+  upload action runs. Preserve the task prompt, model-visible attachment
+  context, local filename/extension/MIME type when safe, raw model action,
+  parsed action type and rejected URL or upload target, watchdog block reason,
+  allowed-domains state, and recovery recommendation.
 - Stagehand custom tool replay gap: when cached normal page actions replay but
   a custom tool is skipped, separate the replay contract from the diagnostic trace contract.
   For replay, capture tool name, serialized args, stable
