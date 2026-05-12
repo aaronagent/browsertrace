@@ -865,6 +865,7 @@ def test_failure_patterns_page_h2_headings_have_stable_id_anchors():
     expected_ids = [
         "debug-icon-only-click-targets",
         "debug-new-tab-desync",
+        "debug-local-html-upload-navigation",
         "debug-remote-cdp-hangs",
         "debug-screenshot-blob-context",
         "debug-custom-tool-replay-gaps",
@@ -878,6 +879,17 @@ def test_failure_patterns_page_h2_headings_have_stable_id_anchors():
 
     for anchor_id in expected_ids:
         assert f'id="{anchor_id}"' in page, f"Missing id=\"{anchor_id}\" in browser-agent-failure-patterns.html"
+
+
+def test_failure_patterns_page_includes_local_html_upload_navigation_pattern():
+    """Issue #352: the high-level page should include the local HTML upload navigation pattern."""
+    project_root = Path(__file__).resolve().parents[1]
+    page = (project_root / "docs" / "browser-agent-failure-patterns.html").read_text()
+
+    assert "Browser Use local HTML upload navigation" in page
+    assert "https://github.com/browser-use/browser-use/issues/4794" in page
+    assert "./browser-use-debugging.html#debug-local-html-upload-navigation" in page
+    assert "Raw model action before validation" in page
 
 
 def test_launch_kit_page_links_first_pr_recipe_for_small_contributions():
