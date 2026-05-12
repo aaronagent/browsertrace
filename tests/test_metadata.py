@@ -4,9 +4,14 @@ from __future__ import annotations
 
 import json
 import re
+import shutil
+import subprocess
 import tomllib
 import xml.etree.ElementTree as ET
+from fractions import Fraction
 from pathlib import Path
+
+import pytest
 
 import browsertrace
 
@@ -836,6 +841,34 @@ def test_failure_walkthrough_demo_video_has_accessible_context():
     assert "BrowserTrace" in block
     assert "failed browser-agent trace timeline" in block
     assert "first red step" in block
+
+
+def test_demo_mp4_uses_social_upload_safe_frame_rate():
+    if shutil.which("ffprobe") is None:
+        pytest.skip("ffprobe is required to inspect demo.mp4 frame rate")
+
+    project_root = Path(__file__).resolve().parents[1]
+    completed = subprocess.run(
+        [
+            "ffprobe",
+            "-v",
+            "error",
+            "-select_streams",
+            "v:0",
+            "-show_entries",
+            "stream=avg_frame_rate",
+            "-of",
+            "json",
+            str(project_root / "docs" / "demo.mp4"),
+        ],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    payload = json.loads(completed.stdout)
+    frame_rate = Fraction(payload["streams"][0]["avg_frame_rate"])
+
+    assert frame_rate >= 10
 
 
 def test_comparison_page_links_first_pr_recipe_for_small_contributions():
