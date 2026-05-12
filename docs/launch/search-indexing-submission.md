@@ -66,9 +66,11 @@ Use this payload:
 }
 ```
 
-Latest submission, 2026-05-12 UTC: Codex submitted the current 12-URL launch
-surface to IndexNow and received HTTP 200 with an empty response body. Tracking
-comment: `https://github.com/aaronlab/browsertrace/issues/16#issuecomment-4426947785`.
+Latest submission, 2026-05-12 UTC: Codex refreshed the updated public launch
+packet URLs after the owner-copy Pages deploy. The generic IndexNow endpoint and
+the Bing IndexNow endpoint both returned HTTP 200 with empty response bodies.
+Tracking comment:
+`https://github.com/aaronlab/browsertrace/issues/16#issuecomment-4427272114`.
 
 ## Contribution Reply
 
