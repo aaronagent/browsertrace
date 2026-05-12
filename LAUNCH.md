@@ -120,7 +120,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T23:14:08+00:00 | 3 | 998 | 21 | 0 | 11 | 0 | 0 | current monitor pass after good-first issue #371 opened for browsertrace compare expected-output docs and owner-action issue #9 refreshed with compare-first X single-post copy; owner-channel publishing remains the blocker; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-12T23:18:20+00:00 | 3 | 998 | 21 | 0 | 11 | 0 | 8 | current monitor pass after IndexNow refresh for compare-first homepage, comparison page, Browser Use guide, launch kit, and owner packets returned HTTP 200 from generic and Bing endpoints; owner-channel publishing remains the blocker; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
