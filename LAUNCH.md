@@ -120,7 +120,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T18:51:14+00:00 | 3 | 998 | 21 | 0 | 10 | 0 | 0 | current monitor pass after old aaronagent redirect README refreshed to Browser Use-first v0.1.18 copy: https://github.com/aaronlab/aaronagent/commit/428e71ae934861da6f46701de72f3f9c65151c6a; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-12T18:55:10+00:00 | 3 | 998 | 21 | 0 | 10 | 0 | 0 | current monitor pass after homepage release asset links rotated from v0.1.17 to v0.1.18 and regression test added; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 

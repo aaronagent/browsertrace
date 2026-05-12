@@ -416,6 +416,16 @@ def test_homepage_intro_uses_mobile_friendly_copy():
     assert "text-wrap: wrap" in homepage
 
 
+def test_homepage_download_links_use_current_release():
+    project_root = Path(__file__).resolve().parents[1]
+    homepage = (project_root / "docs" / "index.html").read_text()
+
+    assert "releases/download/v0.1.18/browsertrace-demo.html" in homepage
+    assert "releases/download/v0.1.18/browsertrace-demo-public.html" in homepage
+    assert "releases/download/v0.1.17/browsertrace-demo.html" not in homepage
+    assert "releases/download/v0.1.17/browsertrace-demo-public.html" not in homepage
+
+
 def test_homepage_intro_grid_can_shrink_on_mobile():
     project_root = Path(__file__).resolve().parents[1]
     homepage = (project_root / "docs" / "index.html").read_text()
