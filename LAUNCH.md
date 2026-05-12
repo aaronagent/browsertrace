@@ -85,10 +85,10 @@ Codex can prepare assets, update the repo, write copy, audit links, and monitor 
   reusable source asset for future launch previews.
 - Submit `https://aaronlab.github.io/browsertrace/sitemap.xml` in Google Search
   Console and Bing Webmaster Tools.
-- Monitor the nineteen still-open third-party awesome-list and directory PRs plus
-  the CLIs.dev submission issue; `Jenqyang/Awesome-AI-Agents#220` is merged and
-  BrowserTrace is listed on that default branch. Respond only if maintainers ask
-  for changes.
+- Monitor the twenty still-open third-party awesome-list and directory PRs, plus
+  the InftyAI project request and CLIs.dev submission issues;
+  `Jenqyang/Awesome-AI-Agents#220` is merged and BrowserTrace is listed on that
+  default branch. Respond only if maintainers ask for changes.
   Do not open additional list PRs unless the target is clearly high-fit and
   non-duplicative.
 - Publish X, LinkedIn, WeChat, Jike, Xiaohongshu, Reddit, Discord, and community posts.
@@ -117,7 +117,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T09:21:12+00:00 | 3 | 998 | 20 | 0 | 12 | 0 | 40 | current monitor pass after good-first issue #350 opened for README Browser Use remote CDP failure pattern: https://github.com/aaronlab/browsertrace/issues/350; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-12T09:28:33+00:00 | 3 | 998 | 20 | 0 | 12 | 0 | 40 | current monitor pass after InftyAI Awesome-LLMOps request and bot PR opened: https://github.com/InftyAI/Awesome-LLMOps/issues/430 and https://github.com/InftyAI/Awesome-LLMOps/pull/431; tracked in issue #18: https://github.com/aaronlab/browsertrace/issues/18#issuecomment-4429123741; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 

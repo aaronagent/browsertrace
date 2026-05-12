@@ -73,8 +73,10 @@ Use `docs/launch/day-1-publish-packet.md` as the single owner-facing checklist.
      `adriannovegil/awesome-observability#71`, and the LLMOps observability
      list PR is open at `tensorchord/Awesome-LLMOps#470`. The AI agent
      observability list PR is open at
-     `caramaschiHG/awesome-ai-agents-2026#244`. The CliHub registry PR is open
-     at `clihub-ai/clihub#1`. The E2B CLA check has passed;
+     `caramaschiHG/awesome-ai-agents-2026#244`. The InftyAI LLMOps request is
+     open at `InftyAI/Awesome-LLMOps#430`, and its bot-created PR is
+     `InftyAI/Awesome-LLMOps#431`. The CliHub registry PR is open at
+     `clihub-ai/clihub#1`. The E2B CLA check has passed;
      monitor maintainer feedback and do not open additional list or registry
      PRs unless the target is clearly high-fit and non-duplicative.
    - Awesome list tracking issue:

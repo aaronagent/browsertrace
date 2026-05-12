@@ -90,6 +90,7 @@ workflow-specific debugging context:
 | 16 | `adriannovegil/awesome-observability` | Strong | `LLM & AI Observability` -> `Instrumentation & SDKs` | Submitted: https://github.com/adriannovegil/awesome-observability/pull/71 |
 | 17 | `tensorchord/Awesome-LLMOps` | Strong | `Observability` | Submitted: https://github.com/tensorchord/Awesome-LLMOps/pull/470 |
 | 18 | `caramaschiHG/awesome-ai-agents-2026` | Strong | `Observability and Evaluation` -> `Tracing and Monitoring` | Submitted: https://github.com/caramaschiHG/awesome-ai-agents-2026/pull/244 |
+| 19 | `InftyAI/Awesome-LLMOps` | Strong | `Runtime` -> `Observation` | Project request: https://github.com/InftyAI/Awesome-LLMOps/issues/430; bot PR: https://github.com/InftyAI/Awesome-LLMOps/pull/431 |
 | Skip | `e2b-dev/awesome-ai-agents` | Weak | n/a | Main list is for agents, not tools |
 | Skip | `supernalintelligence/Awesome-Gui-Agents` | Weak | n/a | Main list catalogs GUI agents, not developer/debugging tools; referenced contribution file is missing |
 | Skip | `ZJU-REAL/Awesome-GUI-Agents` | Weak | n/a | Strong topic match, but current README is primarily papers, datasets, and benchmarks rather than developer/debugging tools |
@@ -740,6 +741,35 @@ Verification:
 
 ```bash
 git diff --check
+```
+
+## 19. InftyAI Awesome LLMOps
+
+Target:
+
+```text
+https://github.com/InftyAI/Awesome-LLMOps
+```
+
+Status: project request opened as https://github.com/InftyAI/Awesome-LLMOps/issues/430.
+The repository bot created https://github.com/InftyAI/Awesome-LLMOps/pull/431.
+
+Fit notes:
+
+- The repository recommends Project Request issues and has automation that
+  creates a PR.
+- BrowserTrace fits `Runtime` -> `Observation` because it is a local-first trace
+  viewer for failed AI browser-agent runs, not an agent runtime.
+- The bot-created PR is `OPEN` / `CLEAN`; build passed and auto-merge workflow
+  checks passed or skipped as expected.
+
+Submitted request:
+
+```text
+Project name: BrowserTrace
+Github URL: https://github.com/aaronlab/browsertrace
+Homepage URL: https://aaronlab.github.io/browsertrace/
+Category: Runtime / Observation
 ```
 
 ## Skip List

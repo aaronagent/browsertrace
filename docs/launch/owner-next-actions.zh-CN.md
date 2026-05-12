@@ -249,6 +249,7 @@ docs/launch/github-awesome-list-submissions.md
 | `adriannovegil/awesome-observability` | `https://github.com/adriannovegil/awesome-observability/pull/71`，LLM & AI observability 列表 PR 已打开 |
 | `tensorchord/Awesome-LLMOps` | `https://github.com/tensorchord/Awesome-LLMOps/pull/470`，LLMOps observability 列表 PR 已打开 |
 | `caramaschiHG/awesome-ai-agents-2026` | `https://github.com/caramaschiHG/awesome-ai-agents-2026/pull/244`，AI agent observability 列表 PR 已打开 |
+| `InftyAI/Awesome-LLMOps` | `https://github.com/InftyAI/Awesome-LLMOps/issues/430`，bot PR `https://github.com/InftyAI/Awesome-LLMOps/pull/431`，Runtime/Observation request |
 | `clihub-ai/clihub` | `https://github.com/clihub-ai/clihub/pull/1`，registry PR 已打开，forked PR CI 需要维护者批准后才能运行 |
 | `victorcheeney/clis` | `https://github.com/victorcheeney/clis/issues/3`，CLIs.dev 目录 issue 已打开 |
 

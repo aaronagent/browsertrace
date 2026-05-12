@@ -38,6 +38,7 @@ Tracked PR targets:
 - `adriannovegil/awesome-observability#71`
 - `tensorchord/Awesome-LLMOps#470`
 - `caramaschiHG/awesome-ai-agents-2026#244`
+- `InftyAI/Awesome-LLMOps#431`
 - `clihub-ai/clihub#1`
 
 Current accepted listing:
@@ -89,31 +90,38 @@ danielrosehill/AI-Browser-Tools 1
 adriannovegil/awesome-observability 71
 tensorchord/Awesome-LLMOps 470
 caramaschiHG/awesome-ai-agents-2026 244
+InftyAI/Awesome-LLMOps 431
 clihub-ai/clihub 1
 EOF
 ```
 
-Tracked external issue:
+Tracked external issues:
 
 - `victorcheeney/clis#3`
+- `InftyAI/Awesome-LLMOps#430`
 
 ```bash
-gh issue view 3 --repo victorcheeney/clis \
-  --json number,title,state,closedAt,url,updatedAt,comments |
-  jq -c '{
-    repo:"victorcheeney/clis",
-    number,
-    state,
-    closedAt,
-    updatedAt,
-    url,
-    commentCount:(.comments|length),
-    latestComment:(if (.comments|length) > 0 then {
-      author:.comments[-1].author.login,
-      createdAt:.comments[-1].createdAt,
-      body:((.comments[-1].body // "")|gsub("\n";" ")|.[0:180])
-    } else null end)
-  }'
+while read repo num; do
+  gh issue view "$num" --repo "$repo" \
+    --json number,title,state,closedAt,url,updatedAt,comments |
+    jq -c --arg repo "$repo" '{
+      repo:$repo,
+      number,
+      state,
+      closedAt,
+      updatedAt,
+      url,
+      commentCount:(.comments|length),
+      latestComment:(if (.comments|length) > 0 then {
+        author:.comments[-1].author.login,
+        createdAt:.comments[-1].createdAt,
+        body:((.comments[-1].body // "")|gsub("\n";" ")|.[0:180])
+      } else null end)
+    }'
+done <<'EOF'
+victorcheeney/clis 3
+InftyAI/Awesome-LLMOps 430
+EOF
 ```
 
 Reply only when maintainers ask a concrete question or request a change.
