@@ -335,9 +335,19 @@
 
       .actions {
         gap: 8px;
-        flex-wrap: wrap;
-        overflow-x: visible;
-        padding-bottom: 0;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 6px;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .actions::-webkit-scrollbar {
+        display: none;
+      }
+
+      .actions .button {
+        flex: 0 0 auto;
       }
     }
 

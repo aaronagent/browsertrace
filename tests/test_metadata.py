@@ -422,7 +422,7 @@ def test_homepage_intro_actions_do_not_squeeze_copy_column():
     assert "width: 100%" in actions_css.group("body")
 
 
-def test_homepage_mobile_nav_scrolls_but_actions_wrap():
+def test_homepage_mobile_nav_and_actions_scroll_without_tall_button_stack():
     project_root = Path(__file__).resolve().parents[1]
     homepage = (project_root / "docs" / "index.html").read_text()
     mobile_css = re.search(
@@ -445,11 +445,16 @@ def test_homepage_mobile_nav_scrolls_but_actions_wrap():
     )
     assert re.search(r"nav a\s*\{[^}]*white-space: nowrap;", mobile_body, re.S)
     assert re.search(
-        r"\.actions\s*\{[^}]*flex-wrap: wrap;[^}]*overflow-x: visible;",
+        r"\.actions\s*\{[^}]*flex-wrap: nowrap;[^}]*overflow-x: auto;",
         mobile_body,
         re.S,
     )
-    assert ".actions::-webkit-scrollbar" not in mobile_body
+    assert re.search(
+        r"\.actions \.button\s*\{[^}]*flex: 0 0 auto;",
+        mobile_body,
+        re.S,
+    )
+    assert ".actions::-webkit-scrollbar" in mobile_body
 
 
 def test_homepage_intro_no_longer_needs_tablet_sidebar_override():
