@@ -4342,6 +4342,31 @@ def test_directory_submission_sheet_includes_pypi_trial_after_publish():
     assert f'uvx --from "{pypi_spec}" browsertrace demo' in sheet
 
 
+def test_directory_submission_sheet_uses_browser_use_first_positioning():
+    project_root = Path(__file__).resolve().parents[1]
+    sheet = (project_root / "docs" / "launch" / "directory-submission-sheet.md").read_text()
+
+    assert "local replay debugger for Browser Use failures" in sheet
+    assert "Replay failed Browser Use runs" in sheet
+    assert "BrowserTrace: replay failed Browser Use runs locally" in sheet
+    assert (
+        "Stagehand, Skyvern, Playwright + LLM, and computer-use workflows are secondary integrations"
+        in sheet
+    )
+
+    stale_phrases = [
+        "Local flight recorder",
+        "Replay failed AI browser-agent",
+        "AI browser-agent failures",
+        "AI browser-agent runs",
+        "failed AI browser-agent runs",
+        "local debugger for AI browser-agent",
+        "local trace viewer for failed AI browser-agent",
+    ]
+    for phrase in stale_phrases:
+        assert phrase not in sheet, phrase
+
+
 def test_directory_submission_sheet_records_agentfirst_pr_submission():
     project_root = Path(__file__).resolve().parents[1]
     sheet = (project_root / "docs" / "launch" / "directory-submission-sheet.md").read_text()

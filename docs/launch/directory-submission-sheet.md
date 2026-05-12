@@ -100,7 +100,7 @@ Website URL: https://aaronlab.github.io/browsertrace/
 Repository: https://github.com/aaronlab/browsertrace
 Category: Observability, or Browser if only one category is accepted
 Tags: browser agents, debugging, Playwright, Browser Use, trace viewer
-Short description: Local-first trace viewer for failed AI browser-agent runs, with screenshots, URLs, actions, model I/O, errors, and public-safe HTML exports.
+Short description: Local replay debugger for Browser Use failures, with screenshots, URLs, actions, model I/O, errors, and public-safe HTML exports. Stagehand, Skyvern, Playwright + LLM, and computer-use workflows are secondary integrations.
 ```
 
 AgentsIndex:
@@ -111,9 +111,10 @@ Website URL: https://aaronlab.github.io/browsertrace/
 Repository: https://github.com/aaronlab/browsertrace
 Category: Observability and Monitoring
 Short description:
-Local-first trace viewer for debugging failed AI browser-agent and computer-use
-runs with screenshots, URLs, actions, model I/O, status, errors, and redacted
-shareable HTML exports.
+Local replay debugger for Browser Use failures, with screenshots, URLs, actions,
+model I/O, status, errors, and redacted shareable HTML exports. Stagehand,
+Skyvern, Playwright + LLM, and computer-use workflows are secondary
+integrations.
 Owner note: submit from the owner's signed-in browser session at
 https://agentsindex.ai/submit.
 ```
@@ -124,9 +125,10 @@ AgentKart:
 Agent Name: BrowserTrace
 Description:
 BrowserTrace is not an autonomous agent; it is an MIT-licensed debugging tool
-for AI browser-agent projects. It records failed Browser Use, Stagehand,
-Skyvern, Playwright + LLM, and custom computer-use runs with screenshots, URLs,
-actions, model I/O, status, errors, and public-safe HTML exports.
+for Browser Use failures. It records failed Browser Use runs with screenshots,
+URLs, actions, model I/O, status, errors, and public-safe HTML exports.
+Stagehand, Skyvern, Playwright + LLM, and custom computer-use runs are
+secondary integrations.
 GitHub Repository: https://github.com/aaronlab/browsertrace
 Owner note: if AgentKart only accepts runnable autonomous agents, skip this
 submission instead of misclassifying BrowserTrace. Owner login likely required.
@@ -140,14 +142,13 @@ Website URL: https://aaronlab.github.io/browsertrace/
 GitHub URL: https://github.com/aaronlab/browsertrace
 Category: Developer Tools, AI Agents, or Observability if offered
 Short description:
-Open-source local trace viewer for debugging failed AI browser-agent and
-computer-use runs.
+Open-source local replay debugger for Browser Use failures.
 Full description:
 BrowserTrace records screenshots, URLs, actions, model input/output, status,
-and errors for Browser Use, Stagehand, Skyvern, Playwright + LLM, and custom
-computer-use workflows. It runs locally, includes a PyPI package, and can export
-public-safe HTML traces for sharing without sensitive screenshots, URLs,
-prompts, or model output.
+and errors for Browser Use failures. Stagehand, Skyvern, Playwright + LLM, and
+custom computer-use workflows are supported as secondary integrations. It runs
+locally, includes a PyPI package, and can export public-safe HTML traces for
+sharing without sensitive screenshots, URLs, prompts, or model output.
 ```
 
 FOSSHUNTER:
@@ -158,8 +159,8 @@ Repository: https://github.com/aaronlab/browsertrace
 Website: https://aaronlab.github.io/browsertrace/
 Category: Agentic Development, or AI Automation if Agentic Development is not available
 Short description:
-MIT-licensed local debugger for AI browser-agent failures, with screenshots,
-URLs, actions, model I/O, errors, and redacted HTML exports.
+MIT-licensed local debugger for Browser Use failures, with screenshots, URLs,
+actions, model I/O, errors, and redacted HTML exports.
 Owner note: login is required before the submit form is available.
 ```
 
@@ -219,7 +220,7 @@ DeepYard:
 Tool Name: BrowserTrace
 Website / GitHub URL: https://github.com/aaronlab/browsertrace
 Category: Dev Tools
-Description: BrowserTrace is an MIT-licensed local trace viewer for failed AI browser-agent runs, with screenshots, URLs, actions, model I/O, errors, and public-safe HTML exports.
+Description: BrowserTrace is an MIT-licensed local replay debugger for Browser Use failures, with screenshots, URLs, actions, model I/O, errors, and public-safe HTML exports. Stagehand, Skyvern, Playwright + LLM, and computer-use workflows are secondary integrations.
 ```
 
 OpenAgent.bot:
@@ -239,7 +240,7 @@ Project: BrowserTrace
 Topic fit: Local Agents & Automation
 Repository: https://github.com/aaronlab/browsertrace
 Homepage: https://aaronlab.github.io/browsertrace/
-Summary: Open-source local debugger for AI browser-agent failures, with redacted shareable exports.
+Summary: Open-source local debugger for Browser Use failures, with redacted shareable exports.
 ```
 
 AgentShelf:
@@ -249,7 +250,7 @@ Tool name: BrowserTrace
 Category: Coding & Development, or Autonomous Agents if only agent categories are available
 Website: https://aaronlab.github.io/browsertrace/
 Repository: https://github.com/aaronlab/browsertrace
-Short description: Local flight recorder for AI browser-agent failures.
+Short description: Local replay debugger for Browser Use failures with screenshots, model I/O, failed-step timelines, and public-safe exports.
 ```
 
 Developer-tool directory addendum:
@@ -290,7 +291,7 @@ DevTool Center submit fields:
 ```text
 Tool Name: BrowserTrace
 Description:
-BrowserTrace is an MIT-licensed local debugger for failed AI browser-agent runs. It records screenshots, URLs, actions, model I/O, status, errors, and exports public-safe HTML traces for Browser Use, Stagehand, Skyvern, Playwright + LLM, and custom computer-use workflows.
+BrowserTrace is an MIT-licensed local debugger for Browser Use failures. It records screenshots, URLs, actions, model I/O, status, errors, and exports public-safe HTML traces. Stagehand, Skyvern, Playwright + LLM, and custom computer-use workflows are secondary integrations.
 Tool URL: https://aaronlab.github.io/browsertrace/
 Category: AI Helpers
 Pricing: Free
@@ -301,7 +302,7 @@ ToolHunter submit guidance:
 
 ```text
 Tool name: BrowserTrace
-Tagline: Local debugger for AI browser-agent failures
+Tagline: Local replay debugger for Browser Use failures
 Website: https://aaronlab.github.io/browsertrace/
 Repository: https://github.com/aaronlab/browsertrace
 Category or positioning: Developer Tools, AI agents, open-source CLI utilities
@@ -317,14 +318,14 @@ ToolShelf submit guidance:
 
 ```text
 Tool name: BrowserTrace
-Tagline: Replay failed AI browser-agent runs
+Tagline: Replay failed Browser Use runs
 Website: https://aaronlab.github.io/browsertrace/
 Repository: https://github.com/aaronlab/browsertrace
 Category: CLI Tools, or AI Coding if only one category is accepted
 Pricing/license: Free, open source, MIT
 Short description:
-Local-first CLI and web UI for debugging AI browser-agent failures with
-screenshots, URLs, actions, model I/O, error status, and redacted HTML exports.
+Local-first CLI and web UI for debugging Browser Use failures with screenshots,
+URLs, actions, model I/O, error status, and redacted HTML exports.
 Tags: CLI, AI agents, debugging, observability, Playwright
 ```
 
@@ -333,15 +334,15 @@ Tags: CLI, AI agents, debugging, observability, Playwright
 Tagline:
 
 ```text
-Local flight recorder for AI browser agents
+Replay failed Browser Use runs
 ```
 
 Description:
 
 ```text
-BrowserTrace records failed AI browser-agent runs locally: screenshots, URLs,
-actions, model input/output, status, and errors. Open a step timeline, jump to
-the first failed browser state, and export a standalone HTML trace with optional
+BrowserTrace records failed Browser Use runs locally: screenshots, URLs, actions,
+model input/output, status, and errors. Open a step timeline, jump to the first
+failed browser state, and export a standalone HTML trace with optional
 redaction.
 ```
 
@@ -362,15 +363,15 @@ what browser state do your current agent logs miss at failure time?
 Subject:
 
 ```text
-BrowserTrace: local flight recorder for AI browser agents
+BrowserTrace: replay failed Browser Use runs locally
 ```
 
 Body:
 
 ```text
-BrowserTrace is an MIT-licensed local debugger for AI browser agents.
+BrowserTrace is an MIT-licensed local debugger for Browser Use failures.
 
-It records each browser-agent step as a timeline with screenshot, URL, action,
+It records each Browser Use step as a timeline with screenshot, URL, action,
 model input/output, status, and error, then exports a standalone HTML trace with
 optional redaction.
 
