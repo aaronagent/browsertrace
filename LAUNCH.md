@@ -115,7 +115,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T03:18:15+00:00 | 3 | 998 | 18 | 0 | 10 | 0 | 39 | current monitor pass after #340/#341 were claimed, PRs #342/#343 merged, replacement good-first issue #344 opened, and launch discussion refreshed: https://github.com/aaronlab/browsertrace/discussions/6#discussioncomment-16887172; CI succeeded for merge runs 25711168754 and 25711174452; examples README merges did not trigger Pages; star goal remains incomplete; traffic views 294/111 unique, clones 12398/2207 unique |
+| 2026-05-12T03:23:09+00:00 | 3 | 998 | 18 | 0 | 10 | 0 | 39 | current monitor pass after technical follow-up on browser-use/browser-use#4794 about local HTML upload filenames being misread as navigation targets, plus BrowserTrace issue #11 research note: https://github.com/browser-use/browser-use/issues/4794#issuecomment-4427063915 and https://github.com/aaronlab/browsertrace/issues/11#issuecomment-4427064771; star goal remains incomplete; traffic views 294/111 unique, clones 12398/2207 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
