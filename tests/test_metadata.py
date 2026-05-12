@@ -856,6 +856,30 @@ def test_failure_patterns_page_guide_fragment_links_have_targets():
         assert f'id="{fragment}"' in target, href
 
 
+def test_failure_patterns_page_h2_headings_have_stable_id_anchors():
+    """Issue #353: all <h2> headings in the failure patterns page must have stable id attributes."""
+    project_root = Path(__file__).resolve().parents[1]
+    page = (project_root / "docs" / "browser-agent-failure-patterns.html").read_text()
+
+    # The 11 failure pattern headings must each carry a stable id anchor
+    expected_ids = [
+        "debug-icon-only-click-targets",
+        "debug-new-tab-desync",
+        "debug-remote-cdp-hangs",
+        "debug-screenshot-blob-context",
+        "debug-custom-tool-replay-gaps",
+        "debug-semantic-verification-boundaries",
+        "debug-action-confidence-and-authorization",
+        "debug-vnc-and-cdp-evidence-together",
+        "debug-multi-session-vnc-control-drift",
+        "debug-persistent-browser-recovery",
+        "debug-public-safe-sharing",
+    ]
+
+    for anchor_id in expected_ids:
+        assert f'id="{anchor_id}"' in page, f"Missing id=\"{anchor_id}\" in browser-agent-failure-patterns.html"
+
+
 def test_launch_kit_page_links_first_pr_recipe_for_small_contributions():
     project_root = Path(__file__).resolve().parents[1]
     page = (project_root / "docs" / "launch" / "index.html").read_text()
