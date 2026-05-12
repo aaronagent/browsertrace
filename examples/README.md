@@ -151,6 +151,19 @@ Expect `browsertrace list --limit 5` to show a recent
 two successful steps: `act: click the checkout button` and
 `extract: extract the order total`.
 
+For a no-service Browser Use-shaped run-hook demo, run:
+
+```bash
+BROWSERTRACE_HOME=/tmp/browsertrace-demo python examples/browser_use_run_hooks_demo.py
+BROWSERTRACE_HOME=/tmp/browsertrace-demo browsertrace list --limit 5
+BROWSERTRACE_HOME=/tmp/browsertrace-demo browsertrace show <run_id>
+```
+
+Expect `browsertrace list --limit 5` to show a recent
+`demo: browser-use run hooks flow` run, and
+`browsertrace show <run_id>` to list two successful steps:
+`search_google(query=BrowserTrace)` and `click(selector=#result-1)`.
+
 For Playwright examples, install the browser runtime first:
 
 ```bash

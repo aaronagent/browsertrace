@@ -3071,6 +3071,22 @@ def test_examples_readme_links_browser_use_run_hooks_guide():
     assert "Browser Use + LLM" in example_matrix
 
 
+def test_examples_readme_documents_browser_use_run_hooks_expected_output():
+    project_root = Path(__file__).resolve().parents[1]
+    examples_readme = (project_root / "examples" / "README.md").read_text()
+    verification_section = examples_readme.split(
+        "### Quick local verification for a no-service wrapper example", 1
+    )[1].split("For Playwright examples", 1)[0]
+
+    assert "python examples/browser_use_run_hooks_demo.py" in verification_section
+    assert "no-service Browser Use-shaped run-hook demo" in verification_section
+    assert "demo: browser-use run hooks flow" in verification_section
+    assert "search_google(query=BrowserTrace)" in verification_section
+    assert "click(selector=#result-1)" in verification_section
+    assert "browsertrace list --limit 5" in verification_section
+    assert "browsertrace show <run_id>" in verification_section
+
+
 def test_examples_readme_links_stagehand_and_skyvern_guides_near_matrix():
     project_root = Path(__file__).resolve().parents[1]
     examples_readme = (project_root / "examples" / "README.md").read_text()
