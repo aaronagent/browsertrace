@@ -9,6 +9,7 @@ verification tokens, but the owner must sign in and verify ownership.
 | Surface | URL |
 |---|---|
 | Homepage | `https://aaronlab.github.io/browsertrace/` |
+| AI/coding-agent context | `https://aaronlab.github.io/browsertrace/llms.txt` |
 | Sitemap | `https://aaronlab.github.io/browsertrace/sitemap.xml` |
 | Robots | `https://aaronlab.github.io/browsertrace/robots.txt` |
 | Repository | `https://github.com/aaronlab/browsertrace` |
@@ -51,6 +52,7 @@ Use this payload:
   "keyLocation": "https://aaronlab.github.io/browsertrace/3df02991e8016363298751d1477a766e.txt",
   "urlList": [
     "https://aaronlab.github.io/browsertrace/",
+    "https://aaronlab.github.io/browsertrace/llms.txt",
     "https://aaronlab.github.io/browsertrace/debug-browser-agent-failure.html",
     "https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html",
     "https://aaronlab.github.io/browsertrace/integrations.html",
@@ -74,11 +76,11 @@ Use this payload:
 ```
 
 Latest submission, 2026-05-12 UTC: Codex refreshed the current public URL
-payload after the sitemap lastmod update for the homepage, Browser Use guide,
-and integrations page. The generic IndexNow endpoint and the Bing IndexNow
+payload after the `llms.txt` Awesome-AI-Agents listing update and sitemap
+`llms.txt` lastmod refresh. The generic IndexNow endpoint and the Bing IndexNow
 endpoint both returned HTTP 200 with empty response bodies.
 Tracking comment:
-`https://github.com/aaronlab/browsertrace/issues/16#issuecomment-4428821581`.
+`https://github.com/aaronlab/browsertrace/issues/16#issuecomment-4429683421`.
 
 ## Contribution Reply
 
