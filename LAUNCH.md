@@ -120,7 +120,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T22:48:24+00:00 | 3 | 998 | 21 | 0 | 10 | 0 | 16 | current monitor pass after Browser Use compare CLI prototype and docs landed locally; owner-channel publishing remains the blocker; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-12T22:57:23+00:00 | 3 | 998 | 21 | 0 | 10 | 0 | 0 | current monitor pass after v0.1.19 compare CLI GitHub release and PyPI publish verified; uvx 0.1.19 compare help verified; owner-channel publishing remains the blocker; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 

@@ -11,7 +11,7 @@ As of 2026-05-13:
 - The package is published at `https://pypi.org/project/browsertrace/`.
 - Current PyPI version: `0.1.19`.
 - The GitHub repository has a `pypi` environment.
-- The `Publish` workflow succeeded on run `25630390661`.
+- The `Publish` workflow succeeded on run `25767054022`.
 - The `publish` job has `contents: read` and `id-token: write`, so it can
   download the built artifact and request the PyPI Trusted Publisher token.
 
