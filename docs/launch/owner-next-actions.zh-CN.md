@@ -247,6 +247,7 @@ docs/launch/github-awesome-list-submissions.md
 | `browser-use/awesome-projects` | `https://github.com/browser-use/awesome-projects/pull/6`，Browser Use 官方生态列表 PR 已打开 |
 | `danielrosehill/AI-Browser-Tools` | `https://github.com/danielrosehill/AI-Browser-Tools/pull/1`，AI browser tools 索引 PR 已打开 |
 | `adriannovegil/awesome-observability` | `https://github.com/adriannovegil/awesome-observability/pull/71`，LLM & AI observability 列表 PR 已打开 |
+| `tensorchord/Awesome-LLMOps` | `https://github.com/tensorchord/Awesome-LLMOps/pull/470`，LLMOps observability 列表 PR 已打开 |
 | `clihub-ai/clihub` | `https://github.com/clihub-ai/clihub/pull/1`，registry PR 已打开，forked PR CI 需要维护者批准后才能运行 |
 | `victorcheeney/clis` | `https://github.com/victorcheeney/clis/issues/3`，CLIs.dev 目录 issue 已打开 |
 
