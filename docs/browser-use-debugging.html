@@ -316,6 +316,20 @@ with hooks:
     </section>
 
     <section>
+      <h2 id="debug-stable-selector-replay-gaps">Debug stable selector replay gaps</h2>
+      <p>When a Browser Use run succeeds once, the clicked selector is evidence, not automatically reusable automation. The model may have chosen an observed element index, Browser Use may have reconstructed XPath from the current DOM, and Playwright may store an internal role selector that is useful for replay but not a durable CSS/XPath contract.</p>
+      <ul>
+        <li>Record the action type and observed action, for example <code>click(index=5)</code> versus the final Playwright action.</li>
+        <li>Preserve selected element summary: role, accessible name, text snippet, href/name/type attributes, and bounding box when available.</li>
+        <li>Store candidate selectors such as aria role/name, data-testid, stable id, CSS, XPath, and text selectors, but label which ones were generated after observation.</li>
+        <li>Keep a selector validation result: matched count, chosen selector, reason rejected, and whether it still matched after the action.</li>
+        <li>Link the selector evidence to screenshot or DOM snapshot references, URL pattern, page title, and the reason the agent chose that element when available.</li>
+      </ul>
+      <p>This makes deterministic replay a second step: inspect the trace, pick the strongest selector contract, then promote it into a test or scripted action. BrowserTrace should preserve the evidence bundle first instead of pretending every Browser Use click has a reusable selector string.</p>
+      <p>Related community case: <a href="https://github.com/browser-use/browser-use/discussions/3856">browser-use/browser-use#3856</a>.</p>
+    </section>
+
+    <section>
       <h2 id="debug-new-tab-desync">Debug new-tab desync</h2>
       <p>If a click or Enter action opens a new tab, Browser Use may keep reasoning from the stale page context unless the action result makes that browser-state delta explicit. The symptom is usually repeated retries against the old page while the expected element exists in the new tab.</p>
       <ul>

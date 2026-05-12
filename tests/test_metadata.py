@@ -3798,6 +3798,25 @@ def test_browser_use_guide_documents_icon_only_click_targets():
     assert "browser-use/browser-use#4801" in page
 
 
+def test_browser_use_guide_documents_stable_selector_replay_gaps():
+    project_root = Path(__file__).resolve().parents[1]
+    page = (project_root / "docs" / "browser-use-debugging.html").read_text()
+
+    assert "Debug stable selector replay gaps" in page
+    assert "clicked selector is evidence, not automatically reusable automation" in page
+    assert "candidate selectors" in page
+    assert "selector validation result" in page
+    assert "browser-use/browser-use#3856" in page
+
+    section = page.split("Debug stable selector replay gaps", 1)[1].split(
+        "</section>",
+        1,
+    )[0]
+    assert "stars" not in section.lower()
+    assert "upvotes" not in section.lower()
+    assert "reposts" not in section.lower()
+
+
 def test_browser_use_guide_documents_new_tab_desync():
     project_root = Path(__file__).resolve().parents[1]
     page = (project_root / "docs" / "browser-use-debugging.html").read_text()
