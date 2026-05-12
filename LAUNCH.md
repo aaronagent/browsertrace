@@ -117,7 +117,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T13:40:55+00:00 | 3 | 998 | 21 | 0 | 10 | 0 | 40 | current monitor pass after contributor PR #359 merged, issue #358 closed and unpinned, duplicate malformed issue #360 closed, replacement good-first issue #361 opened and pinned, launch discussion queue refreshed, external listing status recorded in #18, and homepage mobile action wrapping fixed locally; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-12T13:45:44+00:00 | 3 | 998 | 21 | 0 | 10 | 0 | 40 | current monitor pass after homepage mobile action-row fix deployed, live 320px layout verified, and IndexNow refreshed for homepage plus sitemap: https://github.com/aaronlab/browsertrace/issues/16#issuecomment-4431112725; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
