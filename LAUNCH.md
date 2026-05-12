@@ -120,7 +120,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T21:19:59+00:00 | 3 | 998 | 21 | 0 | 10 | 0 | 16 | current monitor pass after launch discussion #6 was refreshed from v0.1.17 broad AI browser-agent copy to v0.1.18 Browser Use-first positioning: https://github.com/aaronlab/browsertrace/discussions/6; owner-channel publishing remains the blocker; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-12T21:54:33+00:00 | 3 | 998 | 21 | 0 | 11 | 0 | 16 | current monitor pass after good-first issue #370 opened for Browser Use compare-run metadata checklist; owner-channel publishing remains the blocker; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
