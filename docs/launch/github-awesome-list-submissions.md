@@ -23,6 +23,16 @@ uvx --from "browsertrace[ui]" browsertrace demo
 uvx --from "browsertrace[ui]" browsertrace
 ```
 
+## Listing-Fit Reply
+
+If a maintainer asks whether BrowserTrace fits the list or which category it
+belongs in, use the focused maintainer reply template:
+
+`docs/launch/response-templates.md#maintainer-asks-whether-it-fits-this-list`
+
+Keep the reply short, accept off-topic decisions, and do not argue for a listing
+when the maintainer says the project is outside the list scope.
+
 ## Contribution Reply
 
 If a maintainer or list reader asks how to make a small docs fix, point to the

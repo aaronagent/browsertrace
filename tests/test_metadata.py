@@ -6062,6 +6062,25 @@ def test_awesome_list_submission_notes_link_first_pr_recipe_for_contributors():
     assert "reposts" not in contribution_reply.lower()
 
 
+def test_awesome_list_submission_notes_link_listing_fit_reply_template():
+    project_root = Path(__file__).resolve().parents[1]
+    notes = (
+        project_root / "docs" / "launch" / "github-awesome-list-submissions.md"
+    ).read_text()
+
+    assert "## Listing-Fit Reply" in notes
+    reply = notes.split("## Listing-Fit Reply", 1)[1].split(
+        "## Contribution Reply", 1
+    )[0]
+
+    assert "docs/launch/response-templates.md#maintainer-asks-whether-it-fits-this-list" in reply
+    assert "accept off-topic decisions" in reply
+    assert "outside the list scope" in reply
+    assert "stars" not in reply.lower()
+    assert "upvotes" not in reply.lower()
+    assert "reposts" not in reply.lower()
+
+
 def test_awesome_list_submission_notes_include_json_cli_reviewer_reply():
     project_root = Path(__file__).resolve().parents[1]
     notes = (
