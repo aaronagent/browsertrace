@@ -3644,6 +3644,28 @@ browsertrace show <run_id> --json
     assert "reposts" not in templates.lower()
 
 
+def test_response_templates_include_listing_fit_reply():
+    project_root = Path(__file__).resolve().parents[1]
+    templates = (
+        project_root / "docs" / "launch" / "response-templates.md"
+    ).read_text()
+
+    assert "## Maintainer asks whether it fits this list" in templates
+    reply = templates.split("## Maintainer asks whether it fits this list", 1)[
+        1
+    ].split("## Does it work with Browser Use?", 1)[0]
+
+    assert "developer tools for AI browser agents" in reply
+    assert "not an autonomous agent" in reply
+    assert "not a hosted browser runtime" in reply
+    assert "debugging, observability, browser automation tooling" in reply
+    assert "Repo: https://github.com/aaronlab/browsertrace" in reply
+    assert "Live demo: https://aaronlab.github.io/browsertrace/" in reply
+    assert "stars" not in reply.lower()
+    assert "upvotes" not in reply.lower()
+    assert "reposts" not in reply.lower()
+
+
 def test_response_templates_include_stagehand_custom_tool_replay_reply():
     project_root = Path(__file__).resolve().parents[1]
     templates = (

@@ -28,6 +28,23 @@ Detailed comparison: https://aaronlab.github.io/browsertrace/compare-browser-age
 
 No by default. The local tracer stores SQLite data and screenshots under `~/.browsertrace/` unless you override `BROWSERTRACE_HOME`. The optional AI summary endpoint only calls an OpenAI-compatible API if you configure an API key and request a summary.
 
+## Maintainer asks whether it fits this list
+
+Thanks for taking a look. The intended category is developer tools for AI browser agents, browser automation, or computer-use debugging.
+
+BrowserTrace is not an autonomous agent and not a hosted browser runtime. It is
+a local debugging/observability tool for failed browser-agent runs: screenshots,
+URL, action, model input/output, status, and error in one timeline, with
+standalone HTML exports for review.
+
+If that is too narrow for this list, no problem. A better fit is a list section
+for debugging, observability, browser automation tooling, Browser Use/Stagehand/
+Skyvern ecosystem projects, Playwright + LLM workflows, or computer-use agent
+developer tools.
+
+Repo: https://github.com/aaronlab/browsertrace
+Live demo: https://aaronlab.github.io/browsertrace/
+
 ## Does it work with Browser Use?
 
 Yes. There is a Browser Use integration in `browsertrace.integrations.browser_use`, plus a generic decorator/context-manager API if you want to record steps manually.
