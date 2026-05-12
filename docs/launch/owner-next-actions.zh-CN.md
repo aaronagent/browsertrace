@@ -23,6 +23,12 @@ Browser Use-first 定位，已有一个外部列表收录，其余列表 PR 继�
 
 不要为了“看起来在推进”继续开新的低转化目录 PR；等维护者反馈再处理已有 PR。
 
+当前 1 分钟解锁动作：直接发
+`docs/launch/owner-social-post-packet.md#x` 里的 X single-post fallback。它已经改成
+failed-vs-good Browser Use comparison 角度，并提到 `browsertrace compare`。
+如果有人问怎么贡献，当前 open good-first issue 是
+`https://github.com/aaronlab/browsertrace/issues/371`。
+
 ## 10 分钟 Owner 解锁顺序
 
 如果你只有一小段时间，按这个顺序做；后面的验证、README 更新、指标记录和
@@ -49,7 +55,16 @@ session recovery。这些都是用具体失败场景来征集真实 workflow 反
    `docs/launch/day-1-publish-packet.md#media-alt-text` 里的
    `Media Alt Text`。最短复制版是
    `docs/launch/owner-social-post-packet.md` 里的 X single-post fallback；完整版本在
-   `docs/launch/owner-social-post-packet.md`。
+   `docs/launch/owner-social-post-packet.md`。最短版如下：
+
+   ```text
+   Browser Use failed but logs do not show what changed?
+
+   BrowserTrace replays screenshot, URL, action, model output, and the first red step. v0.1.19 adds `browsertrace compare` for failed vs good runs.
+
+   What should it capture?
+   https://github.com/aaronlab/browsertrace
+   ```
 2. 如果你接下来几个小时能在线回复技术评论，用
    `docs/launch/owner-launch-submission-packet.md` 提交 Show HN。使用 repo
    URL、准备好的标题和首条评论。只有能用你自己的语气及时回复时才发。

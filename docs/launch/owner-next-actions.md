@@ -29,6 +29,12 @@ The current growth blocker is owner-channel publishing:
 Do not open new low-conversion directory PRs just to create activity. Wait for
 maintainer feedback on the existing PRs and respond only to concrete requests.
 
+Current one-minute unblock: publish the X single-post fallback from
+`docs/launch/owner-social-post-packet.md#x`. It now leads with the
+failed-vs-good Browser Use comparison angle and mentions `browsertrace compare`.
+The current open good-first issue for contributor replies is
+`https://github.com/aaronlab/browsertrace/issues/371`.
+
 ## 10-Minute Owner Unblock
 
 If you only have one short session, do these in order and let Codex handle the
@@ -57,7 +63,16 @@ post, use
    platform supports alt text, use `Media Alt Text` from
    `docs/launch/day-1-publish-packet.md#media-alt-text`.
    The shortest copy/paste version is the X single-post fallback in
-   `docs/launch/owner-social-post-packet.md`.
+   `docs/launch/owner-social-post-packet.md`:
+
+   ```text
+   Browser Use failed but logs do not show what changed?
+
+   BrowserTrace replays screenshot, URL, action, model output, and the first red step. v0.1.19 adds `browsertrace compare` for failed vs good runs.
+
+   What should it capture?
+   https://github.com/aaronlab/browsertrace
+   ```
 2. If you can stay available for several hours to answer technical comments,
    submit Show HN from `docs/launch/owner-launch-submission-packet.md`. Use the
    repo URL, the prepared title, and the first comment. Skip this step until you
