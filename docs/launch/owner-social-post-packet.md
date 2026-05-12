@@ -51,9 +51,9 @@ action, model output, status, and the failed step highlighted in red.
 Use this if you only have one minute. Attach `docs/demo.mp4`.
 
 ```text
-Browser Use failed but logs do not show what changed?
+Browser Use failed on a local `.html` upload: it navigated to the filename and the upload preview never appeared.
 
-BrowserTrace replays screenshot, URL, action, model output, and the first red step. v0.1.19 adds `browsertrace compare` for failed vs good runs.
+BrowserTrace replays the run and v0.1.19 adds `browsertrace compare` for failed vs good runs.
 
 What should it capture?
 https://github.com/aaronlab/browsertrace

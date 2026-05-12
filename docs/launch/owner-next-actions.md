@@ -31,7 +31,8 @@ maintainer feedback on the existing PRs and respond only to concrete requests.
 
 Current one-minute unblock: publish the X single-post fallback from
 `docs/launch/owner-social-post-packet.md#x`. It now leads with the
-failed-vs-good Browser Use comparison angle and mentions `browsertrace compare`.
+local `.html` upload failure story and mentions `browsertrace compare` for
+failed-vs-good Browser Use runs.
 The current open good-first issue for contributor replies is
 `https://github.com/aaronlab/browsertrace/issues/371`.
 
@@ -66,9 +67,9 @@ post, use
    `docs/launch/owner-social-post-packet.md`:
 
    ```text
-   Browser Use failed but logs do not show what changed?
+   Browser Use failed on a local `.html` upload: it navigated to the filename and the upload preview never appeared.
 
-   BrowserTrace replays screenshot, URL, action, model output, and the first red step. v0.1.19 adds `browsertrace compare` for failed vs good runs.
+   BrowserTrace replays the run and v0.1.19 adds `browsertrace compare` for failed vs good runs.
 
    What should it capture?
    https://github.com/aaronlab/browsertrace

@@ -1127,7 +1127,9 @@ def test_launch_kit_page_surfaces_current_x_single_post_unblock():
     assert "one-minute X post" in current_unblock
     assert "docs/demo.mp4" in current_unblock
     assert "owner-social-post-packet.md" in current_unblock
-    assert "Browser Use failed but logs do not show what the agent saw?" in current_unblock
+    assert "Browser Use failed on a local `.html` upload" in current_unblock
+    assert "upload preview never appeared" in current_unblock
+    assert "v0.1.19 adds `browsertrace compare`" in current_unblock
     assert "What should it capture?" in current_unblock
     assert "https://github.com/aaronlab/browsertrace" in current_unblock
     assert "post URL back" in current_unblock

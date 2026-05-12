@@ -25,7 +25,8 @@ Browser Use-first 定位，已有一个外部列表收录，其余列表 PR 继�
 
 当前 1 分钟解锁动作：直接发
 `docs/launch/owner-social-post-packet.md#x` 里的 X single-post fallback。它已经改成
-failed-vs-good Browser Use comparison 角度，并提到 `browsertrace compare`。
+local `.html` upload 失败故事，并提到 `browsertrace compare` 用于 failed-vs-good
+Browser Use run 对比。
 如果有人问怎么贡献，当前 open good-first issue 是
 `https://github.com/aaronlab/browsertrace/issues/371`。
 
@@ -58,9 +59,9 @@ session recovery。这些都是用具体失败场景来征集真实 workflow 反
    `docs/launch/owner-social-post-packet.md`。最短版如下：
 
    ```text
-   Browser Use failed but logs do not show what changed?
+   Browser Use failed on a local `.html` upload: it navigated to the filename and the upload preview never appeared.
 
-   BrowserTrace replays screenshot, URL, action, model output, and the first red step. v0.1.19 adds `browsertrace compare` for failed vs good runs.
+   BrowserTrace replays the run and v0.1.19 adds `browsertrace compare` for failed vs good runs.
 
    What should it capture?
    https://github.com/aaronlab/browsertrace
