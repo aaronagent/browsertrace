@@ -120,7 +120,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T18:14:17+00:00 | 3 | 998 | 21 | 0 | 10 | 0 | 40 | current monitor pass after open tracked external PR commit authors were normalized from aaronagent to aaronlab where headOwner is aaronlab; open PR diffs were preserved; e2b CLA remains passing; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-12T18:34:05+00:00 | 3 | 998 | 21 | 0 | 10 | 0 | 0 | current monitor pass after v0.1.18 Browser Use-first PyPI long description publish verified: https://pypi.org/project/browsertrace/; GitHub release https://github.com/aaronlab/browsertrace/releases/tag/v0.1.18; uvx 0.1.18 doctor verified; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
