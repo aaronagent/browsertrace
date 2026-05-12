@@ -144,6 +144,31 @@ gh api 'notifications?all=true&participating=true&per_page=50' |
   ]'
 ```
 
+### Public GitHub Mention Search
+
+Run these searches after the fixed watch targets. They catch new public mentions
+and relevant browser-agent debugging threads that may not create notifications.
+
+```bash
+gh search issues 'BrowserTrace' --limit 50 \
+  --json repository,title,number,state,url,author,updatedAt,commentsCount,isPullRequest \
+  --jq '[.[] | {repo:.repository.nameWithOwner, number, title, isPullRequest, state, url, author:.author.login, updatedAt, commentsCount}]'
+
+gh search prs 'BrowserTrace' --limit 50 \
+  --json repository,title,number,state,url,author,updatedAt,commentsCount,isDraft \
+  --jq '[.[] | {repo:.repository.nameWithOwner, number, title, state, url, author:.author.login, updatedAt, commentsCount, isDraft}]'
+
+gh search issues 'aaronlab/browsertrace' --limit 50 \
+  --json repository,title,number,state,url,author,updatedAt,commentsCount,isPullRequest \
+  --jq '[.[] | {repo:.repository.nameWithOwner, number, title, isPullRequest, state, url, author:.author.login, updatedAt, commentsCount}]'
+```
+
+Do not use public search results as a reason to promote BrowserTrace. Reply only
+when the thread is already about browser-agent debugging, tracing, screenshots,
+model I/O, action schemas, tab/page state, or public-safe artifacts and you can
+add concise technical context. Disclose the maintainer relationship if a reply
+mentions BrowserTrace; otherwise prefer tool-agnostic debugging guidance.
+
 ## 4. Community Discussions
 
 Tracked discussion targets:
