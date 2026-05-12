@@ -117,7 +117,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T07:09:03+00:00 | 3 | 998 | 20 | 0 | 11 | 0 | 40 | current monitor pass after Awesome-LLMOps PR opened: https://github.com/tensorchord/Awesome-LLMOps/pull/470; tracked in issue #18: https://github.com/aaronlab/browsertrace/issues/18#issuecomment-4428144972; star goal remains incomplete; traffic views 294/111 unique, clones 12398/2207 unique |
+| 2026-05-12T07:37:24+00:00 | 3 | 998 | 20 | 0 | 11 | 0 | 40 | current monitor pass after mobile homepage action buttons wrapped to avoid hidden horizontal truncation; star goal remains incomplete; traffic views 294/111 unique, clones 12398/2207 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
