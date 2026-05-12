@@ -1033,3 +1033,4 @@ uv run --python 3.11 python scripts/launch_metrics.py --json
 | 2026-05-12T11:39:24+00:00 | 3 | 998 | 20 | 0 | 11 | 0 | 40 | current monitor pass after README mentions Browser Use remote CDP hangs for #350; traffic views 354/132 unique, clones 16382/2819 unique |
 | 2026-05-12T11:42:02+00:00 | 3 | 998 | 20 | 0 | 10 | 0 | 40 | current monitor pass after #350 closed with README remote CDP docs coverage; traffic views 354/132 unique, clones 16382/2819 unique |
 | 2026-05-12T11:46:42+00:00 | 3 | 998 | 20 | 0 | 11 | 0 | 40 | current monitor pass after good-first issue #352 opened for local HTML upload failure-patterns coverage; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-12T11:53:28+00:00 | 3 | 998 | 20 | 0 | 11 | 0 | 40 | current monitor pass after Browser Use action schema validation docs coverage for #345; traffic views 354/132 unique, clones 16382/2819 unique |

@@ -356,6 +356,19 @@ with hooks:
     </section>
 
     <section>
+      <h2 id="debug-action-schema-validation">Debug action schema validation boundaries</h2>
+      <p>Action schema coercion can hide why a Browser Use step targeted the wrong element. For example, a raw model action may put a boolean in an element-index field, then one validation path coerces it while another rejects it. After normalization, the final executed target can look deliberate unless the trace preserves both sides of the boundary.</p>
+      <p>Treat this as a schema validation and future adapter boundary. It does not mean BrowserTrace already captures every internal Browser Use field.</p>
+      <ul>
+        <li>Keep the raw model action before validation.</li>
+        <li>Record the validated or normalized action that Browser Use actually executed.</li>
+        <li>Capture any schema or normalization warning, validation error, or coercion note.</li>
+        <li>Preserve selected element metadata for the final executed target, including index, role, text, selector, and URL when available.</li>
+      </ul>
+      <p>Related community case: <a href="https://github.com/browser-use/browser-use/issues/4796">browser-use/browser-use#4796</a>.</p>
+    </section>
+
+    <section>
       <h2 id="debug-empty-model-responses">Debug empty model responses</h2>
       <p>A failing parser exception might occur when the model provider returns an empty response (e.g., <code>input_value=''</code>) before Browser Use validation runs. This suggests the parser received no assistant JSON content at all, rather than malformed JSON.</p>
       <p>While BrowserTrace does not capture every internal Browser Use field, useful debugging evidence to preserve at the boundary between provider response, parsing, and execution includes:</p>

@@ -601,6 +601,36 @@ def test_browser_use_guide_covers_local_html_upload_navigation_boundary():
     assert "reposts" not in section.lower()
 
 
+def test_browser_use_guide_covers_action_schema_validation_boundary():
+    project_root = Path(__file__).resolve().parents[1]
+    guide = (project_root / "docs" / "browser-use-debugging.html").read_text()
+
+    assert 'id="debug-action-schema-validation"' in guide
+    assert "action schema" in guide
+    assert "schema coercion" in guide
+    assert "browser-use/browser-use/issues/4796" in guide
+
+    section = guide.split('id="debug-action-schema-validation"', 1)[1].split(
+        "</section>",
+        1,
+    )[0]
+
+    for expected in [
+        "raw model action",
+        "validated or normalized action",
+        "schema or normalization warning",
+        "selected element metadata",
+        "final executed target",
+    ]:
+        assert expected in section
+
+    assert "future adapter boundary" in section
+    assert "does not mean BrowserTrace already captures every internal Browser Use field" in section
+    assert "stars" not in section.lower()
+    assert "upvotes" not in section.lower()
+    assert "reposts" not in section.lower()
+
+
 def test_stagehand_guide_links_first_pr_recipe_for_small_contributions():
     project_root = Path(__file__).resolve().parents[1]
     guide = (project_root / "docs" / "stagehand-debugging.html").read_text()
