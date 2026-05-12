@@ -105,8 +105,7 @@ Useful local checks:
 - `browsertrace demo` runs without API keys or external services.
 - The deterministic no-API demo creates a trace without a browser, network, or API key; from a source checkout, run `python examples/no_api_failure_demo.py`.
 - The local trial requires no signup, cloud account, or hosted browser service.
-- After `browsertrace demo`, `browsertrace list` shows demo run IDs you can open or export.
-- `browsertrace list` shows run IDs with timestamps and status.
+- After `browsertrace demo`, `browsertrace list` shows demo run IDs with timestamps and status, so you can choose a run to open or export.
 - `browsertrace list --json` prints recent runs as JSON with id, name, status, and created timestamp.
 - `browsertrace list --status failed` filters recent runs by status; combine with JSON, for example `browsertrace list --status completed --json`.
 - `browsertrace demo` prints a `Run ID:` line you can copy into `browsertrace show` or `browsertrace export`.

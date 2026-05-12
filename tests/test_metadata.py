@@ -1664,7 +1664,7 @@ def test_readme_explains_list_output_fields_near_install_checks():
     )[0]
 
     assert (
-        "`browsertrace list` shows run IDs with timestamps and status"
+        "`browsertrace list` shows demo run IDs with timestamps and status"
     ) in install_section
     assert "`browsertrace demo`" in install_section
     assert 'pip install "browsertrace[ui]"' in install_section
@@ -1680,7 +1680,9 @@ def test_readme_explains_list_json_near_install_checks():
 
     assert "`browsertrace list --json` prints recent runs as JSON" in install_section
     assert "id, name, status, and created timestamp" in install_section
-    assert "`browsertrace list` shows run IDs with timestamps and status" in install_section
+    assert (
+        "`browsertrace list` shows demo run IDs with timestamps and status"
+    ) in install_section
     assert 'pip install "browsertrace[ui]"' in install_section
     assert "hosted sharing" not in readme
 
@@ -1747,6 +1749,21 @@ def test_readme_explains_demo_run_id_output_near_install_checks():
     ) in install_section
     assert "`browsertrace list` shows demo run IDs" in install_section
     assert 'pip install "browsertrace[ui]"' in install_section
+    assert "hosted sharing" not in readme
+
+
+def test_readme_merges_demo_list_local_check_bullets():
+    project_root = Path(__file__).resolve().parents[1]
+    readme = (project_root / "README.md").read_text()
+    install_section = readme.split("## Install From PyPI", 1)[1].split(
+        "For a walkthrough", 1
+    )[0]
+
+    assert (
+        "- After `browsertrace demo`, `browsertrace list` shows demo run IDs "
+        "with timestamps and status, so you can choose a run to open or export."
+    ) in install_section
+    assert install_section.count("`browsertrace list` shows") == 1
     assert "hosted sharing" not in readme
 
 
@@ -2138,8 +2155,7 @@ def test_readme_groups_install_tips_as_compact_list():
         "- `browsertrace doctor --json` prints install and trace-store status as JSON",
         "- The healthy doctor output recipe shows expected `Home:`, `Database:`, `Runs:`, and `UI dependencies:` status lines",
         "- `browsertrace demo` runs without API keys or external services",
-        "- After `browsertrace demo`, `browsertrace list` shows demo run IDs",
-        "- `browsertrace list` shows run IDs with timestamps and status",
+        "- After `browsertrace demo`, `browsertrace list` shows demo run IDs with timestamps and status",
         "- `browsertrace list --json` prints recent runs as JSON",
         "- `browsertrace list --status failed` filters recent runs by status",
         "- `browsertrace demo` prints a `Run ID:` line",
@@ -4324,7 +4340,7 @@ def test_launch_monitoring_runbook_covers_current_targets():
         "browser-use/browser-use#4816",
         "browserbase/stagehand#2102",
         "Skyvern-AI/skyvern#5931",
-        "aaronlab/browsertrace#335",
+        "aaronlab/browsertrace#337",
         "Scottcjn/awesome-agents#16",
         "OWASP/www-project-agent-observability-standard#74",
         "tosin2013/helmdeck#117",
@@ -4333,6 +4349,7 @@ def test_launch_monitoring_runbook_covers_current_targets():
 
     assert "agent-observability-standard|helmdeck" in runbook
     assert "## 5. Secondary Technical Threads" in runbook
+    assert "aaronlab/browsertrace#335" not in runbook
     assert "aaronlab/browsertrace#333" not in runbook
     assert "aaronlab/browsertrace#331" not in runbook
     assert "aaronlab/browsertrace#329" not in runbook
