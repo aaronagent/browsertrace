@@ -125,6 +125,20 @@ def test_readme_shows_pypi_badge_after_publish():
     assert "https://pypi.org/project/browsertrace/" in header
 
 
+def test_readme_surfaces_first_awesome_list_inclusion_near_intro():
+    project_root = Path(__file__).resolve().parents[1]
+    readme = (project_root / "README.md").read_text()
+    intro = readme.split("## See a failure trace in 60 seconds", 1)[0]
+    normalized_intro = re.sub(r"\s+", " ", intro)
+
+    assert (
+        "Listed in [Jenqyang/Awesome-AI-Agents]"
+        "(https://github.com/Jenqyang/Awesome-AI-Agents) under"
+        " `Applications` -> `Tools`."
+        in normalized_intro
+    )
+
+
 def test_homepage_has_software_source_code_json_ld():
     project_root = Path(__file__).resolve().parents[1]
     homepage = (project_root / "docs" / "index.html").read_text()

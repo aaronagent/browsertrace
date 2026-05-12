@@ -14,6 +14,9 @@
 
 **MIT · local-first · no signup · no cloud · Python 3.11+**
 
+Listed in [Jenqyang/Awesome-AI-Agents](https://github.com/Jenqyang/Awesome-AI-Agents)
+under `Applications` -> `Tools`.
+
 ---
 
 Your AI browser agent failed. Logs say what code ran, but not what the agent
