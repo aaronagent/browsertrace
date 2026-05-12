@@ -117,7 +117,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T13:15:41+00:00 | 3 | 998 | 21 | 0 | 10 | 0 | 40 | current monitor pass after llms.txt added the Browser Use local HTML upload navigation failure shape for AI/coding-agent discovery; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-12T13:21:29+00:00 | 3 | 998 | 21 | 0 | 10 | 0 | 40 | current monitor pass after IndexNow refresh for llms.txt local HTML upload navigation failure-shape update returned HTTP 200 from generic and Bing endpoints: https://github.com/aaronlab/browsertrace/issues/16#issuecomment-4430902463; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 

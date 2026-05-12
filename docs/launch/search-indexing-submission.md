@@ -76,12 +76,13 @@ Use this payload:
 ```
 
 Latest submission, 2026-05-12 UTC: Codex refreshed
-`https://aaronlab.github.io/browsertrace/browser-use-debugging.html` after the
-Browser Use guide added local HTML upload navigation and action schema
-validation boundaries. The generic IndexNow endpoint and the Bing IndexNow
+`https://aaronlab.github.io/browsertrace/llms.txt` after `llms.txt` added the
+Browser Use local HTML upload navigation failure shape for AI/coding-agent
+discovery. The refresh also submitted the homepage, Browser Use guide, and
+failure-patterns page. The generic IndexNow endpoint and the Bing IndexNow
 endpoint both returned HTTP 200 with empty response bodies.
 Tracking comment:
-`https://github.com/aaronlab/browsertrace/issues/16#issuecomment-4430299600`.
+`https://github.com/aaronlab/browsertrace/issues/16#issuecomment-4430902463`.
 
 ## Contribution Reply
 
