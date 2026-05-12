@@ -18,7 +18,9 @@ feedback.
 The current growth blocker is owner-channel publishing:
 
 1. Publish X, LinkedIn, WeChat, and Jike first from
-   `docs/launch/owner-social-post-packet.md`.
+   `docs/launch/owner-social-post-packet.md`. Start with the X single-post
+   fallback if you only have one minute. Use the thread only if you have a few
+   more minutes.
 2. Submit Show HN from `docs/launch/owner-launch-submission-packet.md` only if
    you can stay available for several hours to answer technical comments.
 3. After any channel goes live, send the post URL, group name, or send note to
@@ -54,7 +56,7 @@ post, use
    `docs/launch/day-1-publish-packet.md`, using `docs/demo.mp4`. When the
    platform supports alt text, use `Media Alt Text` from
    `docs/launch/day-1-publish-packet.md#media-alt-text`.
-   The shortest copy/paste version is
+   The shortest copy/paste version is the X single-post fallback in
    `docs/launch/owner-social-post-packet.md`.
 2. If you can stay available for several hours to answer technical comments,
    submit Show HN from `docs/launch/owner-launch-submission-packet.md`. Use the

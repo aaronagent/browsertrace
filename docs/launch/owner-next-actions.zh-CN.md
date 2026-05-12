@@ -14,7 +14,8 @@ Browser Use-first 定位，已有一个外部列表收录，其余列表 PR 继�
 现在真正卡住增长的是 owner 渠道发布：
 
 1. 先发 X、LinkedIn、微信群和即刻，用
-   `docs/launch/owner-social-post-packet.md`。
+   `docs/launch/owner-social-post-packet.md`。如果只有 1 分钟，先用里面的
+   X single-post fallback；有多几分钟再发 thread。
 2. 如果接下来能连续在线几个小时回复技术评论，再提交 Show HN，用
    `docs/launch/owner-launch-submission-packet.md`。
 3. 发完任意渠道后，把帖子 URL、群名或发送备注给 Codex；Codex 继续记录指标、
@@ -46,7 +47,8 @@ session recovery。这些都是用具体失败场景来征集真实 workflow 反
 1. 用 `docs/launch/day-1-publish-packet.md` 发 X、LinkedIn、微信群、即刻，
    主素材用 `docs/demo.mp4`。平台支持 alt text 时，用
    `docs/launch/day-1-publish-packet.md#media-alt-text` 里的
-   `Media Alt Text`。最短复制版在
+   `Media Alt Text`。最短复制版是
+   `docs/launch/owner-social-post-packet.md` 里的 X single-post fallback；完整版本在
    `docs/launch/owner-social-post-packet.md`。
 2. 如果你接下来几个小时能在线回复技术评论，用
    `docs/launch/owner-launch-submission-packet.md` 提交 Show HN。使用 repo

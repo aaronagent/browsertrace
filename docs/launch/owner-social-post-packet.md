@@ -40,6 +40,21 @@ action, model output, status, and the failed step highlighted in red.
 
 ## X
 
+### Single Post
+
+Use this if you only have one minute. Attach `docs/demo.mp4`.
+
+```text
+Browser Use failed but logs do not show what the agent saw?
+
+I built BrowserTrace: a local replay debugger for Browser Use failures. It records screenshot, URL, action, model output, and the first red step.
+
+What should it capture?
+https://github.com/aaronlab/browsertrace
+```
+
+### Thread
+
 Post as a short thread.
 
 ```text

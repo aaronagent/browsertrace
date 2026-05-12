@@ -4709,6 +4709,8 @@ def test_owner_social_post_packet_is_short_and_linked():
     ).read_text()
 
     assert "## X" in packet
+    assert "### Single Post" in packet
+    assert "Use this if you only have one minute" in packet
     assert "## LinkedIn" in packet
     assert "## WeChat Group" in packet
     assert "## Jike" in packet
@@ -4747,6 +4749,21 @@ def test_owner_social_x_thread_fits_non_premium_post_limit():
     assert len(x_blocks) >= 2
     for block in x_blocks:
         assert len(block) <= 280, block
+
+
+def test_owner_next_actions_surfaces_x_single_post_fallback():
+    project_root = Path(__file__).resolve().parents[1]
+    text = (project_root / "docs" / "launch" / "owner-next-actions.md").read_text()
+    zh_text = (
+        project_root / "docs" / "launch" / "owner-next-actions.zh-CN.md"
+    ).read_text()
+    normalized = re.sub(r"\s+", " ", text)
+    zh_normalized = re.sub(r"\s+", " ", zh_text)
+
+    assert "X single-post fallback" in text
+    assert "Use the thread only if you have a few more minutes" in normalized
+    assert "X single-post fallback" in zh_text
+    assert "有多几分钟再发 thread" in zh_normalized
 
 
 def test_owner_launch_submission_packet_is_short_and_linked():
