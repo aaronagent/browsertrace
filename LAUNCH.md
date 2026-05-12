@@ -117,7 +117,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T04:51:06+00:00 | 3 | 998 | 18 | 0 | 11 | 0 | 112 | current monitor pass after release asset downloads increased to 112; external listing queue still has one merged inclusion and remaining tracked PRs open; traffic views 294/111 unique, clones 12398/2207 unique |
+| 2026-05-12T04:55:02+00:00 | 3 | 998 | 18 | 0 | 11 | 0 | 112 | current monitor pass after issue #344 was claimed by toby-bridges and maintainer scope was confirmed: https://github.com/aaronlab/browsertrace/issues/344#issuecomment-4427451604; traffic views 294/111 unique, clones 12398/2207 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
