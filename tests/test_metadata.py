@@ -3533,6 +3533,25 @@ def test_sitemap_lastmod_matches_current_launch_refresh():
     assert "<lastmod>2026-05-09</lastmod>" not in sitemap
 
 
+def test_sitemap_lastmod_tracks_recent_public_page_refreshes():
+    project_root = Path(__file__).resolve().parents[1]
+    sitemap = (project_root / "docs" / "sitemap.xml").read_text()
+    root = ET.fromstring(sitemap)
+    namespace = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+    lastmod_by_url = {
+        url.find("sm:loc", namespace).text: url.find("sm:lastmod", namespace).text
+        for url in root.findall("sm:url", namespace)
+    }
+
+    for path in [
+        "",
+        "browser-use-debugging.html",
+        "integrations.html",
+    ]:
+        url = f"https://aaronlab.github.io/browsertrace/{path}"
+        assert lastmod_by_url[url] == "2026-05-12", path or "homepage"
+
+
 def test_launch_copy_includes_pypi_trial_after_publish():
     project_root = Path(__file__).resolve().parents[1]
     pypi_spec = "browsertrace[ui]"
