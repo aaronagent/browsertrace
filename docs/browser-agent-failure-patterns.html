@@ -259,6 +259,19 @@
     </section>
 
     <section class="pattern">
+      <h2 id="debug-local-html-upload-navigation">Browser Use local HTML upload navigation</h2>
+      <p>A local HTML file can be described in the task prompt as an attachment to inspect, but the model may turn that attachment context into a navigation target. The failure looks like a bad URL action even though the useful evidence starts before step 0, when file metadata first becomes model-visible.</p>
+      <h3>Trace evidence to keep</h3>
+      <ul>
+        <li>Task prompt and model-visible file or attachment context before the first browser step.</li>
+        <li>Local filename, extension, MIME type, and redaction state when safe to log.</li>
+        <li>Raw model action before validation plus parsed action type and rejected URL or upload target.</li>
+        <li>Guard or watchdog block reason, allowed-domains state, and recovery recommendation.</li>
+      </ul>
+      <p>Related community case: <a href="https://github.com/browser-use/browser-use/issues/4794">browser-use/browser-use#4794</a>. BrowserTrace guide: <a href="./browser-use-debugging.html#debug-local-html-upload-navigation">Debug local HTML upload navigation</a>.</p>
+    </section>
+
+    <section class="pattern">
       <h2 id="debug-remote-cdp-hangs">Browser Use remote CDP hang</h2>
       <p>A remote browser session can look connected while one CDP request never returns. Screenshot capture, DOM snapshot, browser-state collection, and recovery can then spend the whole timeout window or block other sessions through lock timing.</p>
       <h3>Trace evidence to keep</h3>
