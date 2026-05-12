@@ -856,6 +856,20 @@ def test_failure_patterns_page_guide_fragment_links_have_targets():
         assert f'id="{fragment}"' in target, href
 
 
+def test_failure_patterns_page_has_stable_section_anchors():
+    project_root = Path(__file__).resolve().parents[1]
+    page = (project_root / "docs" / "browser-agent-failure-patterns.html").read_text()
+
+    for anchor in [
+        "debug-icon-only-click-targets",
+        "debug-remote-cdp-hangs",
+        "debug-stagehand-semantic-verification-boundary",
+        "debug-skyvern-vnc-cdp-integration",
+        "debug-persistent-browser-session-recovery",
+    ]:
+        assert f'<h2 id="{anchor}">' in page
+
+
 def test_launch_kit_page_links_first_pr_recipe_for_small_contributions():
     project_root = Path(__file__).resolve().parents[1]
     page = (project_root / "docs" / "launch" / "index.html").read_text()

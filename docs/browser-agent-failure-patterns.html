@@ -233,7 +233,7 @@
     </div>
 
     <section class="pattern">
-      <h2>Browser Use icon-only target mismatch</h2>
+      <h2 id="debug-icon-only-click-targets">Browser Use icon-only target mismatch</h2>
       <p>The screenshot shows the right plus icon, but the agent clicks a nearby toolbar button because the intended control has no stable accessible name. Tooltip text may appear only after hover and may not be associated with the actual clickable element.</p>
       <h3>Trace evidence to keep</h3>
       <ul>
@@ -246,7 +246,7 @@
     </section>
 
     <section class="pattern">
-      <h2>Browser Use new-tab desync</h2>
+      <h2 id="debug-new-tab-desync">Browser Use new-tab desync</h2>
       <p>A click or Enter action can open a new tab while the agent keeps reasoning from the stale page context. The symptom is repeated retries against the old page even though the expected element exists in the new tab.</p>
       <h3>Trace evidence to keep</h3>
       <ul>
@@ -259,7 +259,7 @@
     </section>
 
     <section class="pattern">
-      <h2>Browser Use remote CDP hang</h2>
+      <h2 id="debug-remote-cdp-hangs">Browser Use remote CDP hang</h2>
       <p>A remote browser session can look connected while one CDP request never returns. Screenshot capture, DOM snapshot, browser-state collection, and recovery can then spend the whole timeout window or block other sessions through lock timing.</p>
       <h3>Trace evidence to keep</h3>
       <ul>
@@ -272,7 +272,7 @@
     </section>
 
     <section class="pattern">
-      <h2>Screenshot blob poisons model context</h2>
+      <h2 id="debug-screenshot-blob-model-context">Screenshot blob poisons model context</h2>
       <p>A screenshot blob can break future model turns when raw image bytes are copied into conversation history. The safer boundary is an artifact record plus compact metadata, with pixels passed only when the next model call needs a typed image content block.</p>
       <h3>Trace evidence to keep</h3>
       <ul>
@@ -285,7 +285,7 @@
     </section>
 
     <section class="pattern">
-      <h2>Stagehand custom-tool replay gap</h2>
+      <h2 id="debug-stagehand-custom-tool-replay-gaps">Stagehand custom-tool replay gap</h2>
       <p>A cache can replay normal page actions while skipping a <code>custom_tool</code> that mutated page state, filled credentials, or ran side-effectful code. Replay and diagnostic tracing need different contracts.</p>
       <h3>Trace evidence to keep</h3>
       <ul>
@@ -298,7 +298,7 @@
     </section>
 
     <section class="pattern">
-      <h2>Stagehand semantic verification boundary</h2>
+      <h2 id="debug-stagehand-semantic-verification-boundary">Stagehand semantic verification boundary</h2>
       <p>A semantic verification layer around <code>act</code> can prevent unsafe or ambiguous actions, but the verifier result needs to be visible as its own action boundary instead of collapsed into a boolean.</p>
       <h3>Trace evidence to keep</h3>
       <ul>
@@ -311,7 +311,7 @@
     </section>
 
     <section class="pattern">
-      <h2>Skyvern action confidence gap</h2>
+      <h2 id="debug-skyvern-action-confidence-gap">Skyvern action confidence gap</h2>
       <p>Confidence is useful diagnostic metadata, but it is not authorization and does not prove a click, submit, or extraction target was correct. High confidence can still pair with stale context, the wrong target, or a consequence larger than the model expected.</p>
       <h3>Trace evidence to keep</h3>
       <ul>
@@ -324,7 +324,7 @@
     </section>
 
     <section class="pattern">
-      <h2>Skyvern VNC/CDP debug integration</h2>
+      <h2 id="debug-skyvern-vnc-cdp-integration">Skyvern VNC/CDP debug integration</h2>
       <p>Visual VNC evidence and CDP browser-state evidence are much harder to use when they are stored as separate logs. Link them to the same task, workflow, and step ids so a reviewer can see which visual window each DOM, console, or network slice explains.</p>
       <h3>Trace evidence to keep</h3>
       <ul>
@@ -337,7 +337,7 @@
     </section>
 
     <section class="pattern">
-      <h2>Skyvern multi-session VNC control drift</h2>
+      <h2 id="debug-skyvern-multi-session-vnc-control-drift">Skyvern multi-session VNC control drift</h2>
       <p>In local and self-hosted deployments, a live VNC view can become disconnected from the workflow session it is supposed to explain. The browser may still be reachable through CDP while the VNC stream has no frames, points at a shared display, or loses manual Take Control state after reconnect.</p>
       <h3>Trace evidence to keep</h3>
       <ul>
@@ -350,7 +350,7 @@
     </section>
 
     <section class="pattern">
-      <h2>Persistent browser recovery before first screenshot</h2>
+      <h2 id="debug-persistent-browser-session-recovery">Persistent browser recovery before first screenshot</h2>
       <p>Some custom computer-use agents fail during persistent browser recovery before a screenshot or URL exists because profile reuse, lock files, stale process detection, or CDP attach timing prevents a browser session from becoming usable.</p>
       <h3>Trace evidence to keep</h3>
       <ul>
@@ -363,7 +363,7 @@
     </section>
 
     <section>
-      <h2>Public-safe sharing</h2>
+      <h2 id="public-safe-sharing">Public-safe sharing</h2>
       <p>Use <code>browsertrace export &lt;run_id&gt; --public -o public.html</code> before attaching a trace to a public issue or community thread. The public export omits model input/output, screenshots, and URLs by default.</p>
     </section>
   </main>
