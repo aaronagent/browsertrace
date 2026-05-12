@@ -4194,6 +4194,7 @@ browsertrace show <run_id> --json
 
     assert "local first-run issues, CI failures, or AI/coding-agent troubleshooting" in templates
     assert recipe in templates
+    assert "browsertrace compare <failed_run_id> <success_run_id> --json" in templates
     assert "workflow/debugging details" in templates
     assert "stars" not in templates.lower()
     assert "upvotes" not in templates.lower()
@@ -4217,6 +4218,31 @@ def test_response_templates_include_listing_fit_reply():
     assert "debugging, observability, browser automation tooling" in reply
     assert "Repo: https://github.com/aaronlab/browsertrace" in reply
     assert "Live demo: https://aaronlab.github.io/browsertrace/" in reply
+    assert "stars" not in reply.lower()
+    assert "upvotes" not in reply.lower()
+    assert "reposts" not in reply.lower()
+
+
+def test_response_templates_include_compare_run_reply():
+    project_root = Path(__file__).resolve().parents[1]
+    templates = (
+        project_root / "docs" / "launch" / "response-templates.md"
+    ).read_text()
+
+    assert "## How do I compare a failed Browser Use run with a good run?" in templates
+    reply = templates.split(
+        "## How do I compare a failed Browser Use run with a good run?", 1
+    )[1].split("## Does it work with Stagehand?", 1)[0]
+
+    assert "browsertrace compare <failed_run_id> <success_run_id>" in reply
+    assert "browsertrace compare <failed_run_id> <success_run_id> --json" in reply
+    assert "known-good run" in reply
+    assert "first divergent step" in reply
+    assert "action" in reply
+    assert "url" in reply
+    assert "status" in reply
+    assert "error" in reply
+    assert "compare-run-metadata-checklist" in reply
     assert "stars" not in reply.lower()
     assert "upvotes" not in reply.lower()
     assert "reposts" not in reply.lower()

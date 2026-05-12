@@ -120,7 +120,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T23:21:48+00:00 | 3 | 998 | 21 | 0 | 11 | 0 | 8 | current monitor pass after owner next actions and owner publish queue were refreshed with the compare-first one-minute X post and current good-first issue #371; owner-channel publishing remains the blocker; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-12T23:25:47+00:00 | 3 | 998 | 21 | 0 | 11 | 0 | 9 | current monitor pass after response templates and Day 1/Show HN/Product Hunt troubleshooting replies added browsertrace compare JSON guidance for failed-vs-good Browser Use runs; owner-channel publishing remains the blocker; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 

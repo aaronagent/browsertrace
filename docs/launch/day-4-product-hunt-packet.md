@@ -245,6 +245,13 @@ browsertrace list --status failed --json
 browsertrace show <run_id> --json
 ```
 
+If they have a failed Browser Use run and a known-good run for the same task,
+ask for:
+
+```bash
+browsertrace compare <failed_run_id> <success_run_id> --json
+```
+
 ## Stack-Specific Reply Links
 
 Use the closest guide when a technical reply needs workflow-specific context:

@@ -49,6 +49,23 @@ Live demo: https://aaronlab.github.io/browsertrace/
 
 Yes. There is a Browser Use integration in `browsertrace.integrations.browser_use`, plus a generic decorator/context-manager API if you want to record steps manually.
 
+## How do I compare a failed Browser Use run with a good run?
+
+If you have one failed run and one known-good run for the same Browser Use task,
+use the CLI first, then open the local UI for the step details:
+
+```bash
+browsertrace compare <failed_run_id> <success_run_id>
+browsertrace compare <failed_run_id> <success_run_id> --json
+```
+
+The comparison reports the first divergent step across the existing `action`,
+`url`, `status`, and `error` fields. It is intentionally explicit in v0.1.19:
+you choose the failed run and the good run instead of relying on automatic
+baseline selection.
+
+Guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html#compare-run-metadata-checklist
+
 ## Does it work with Stagehand?
 
 Yes. The Stagehand wrapper records `act` and `extract` calls and keeps the same run timeline. The README has a minimal example.
@@ -170,6 +187,13 @@ share:
 browsertrace doctor --json
 browsertrace list --status failed --json
 browsertrace show <run_id> --json
+```
+
+If they have a failed run and a known-good run for the same task, ask for the
+comparison output too:
+
+```bash
+browsertrace compare <failed_run_id> <success_run_id> --json
 ```
 
 ## This is too early.
