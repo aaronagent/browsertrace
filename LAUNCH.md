@@ -115,7 +115,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T02:42:59+00:00 | 3 | 998 | 18 | 0 | 10 | 0 | 38 | current monitor pass after README install tip was tightened to remove duplicate UI/SDK-only wording while preserving terminal command guidance; star goal remains incomplete; traffic views 294/111 unique, clones 12398/2207 unique |
+| 2026-05-12T02:53:45+00:00 | 3 | 998 | 18 | 0 | 10 | 0 | 38 | current monitor pass after IndexNow resubmission for current GitHub Pages launch surface: https://github.com/aaronlab/browsertrace/issues/16#issuecomment-4426947785; star goal remains incomplete; traffic views 294/111 unique, clones 12398/2207 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
