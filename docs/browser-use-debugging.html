@@ -342,6 +342,20 @@ with hooks:
     </section>
 
     <section>
+      <h2 id="debug-local-html-upload-navigation">Debug local HTML upload navigation mistakes</h2>
+      <p>A local HTML upload can be misread as a navigation target before the intended upload action runs. The security watchdog may correctly block the bad URL, but the useful debugging boundary is earlier: why did the planner or model-visible context turn an attachment name into <code>navigate</code> at step 0?</p>
+      <p>Treat this as a planner/action validation boundary and future adapter boundary, not as proof of a low-level file upload bug. It also does not mean BrowserTrace already captures every internal Browser Use field.</p>
+      <ul>
+        <li>Keep the task prompt and model-visible file or attachment context before step 0.</li>
+        <li>Record local filename, extension, and MIME type when safe to log.</li>
+        <li>Preserve the raw model action before validation and the parsed action type, bad URL, or upload target after parsing.</li>
+        <li>Check whether the bad URL came from the local filename, file contents, or surrounding observation text.</li>
+        <li>Capture the security/watchdog block reason and allowed-domains state that rejected the navigation.</li>
+      </ul>
+      <p>Related community case: <a href="https://github.com/browser-use/browser-use/issues/4794">browser-use/browser-use#4794</a>.</p>
+    </section>
+
+    <section>
       <h2 id="debug-empty-model-responses">Debug empty model responses</h2>
       <p>A failing parser exception might occur when the model provider returns an empty response (e.g., <code>input_value=''</code>) before Browser Use validation runs. This suggests the parser received no assistant JSON content at all, rather than malformed JSON.</p>
       <p>While BrowserTrace does not capture every internal Browser Use field, useful debugging evidence to preserve at the boundary between provider response, parsing, and execution includes:</p>

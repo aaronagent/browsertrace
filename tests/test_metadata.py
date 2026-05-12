@@ -565,6 +565,41 @@ def test_browser_use_guide_links_first_pr_recipe_for_small_contributions():
     assert "reposts" not in guide.lower()
 
 
+def test_browser_use_guide_covers_local_html_upload_navigation_boundary():
+    project_root = Path(__file__).resolve().parents[1]
+    guide = (project_root / "docs" / "browser-use-debugging.html").read_text()
+
+    assert 'id="debug-local-html-upload-navigation"' in guide
+    assert "local HTML upload" in guide
+    assert "misread as a navigation target" in guide
+    assert "browser-use/browser-use/issues/4794" in guide
+
+    section = guide.split('id="debug-local-html-upload-navigation"', 1)[1].split(
+        "</section>",
+        1,
+    )[0]
+
+    for expected in [
+        "task prompt",
+        "model-visible file or attachment context",
+        "local filename",
+        "extension",
+        "MIME type",
+        "raw model action before validation",
+        "parsed action type",
+        "bad URL",
+        "security/watchdog block reason",
+        "allowed-domains",
+    ]:
+        assert expected in section
+
+    assert "future adapter boundary" in section
+    assert "does not mean BrowserTrace already captures every internal Browser Use field" in section
+    assert "stars" not in section.lower()
+    assert "upvotes" not in section.lower()
+    assert "reposts" not in section.lower()
+
+
 def test_stagehand_guide_links_first_pr_recipe_for_small_contributions():
     project_root = Path(__file__).resolve().parents[1]
     guide = (project_root / "docs" / "stagehand-debugging.html").read_text()

@@ -117,7 +117,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T11:01:43+00:00 | 3 | 998 | 20 | 0 | 12 | 0 | 40 | current monitor pass after homepage Awesome-AI-Agents listing and IndexNow refresh: https://github.com/aaronlab/browsertrace/issues/16#issuecomment-4429832604; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-12T11:33:37+00:00 | 3 | 998 | 20 | 0 | 12 | 0 | 40 | current monitor pass after Browser Use local HTML upload navigation docs coverage for #349; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
