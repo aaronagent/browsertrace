@@ -4722,6 +4722,19 @@ def test_owner_social_post_packet_is_short_and_linked():
         assert "docs/launch/owner-social-post-packet.md" in text, relpath
 
 
+def test_owner_social_x_thread_fits_non_premium_post_limit():
+    project_root = Path(__file__).resolve().parents[1]
+    packet = (
+        project_root / "docs" / "launch" / "owner-social-post-packet.md"
+    ).read_text()
+    x_section = packet.split("## X", 1)[1].split("## LinkedIn", 1)[0]
+    x_blocks = re.findall(r"```text\n(.*?)\n```", x_section, re.S)
+
+    assert len(x_blocks) >= 2
+    for block in x_blocks:
+        assert len(block) <= 280, block
+
+
 def test_owner_launch_submission_packet_is_short_and_linked():
     project_root = Path(__file__).resolve().parents[1]
     packet = (

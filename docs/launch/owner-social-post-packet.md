@@ -74,10 +74,8 @@ That is the kind of bug where URL + action + model output matter.
 ```
 
 ```text
-Concrete Browser Use failure patterns:
-https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html
-
-Examples: Browser Use new-tab desync, Browser Use local HTML upload navigation, remote CDP hangs, icon-only target mismatch.
+More Browser Use failure patterns:
+new-tab desync, local HTML upload navigation, remote CDP hangs, icon-only target mismatch.
 
 If you build with Browser Use: what state should a trace capture when a run fails?
 
