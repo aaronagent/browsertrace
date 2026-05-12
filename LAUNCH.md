@@ -117,7 +117,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T04:34:44+00:00 | 3 | 998 | 18 | 0 | 11 | 0 | 40 | current monitor pass after README surfaced first external awesome-list inclusion near intro; traffic views 294/111 unique, clones 12398/2207 unique |
+| 2026-05-12T04:38:17+00:00 | 3 | 998 | 18 | 0 | 11 | 0 | 40 | current monitor pass after traffic audit confirmed good-first directories as active referrers: goodfirstissues.com 19/5 and github-help-wanted.com 4/1; traffic views 294/111 unique, clones 12398/2207 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
