@@ -10,14 +10,17 @@ update the launch tracking issues.
 Do not ask for stars, backlinks, reciprocal placement, or artificial engagement.
 The ask is editorial consideration for a relevant developer tool.
 
-Latest verification, 2026-05-12 UTC:
+Latest verification, 2026-05-13 UTC:
 
 - console.dev still presents itself as a weekly devtools newsletter reviewing
-  a small number of interesting developer tools, and the latest public issue
-  does not mention BrowserTrace. Send the editorial suggestion below; do not use
-  the paid advertising route unless you intentionally want a sponsored campaign.
-- AgDex still shows a Developer Tools & Observability section, does not list
-  BrowserTrace, and publishes `agdex.ai@gmail.com` as its contact email.
+  a small number of interesting developer tools, and its public selection
+  criteria says to submit tool suggestions to `hello@console.dev`. The latest
+  public issue does not mention BrowserTrace. Send the editorial suggestion
+  below; do not use the paid advertising route unless you intentionally want a
+  sponsored campaign.
+- AgDex still shows a Developer Tools & Observability section, says it indexes
+  550+ AI tools, does not list BrowserTrace, and publishes `agdex.ai@gmail.com`
+  as its contact email.
 - BrowserTrace is now listed in `Jenqyang/Awesome-AI-Agents` under
   `Applications` -> `Tools`; mention this only if a reviewer wants a quick
   external discovery signal.
