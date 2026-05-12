@@ -68,9 +68,10 @@ Use `docs/launch/day-1-publish-packet.md` as the single owner-facing checklist.
      The Scottcjn agent-ecosystem list PR is open at
      `Scottcjn/awesome-agents#16`, and the official Browser Use ecosystem
      list PR is open at `browser-use/awesome-projects#6`. The AI browser tools
-     index PR is open at `danielrosehill/AI-Browser-Tools#1`. The CliHub registry
-     PR is open at
-     `clihub-ai/clihub#1`. The E2B CLA check has passed;
+     index PR is open at `danielrosehill/AI-Browser-Tools#1`. The LLM & AI
+     observability list PR is open at
+     `adriannovegil/awesome-observability#71`. The CliHub registry PR is open
+     at `clihub-ai/clihub#1`. The E2B CLA check has passed;
      monitor maintainer feedback and do not open additional list or registry
      PRs unless the target is clearly high-fit and non-duplicative.
    - Awesome list tracking issue:

@@ -85,7 +85,7 @@ Codex can prepare assets, update the repo, write copy, audit links, and monitor 
   reusable source asset for future launch previews.
 - Submit `https://aaronlab.github.io/browsertrace/sitemap.xml` in Google Search
   Console and Bing Webmaster Tools.
-- Monitor the sixteen still-open third-party awesome-list and directory PRs plus
+- Monitor the seventeen still-open third-party awesome-list and directory PRs plus
   the CLIs.dev submission issue; `Jenqyang/Awesome-AI-Agents#220` is merged and
   BrowserTrace is listed on that default branch. Respond only if maintainers ask
   for changes.
@@ -117,7 +117,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T06:46:28+00:00 | 3 | 998 | 20 | 0 | 11 | 0 | 40 | current monitor pass after IndexNow refresh for Browser Use guide update returned HTTP 200 from generic and Bing endpoints: https://github.com/aaronlab/browsertrace/issues/16#issuecomment-4427994879; star goal remains incomplete; traffic views 294/111 unique, clones 12398/2207 unique |
+| 2026-05-12T07:01:57+00:00 | 3 | 998 | 20 | 0 | 11 | 0 | 40 | current monitor pass after awesome-observability PR opened: https://github.com/adriannovegil/awesome-observability/pull/71; tracked in issue #18: https://github.com/aaronlab/browsertrace/issues/18#issuecomment-4428097960; star goal remains incomplete; traffic views 294/111 unique, clones 12398/2207 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 

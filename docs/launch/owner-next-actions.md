@@ -238,6 +238,7 @@ Already-open GitHub listing PRs and issues:
 | `Scottcjn/awesome-agents` | `https://github.com/Scottcjn/awesome-agents/pull/16` |
 | `browser-use/awesome-projects` | `https://github.com/browser-use/awesome-projects/pull/6`, official Browser Use ecosystem list PR |
 | `danielrosehill/AI-Browser-Tools` | `https://github.com/danielrosehill/AI-Browser-Tools/pull/1`, AI browser tools index PR |
+| `adriannovegil/awesome-observability` | `https://github.com/adriannovegil/awesome-observability/pull/71`, LLM & AI observability list PR |
 | `clihub-ai/clihub` | `https://github.com/clihub-ai/clihub/pull/1`, forked PR CI needs maintainer approval before it can run |
 | `victorcheeney/clis` | `https://github.com/victorcheeney/clis/issues/3`, CLIs.dev directory issue opened |
 
@@ -274,6 +275,7 @@ Current tracked high-fit PRs:
 - `Scottcjn/awesome-agents#16`
 - `browser-use/awesome-projects#6` - official Browser Use ecosystem list PR is open.
 - `danielrosehill/AI-Browser-Tools#1` - AI browser tools index PR is open.
+- `adriannovegil/awesome-observability#71` - LLM & AI observability list PR is open.
 - `clihub-ai/clihub#1` - registry PR is open; forked PR CI needs
   maintainer approval before it can run.
 - `victorcheeney/clis#3` - CLIs.dev directory issue is open.

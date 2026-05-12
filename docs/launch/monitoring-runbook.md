@@ -35,6 +35,7 @@ Tracked PR targets:
 - `Scottcjn/awesome-agents#16`
 - `browser-use/awesome-projects#6`
 - `danielrosehill/AI-Browser-Tools#1`
+- `adriannovegil/awesome-observability#71`
 - `clihub-ai/clihub#1`
 
 Current accepted listing:
@@ -83,6 +84,7 @@ trycua/acu 26
 Scottcjn/awesome-agents 16
 browser-use/awesome-projects 6
 danielrosehill/AI-Browser-Tools 1
+adriannovegil/awesome-observability 71
 clihub-ai/clihub 1
 EOF
 ```

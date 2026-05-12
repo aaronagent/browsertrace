@@ -87,6 +87,7 @@ workflow-specific debugging context:
 | 13 | `Scottcjn/awesome-agents` | Strong | `Monitoring and Observability` | Submitted: https://github.com/Scottcjn/awesome-agents/pull/16 |
 | 14 | `browser-use/awesome-projects` | Strong | `Integrations & Ease of Use` | Submitted: https://github.com/browser-use/awesome-projects/pull/6 |
 | 15 | `danielrosehill/AI-Browser-Tools` | Strong | `Developer Tools & Utilities` | Submitted: https://github.com/danielrosehill/AI-Browser-Tools/pull/1 |
+| 16 | `adriannovegil/awesome-observability` | Strong | `LLM & AI Observability` -> `Instrumentation & SDKs` | Submitted: https://github.com/adriannovegil/awesome-observability/pull/71 |
 | Skip | `e2b-dev/awesome-ai-agents` | Weak | n/a | Main list is for agents, not tools |
 | Skip | `supernalintelligence/Awesome-Gui-Agents` | Weak | n/a | Main list catalogs GUI agents, not developer/debugging tools; referenced contribution file is missing |
 | Skip | `ZJU-REAL/Awesome-GUI-Agents` | Weak | n/a | Strong topic match, but current README is primarily papers, datasets, and benchmarks rather than developer/debugging tools |
@@ -639,6 +640,36 @@ Submitted entry:
 
 ```markdown
 | [BrowserTrace](https://github.com/aaronlab/browsertrace) | ![Stars](https://img.shields.io/github/stars/aaronlab/browsertrace?style=social) | Local trace viewer for failed AI browser-agent runs |
+```
+
+Verification:
+
+```bash
+git diff --check
+```
+
+## 16. Awesome Observability
+
+Target:
+
+```text
+https://github.com/adriannovegil/awesome-observability
+```
+
+Status: submitted as https://github.com/adriannovegil/awesome-observability/pull/71.
+
+Fit notes:
+
+- The list has a dedicated `LLM & AI Observability` section, and its intro
+  explicitly includes agent workflow debugging.
+- BrowserTrace fits the `Instrumentation & SDKs` subsection because it captures
+  trace data for failed browser-agent runs without requiring hosted telemetry.
+- The PR is a single-line submission and BrowserTrace was not already listed.
+
+Submitted entry:
+
+```markdown
+- [BrowserTrace](https://github.com/aaronlab/browsertrace) - Local-first trace viewer for AI browser-agent failures, capturing screenshots, URLs, actions, model I/O, status, errors, and public-safe HTML exports.
 ```
 
 Verification:
