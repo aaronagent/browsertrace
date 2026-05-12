@@ -338,9 +338,11 @@ def test_homepage_and_readme_link_failure_patterns_page():
         in readme
     )
     assert "browser-agent-failure-patterns.html" in readme
-    assert "Browser Use new-tab desync" in readme
-    assert "Browser Use local HTML upload navigation mistakes" in readme
-    assert "Browser Use remote CDP hangs" in readme
+    assert "Concrete Browser Use failure patterns" in readme
+    assert "new-tab desync" in readme
+    assert "local HTML upload navigation mistakes" in readme
+    assert "remote CDP hangs" in readme
+    assert "icon-only target" in readme
     assert "Stagehand semantic verification boundary" in readme
     assert "Skyvern multi-session VNC control drift" in readme
     assert "stars" not in homepage.lower()
@@ -352,19 +354,19 @@ def test_homepage_intro_uses_mobile_friendly_copy():
     project_root = Path(__file__).resolve().parents[1]
     homepage = (project_root / "docs" / "index.html").read_text()
 
-    assert "Replay failed browser runs" in homepage
+    assert "Debug Browser Use failures" in homepage
     assert "Replay an AI browser-agent failure</h1>" not in homepage
-    assert "Inspect a real failed browser-agent run" in homepage
+    assert "Replay what a Browser Use agent saw, clicked, and returned" in homepage
     assert (
-        'aria-label="Browser Use run hooks" title="Browser Use run hooks">Browser Use</span>'
+        'aria-label="Primary Browser Use run hooks" title="Primary Browser Use run hooks">Browser Use-first</span>'
         in homepage
     )
     assert (
-        'aria-label="Stagehand wrapper" title="Stagehand wrapper">Stagehand</span>'
+        'aria-label="Secondary Stagehand wrapper" title="Secondary Stagehand wrapper">Stagehand</span>'
         in homepage
     )
     assert (
-        'aria-label="Skyvern task/workflow wrapper" title="Skyvern task/workflow wrapper">Skyvern</span>'
+        'aria-label="Secondary Skyvern task/workflow wrapper" title="Secondary Skyvern task/workflow wrapper">Skyvern</span>'
         in homepage
     )
     assert "font-size: clamp(34px, 6vw, 60px)" not in homepage
@@ -391,10 +393,10 @@ def test_homepage_intro_uses_natural_title_wrapping():
 
     assert h1_css is not None
     assert dek_html is not None
-    assert '<h1 id="title">Replay failed browser runs</h1>' in homepage
+    assert '<h1 id="title">Debug Browser Use failures</h1>' in homepage
     assert "text-wrap: balance" in h1_css.group("body")
     assert "Playwright&nbsp;+&nbsp;LLM" in dek_html.group("body")
-    assert "and computer-use&nbsp;agents" in dek_html.group("body")
+    assert "and computer-use&nbsp;workflows" in dek_html.group("body")
     assert "custom&nbsp;computer-use&nbsp;agents" not in dek_html.group("body")
     assert 'class="title-line"' not in homepage
     assert ".title-line" not in homepage
@@ -4407,13 +4409,11 @@ def test_directory_submission_sheet_includes_agdex_email_template():
     assert "Website URL: https://aaronlab.github.io/browsertrace/" in agdex
     assert "Category: Developer tools / observability" in agdex
     assert "Short description:" in agdex
-    assert "AI browser-agent" in agdex
+    assert "Browser Use failures" in agdex
     assert "screenshot shows the" in agdex
     assert "tooltip" in agdex
-    assert "persistent browser recovery" in agdex
-    assert "profile lock" in agdex
-    assert "CDP attach/probe timing" in agdex
-    assert "recovery action" in agdex
+    assert "remote-CDP Browser Use run" in agdex
+    assert "secondary integrations" in agdex
     assert "Do not ask for stars" in agdex
 
 
@@ -4437,10 +4437,9 @@ def test_directory_submission_sheet_includes_console_dev_email_template():
     assert "A concrete failure case" in console
     assert "Browser Use agent can see the right plus icon" in console
     assert "failed-step evidence" in console
-    assert "persistent browser recovery" in console
-    assert "profile lock" in console
-    assert "CDP attach/probe timing" in console
-    assert "recovery action" in console
+    assert "remote CDP" in console
+    assert "Browser Use workflows" in console
+    assert "secondary integrations" in console
     assert "Do not ask for stars" in console
 
 
@@ -4488,8 +4487,9 @@ def test_owner_email_send_packet_is_short_and_linked():
     assert "browser-agent-failure-patterns.html" in packet
     assert "Browser Use new-tab desync" in packet
     assert "Browser Use local HTML upload navigation" in packet
-    assert "Stagehand semantic verification boundary" in packet
-    assert "Skyvern VNC/CDP debug integration" in packet
+    assert "secondary integrations" in packet
+    assert "Stagehand" in packet
+    assert "Skyvern" in packet
     assert "browsertrace-demo-public.html" in packet
     assert "Do not ask for stars" in packet
     assert "upvotes" not in packet.lower()
@@ -4519,8 +4519,9 @@ def test_owner_social_post_packet_is_short_and_linked():
     assert "browser-agent-failure-patterns.html" in packet
     assert "Browser Use new-tab desync" in packet
     assert "Browser Use local HTML upload navigation" in packet
-    assert "Stagehand semantic verification boundary" in packet
-    assert "Skyvern VNC/CDP debug integration" in packet
+    assert "secondary integrations" in packet
+    assert "Stagehand" in packet
+    assert "Skyvern" in packet
     assert "Do not ask for stars" in packet
     assert "upvotes" not in packet.lower()
 
@@ -4540,18 +4541,20 @@ def test_owner_launch_submission_packet_is_short_and_linked():
     ).read_text()
 
     assert "## Show HN" in packet
-    assert "Show HN: BrowserTrace - record and replay AI browser-agent runs to find bugs" in packet
+    assert "Show HN: BrowserTrace - replay Browser Use failures locally" in packet
     assert "## Product Hunt" in packet
     assert "Tagline:" in packet
-    assert "Replay failed AI browser-agent runs" in packet
+    assert "Replay failed Browser Use runs" in packet
     assert "Maker comment:" in packet
     assert "https://github.com/aaronlab/browsertrace" in packet
     assert "https://aaronlab.github.io/browsertrace/" in packet
+    assert "https://aaronlab.github.io/browsertrace/browser-use-debugging.html" in packet
     assert "browser-agent-failure-patterns.html" in packet
     assert "Browser Use new-tab desync" in packet
-    assert "Browser Use local HTML upload navigation" in packet
-    assert "Stagehand semantic verification boundary" in packet
-    assert "Skyvern VNC/CDP debug integration" in packet
+    assert "local HTML upload navigation" in packet
+    assert "remote CDP hangs" in packet
+    assert "icon-only target mismatch" in packet
+    assert "secondary integrations" in packet
     assert "Do not ask for votes" in packet
     assert "upvotes" not in packet.lower()
 
@@ -4701,10 +4704,8 @@ def test_show_hn_packet_uses_concrete_browser_use_failure_shape():
     assert "local HTML" in first_comment
     assert "attachment context" in first_comment
     assert "watchdog block reason" in first_comment
-    assert "persistent browser recovery" in first_comment
-    assert "Profile lock files" in first_comment
-    assert "CDP attach/probe timing" in first_comment
-    assert "recovery action" in first_comment
+    assert "Browser Use workflows" in first_comment
+    assert "secondary integrations" in first_comment
     assert "stars" not in first_comment.lower()
     assert "upvotes" not in first_comment.lower()
     assert "reposts" not in first_comment.lower()
@@ -4834,10 +4835,8 @@ def test_product_hunt_packet_uses_concrete_browser_use_failure_shape():
     assert "local HTML" in maker_comment
     assert "attachment metadata" in maker_comment
     assert "watchdog block reason" in maker_comment
-    assert "persistent browser recovery" in maker_comment
-    assert "Profile lock files" in maker_comment
-    assert "CDP attach/probe" in maker_comment
-    assert "recovery action" in maker_comment
+    assert "Browser Use is the primary path" in maker_comment
+    assert "secondary" in maker_comment
     assert "stars" not in maker_comment.lower()
     assert "upvotes" not in maker_comment.lower()
     assert "reposts" not in maker_comment.lower()
@@ -4866,7 +4865,7 @@ def test_owner_launch_packets_include_media_alt_text():
         assert "## Media Alt Text" in packet
         section = packet.split("## Media Alt Text", 1)[1].split("##", 1)[0]
         assert "BrowserTrace timeline" in section
-        assert "failed AI browser-agent run" in section
+        assert "failed Browser Use run" in section
         assert "screenshot" in section
         assert "failed step" in section
         assert "stars" not in section.lower()

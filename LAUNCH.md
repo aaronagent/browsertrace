@@ -6,7 +6,7 @@ Owner account: `aaronlab`
 
 ## Current State
 
-- Repo is public, MIT licensed, and positioned as a local flight recorder for AI browser agents.
+- Repo is public, MIT licensed, and positioned as a local replay debugger for Browser Use failures.
 - Current account and repo are `aaronlab/browsertrace`; do not use the old
   `aaronagent` name in new launch links.
 - PyPI publishing is complete for `browsertrace==0.1.17`.
@@ -117,7 +117,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T14:47:14+00:00 | 3 | 998 | 21 | 0 | 10 | 0 | 40 | current monitor pass after external Signal Atlas discovery signal surfaced browsertrace in AI Coding leaderboard: https://www.getrank.top/; exact-match HN/Product Hunt searches still did not surface an owner launch; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-12T15:18:17+00:00 | 3 | 998 | 21 | 0 | 10 | 0 | 40 | current monitor pass after Browser Use-first positioning pivot across README homepage and launch copy; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 

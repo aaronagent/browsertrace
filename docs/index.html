@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Replay an AI browser-agent failure with screenshots, model I/O, URLs, actions, and a failed-step timeline.">
-  <meta property="og:title" content="BrowserTrace live demo">
-  <meta property="og:description" content="Replay an AI browser-agent failure with screenshots, model I/O, and a failed-step timeline.">
+  <meta name="description" content="Debug Browser Use failures by replaying screenshots, URLs, actions, model output, status, and the first red step locally.">
+  <meta property="og:title" content="BrowserTrace for Browser Use failures">
+  <meta property="og:description" content="Replay what a failed Browser Use agent saw, clicked, and returned with local screenshots, URLs, actions, and model output.">
   <meta property="og:image" content="https://aaronlab.github.io/browsertrace/social-preview.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://aaronlab.github.io/browsertrace/">
@@ -18,7 +18,7 @@
     "@context": "https://schema.org",
     "@type": "SoftwareSourceCode",
     "name": "BrowserTrace",
-    "description": "Local flight recorder for AI browser agents with screenshots, URLs, model I/O, errors, and public-safe HTML exports.",
+    "description": "Local replay debugger for Browser Use failures with screenshots, URLs, model I/O, errors, and public-safe HTML exports.",
     "url": "https://aaronlab.github.io/browsertrace/",
     "codeRepository": "https://github.com/aaronlab/browsertrace",
     "license": "https://opensource.org/license/mit",
@@ -38,7 +38,7 @@
     ]
   }
   </script>
-  <title>BrowserTrace live demo</title>
+  <title>BrowserTrace for Browser Use failures</title>
   <style>
     :root {
       color-scheme: light;
@@ -386,26 +386,26 @@
   <main>
     <section class="intro" aria-labelledby="title">
       <div>
-        <h1 id="title">Replay failed browser runs</h1>
-        <p class="dek">Inspect a real failed browser-agent run with screenshots, URLs, actions, model output, status, and the first red step. Works with Browser Use, Stagehand, Skyvern, Playwright&nbsp;+&nbsp;LLM, and computer-use&nbsp;agents.</p>
+        <h1 id="title">Debug Browser Use failures</h1>
+        <p class="dek">Replay what a Browser Use agent saw, clicked, and returned: screenshots, URLs, actions, model output, status, and the first red step. Stagehand, Skyvern, Playwright&nbsp;+&nbsp;LLM, and computer-use&nbsp;workflows stay supported as secondary integrations.</p>
         <div class="meta" aria-label="Project details">
           <span>MIT</span>
           <span>Local-first</span>
           <span>No signup</span>
-          <span aria-label="Browser Use run hooks" title="Browser Use run hooks">Browser Use</span>
-          <span aria-label="Stagehand wrapper" title="Stagehand wrapper">Stagehand</span>
-          <span aria-label="Skyvern task/workflow wrapper" title="Skyvern task/workflow wrapper">Skyvern</span>
+          <span aria-label="Primary Browser Use run hooks" title="Primary Browser Use run hooks">Browser Use-first</span>
+          <span aria-label="Secondary Stagehand wrapper" title="Secondary Stagehand wrapper">Stagehand</span>
+          <span aria-label="Secondary Skyvern task/workflow wrapper" title="Secondary Skyvern task/workflow wrapper">Skyvern</span>
           <span>Playwright + LLM</span>
           <span>Computer Use</span>
         </div>
         <p class="listing">Listed in <a href="https://github.com/Jenqyang/Awesome-AI-Agents">Awesome-AI-Agents</a> under Applications -&gt; Tools.</p>
       </div>
       <div class="actions" aria-label="Actions">
-        <a class="button primary" href="https://github.com/aaronlab/browsertrace">View repo</a>
-        <a class="button" href="./debug-browser-agent-failure.html">Read walkthrough</a>
+        <a class="button primary" href="./browser-use-debugging.html">Browser Use guide</a>
+        <a class="button" href="https://github.com/aaronlab/browsertrace">View repo</a>
+        <a class="button" href="./debug-browser-agent-failure.html">Replay walkthrough</a>
         <a class="button" href="./browser-agent-failure-patterns.html">Failure patterns</a>
         <a class="button" href="./compare-browser-agent-debugging.html">Compare tools</a>
-        <a class="button" href="./browser-use-debugging.html">Browser Use guide</a>
         <a class="button" href="./stagehand-debugging.html">Stagehand guide</a>
         <a class="button" href="./skyvern-debugging.html">Skyvern guide</a>
         <a class="button" href="./playwright-llm-debugging.html">Playwright + LLM guide</a>

@@ -54,7 +54,7 @@ BrowserTrace
 Tagline:
 
 ```text
-Replay failed AI browser-agent runs
+Replay failed Browser Use runs
 ```
 
 Primary URL:
@@ -119,7 +119,7 @@ https://github.com/aaronlab/browsertrace/blob/main/CONTRIBUTING.md#first-pr-reci
 Description:
 
 ```text
-BrowserTrace records each AI browser-agent step locally: screenshot, URL,
+BrowserTrace records each Browser Use step locally: screenshot, URL,
 action, model input/output, status, and error. Open a timeline, jump to the
 failed step, and export a shareable HTML trace.
 ```
@@ -142,7 +142,7 @@ Gallery order:
 Use this for Product Hunt gallery assets when alt text is available:
 
 ```text
-BrowserTrace timeline for a failed AI browser-agent run, showing a screenshot,
+BrowserTrace timeline for a failed Browser Use run, showing a screenshot,
 URL, action, model output, status, and the failed step highlighted in red.
 ```
 
@@ -151,7 +151,7 @@ URL, action, model output, status, and the failed step highlighted in red.
 Edit before posting.
 
 ```text
-I built BrowserTrace after losing too much time debugging browser-agent failures
+I built BrowserTrace after losing too much time debugging Browser Use failures
 from logs alone.
 
 The agent would fail at step 47, but by then the browser state was gone. I
@@ -172,11 +172,6 @@ upload or attachment name gets interpreted as a navigation target. The trace
 needs prompt context, model-visible attachment metadata, raw model action,
 parsed action type, and watchdog block reason.
 
-For custom computer-use agents, persistent browser recovery can fail before any
-screenshot or URL exists. Profile lock files and process names are not enough;
-the useful evidence is session mode, a redacted profile id, CDP attach/probe
-timing, recovery action, and final connection state.
-
 BrowserTrace keeps the missing context locally:
 
 - screenshots
@@ -187,11 +182,15 @@ BrowserTrace keeps the missing context locally:
 - exportable HTML traces, including public-safe exports that omit prompts,
   model output, screenshots, and URLs
 
-It is MIT licensed and designed for Browser Use, Stagehand, Playwright + LLM
-scripts, Skyvern-style workflows, and custom computer-use agents.
+Browser Use is the primary path. Stagehand, Playwright + LLM scripts,
+Skyvern-style workflows, and custom computer-use agents are secondary
+integrations.
 
 Live demo:
 https://aaronlab.github.io/browsertrace/
+
+Browser Use guide:
+https://aaronlab.github.io/browsertrace/browser-use-debugging.html
 
 GitHub:
 https://github.com/aaronlab/browsertrace
@@ -204,7 +203,7 @@ uvx --from "browsertrace[ui]" browsertrace
 Good first issue:
 https://github.com/aaronlab/browsertrace/labels/good%20first%20issue
 
-I would especially like feedback from people running browser agents in tests or
+I would especially like feedback from people running Browser Use in tests or
 production. What would make this useful in your workflow?
 ```
 
@@ -215,11 +214,11 @@ Use after the Product Hunt page is live. Do not ask for upvotes.
 ```text
 BrowserTrace is live on Product Hunt today.
 
-Local flight recorder for AI browser-agent failures: screenshots, URLs, actions,
+Local replay debugger for Browser Use failures: screenshots, URLs, actions,
 model I/O, failed-step timelines.
 
-Builder feedback welcome from Browser Use, Stagehand, Skyvern, and Playwright +
-LLM workflows.
+Feedback welcome from Browser Use builders. Secondary: Stagehand, Skyvern,
+Playwright + LLM.
 
 [Product Hunt link]
 ```
@@ -233,7 +232,7 @@ Use the same rules as other launch channels:
 - Link GitHub when people ask how to install, fork, or contribute.
 - Link https://github.com/aaronlab/browsertrace/labels/good%20first%20issue when someone asks for
   a small first contribution.
-- Ask which browser-agent stack they use.
+- Ask whether they use Browser Use, then note secondary integrations only if relevant.
 - Convert concrete adapter requests into GitHub issues.
 - For security-sensitive reports or changes, or anything that includes private trace data,
   point people to the private path in the Security Policy before they share details publicly:

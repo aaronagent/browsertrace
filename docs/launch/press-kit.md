@@ -6,7 +6,7 @@ or short descriptions for people who want to share BrowserTrace.
 ## Product
 
 - Name: BrowserTrace
-- Tagline: Replay failed AI browser-agent runs
+- Tagline: Replay failed Browser Use runs
 - Category: Open-source developer tool
 - License: MIT
 - Primary URL: https://github.com/aaronlab/browsertrace
@@ -40,20 +40,21 @@ https://github.com/aaronlab/browsertrace/issues/237
 
 ## Short Description
 
-BrowserTrace is a local flight recorder for AI browser agents. It records each
-step with screenshots, URL, action, model input/output, status, and error so you
-can jump straight to the first failed browser state.
+BrowserTrace is a local replay debugger for Browser Use failures. It records
+each step with screenshots, URL, action, model input/output, status, and error
+so you can jump straight to the first failed browser state.
 
 ## One-Sentence Blurb
 
-BrowserTrace helps Browser Use, Stagehand, Playwright + LLM, Skyvern, and
-computer-use builders debug failed browser-agent runs with local step timelines.
+BrowserTrace helps Browser Use builders debug failed runs with local step
+timelines. Stagehand, Playwright + LLM, Skyvern, and computer-use workflows are
+supported as secondary integrations.
 
 ## Product Hunt Description
 
-BrowserTrace records each AI browser-agent step locally: screenshot, URL,
-action, model input/output, status, and error. Open a timeline, jump to the
-failed step, and export a shareable HTML trace.
+BrowserTrace records each Browser Use step locally: screenshot, URL, action,
+model input/output, status, and error. Open a timeline, jump to the failed
+step, and export a shareable HTML trace.
 
 ## Trial Path
 
@@ -76,8 +77,8 @@ browsertrace
 
 ## Audience
 
-- Browser-agent builders
 - Browser Use users
+- Browser-agent builders
 - Stagehand users
 - Playwright engineers adding LLM decisions to automation scripts
 - Skyvern and computer-use workflow builders
@@ -108,8 +109,9 @@ browsertrace
 - Local SQLite storage.
 - Exports a self-contained HTML trace.
 - Includes a no-API-key deterministic failure demo.
-- Works with generic Python code and has Browser Use, Stagehand, Skyvern, and
-  Playwright examples or wrappers.
+- Browser Use run hooks are the primary integration path.
+- Works with generic Python code and has Stagehand, Skyvern, Playwright, and
+  computer-use examples or wrappers.
 - External contributor PRs have started landing.
 
 ## Contribution Links

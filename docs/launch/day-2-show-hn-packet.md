@@ -60,7 +60,7 @@ https://github.com/aaronlab/browsertrace
 Title:
 
 ```text
-Show HN: BrowserTrace - record and replay AI browser-agent runs to find bugs
+Show HN: BrowserTrace - replay Browser Use failures locally
 ```
 
 After submission, immediately add the first comment. Start from the `## Hacker
@@ -70,14 +70,14 @@ it concrete:
 - What you built.
 - Which debugging failure caused you to build it.
 - How people can try it without signing up.
-- What feedback you want from browser-agent builders.
+- What feedback you want from Browser Use builders.
 
 ## First Comment Draft
 
 ```text
 Hi HN,
 
-I built BrowserTrace after repeatedly losing the state of failed browser-agent
+I built BrowserTrace after repeatedly losing the state of failed Browser Use
 runs. Logs showed tool calls, but not what the model saw in the browser, which
 screenshot led to the decision, or where the first wrong assumption entered the
 run.
@@ -98,14 +98,9 @@ upload or attachment name can be misread as a navigation target, so the useful
 evidence is the task prompt, model-visible attachment context, raw model action,
 parsed action type, and watchdog block reason.
 
-For custom computer-use agents, I also keep seeing persistent browser recovery
-fail before screenshots or URLs exist. Profile lock files and process names are
-not enough; the useful trace boundary is session mode, a redacted profile id,
-CDP attach/probe timing, recovery action, and final connection state.
-
-BrowserTrace records each step locally: screenshot, URL, action, model input,
-model output, status, and error. You open the local UI, click a run, and jump
-straight to the failed step.
+BrowserTrace records each Browser Use step locally: screenshot, URL, action,
+model input, model output, status, and error. You open the local UI, click a
+run, and jump straight to the failed step.
 
 It is MIT licensed, local-first, and has a deterministic no-API demo. The quickest trial is uvx from PyPI:
 
@@ -122,13 +117,17 @@ browsertrace
 There is also a zero-install exported trace:
 https://aaronlab.github.io/browsertrace/
 
+Browser Use guide:
+https://aaronlab.github.io/browsertrace/browser-use-debugging.html
+
 And a public-safe downloadable export with prompts, model output, screenshots,
 and URLs omitted:
 https://github.com/aaronlab/browsertrace/releases/download/v0.1.17/browsertrace-demo-public.html
 
-I would especially value feedback from people building Browser Use, Stagehand,
-Playwright + LLM, Skyvern, or custom computer-use agents. What state do you
-wish your traces captured when a run fails?
+I would especially value feedback from people building Browser Use workflows.
+What state do you wish your traces captured when a run fails? Stagehand,
+Playwright + LLM, Skyvern, and custom computer-use workflows are still
+supported as secondary integrations.
 ```
 
 ## Response Rules

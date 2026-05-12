@@ -39,15 +39,15 @@ browsertrace
 
 ## One-Line Pitch
 
-BrowserTrace is a local flight recorder for AI browser agents: screenshots,
-URLs, actions, model input/output, status, errors, and standalone HTML exports
-for failed Browser Use, Stagehand, Skyvern, Playwright + LLM, and computer-use
-runs.
+BrowserTrace is a local replay debugger for Browser Use failures: screenshots,
+URLs, actions, model input/output, status, errors, and standalone HTML exports.
+Stagehand, Skyvern, Playwright + LLM, and computer-use workflows are supported
+as secondary integrations.
 
 ## Short Submission Description
 
-BrowserTrace is an MIT-licensed local debugger for AI browser agents. It records
-each browser-agent step as a timeline with screenshot, URL, action, model
+BrowserTrace is an MIT-licensed local debugger for Browser Use failures. It
+records each Browser Use step as a timeline with screenshot, URL, action, model
 input/output, status, and error, then exports a standalone HTML trace with
 optional redaction. The `v0.1.17` release includes the public-safe
 `browsertrace export --public` mode, a packaged `browsertrace demo` command,
@@ -397,29 +397,25 @@ Hi console.dev team,
 
 I wanted to suggest BrowserTrace for your developer tools queue.
 
-BrowserTrace is an MIT-licensed local debugger for AI browser-agent runs. It
-records each browser-agent step as a timeline with screenshot, URL, action,
-model input/output, status, and error, then exports a standalone HTML trace
-with optional redaction.
+BrowserTrace is an MIT-licensed local debugger for Browser Use failures. It
+records each Browser Use step as a timeline with screenshot, URL, action, model
+input/output, status, and error, then exports a standalone HTML trace with
+optional redaction.
 
 A concrete failure case: a Browser Use agent can see the right plus icon in a
 screenshot, but click a nearby toolbar button because the tooltip text is not an
 accessible name. BrowserTrace keeps the screenshot, URL, action, model decision,
 and failed-step evidence together so that kind of bug can be inspected.
 
-Another failure case: remote CDP state collection can hang while the websocket
+Another Browser Use failure case: remote CDP state collection can hang while the websocket
 still appears open, and event-bus lock timing can decide whether one stale
 browser session blocks others. BrowserTrace is aimed at keeping that kind of
 method timing, browser/session evidence, and failed-step context inspectable.
 
-A third failure case: persistent browser recovery can fail before any screenshot
-or URL exists. BrowserTrace docs now call out the useful setup evidence:
-session_mode, redacted profile id, profile lock or stale process signal,
-CDP attach/probe timing, recovery action, and final connection state.
-
 Why it may fit console.dev:
-- It is interesting and useful to developers building Browser Use, Stagehand,
-  Skyvern, Playwright + LLM, or custom computer-use agents.
+- It is interesting and useful to developers building Browser Use workflows.
+- Stagehand, Skyvern, Playwright + LLM, and custom computer-use agents are
+  supported as secondary integrations.
 - It can be a regular-use developer tool for investigating failed AI browser
   automation runs, especially when logs do not show what the agent saw.
 - It is self-service: live demo, PyPI install, and no signup or sales call are
@@ -429,6 +425,7 @@ Why it may fit console.dev:
 
 Repo: https://github.com/aaronlab/browsertrace
 Live demo: https://aaronlab.github.io/browsertrace/
+Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
 Comparison: https://aaronlab.github.io/browsertrace/compare-browser-agent-debugging.html
 Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.17/browsertrace-demo-public.html
 
@@ -452,26 +449,22 @@ Website URL: https://aaronlab.github.io/browsertrace/
 Category: Developer tools / observability
 
 Short description:
-BrowserTrace is an MIT-licensed local debugger for AI browser-agent runs. It
-records each browser-agent step as a timeline with screenshot, URL, action,
-model input/output, status, and error, then exports a standalone HTML trace
-with optional redaction. It is useful for Browser Use, Stagehand, Skyvern,
-Playwright + LLM scripts, and custom computer-use agents.
+BrowserTrace is an MIT-licensed local debugger for Browser Use failures. It
+records each Browser Use step as a timeline with screenshot, URL, action, model
+input/output, status, and error, then exports a standalone HTML trace with
+optional redaction. Stagehand, Skyvern, Playwright + LLM scripts, and custom
+computer-use agents are supported as secondary integrations.
 
 Example use case: debugging a Browser Use run where the screenshot shows the
 right plus icon, but the agent clicks a nearby toolbar button because tooltip
 text is not an accessible name.
 
-Second use case: diagnosing a remote-CDP browser-agent run where a browser state
+Second use case: diagnosing a remote-CDP Browser Use run where a browser state
 collection request hangs while the websocket appears connected, so method
 timing and browser/session evidence matter as much as the final timeout.
 
-Third use case: diagnosing persistent browser recovery before the first
-screenshot exists, where profile lock state, redacted profile id,
-session_mode, CDP attach/probe timing, recovery action, and final connection
-state are the useful debugging evidence.
-
 Repository: https://github.com/aaronlab/browsertrace
+Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
 Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.17/browsertrace-demo-public.html
 Comparison: https://aaronlab.github.io/browsertrace/compare-browser-agent-debugging.html
 ```

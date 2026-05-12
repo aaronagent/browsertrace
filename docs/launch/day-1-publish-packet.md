@@ -28,8 +28,8 @@ Use this when the platform supports alt text for `docs/demo.mp4` or
 `docs/demo-poster.png`:
 
 ```text
-BrowserTrace timeline for a failed AI browser-agent run, showing a screenshot,
-URL, action, model output, status, and the failed step highlighted in red.
+BrowserTrace timeline for a failed Browser Use run, showing a screenshot, URL,
+action, model output, status, and the failed step highlighted in red.
 ```
 
 Run a baseline snapshot:
@@ -107,8 +107,9 @@ redaction flags only when you want to keep some fields visible.
 Integration:
 
 ```text
-Which stack should I prioritize for a tighter adapter: Browser Use, Stagehand,
-Playwright + LLM, Skyvern, or something else?
+Browser Use is the primary path now. Which failure shape should I prioritize
+next: new-tab desync, local HTML upload navigation, remote CDP hangs,
+icon-only targets, or something else?
 
 Tracking issue:
 https://github.com/aaronlab/browsertrace/issues/new?template=integration_request.yml

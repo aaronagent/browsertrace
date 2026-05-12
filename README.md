@@ -1,6 +1,6 @@
 # BrowserTrace
 
-> Local flight recorder for AI browser agents.
+> Local replay debugger for Browser Use failures.
 
 [![CI](https://github.com/aaronlab/browsertrace/actions/workflows/ci.yml/badge.svg)](https://github.com/aaronlab/browsertrace/actions/workflows/ci.yml)
 [![Release](https://img.shields.io/github/v/release/aaronlab/browsertrace?color=blue)](https://github.com/aaronlab/browsertrace/releases)
@@ -19,26 +19,26 @@ under `Applications` -> `Tools`.
 
 ---
 
-Your AI browser agent failed. Logs say what code ran, but not what the agent
-actually saw, clicked, or decided.
+Your Browser Use agent failed. Logs say what code ran, but not what the agent
+actually saw, clicked, returned, or why the first red step happened.
 
-BrowserTrace records each browser-agent step as a timeline: screenshot, URL,
-action, model input, model output, status, and error. Open the local UI and jump
-straight to the failure.
+BrowserTrace records each Browser Use step as a local timeline: screenshot,
+URL, action, model input, model output, status, and error. Open the local UI
+and jump straight to the failed browser state.
 
 It is a local debugging artifact channel, not another prompt-history blob:
 screenshots, URLs, and model I/O stay in the local trace store, and
 `browsertrace export --public` omits prompts/model I/O, screenshots, and URLs
 for public bug reports.
 
-Built for Browser Use, Stagehand, Skyvern, Playwright + LLM scripts, and custom
-computer-use agents.
+Browser Use is the primary path. Stagehand, Skyvern, Playwright + LLM scripts,
+and custom computer-use agents stay supported as secondary integrations.
 
 **Try it:** [live demo](https://aaronlab.github.io/browsertrace/) ·
+[Browser Use guide](https://aaronlab.github.io/browsertrace/browser-use-debugging.html) ·
 [debugging walkthrough](https://aaronlab.github.io/browsertrace/debug-browser-agent-failure.html) ·
 [Failure patterns](https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html) ·
 [integrations](https://aaronlab.github.io/browsertrace/integrations.html) ·
-[Browser Use guide](https://aaronlab.github.io/browsertrace/browser-use-debugging.html) ·
 [Stagehand guide](https://aaronlab.github.io/browsertrace/stagehand-debugging.html) ·
 [Skyvern guide](https://aaronlab.github.io/browsertrace/skyvern-debugging.html) ·
 [Playwright + LLM guide](https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html) ·
@@ -47,10 +47,10 @@ computer-use agents.
 [integration request](https://github.com/aaronlab/browsertrace/issues/new?template=integration_request.yml) ·
 [launch discussion](https://github.com/aaronlab/browsertrace/discussions/6)
 
-Concrete failure patterns now covered include Browser Use new-tab desync,
-Browser Use local HTML upload navigation mistakes, Browser Use remote CDP hangs,
-Stagehand semantic verification boundary, Skyvern VNC/CDP debug integration,
-and Skyvern multi-session VNC control drift.
+Concrete Browser Use failure patterns now covered include new-tab desync,
+local HTML upload navigation mistakes, remote CDP hangs, and icon-only target
+mismatches. Secondary integration patterns cover Stagehand semantic verification boundary,
+Skyvern VNC/CDP debug integration, and Skyvern multi-session VNC control drift.
 
 For AI/coding agents, [`llms.txt`](llms.txt) provides concise project context,
 links, and troubleshooting prompts. The hosted copy lives at
