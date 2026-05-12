@@ -120,7 +120,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T20:25:31+00:00 | 3 | 998 | 21 | 0 | 10 | 0 | 16 | current monitor pass after README Browser Use no-service demo expected-output docs landed in 57171be, #367 closed, and replacement good-first issue #368 opened; owner-channel publishing remains the blocker; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-12T20:28:27+00:00 | 3 | 998 | 21 | 0 | 10 | 0 | 16 | current monitor pass after owner issue #9 refreshed with current CI/Pages, #368, and the 1-minute X single-post blocker: https://github.com/aaronlab/browsertrace/issues/9#issuecomment-4434509864; owner-channel publishing remains the blocker; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
