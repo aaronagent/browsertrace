@@ -74,11 +74,11 @@ Use this payload:
 ```
 
 Latest submission, 2026-05-12 UTC: Codex refreshed the current public URL
-payload after the Browser Use guide update from PR #348. The generic IndexNow
-endpoint and the Bing IndexNow endpoint both returned HTTP 200 with empty
-response bodies.
+payload after the sitemap lastmod update for the homepage, Browser Use guide,
+and integrations page. The generic IndexNow endpoint and the Bing IndexNow
+endpoint both returned HTTP 200 with empty response bodies.
 Tracking comment:
-`https://github.com/aaronlab/browsertrace/issues/16#issuecomment-4427994879`.
+`https://github.com/aaronlab/browsertrace/issues/16#issuecomment-4428821581`.
 
 ## Contribution Reply
 
