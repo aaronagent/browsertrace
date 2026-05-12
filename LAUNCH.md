@@ -120,7 +120,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T19:56:40+00:00 | 3 | 998 | 21 | 0 | 10 | 0 | 11 | current monitor pass after owner X single-post fallback added to owner social packet and next-actions checklist; owner-channel publishing remains the blocker; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-12T20:00:07+00:00 | 3 | 998 | 21 | 0 | 10 | 0 | 11 | current monitor pass after IndexNow refresh for owner X single-post fallback returned HTTP 200 from generic and Bing endpoints; owner-channel publishing remains the blocker; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
