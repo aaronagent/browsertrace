@@ -120,7 +120,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T19:01:51+00:00 | 3 | 998 | 21 | 0 | 9 | 0 | 0 | current monitor pass after walkthrough demo video accessible figcaption added in e92ef13 and #362 closed; external PRs/discussions had no actionable maintainer feedback; owner-channel publishing remains the blocker; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-12T19:05:37+00:00 | 3 | 998 | 21 | 0 | 10 | 0 | 0 | current monitor pass after Browser Use-first good first issue #363 opened for run-hook demo expected-output docs; no external maintainer feedback required action; owner-channel publishing remains the blocker; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
