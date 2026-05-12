@@ -1485,10 +1485,8 @@ def test_readme_explains_ui_extra_near_install_checks():
         "For a walkthrough", 1
     )[0]
 
-    assert (
-        "`[ui]` is needed for the local web UI, while SDK-only install is enough "
-        "for trace capture integrations"
-    ) in install_section
+    assert "Install `[ui]` for the local web UI" in install_section
+    assert "SDK-only installs are enough for trace capture integrations" in install_section
     assert 'pip install "browsertrace[ui]"' in install_section
     assert "https://pypi.org/project/browsertrace/" in install_section
     assert "hosted sharing" not in readme
@@ -1502,9 +1500,9 @@ def test_readme_explains_sdk_only_terminal_commands_near_install_checks():
     )[0]
 
     assert (
-        "SDK-only install can still use terminal commands like `browsertrace list`, "
-        "`browsertrace show`, and `browsertrace export`; `[ui]` is only needed "
-        "for the local web UI"
+        "SDK-only installs are enough for trace capture integrations and terminal "
+        "commands like `browsertrace list`, `browsertrace show`, and "
+        "`browsertrace export`"
     ) in install_section
     assert 'pip install "browsertrace[ui]"' in install_section
     assert "https://pypi.org/project/browsertrace/" in install_section
@@ -2165,7 +2163,7 @@ def test_readme_groups_install_tips_as_compact_list():
         "- The v0.1.17 release notes summarize what changed in the current release",
         "- The PyPI package page is the canonical package listing after publishing",
         "- `uvx` can run the PyPI package without a persistent install, and `pip install` is the persistent install path",
-        "- `[ui]` is needed for the local web UI, while SDK-only install is enough for trace capture integrations, and SDK-only install can still use terminal commands like `browsertrace list`, `browsertrace show`, and `browsertrace export`; `[ui]` is only needed for the local web UI.",
+        "- Install `[ui]` for the local web UI; SDK-only installs are enough for trace capture integrations and terminal commands like `browsertrace list`, `browsertrace show`, and `browsertrace export",
         "- The PyPI install path requires Python 3.11+",
         "- The deterministic no-API demo creates a trace without a browser, network, or API key",
         "- The local trial requires no signup, cloud account, or hosted browser service",

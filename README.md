@@ -131,7 +131,7 @@ and prompts. The hosted copy is [`docs/llms.txt`](docs/llms.txt).
 - The v0.1.17 release notes summarize what changed in the current release; read the [v0.1.17 release notes](https://github.com/aaronlab/browsertrace/releases/tag/v0.1.17).
 - The PyPI package page is the canonical package listing after publishing: https://pypi.org/project/browsertrace/.
 - `uvx` can run the PyPI package without a persistent install, and `pip install` is the persistent install path.
-- `[ui]` is needed for the local web UI, while SDK-only install is enough for trace capture integrations, and SDK-only install can still use terminal commands like `browsertrace list`, `browsertrace show`, and `browsertrace export`; `[ui]` is only needed for the local web UI.
+- Install `[ui]` for the local web UI; SDK-only installs are enough for trace capture integrations and terminal commands like `browsertrace list`, `browsertrace show`, and `browsertrace export`.
 - The PyPI install path requires Python 3.11+.
 - `browsertrace list --limit 5` narrows recent runs before choosing one to inspect or export; see the [recent-runs recipe](examples/#show-only-recent-runs).
 - First-run feedback after `browsertrace demo`: https://github.com/aaronlab/browsertrace/issues/3.
