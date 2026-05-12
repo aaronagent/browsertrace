@@ -117,7 +117,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T09:28:33+00:00 | 3 | 998 | 20 | 0 | 12 | 0 | 40 | current monitor pass after InftyAI Awesome-LLMOps request and bot PR opened: https://github.com/InftyAI/Awesome-LLMOps/issues/430 and https://github.com/InftyAI/Awesome-LLMOps/pull/431; tracked in issue #18: https://github.com/aaronlab/browsertrace/issues/18#issuecomment-4429123741; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-12T09:55:39+00:00 | 3 | 998 | 20 | 0 | 13 | 0 | 40 | current monitor pass after good-first issue #351 opened for homepage Awesome-AI-Agents listing signal: https://github.com/aaronlab/browsertrace/issues/351; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
