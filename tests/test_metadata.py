@@ -4532,19 +4532,23 @@ def test_launch_monitoring_runbook_covers_current_targets():
         "danielrosehill/AI-Browser-Tools#1",
         "browserbase/stagehand#2102",
         "Skyvern-AI/skyvern#5931",
-        "aaronlab/browsertrace#345",
-        "aaronlab/browsertrace#349",
         "Scottcjn/awesome-agents#16",
         "OWASP/www-project-agent-observability-standard#74",
         "tosin2013/helmdeck#117",
     ]:
         assert target in runbook
 
+    assert "Do not hard-code a current good-first issue number" in runbook
+    assert '--label "good first issue"' in runbook
+    assert "pinnedIssues(first:6)" in runbook
     assert "agent-observability-standard|helmdeck" in runbook
     assert "## 5. Secondary Technical Threads" in runbook
     assert "closed good-first issue" in runbook
     assert "good%20first%20issue" in runbook
     assert "stale replacement issue" in runbook
+    assert "aaronlab/browsertrace#345" not in runbook
+    assert "aaronlab/browsertrace#349" not in runbook
+    assert "aaronlab/browsertrace#350" not in runbook
     assert "aaronlab/browsertrace#335" not in runbook
     assert "aaronlab/browsertrace#333" not in runbook
     assert "aaronlab/browsertrace#331" not in runbook

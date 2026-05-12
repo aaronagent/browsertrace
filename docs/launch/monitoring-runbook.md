@@ -131,12 +131,9 @@ Reply only when maintainers ask a concrete question or request a change.
 ## 3. BrowserTrace Repo
 
 Current BrowserTrace watch targets are dynamic. Check open issues and PRs first,
-then inspect any recently claimed issue or open contributor PR. Current focused
-targets:
-
-- `aaronlab/browsertrace#345`
-- `aaronlab/browsertrace#349`
-- `aaronlab/browsertrace#350`
+then inspect any recently claimed issue, open contributor PR, pinned issue, or
+open `good first issue`. Do not hard-code a current good-first issue number in
+this runbook; those rotate as contributors finish small tasks.
 
 ```bash
 gh issue list --repo aaronlab/browsertrace --state open --limit 40 \
@@ -145,7 +142,21 @@ gh issue list --repo aaronlab/browsertrace --state open --limit 40 \
 gh pr list --repo aaronlab/browsertrace --state open --limit 20 \
   --json number,title,author,updatedAt,url,isDraft
 
-for num in 345 349 350; do
+gh issue list --repo aaronlab/browsertrace --state open --label "good first issue" \
+  --json number,title,author,labels,updatedAt,url
+
+gh api graphql -f owner=aaronlab -f name=browsertrace \
+  -f query='query($owner:String!, $name:String!) {
+    repository(owner:$owner, name:$name) {
+      pinnedIssues(first:6) {
+        nodes {
+          issue { number title state url }
+        }
+      }
+    }
+  }'
+
+for num in $(gh issue list --repo aaronlab/browsertrace --state open --label "good first issue" --json number --jq '.[].number'); do
   gh issue view "$num" --repo aaronlab/browsertrace \
     --json number,title,state,comments,updatedAt,url
 done
