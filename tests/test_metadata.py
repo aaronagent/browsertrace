@@ -348,6 +348,15 @@ def test_homepage_intro_uses_mobile_friendly_copy():
     assert "@media (max-width: 620px)" in homepage
     assert "@media (max-width: 420px)" in homepage
     assert "max-width: min(100%, 20ch)" in homepage
+
+
+def test_homepage_intro_grid_can_shrink_on_mobile():
+    project_root = Path(__file__).resolve().parents[1]
+    homepage = (project_root / "docs" / "index.html").read_text()
+
+    assert "grid-template-columns: minmax(0, 1fr)" in homepage
+    assert ".intro > *" in homepage
+    assert "min-width: 0" in homepage
     assert "max-width: 16ch" not in homepage
 
 
@@ -386,7 +395,9 @@ def test_homepage_intro_actions_do_not_squeeze_copy_column():
 
     assert intro_css is not None
     assert actions_css is not None
-    assert "grid-template-columns: 1fr" in intro_css.group("body")
+    assert "grid-template-columns: minmax(0, 1fr)" in intro_css.group("body")
+    assert ".intro > *" in homepage
+    assert "min-width: 0" in homepage
     assert "minmax(260px, 320px)" not in intro_css.group("body")
     assert "justify-content: flex-start" in actions_css.group("body")
     assert "justify-self: start" in actions_css.group("body")
