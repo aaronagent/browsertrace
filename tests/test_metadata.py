@@ -3636,6 +3636,20 @@ def test_browser_use_guide_documents_callback_compatibility():
     assert "without installing Browser Use" in page
 
 
+def test_browser_use_guide_documents_no_service_demo_expected_output():
+    project_root = Path(__file__).resolve().parents[1]
+    page = (project_root / "docs" / "browser-use-debugging.html").read_text()
+
+    assert "examples/browser_use_callback_demo.py" in page
+    assert "examples/browser_use_run_hooks_demo.py" in page
+    assert "demo: browser-use callback flow" in page
+    assert "demo: browser-use run hooks flow" in page
+    assert "browsertrace list --limit 5" in page
+    assert "browsertrace show &lt;run_id&gt;" in page
+    assert "search_google(query=BrowserTrace)" in page
+    assert "click(selector=#result-1)" in page
+
+
 def test_browser_use_guide_documents_icon_only_click_targets():
     project_root = Path(__file__).resolve().parents[1]
     page = (project_root / "docs" / "browser-use-debugging.html").read_text()

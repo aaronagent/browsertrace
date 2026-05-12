@@ -262,11 +262,12 @@
       <h2>Try it before wiring Browser Use</h2>
       <div class="command-block">
         <button class="copy-button" type="button" data-copy-target="quickstart-command">Copy</button>
-        <pre><code id="quickstart-command">uvx --from "browsertrace[ui]" browsertrace doctor
+      <pre><code id="quickstart-command">uvx --from "browsertrace[ui]" browsertrace doctor
 uvx --from "browsertrace[ui]" browsertrace demo
 uvx --from "browsertrace[ui]" browsertrace</code></pre>
       </div>
       <p>Open <code>http://127.0.0.1:3000</code>, then inspect <code>demo: Browser Use local HTML upload navigation failure</code>. From a source checkout, <code>python examples/browser_use_callback_demo.py</code> records Browser Use-shaped callback steps without installing Browser Use.</p>
+      <p>To verify that callback demo from the terminal, run <code>browsertrace list --limit 5</code> and expect <code>demo: browser-use callback flow</code>. Then run <code>browsertrace show &lt;run_id&gt;</code> and expect two steps: <code>search_google(query=BrowserTrace)</code> and <code>click(selector=#result-1)</code>.</p>
     </section>
 
     <section>
@@ -298,6 +299,7 @@ with hooks:
     await agent.run(on_step_start=hooks.on_step_start, on_step_end=hooks.on_step_end)</code></pre>
       <p>The run-hook helper reads Browser Use history and browser-session summaries when they are available, then records the latest thought, action, extracted content, URL, title, tabs, and screenshot flag into the same local timeline. If your Browser Use version exposes a different hook shape, comment on issue #11 with the version and callback surface.</p>
       <p>To try this path without installing Browser Use, run <code>python examples/browser_use_run_hooks_demo.py</code> from a source checkout.</p>
+      <p>For a quick terminal check, run <code>browsertrace list --limit 5</code> and expect <code>demo: browser-use run hooks flow</code>. Then run <code>browsertrace show &lt;run_id&gt;</code> and expect the same two demo step labels: <code>search_google(query=BrowserTrace)</code> and <code>click(selector=#result-1)</code>.</p>
     </section>
 
     <section>
