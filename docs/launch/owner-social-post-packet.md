@@ -21,6 +21,16 @@ Optional credibility note:
   `Applications` -> `Tools`. Use this only as social proof when useful; do not
   ask for stars, votes, reposts, or reciprocal promotion.
 
+## Media Alt Text
+
+Use this when the platform supports alt text for `docs/demo.mp4` or
+`docs/demo-poster.png`:
+
+```text
+BrowserTrace timeline for a failed Browser Use run, showing a screenshot, URL,
+action, model output, status, and the failed step highlighted in red.
+```
+
 ## X
 
 Post as a short thread.

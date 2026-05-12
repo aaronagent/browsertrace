@@ -4957,11 +4957,14 @@ def test_owner_launch_packets_include_media_alt_text():
     day_1 = (
         project_root / "docs" / "launch" / "day-1-publish-packet.md"
     ).read_text()
+    owner_social = (
+        project_root / "docs" / "launch" / "owner-social-post-packet.md"
+    ).read_text()
     product_hunt = (
         project_root / "docs" / "launch" / "day-4-product-hunt-packet.md"
     ).read_text()
 
-    for packet in [day_1, product_hunt]:
+    for packet in [day_1, owner_social, product_hunt]:
         assert "## Media Alt Text" in packet
         section = packet.split("## Media Alt Text", 1)[1].split("##", 1)[0]
         assert "BrowserTrace timeline" in section
