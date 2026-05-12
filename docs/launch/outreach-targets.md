@@ -44,7 +44,7 @@ Post only where the community rules allow it. The ask is feedback from people bu
 2. Hacker News once the first-run path is clearly understandable.
 3. Browser Use and Stagehand communities because they match the product.
 4. Reddit only with a useful write-up and after checking local rules.
-5. Directory/newsletter submissions after `v0.1.18` links are stable. Use
+5. Directory/newsletter submissions after `v0.1.19` links are stable. Use
    `docs/launch/directory-submission-sheet.md` as the queue.
 6. Product Hunt after the visual assets are strong enough for a broader audience.
 
@@ -71,7 +71,7 @@ failures.
 
 It records each Browser Use step as a timeline with screenshots, URL, action,
 model input/output, status, and errors, then exports a standalone HTML trace.
-The v0.1.18 release includes `browsertrace demo` for first-run onboarding,
+The v0.1.19 release includes `browsertrace demo` for first-run onboarding,
 `browsertrace export --public` for public-safe sharing, and individual
 redaction flags when users want to keep some fields visible.
 
@@ -88,9 +88,9 @@ computer-use agents.
 
 Repo: https://github.com/aaronlab/browsertrace
 Live demo: https://aaronlab.github.io/browsertrace/
-Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.18/browsertrace-demo-public.html
+Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.19/browsertrace-demo-public.html
 Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
-Release: https://github.com/aaronlab/browsertrace/releases/tag/v0.1.18
+Release: https://github.com/aaronlab/browsertrace/releases/tag/v0.1.19
 ```
 
 Submission notes:

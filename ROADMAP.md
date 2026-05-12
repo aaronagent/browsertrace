@@ -7,7 +7,7 @@ as secondary integrations.
 
 ## Current Release
 
-`v0.1.18` is the current launch release.
+`v0.1.19` is the current launch release.
 
 Shipped:
 
@@ -44,12 +44,13 @@ Completed launch prep:
 
 - [#13 GitHub profile README](https://github.com/aaronlab/browsertrace/issues/13)
   now points the `aaronlab` profile at BrowserTrace.
-- GitHub Release `v0.1.18` includes the wheel, sdist, full demo export,
+- GitHub Release `v0.1.19` includes the wheel, sdist, full demo export,
   public-safe demo export, demo video, poster, and GIF.
-- PyPI is live as `browsertrace==0.1.18`, with
+- PyPI is live as `browsertrace==0.1.19`, with
   `pip install "browsertrace[ui]"` as the canonical persistent install path.
-- `v0.1.18` keeps the `browsertrace doctor` onboarding fix and packaged
-  `browsertrace demo` path.
+- `v0.1.19` keeps the `browsertrace doctor` onboarding fix, packaged
+  `browsertrace demo` path, and explicit `browsertrace compare` CLI path for
+  failed-vs-successful Browser Use runs.
 - IndexNow submission is prepared and submitted for the main GitHub Pages
   launch URLs.
 

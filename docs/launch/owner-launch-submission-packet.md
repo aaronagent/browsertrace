@@ -14,7 +14,7 @@ Primary links:
 - Live demo: https://aaronlab.github.io/browsertrace/
 - Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
 - Failure patterns: https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html
-- Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.18/browsertrace-demo-public.html
+- Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.19/browsertrace-demo-public.html
 
 Optional credibility note:
 

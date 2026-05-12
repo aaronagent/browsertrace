@@ -157,7 +157,7 @@ https://aaronlab.github.io/browsertrace/
 HTML。它去掉了 prompt / model input/output、截图和 URL：
 
 ```text
-https://github.com/aaronlab/browsertrace/releases/download/v0.1.18/browsertrace-demo-public.html
+https://github.com/aaronlab/browsertrace/releases/download/v0.1.19/browsertrace-demo-public.html
 ```
 
 ## 在代码里怎么用
@@ -297,5 +297,5 @@ https://aaronlab.github.io/browsertrace/launch/
 Public-safe demo export:
 
 ```text
-https://github.com/aaronlab/browsertrace/releases/download/v0.1.18/browsertrace-demo-public.html
+https://github.com/aaronlab/browsertrace/releases/download/v0.1.19/browsertrace-demo-public.html
 ```

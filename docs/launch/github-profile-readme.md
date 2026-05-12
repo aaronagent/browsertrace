@@ -83,7 +83,7 @@ First PR Recipe:
 https://github.com/aaronlab/browsertrace/blob/main/CONTRIBUTING.md#first-pr-recipe keeps the first contribution small and reviewable.
 
 Public-safe demo export:
-https://github.com/aaronlab/browsertrace/releases/download/v0.1.18/browsertrace-demo-public.html
+https://github.com/aaronlab/browsertrace/releases/download/v0.1.19/browsertrace-demo-public.html
 
 ## Troubleshooting
 

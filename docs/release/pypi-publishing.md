@@ -5,11 +5,11 @@ tokens. The GitHub workflow is `.github/workflows/publish.yml`.
 
 ## Current Status
 
-As of 2026-05-10:
+As of 2026-05-13:
 
 - PyPI returns HTTP 200 for `https://pypi.org/pypi/browsertrace/json`.
 - The package is published at `https://pypi.org/project/browsertrace/`.
-- Current PyPI version: `0.1.18`.
+- Current PyPI version: `0.1.19`.
 - The GitHub repository has a `pypi` environment.
 - The `Publish` workflow succeeded on run `25630390661`.
 - The `publish` job has `contents: read` and `id-token: write`, so it can

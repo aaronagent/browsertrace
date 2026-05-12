@@ -9,6 +9,13 @@ to keep the first contribution small and reviewable.
 
 ## Unreleased
 
+## 0.1.19 - 2026-05-13
+
+- Added `browsertrace compare <failed_run_id> <success_run_id>` to find the
+  first divergent action, URL, status, or error between two recorded runs.
+- Documented compare-run debugging in the Browser Use guide, README, and
+  examples command cheat sheet for the `v0.1.19` patch release.
+
 ## 0.1.18 - 2026-05-13
 
 - Refreshed the packaged README and PyPI long description around the Browser

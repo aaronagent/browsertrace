@@ -31,8 +31,8 @@ custom computer-use agents are supported as secondary integrations.
 - Examples: https://github.com/aaronlab/browsertrace/tree/main/examples
 - Launch kit: https://aaronlab.github.io/browsertrace/launch/
 - Press kit: https://aaronlab.github.io/browsertrace/launch/press-kit.md
-- Release: https://github.com/aaronlab/browsertrace/releases/tag/v0.1.18
-- Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.18/browsertrace-demo-public.html
+- Release: https://github.com/aaronlab/browsertrace/releases/tag/v0.1.19
+- Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.19/browsertrace-demo-public.html
 - External listing: https://github.com/Jenqyang/Awesome-AI-Agents
   (Applications -> Tools)
 - Launch discussion: https://github.com/aaronlab/browsertrace/discussions/6

@@ -344,7 +344,7 @@ uv run --python 3.11 python scripts/launch_metrics.py --append --note "after com
 
 ## Directories And Newsletters
 
-Use these after `v0.1.18` because the release has the packaged demo command and
+Use these after `v0.1.19` because the release has the packaged demo command and
 safer redacted export path.
 
 Use `docs/launch/directory-submission-sheet.md` for exact entry points, link
@@ -394,7 +394,7 @@ records each Browser Use step as a timeline: screenshot, URL, action, model
 input/output, status, and error. Stagehand, Skyvern, and Playwright + LLM
 workflows are secondary integrations.
 
-The v0.1.18 release includes `browsertrace demo` for first-run onboarding,
+The v0.1.19 release includes `browsertrace demo` for first-run onboarding,
 `browsertrace export --public` for public-safe sharing, and individual
 redaction flags when users want to keep some fields visible.
 
@@ -408,9 +408,9 @@ uvx --from "browsertrace[ui]" browsertrace
 
 Repo: https://github.com/aaronlab/browsertrace
 Live demo: https://aaronlab.github.io/browsertrace/
-Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.18/browsertrace-demo-public.html
+Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.19/browsertrace-demo-public.html
 Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
-Release: https://github.com/aaronlab/browsertrace/releases/tag/v0.1.18
+Release: https://github.com/aaronlab/browsertrace/releases/tag/v0.1.19
 ````
 
 Metrics:

@@ -61,7 +61,7 @@ https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html
 
 Repo: https://github.com/aaronlab/browsertrace
 Live demo: https://aaronlab.github.io/browsertrace/
-Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.18/browsertrace-demo-public.html
+Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.19/browsertrace-demo-public.html
 Comparison: https://aaronlab.github.io/browsertrace/compare-browser-agent-debugging.html
 
 This is not a sponsored review request. I would value any editorial feedback if
@@ -105,6 +105,6 @@ Failure patterns page:
 https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html
 
 Repository: https://github.com/aaronlab/browsertrace
-Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.18/browsertrace-demo-public.html
+Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.19/browsertrace-demo-public.html
 Comparison: https://aaronlab.github.io/browsertrace/compare-browser-agent-debugging.html
 ```

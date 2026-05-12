@@ -22,7 +22,7 @@ https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html
 
 Public-safe demo export for privacy-sensitive replies:
 
-https://github.com/aaronlab/browsertrace/releases/download/v0.1.18/browsertrace-demo-public.html
+https://github.com/aaronlab/browsertrace/releases/download/v0.1.19/browsertrace-demo-public.html
 
 Optional external-listing credibility note:
 
