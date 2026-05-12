@@ -297,6 +297,7 @@ hooks = create_run_hooks(tracer, name="browser-use checkout run")
 with hooks:
     await agent.run(on_step_start=hooks.on_step_start, on_step_end=hooks.on_step_end)</code></pre>
       <p>The run-hook helper reads Browser Use history and browser-session summaries when they are available, then records the latest thought, action, extracted content, URL, title, tabs, and screenshot flag into the same local timeline. If your Browser Use version exposes a different hook shape, comment on issue #11 with the version and callback surface.</p>
+      <p>To try this path without installing Browser Use, run <code>python examples/browser_use_run_hooks_demo.py</code> from a source checkout.</p>
     </section>
 
     <section>

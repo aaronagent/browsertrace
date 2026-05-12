@@ -3552,6 +3552,8 @@ def test_browser_use_guide_documents_callback_compatibility():
     assert "run-hook-only" in page
     assert "create_run_hooks" in page
     assert "agent.run(on_step_start=hooks.on_step_start" in page
+    assert "examples/browser_use_run_hooks_demo.py" in page
+    assert "without installing Browser Use" in page
 
 
 def test_browser_use_guide_documents_icon_only_click_targets():
