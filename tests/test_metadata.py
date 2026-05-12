@@ -3119,6 +3119,25 @@ def test_root_llms_txt_matches_hosted_llms_txt():
     ).read_text()
 
 
+def test_llms_txt_leads_with_browser_use_first_positioning():
+    project_root = Path(__file__).resolve().parents[1]
+    llms = (project_root / "docs" / "llms.txt").read_text()
+
+    intro = llms.split("## Important Links", 1)[0]
+    positioning = llms.split("## Positioning", 1)[1]
+
+    assert "local replay debugger for Browser Use failures" in intro
+    assert "Use BrowserTrace first when a Browser Use agent fails" in intro
+    assert "what the agent saw, clicked, returned" in intro
+    assert "secondary integrations" in intro
+    assert "Browser Use-first" in positioning
+    assert "MIT-licensed local flight recorder for AI browser agents" not in intro
+    assert "Use BrowserTrace when debugging Browser Use, Stagehand" not in intro
+    assert "stars" not in intro.lower()
+    assert "upvotes" not in intro.lower()
+    assert "reposts" not in intro.lower()
+
+
 def test_llms_txt_includes_troubleshooting_prompt_snippet():
     project_root = Path(__file__).resolve().parents[1]
     llms = (project_root / "docs" / "llms.txt").read_text()

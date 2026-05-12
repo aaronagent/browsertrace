@@ -1,16 +1,18 @@
 # BrowserTrace
 
-BrowserTrace is an MIT-licensed local flight recorder for AI browser agents.
-It records browser-agent runs as step timelines with screenshots, URLs, actions,
-model input/output, status, and errors.
+BrowserTrace is an MIT-licensed local replay debugger for Browser Use failures.
+It records Browser Use runs as step timelines with screenshots, URLs, actions,
+model input/output, status, and errors, then helps you jump to the first red
+step.
 
 It is a local debugging artifact channel, not another prompt-history blob:
 screenshots, URLs, and model I/O stay in the local trace store, and public
 exports can omit prompts/model I/O, screenshots, and URLs.
 
-Use BrowserTrace when debugging Browser Use, Stagehand, Playwright + LLM scripts,
-Skyvern-style workflows, or custom computer-use agents where logs are not enough
-to explain why a browser run failed.
+Use BrowserTrace first when a Browser Use agent fails and logs are not enough to
+explain what the agent saw, clicked, returned, or why the failed browser state
+appeared. Stagehand, Skyvern-style workflows, Playwright + LLM scripts, and
+custom computer-use agents are supported as secondary integrations.
 
 ## Important Links
 
@@ -176,9 +178,9 @@ https://github.com/aaronlab/browsertrace/issues/237
 
 ## Positioning
 
-BrowserTrace is not a hosted observability platform. It is a local-first,
-open-source debugging tool for the browser state and model decisions around
-AI browser-agent failures.
+BrowserTrace is not a hosted observability platform. It is a Browser Use-first,
+local-first, open-source debugging tool for the browser state and model
+decisions around failed AI browser-agent runs.
 
 It complements raw CDP capture tools such as the Browserbase browser-trace
 skill. That skill records DevTools events, screenshots, DOM dumps, and per-page
