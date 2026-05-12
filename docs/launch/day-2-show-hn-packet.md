@@ -28,6 +28,12 @@ Open these in a browser:
 - https://aaronlab.github.io/browsertrace/browser-use-debugging.html
 - https://github.com/aaronlab/browsertrace/releases/download/v0.1.17/browsertrace-demo-public.html
 
+Optional credibility note:
+
+- BrowserTrace is listed in `Jenqyang/Awesome-AI-Agents` under `Applications`
+  -> `Tools`. Use this only if someone asks about external AI-agent tooling
+  list discovery; do not ask for votes, stars, comments, or reposts.
+
 Submit only if all are true:
 
 - The owner can reply in the thread for at least the first 3-4 hours.

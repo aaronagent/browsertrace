@@ -81,6 +81,15 @@ Public-safe demo export for replies:
 https://github.com/aaronlab/browsertrace/releases/download/v0.1.17/browsertrace-demo-public.html
 ```
 
+Optional credibility note for replies:
+
+```text
+BrowserTrace is listed in Jenqyang/Awesome-AI-Agents under Applications -> Tools.
+```
+
+Use this only as supporting context when useful; do not ask for upvotes,
+stars, reposts, backlinks, or reciprocal promotion.
+
 Browser Use debugging guide for replies:
 
 ```text

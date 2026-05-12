@@ -20,6 +20,12 @@ Public-safe demo export for privacy-sensitive replies:
 
 https://github.com/aaronlab/browsertrace/releases/download/v0.1.17/browsertrace-demo-public.html
 
+Optional external-listing credibility note:
+
+BrowserTrace is listed in `Jenqyang/Awesome-AI-Agents` under `Applications`
+-> `Tools`. Use this only as supporting context when useful; do not ask for
+stars, votes, reposts, backlinks, or reciprocal promotion.
+
 ## Contribution Reply
 
 If someone asks how to make a small docs fix, point to the current good first

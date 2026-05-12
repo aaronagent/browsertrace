@@ -16,6 +16,12 @@ upvotes, or artificial engagement.
 - Backup image: `docs/demo-poster.png`
 - Copy source: `docs/launch/channel-copy.md`
 
+Optional credibility note:
+
+- BrowserTrace is listed in `Jenqyang/Awesome-AI-Agents` under `Applications`
+  -> `Tools`. Use this only as supporting context when useful; do not ask for
+  stars, votes, reposts, backlinks, or reciprocal promotion.
+
 ## Media Alt Text
 
 Use this when the platform supports alt text for `docs/demo.mp4` or
