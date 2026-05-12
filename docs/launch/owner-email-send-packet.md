@@ -10,7 +10,7 @@ update the launch tracking issues.
 Do not ask for stars, backlinks, reciprocal placement, or artificial engagement.
 The ask is editorial consideration for a relevant developer tool.
 
-Latest verification, 2026-05-11 UTC:
+Latest verification, 2026-05-12 UTC:
 
 - console.dev still presents itself as a weekly devtools newsletter reviewing
   a small number of interesting developer tools, and the latest public issue
