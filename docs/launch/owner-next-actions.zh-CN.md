@@ -22,7 +22,9 @@ Browser Use angle，可以放在 Day 1 正式帖子之前或一起发：
 `#fresh-browser-use-remote-cdp-angle` 针对 remote-CDP hang 和 event-bus lock
 timing。如果你的受众在做 custom computer-use agents，用
 `#fresh-computer-use-persistent-browser-recovery-angle` 针对 persistent browser
-session recovery。这些都是用具体失败场景来征集真实 workflow 反馈。
+session recovery。这些都是用具体失败场景来征集真实 workflow 反馈。如果你更想先
+回复现有讨论，而不是发一个新帖，用
+`docs/launch/day-3-targeted-communities-packet.md#current-reddit-reply-opportunities`。
 
 1. 用 `docs/launch/day-1-publish-packet.md` 发 X、LinkedIn、微信群、即刻，
    主素材用 `docs/demo.mp4`。平台支持 alt text 时，用

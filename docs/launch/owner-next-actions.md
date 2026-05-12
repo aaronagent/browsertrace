@@ -26,7 +26,9 @@ Fastest fresh technical post: publish either Browser Use angle from
 timing. If your audience builds custom computer-use agents, use
 `#fresh-computer-use-persistent-browser-recovery-angle` for persistent browser
 session recovery. These ask for real workflow feedback through concrete failure
-modes.
+modes. If you prefer replying to an existing discussion instead of making a new
+post, use
+`docs/launch/day-3-targeted-communities-packet.md#current-reddit-reply-opportunities`.
 
 1. Publish the Day 1 X/LinkedIn/WeChat/Jike posts from
    `docs/launch/day-1-publish-packet.md`, using `docs/demo.mp4`. When the

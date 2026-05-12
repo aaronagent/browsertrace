@@ -60,6 +60,50 @@ https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html
 Do not repost to those three communities unless a maintainer asks for a new
 thread or the original thread receives concrete feedback that needs a follow-up.
 
+## Current Reddit Reply Opportunities
+
+Checked on 2026-05-12. These are owner-only reply opportunities, not places for
+Codex to post. Reply only if the subreddit rules allow it and you can stay in the
+thread to answer follow-up questions.
+
+Use a value-first reply. Do not lead with the repo link. Start with the debugging
+shape: capture what the agent saw, what it decided, what it did, and what changed
+after the action. Link BrowserTrace only if it directly answers the thread.
+
+Good current targets:
+
+- `r/automation`: "We built AI agents for real work but they all fail in
+  production at the same point"
+  `https://www.reddit.com/r/automation/comments/1t76f88/we_built_ai_agents_for_real_work_but_they_all/`
+  Fit: recent thread about production agent edge cases and keeping a short
+  rolling record of failed tools, fallbacks, and session state.
+- `r/n8n_ai_agents`: "Why AI agents work in demos but break in production"
+  `https://www.reddit.com/r/n8n_ai_agents/comments/1szhqta/why_ai_agents_work_in_demos_but_break_in/`
+  Fit: observability and governance thread for non-deterministic agents in
+  production.
+- `r/AI_Agents`: "Where are your agents actually breaking in production?"
+  `https://www.reddit.com/r/AI_Agents/comments/1si76ko/where_are_your_agents_actually_breaking_in/`
+  Fit: state detection, agent path visibility, and why the agent chose a
+  state -> decision -> action path.
+
+Short owner reply template:
+
+```text
+The pattern I keep seeing is that "agent observability" needs one level above
+normal logs: for each step, preserve what the agent saw, what it decided, what
+it tried, and what changed after the action.
+
+For browser agents that usually means screenshot or visible state, current URL,
+action/tool call, model output, status/error, and enough step ordering to find
+the first wrong assumption.
+
+I've been building a small local-first trace viewer for that browser-agent case:
+https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html
+
+The specific feedback I am looking for: when your agent breaks in production,
+which state do you wish you had captured before the bad action happened?
+```
+
 ## Priority Order
 
 1. Browser Use Discussions
