@@ -31,6 +31,8 @@ to explain why a browser run failed.
 - Press kit: https://aaronlab.github.io/browsertrace/launch/press-kit.md
 - Release: https://github.com/aaronlab/browsertrace/releases/tag/v0.1.17
 - Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.17/browsertrace-demo-public.html
+- External listing: https://github.com/Jenqyang/Awesome-AI-Agents
+  (Applications -> Tools)
 - Launch discussion: https://github.com/aaronlab/browsertrace/discussions/6
 - Good first issue: https://github.com/aaronlab/browsertrace/labels/good%20first%20issue
 - First PR Recipe: https://github.com/aaronlab/browsertrace/blob/main/CONTRIBUTING.md#first-pr-recipe keeps the first contribution small and reviewable.
