@@ -288,9 +288,14 @@ def test_homepage_links_first_pr_recipe_for_small_contributions():
 
     assert "First PR Recipe" in homepage
     assert (
+        "https://github.com/aaronlab/browsertrace/labels/good%20first%20issue"
+        in homepage
+    )
+    assert (
         "https://github.com/aaronlab/browsertrace/blob/main/CONTRIBUTING.md#first-pr-recipe"
         in homepage
     )
+    assert "Good first issues" in homepage
     assert "first contribution small and reviewable" in homepage
     assert "stars" not in homepage.lower()
     assert "upvotes" not in homepage.lower()
