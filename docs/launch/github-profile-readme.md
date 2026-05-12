@@ -34,6 +34,7 @@ timelines.
   URLs.
 - Supports Browser Use run hooks, the Stagehand wrapper, and the Skyvern task/workflow wrapper.
 - Includes Playwright + LLM examples and custom computer-use examples.
+- Listed in Awesome-AI-Agents under Applications -> Tools.
 - MIT licensed and local-first.
 
 Repo: https://github.com/aaronlab/browsertrace
