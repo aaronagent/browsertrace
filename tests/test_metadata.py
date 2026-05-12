@@ -1103,6 +1103,27 @@ def test_launch_kit_page_links_owner_short_packets():
     assert "reposts" not in owner_packets.lower()
 
 
+def test_launch_kit_page_surfaces_current_x_single_post_unblock():
+    project_root = Path(__file__).resolve().parents[1]
+    page = (project_root / "docs" / "launch" / "index.html").read_text()
+    current_unblock = page.split('id="current-owner-unblock"', 1)[1].split(
+        '<section class="band" aria-labelledby="copy">',
+        1,
+    )[0]
+
+    assert "Current owner unblock" in current_unblock
+    assert "one-minute X post" in current_unblock
+    assert "docs/demo.mp4" in current_unblock
+    assert "owner-social-post-packet.md" in current_unblock
+    assert "Browser Use failed but logs do not show what the agent saw?" in current_unblock
+    assert "What should it capture?" in current_unblock
+    assert "https://github.com/aaronlab/browsertrace" in current_unblock
+    assert "post URL back" in current_unblock
+    assert "stars" not in current_unblock.lower()
+    assert "upvotes" not in current_unblock.lower()
+    assert "reposts" not in current_unblock.lower()
+
+
 def test_docs_include_pypi_quickstart_after_publish():
     project_root = Path(__file__).resolve().parents[1]
     docs_text = "\n".join(

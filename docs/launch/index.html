@@ -222,6 +222,19 @@
       letter-spacing: 0;
     }
 
+    .current-unblock {
+      border-color: rgba(15, 118, 110, 0.45);
+      background: #f1fbf8;
+    }
+
+    .current-unblock h2 {
+      margin-bottom: 8px;
+    }
+
+    .current-unblock p + p {
+      margin-top: 10px;
+    }
+
     .quickstart {
       display: grid;
       grid-template-columns: minmax(0, 0.85fr) minmax(320px, 1.15fr);
@@ -267,6 +280,7 @@
       color: #eef7f6;
       font: 13px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
       white-space: pre-wrap;
+      overflow-wrap: anywhere;
     }
 
     .links {
@@ -335,6 +349,20 @@
         <pre><code id="launch-quickstart-command">uvx --from "browsertrace[ui]" browsertrace doctor
 uvx --from "browsertrace[ui]" browsertrace demo
 uvx --from "browsertrace[ui]" browsertrace</code></pre>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="current-owner-unblock">
+      <div class="copy current-unblock">
+        <h2 id="current-owner-unblock">Current owner unblock</h2>
+        <p>Publish the one-minute X post from the owner's personal account and attach <a href="../demo.mp4">docs/demo.mp4</a>. Use the full social packet only after this single post is live.</p>
+        <pre>Browser Use failed but logs do not show what the agent saw?
+
+I built BrowserTrace: a local replay debugger for Browser Use failures. It records screenshot, URL, action, model output, and the first red step.
+
+What should it capture?
+https://github.com/aaronlab/browsertrace</pre>
+        <p>After posting, send the post URL back so metrics can be logged and replies can be monitored. Prepared copy lives in <a href="owner-social-post-packet.md">owner-social-post-packet.md</a>.</p>
       </div>
     </section>
 
