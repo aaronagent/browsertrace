@@ -117,7 +117,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T05:01:12+00:00 | 3 | 998 | 19 | 0 | 10 | 0 | 112 | current monitor pass after forks increased to 19; star goal remains incomplete; traffic views 294/111 unique, clones 12398/2207 unique |
+| 2026-05-12T05:07:29+00:00 | 3 | 998 | 19 | 0 | 10 | 0 | 112 | current monitor pass after stale closed pinned issue #340 was replaced with current open good-first issue #345; star goal remains incomplete; traffic views 294/111 unique, clones 12398/2207 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
