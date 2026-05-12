@@ -179,7 +179,7 @@ def test_homepage_has_software_source_code_json_ld():
 def test_core_guides_have_tech_article_json_ld():
     project_root = Path(__file__).resolve().parents[1]
     guide_pages = [
-        ("debug-browser-agent-failure.html", "How to debug an AI browser-agent failure"),
+        ("debug-browser-agent-failure.html", "How to debug a Browser Use failure"),
         ("browser-use-debugging.html", "Debug Browser Use failures with BrowserTrace"),
         ("stagehand-debugging.html", "Debug Stagehand runs with BrowserTrace"),
         ("skyvern-debugging.html", "Debug Skyvern task failures with BrowserTrace"),
@@ -389,7 +389,7 @@ def test_homepage_intro_uses_mobile_friendly_copy():
     assert "font-size: clamp(34px, 6vw, 60px)" not in homepage
     assert "@media (max-width: 620px)" in homepage
     assert "@media (max-width: 420px)" in homepage
-    assert "max-width: min(100%, 20ch)" in homepage
+    assert "text-wrap: wrap" in homepage
 
 
 def test_homepage_intro_grid_can_shrink_on_mobile():
@@ -422,9 +422,30 @@ def test_homepage_intro_uses_natural_title_wrapping():
 def test_homepage_mobile_title_has_line_length_guard():
     project_root = Path(__file__).resolve().parents[1]
     homepage = (project_root / "docs" / "index.html").read_text()
+    mobile_css = re.search(
+        r"@media \(max-width: 620px\) \{(?P<body>.*?)\n    \}\n\n    @media \(max-width: 420px\)",
+        homepage,
+        re.S,
+    )
+    small_phone_css = re.search(
+        r"@media \(max-width: 420px\) \{(?P<body>.*?)\n    \}\n  </style>",
+        homepage,
+        re.S,
+    )
 
-    assert "@media (max-width: 620px)" in homepage
-    assert "max-width: min(100%, 20ch);" in homepage
+    assert mobile_css is not None
+    assert small_phone_css is not None
+    assert re.search(
+        r"h1\s*\{[^}]*font-size: 32px;[^}]*max-width: 100%;[^}]*text-wrap: wrap;",
+        mobile_css.group("body"),
+        re.S,
+    )
+    assert re.search(
+        r"h1\s*\{[^}]*font-size: 30px;",
+        small_phone_css.group("body"),
+        re.S,
+    )
+    assert "max-width: min(100%, 20ch);" not in homepage
     assert "max-width: 16ch;" not in homepage
 
 

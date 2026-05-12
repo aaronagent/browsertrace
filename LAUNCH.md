@@ -120,7 +120,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T16:01:35+00:00 | 3 | 998 | 21 | 0 | 10 | 0 | 40 | current monitor pass after social preview asset source and PNG switched to Browser Use-first; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-12T16:13:34+00:00 | 3 | 998 | 21 | 0 | 10 | 0 | 40 | current monitor pass after walkthrough and comparison pages switched to Browser Use-first, and homepage mobile title wrapping was fixed; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 

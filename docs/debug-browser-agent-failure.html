@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Use screenshots, URLs, actions, and model I/O to find where an AI browser agent failed.">
-  <meta property="og:title" content="How to debug an AI browser-agent failure">
-  <meta property="og:description" content="Use screenshots, URLs, actions, and model I/O to find where a browser agent failed.">
+  <meta name="description" content="Use screenshots, URLs, actions, and model I/O to find where a Browser Use run failed.">
+  <meta property="og:title" content="How to debug a Browser Use failure">
+  <meta property="og:description" content="Use screenshots, URLs, actions, and model I/O to find where a Browser Use run failed.">
   <meta property="og:image" content="https://aaronlab.github.io/browsertrace/social-preview.png">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://aaronlab.github.io/browsertrace/debug-browser-agent-failure.html">
@@ -16,8 +16,8 @@
   {
     "@context": "https://schema.org",
     "@type": "TechArticle",
-    "headline": "How to debug an AI browser-agent failure",
-    "description": "Use screenshots, URLs, actions, and model I/O to find where an AI browser agent failed.",
+    "headline": "How to debug a Browser Use failure",
+    "description": "Use screenshots, URLs, actions, and model I/O to find where a Browser Use run failed.",
     "url": "https://aaronlab.github.io/browsertrace/debug-browser-agent-failure.html",
     "codeRepository": "https://github.com/aaronlab/browsertrace",
     "programmingLanguage": "Python",
@@ -28,7 +28,7 @@
     }
   }
   </script>
-  <title>How to Debug an AI Browser-Agent Failure</title>
+  <title>How to Debug a Browser Use Failure</title>
   <style>
     :root {
       color-scheme: light;
@@ -195,7 +195,7 @@
       <a href="https://github.com/aaronlab/browsertrace">GitHub repo</a>
     </nav>
 
-    <h1>How to debug an AI browser-agent failure</h1>
+    <h1>How to debug a Browser Use failure</h1>
     <p class="dek">When a browser agent fails, logs usually show tool calls and stack traces. They rarely show what the model saw, which page state changed, or where the first wrong assumption entered the run.</p>
     <p>Improving this walkthrough or a browser-agent debugging note? Use the <a href="https://github.com/aaronlab/browsertrace/blob/main/CONTRIBUTING.md#first-pr-recipe">First PR Recipe</a> to keep the first contribution small and reviewable.</p>
 
@@ -256,7 +256,7 @@ browsertrace export &lt;run_id&gt; --public -o public.html</code></pre>
 
     <section>
       <div class="callout">
-        <strong>BrowserTrace</strong> is an MIT-licensed local flight recorder for Browser Use, Stagehand, Playwright + LLM scripts, Skyvern, and custom computer-use agents.
+        <strong>BrowserTrace</strong> is an MIT-licensed local replay debugger for Browser Use failures. Stagehand, Playwright + LLM scripts, Skyvern, and custom computer-use agents are supported as secondary integrations.
         <br>
         <a class="repo" href="https://github.com/aaronlab/browsertrace">github.com/aaronlab/browsertrace</a>
       </div>
