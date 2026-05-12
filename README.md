@@ -10,7 +10,7 @@
 [![Good first issues](https://img.shields.io/github/issues/aaronlab/browsertrace/good%20first%20issue?label=good%20first%20issues)](https://github.com/aaronlab/browsertrace/labels/good%20first%20issue)
 [![GitHub stars](https://img.shields.io/github/stars/aaronlab/browsertrace?style=social)](https://github.com/aaronlab/browsertrace/stargazers)
 
-![demo](docs/demo.gif)
+![BrowserTrace failed browser-agent trace timeline showing the first red step](docs/demo.gif)
 
 **MIT · local-first · no signup · no cloud · Python 3.11+**
 

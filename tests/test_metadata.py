@@ -135,11 +135,23 @@ def test_launch_plan_uses_pypi_install_after_publish():
 def test_readme_shows_pypi_badge_after_publish():
     project_root = Path(__file__).resolve().parents[1]
     readme = (project_root / "README.md").read_text()
-    header = readme.split("![demo]", 1)[0]
+    header = readme.split("(docs/demo.gif)", 1)[0]
 
     assert "[![PyPI]" in header
     assert "https://img.shields.io/pypi/v/browsertrace.svg" in header
     assert "https://pypi.org/project/browsertrace/" in header
+
+
+def test_readme_demo_gif_has_descriptive_alt_text():
+    project_root = Path(__file__).resolve().parents[1]
+    readme = (project_root / "README.md").read_text()
+
+    assert "![demo](docs/demo.gif)" not in readme
+    assert (
+        "![BrowserTrace failed browser-agent trace timeline showing the first red step]"
+        "(docs/demo.gif)"
+        in readme
+    )
 
 
 def test_readme_surfaces_first_awesome_list_inclusion_near_intro():
