@@ -3363,6 +3363,17 @@ def test_browser_use_guide_documents_remote_cdp_hangs():
     assert "browser-use/browser-use#4579" in page
 
 
+def test_browser_use_guide_documents_empty_model_responses():
+    project_root = Path(__file__).resolve().parents[1]
+    page = (project_root / "docs" / "browser-use-debugging.html").read_text()
+
+    assert "Debug empty model responses" in page
+    assert "parser received no assistant JSON content at all" in page
+    assert "finish_reason" in page
+    assert "Raw assistant content length" in page
+    assert "browser-use/browser-use#4786" in page
+
+
 def test_stagehand_guide_documents_custom_tool_replay_gaps():
     project_root = Path(__file__).resolve().parents[1]
     page = (project_root / "docs" / "stagehand-debugging.html").read_text()

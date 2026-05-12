@@ -342,6 +342,21 @@ with hooks:
     </section>
 
     <section>
+      <h2 id="debug-empty-model-responses">Debug empty model responses</h2>
+      <p>A failing parser exception might occur when the model provider returns an empty response (e.g., <code>input_value=''</code>) before Browser Use validation runs. This suggests the parser received no assistant JSON content at all, rather than malformed JSON.</p>
+      <p>While BrowserTrace does not capture every internal Browser Use field, useful debugging evidence to preserve at the boundary between provider response, parsing, and execution includes:</p>
+      <ul>
+        <li>Provider request id or response metadata when available.</li>
+        <li><code>finish_reason</code>, HTTP status, and token usage when safe to log.</li>
+        <li>Raw assistant content length before parsing.</li>
+        <li>Whether the response used tool calls or structured output fields instead of text content.</li>
+        <li>Step number, model name, and approximate message/context size.</li>
+        <li>Parse error and the Browser Use action that was expected next, if known.</li>
+      </ul>
+      <p>Related community case: <a href="https://github.com/browser-use/browser-use/issues/4786">browser-use/browser-use#4786</a>.</p>
+    </section>
+
+    <section>
       <h2>Share only what is safe</h2>
       <pre><code>browsertrace list
 browsertrace export &lt;run_id&gt; -o full.html
