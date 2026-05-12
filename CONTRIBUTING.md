@@ -68,6 +68,19 @@ browsertrace
 For docs-only changes, still run the full pytest command. It is quick and keeps
 release, workflow, and packaging checks covered.
 
+For Browser Use-shaped no-service checks from a source checkout:
+
+```bash
+python examples/browser_use_callback_demo.py
+python examples/browser_use_run_hooks_demo.py
+browsertrace list --limit 5
+browsertrace show <run_id>
+```
+
+Expect the listed runs to include `demo: browser-use callback flow` and
+`demo: browser-use run hooks flow`. Viewing either run should show the demo step
+labels `search_google(query=BrowserTrace)` and `click(selector=#result-1)`.
+
 For issue reports, CI, or AI/coding-agent troubleshooting, include the compact
 JSON CLI checks when the problem involves a local first run or trace inspection:
 

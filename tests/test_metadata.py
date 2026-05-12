@@ -1570,6 +1570,25 @@ def test_contributing_includes_first_pr_recipe():
     assert "reposts" not in recipe.lower()
 
 
+def test_contributing_includes_browser_use_no_service_demo_checks():
+    project_root = Path(__file__).resolve().parents[1]
+    contributing = (project_root / "CONTRIBUTING.md").read_text()
+    local_checks = contributing.split("## Useful Local Checks", 1)[1].split(
+        "## Contribution Areas", 1
+    )[0]
+
+    assert "python examples/browser_use_callback_demo.py" in local_checks
+    assert "python examples/browser_use_run_hooks_demo.py" in local_checks
+    assert "browsertrace list --limit 5" in local_checks
+    assert "browsertrace show <run_id>" in local_checks
+    assert "demo: browser-use callback flow" in local_checks
+    assert "demo: browser-use run hooks flow" in local_checks
+    assert "search_google(query=BrowserTrace)" in local_checks
+    assert "click(selector=#result-1)" in local_checks
+    assert "stars" not in local_checks.lower()
+    assert "upvotes" not in local_checks.lower()
+
+
 def test_contributing_sets_good_first_issue_claim_window():
     project_root = Path(__file__).resolve().parents[1]
     contributing = (project_root / "CONTRIBUTING.md").read_text()
