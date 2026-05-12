@@ -395,7 +395,7 @@ with attach_tracer(agent, tracer, name="browser-use run"):
     <section class="band" aria-labelledby="stagehand">
       <h2 id="stagehand">Stagehand</h2>
       <p class="section-copy">Wrap a Stagehand page so high-level browser-agent calls become trace steps.</p>
-      <p class="section-copy"><a href="./stagehand-debugging.html">Open the Stagehand debugging guide</a> for the wrapper quickstart, export commands, and adapter feedback link.</p>
+      <p class="section-copy"><a href="./stagehand-debugging.html">Open the Stagehand debugging guide</a> for the wrapper quickstart, public-safe export commands, and adapter feedback link.</p>
       <pre><code>from stagehand import Stagehand
 from browsertrace import Tracer
 from browsertrace.integrations.stagehand import wrap_stagehand
@@ -413,7 +413,7 @@ page.bt_run.close()</code></pre>
     <section class="band" aria-labelledby="skyvern">
       <h2 id="skyvern">Skyvern</h2>
       <p class="section-copy">Wrap a Skyvern-shaped client to record task and workflow calls without adding a hard Skyvern dependency.</p>
-      <p class="section-copy"><a href="./skyvern-debugging.html">Open the Skyvern debugging guide</a> for task/workflow tracing, export commands, and adapter feedback link.</p>
+      <p class="section-copy"><a href="./skyvern-debugging.html">Open the Skyvern debugging guide</a> for task/workflow tracing, public-safe export commands, and adapter feedback link.</p>
       <pre><code>from skyvern import Skyvern
 from browsertrace import Tracer
 from browsertrace.integrations.skyvern import wrap_skyvern
