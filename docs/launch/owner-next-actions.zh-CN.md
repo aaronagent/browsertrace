@@ -245,6 +245,7 @@ docs/launch/github-awesome-list-submissions.md
 | `trycua/acu` | `https://github.com/trycua/acu/pull/26` |
 | `Scottcjn/awesome-agents` | `https://github.com/Scottcjn/awesome-agents/pull/16` |
 | `browser-use/awesome-projects` | `https://github.com/browser-use/awesome-projects/pull/6`，Browser Use 官方生态列表 PR 已打开 |
+| `danielrosehill/AI-Browser-Tools` | `https://github.com/danielrosehill/AI-Browser-Tools/pull/1`，AI browser tools 索引 PR 已打开 |
 | `clihub-ai/clihub` | `https://github.com/clihub-ai/clihub/pull/1`，registry PR 已打开，forked PR CI 需要维护者批准后才能运行 |
 | `victorcheeney/clis` | `https://github.com/victorcheeney/clis/issues/3`，CLIs.dev 目录 issue 已打开 |
 

@@ -3927,6 +3927,7 @@ def test_owner_publish_queue_records_current_awesome_list_pr_count():
     assert "trycua/acu#26" in queue
     assert "Scottcjn/awesome-agents#16" in queue
     assert "browser-use/awesome-projects#6" in queue
+    assert "danielrosehill/AI-Browser-Tools#1" in queue
     assert "clihub-ai/clihub#1" in queue
     assert "E2B CLA check has passed" in queue
     assert "steel-dev/awesome-web-agents#56" in queue
@@ -4416,6 +4417,7 @@ def test_launch_monitoring_runbook_covers_current_targets():
         "victorcheeney/clis#3",
         "browser-use/browser-use#4816",
         "browser-use/awesome-projects#6",
+        "danielrosehill/AI-Browser-Tools#1",
         "browserbase/stagehand#2102",
         "Skyvern-AI/skyvern#5931",
         "aaronlab/browsertrace#345",
@@ -5209,6 +5211,7 @@ def test_owner_next_actions_preserves_external_awesome_list_pr_numbers():
     assert "trycua/acu#26" in awesome_prs
     assert "Scottcjn/awesome-agents#16" in awesome_prs
     assert "browser-use/awesome-projects#6" in awesome_prs
+    assert "danielrosehill/AI-Browser-Tools#1" in awesome_prs
     assert "clihub-ai/clihub#1" in awesome_prs
     assert "victorcheeney/clis#3" in awesome_prs
     assert "E2B CLA check has passed" in awesome_prs
@@ -5239,6 +5242,7 @@ def test_chinese_owner_next_actions_preserves_external_awesome_list_pr_numbers()
     assert "trycua/acu/pull/26" in awesome_prs
     assert "Scottcjn/awesome-agents/pull/16" in awesome_prs
     assert "browser-use/awesome-projects/pull/6" in awesome_prs
+    assert "danielrosehill/AI-Browser-Tools/pull/1" in awesome_prs
     assert "clihub-ai/clihub/pull/1" in awesome_prs
     assert "victorcheeney/clis/issues/3" in awesome_prs
     assert "CLA 已通过" in awesome_prs
@@ -6225,7 +6229,7 @@ def test_awesome_list_submission_notes_record_scottcjn_awesome_agents_pr():
         project_root / "docs" / "launch" / "github-awesome-list-submissions.md"
     ).read_text()
     section = notes.split("## 13. Awesome Agents", 1)[1].split(
-        "## Skip List", 1
+        "## 14. Browser Use Awesome Projects", 1
     )[0]
 
     assert "Scottcjn/awesome-agents" in notes
@@ -6244,7 +6248,7 @@ def test_awesome_list_submission_notes_record_browser_use_awesome_projects_pr():
         project_root / "docs" / "launch" / "github-awesome-list-submissions.md"
     ).read_text()
     section = notes.split("## 14. Browser Use Awesome Projects", 1)[1].split(
-        "## Skip List", 1
+        "## 15. AI Browser Tools Index", 1
     )[0]
 
     assert "browser-use/awesome-projects" in notes
@@ -6253,6 +6257,24 @@ def test_awesome_list_submission_notes_record_browser_use_awesome_projects_pr():
     assert "built on or inspired by browser-use" in section
     assert "git diff --check" in section
     assert "stars" not in section.lower()
+    assert "upvotes" not in section.lower()
+    assert "reposts" not in section.lower()
+
+
+def test_awesome_list_submission_notes_record_ai_browser_tools_pr():
+    project_root = Path(__file__).resolve().parents[1]
+    notes = (
+        project_root / "docs" / "launch" / "github-awesome-list-submissions.md"
+    ).read_text()
+    section = notes.split("## 15. AI Browser Tools Index", 1)[1].split(
+        "## Skip List", 1
+    )[0]
+
+    assert "danielrosehill/AI-Browser-Tools" in notes
+    assert "https://github.com/danielrosehill/AI-Browser-Tools/pull/1" in notes
+    assert "Developer Tools & Utilities" in section
+    assert "Local trace viewer for failed AI browser-agent runs" in section
+    assert "git diff --check" in section
     assert "upvotes" not in section.lower()
     assert "reposts" not in section.lower()
 

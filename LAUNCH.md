@@ -85,7 +85,7 @@ Codex can prepare assets, update the repo, write copy, audit links, and monitor 
   reusable source asset for future launch previews.
 - Submit `https://aaronlab.github.io/browsertrace/sitemap.xml` in Google Search
   Console and Bing Webmaster Tools.
-- Monitor the fifteen still-open third-party awesome-list and directory PRs plus
+- Monitor the sixteen still-open third-party awesome-list and directory PRs plus
   the CLIs.dev submission issue; `Jenqyang/Awesome-AI-Agents#220` is merged and
   BrowserTrace is listed on that default branch. Respond only if maintainers ask
   for changes.
@@ -117,7 +117,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T06:27:50+00:00 | 3 | 998 | 20 | 0 | 11 | 0 | 40 | current monitor pass after forks increased to 20; star goal remains incomplete; referrers github.com 76/22, goodfirstissues.com 19/5, aaronlab.github.io 10/4, github-help-wanted.com 4/1; traffic views 294/111 unique, clones 12398/2207 unique |
+| 2026-05-12T06:39:04+00:00 | 3 | 998 | 20 | 0 | 10 | 0 | 40 | current monitor pass after contributor PR #348 merged, issue #347 closed, and AI-Browser-Tools PR #1 opened/tracked: https://github.com/danielrosehill/AI-Browser-Tools/pull/1; star goal remains incomplete; traffic views 294/111 unique, clones 12398/2207 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 

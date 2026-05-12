@@ -34,6 +34,7 @@ Tracked PR targets:
 - `trycua/acu#26`
 - `Scottcjn/awesome-agents#16`
 - `browser-use/awesome-projects#6`
+- `danielrosehill/AI-Browser-Tools#1`
 - `clihub-ai/clihub#1`
 
 Current accepted listing:
@@ -81,6 +82,7 @@ ranpox/awesome-computer-use 24
 trycua/acu 26
 Scottcjn/awesome-agents 16
 browser-use/awesome-projects 6
+danielrosehill/AI-Browser-Tools 1
 clihub-ai/clihub 1
 EOF
 ```
@@ -139,7 +141,7 @@ SINCE_UTC="${SINCE_UTC:?Set SINCE_UTC to the monitor start time, e.g. YYYY-MM-DD
 gh api 'notifications?all=true&participating=true&per_page=50' |
   jq -c --arg since "$SINCE_UTC" '[.[] |
     select(((.updated_at | fromdateiso8601) >= ($since | fromdateiso8601)) and
-    (.repository.full_name | test("browsertrace|agentfirst|awesome|trycua|clihub|clis|browser-use|stagehand|skyvern|agent-observability-standard|helmdeck"; "i"))) |
+    (.repository.full_name | test("browsertrace|agentfirst|awesome|trycua|clihub|clis|AI-Browser-Tools|browser-use|stagehand|skyvern|agent-observability-standard|helmdeck"; "i"))) |
     {repo:.repository.full_name, subject:.subject.title, type:.subject.type, updated_at, unread, reason, url:.subject.url, latest_comment_url:.subject.latest_comment_url}
   ]'
 ```

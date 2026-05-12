@@ -86,6 +86,7 @@ workflow-specific debugging context:
 | 12 | `trycua/acu` | Strong | `Open Source` -> `Automation` | Submitted: https://github.com/trycua/acu/pull/26 |
 | 13 | `Scottcjn/awesome-agents` | Strong | `Monitoring and Observability` | Submitted: https://github.com/Scottcjn/awesome-agents/pull/16 |
 | 14 | `browser-use/awesome-projects` | Strong | `Integrations & Ease of Use` | Submitted: https://github.com/browser-use/awesome-projects/pull/6 |
+| 15 | `danielrosehill/AI-Browser-Tools` | Strong | `Developer Tools & Utilities` | Submitted: https://github.com/danielrosehill/AI-Browser-Tools/pull/1 |
 | Skip | `e2b-dev/awesome-ai-agents` | Weak | n/a | Main list is for agents, not tools |
 | Skip | `supernalintelligence/Awesome-Gui-Agents` | Weak | n/a | Main list catalogs GUI agents, not developer/debugging tools; referenced contribution file is missing |
 | Skip | `ZJU-REAL/Awesome-GUI-Agents` | Weak | n/a | Strong topic match, but current README is primarily papers, datasets, and benchmarks rather than developer/debugging tools |
@@ -606,6 +607,38 @@ Submitted entry:
 
 ```markdown
 *   [BrowserTrace](https://github.com/aaronlab/browsertrace) - A local-first trace viewer for failed Browser Use runs, with screenshots, URLs, actions, model I/O, status, errors, and public-safe HTML exports.
+```
+
+Verification:
+
+```bash
+git diff --check
+```
+
+## 15. AI Browser Tools Index
+
+Target:
+
+```text
+https://github.com/danielrosehill/AI-Browser-Tools
+```
+
+Status: submitted as https://github.com/danielrosehill/AI-Browser-Tools/pull/1.
+
+Fit notes:
+
+- The repository is an index of AI browser tools, including automation
+  frameworks, AI-native browsers, MCP servers, extensions, web scraping, and
+  developer tools.
+- The list already includes browser-use, Stagehand, and Skyvern, while
+  `Developer Tools & Utilities` is specifically for building and debugging AI
+  browser applications.
+- BrowserTrace fits as a local trace viewer for failed AI browser-agent runs.
+
+Submitted entry:
+
+```markdown
+| [BrowserTrace](https://github.com/aaronlab/browsertrace) | ![Stars](https://img.shields.io/github/stars/aaronlab/browsertrace?style=social) | Local trace viewer for failed AI browser-agent runs |
 ```
 
 Verification:
