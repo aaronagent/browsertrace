@@ -120,7 +120,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T23:49:22+00:00 | 3 | 998 | 21 | 0 | 11 | 0 | 9 | current monitor pass after README first screen was strengthened with the Browser Use local .html upload failure story and browsertrace compare value; owner-channel publishing remains the blocker; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-12T23:51:57+00:00 | 3 | 998 | 21 | 0 | 11 | 0 | 9 | current monitor pass after v0.1.19 GitHub release notes and changelog were aligned with the Browser Use local .html upload failure story plus browsertrace compare; owner-channel publishing remains the blocker; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 

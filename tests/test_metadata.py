@@ -1223,6 +1223,8 @@ def test_changelog_tracks_019_compare_cli_release():
     assert "`browsertrace compare <failed_run_id> <success_run_id>`" in release_notes
     assert "first divergent action, URL, status, or error" in normalized_notes
     assert "Browser Use guide" in release_notes
+    assert "Browser Use local `.html` upload" in release_notes
+    assert "upload preview" in release_notes
     assert "`v0.1.19` patch release" in release_notes
 
 

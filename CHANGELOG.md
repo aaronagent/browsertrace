@@ -15,6 +15,9 @@ to keep the first contribution small and reviewable.
   first divergent action, URL, status, or error between two recorded runs.
 - Documented compare-run debugging in the Browser Use guide, README, and
   examples command cheat sheet for the `v0.1.19` patch release.
+- Centered the launch demo story on the Browser Use local `.html` upload
+  failure: the run navigates to the uploaded filename and the upload preview
+  never appears.
 
 ## 0.1.18 - 2026-05-13
 
