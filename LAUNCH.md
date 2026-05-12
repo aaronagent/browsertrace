@@ -117,7 +117,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T03:26:46+00:00 | 3 | 998 | 18 | 0 | 10 | 0 | 39 | current monitor pass after Jenqyang/Awesome-AI-Agents#220 merged and default-branch README now lists BrowserTrace; first tracked awesome-list inclusion verified at README line 116 and recorded in #18: https://github.com/aaronlab/browsertrace/issues/18#issuecomment-4427083303; remaining tracked external PRs are still open; star goal remains incomplete; traffic views 294/111 unique, clones 12398/2207 unique |
+| 2026-05-12T03:49:06+00:00 | 3 | 998 | 18 | 0 | 11 | 0 | 39 | current monitor pass after good-first issue #345 opened for Browser Use action schema coercion docs: https://github.com/aaronlab/browsertrace/issues/345; traffic views 294/111 unique, clones 12398/2207 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
