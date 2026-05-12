@@ -1274,10 +1274,18 @@ def test_github_profile_draft_links_current_trial_and_contribution_paths():
     assert f'uvx --from "{pypi_spec}" browsertrace' in profile_draft
     assert 'pip install "browsertrace[ui]"' in profile_draft
     assert "Browser Use run hooks" in profile_draft
+    assert "`browsertrace compare`" in profile_draft
+    assert "Demo story: Browser Use tries to upload" in profile_draft
+    assert "upload preview never appears" in profile_draft
     assert "Stagehand wrapper" in profile_draft
     assert "Skyvern task/workflow wrapper" in profile_draft
     assert "Playwright + LLM examples" in profile_draft
     assert "Listed in Awesome-AI-Agents under Applications -> Tools." in profile_draft
+    assert (
+        "https://github.com/aaronlab/browsertrace/releases/download/v0.1.19/browsertrace-demo-public.html"
+        in profile_draft
+    )
+    assert "v0.1.18/browsertrace-demo-public.html" not in profile_draft
     assert "https://github.com/aaronlab/browsertrace/issues/3" in profile_draft
     assert "https://github.com/aaronlab/browsertrace/labels/good%20first%20issue" in profile_draft
     assert "https://github.com/aaronlab/browsertrace/issues/213" not in profile_draft
