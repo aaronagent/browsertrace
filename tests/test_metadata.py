@@ -4463,6 +4463,7 @@ def test_owner_email_send_packet_is_short_and_linked():
     assert "https://aaronlab.github.io/browsertrace/" in packet
     assert "browser-agent-failure-patterns.html" in packet
     assert "Browser Use new-tab desync" in packet
+    assert "Browser Use local HTML upload navigation" in packet
     assert "Stagehand semantic verification boundary" in packet
     assert "Skyvern VNC/CDP debug integration" in packet
     assert "browsertrace-demo-public.html" in packet
@@ -4493,6 +4494,7 @@ def test_owner_social_post_packet_is_short_and_linked():
     assert "https://aaronlab.github.io/browsertrace/" in packet
     assert "browser-agent-failure-patterns.html" in packet
     assert "Browser Use new-tab desync" in packet
+    assert "Browser Use local HTML upload navigation" in packet
     assert "Stagehand semantic verification boundary" in packet
     assert "Skyvern VNC/CDP debug integration" in packet
     assert "Do not ask for stars" in packet
@@ -4523,6 +4525,7 @@ def test_owner_launch_submission_packet_is_short_and_linked():
     assert "https://aaronlab.github.io/browsertrace/" in packet
     assert "browser-agent-failure-patterns.html" in packet
     assert "Browser Use new-tab desync" in packet
+    assert "Browser Use local HTML upload navigation" in packet
     assert "Stagehand semantic verification boundary" in packet
     assert "Skyvern VNC/CDP debug integration" in packet
     assert "Do not ask for votes" in packet
@@ -4671,6 +4674,9 @@ def test_show_hn_packet_uses_concrete_browser_use_failure_shape():
     assert "screenshot shows the right plus icon" in first_comment
     assert "tooltip text is not an" in first_comment
     assert "target evidence" in first_comment
+    assert "local HTML" in first_comment
+    assert "attachment context" in first_comment
+    assert "watchdog block reason" in first_comment
     assert "persistent browser recovery" in first_comment
     assert "Profile lock files" in first_comment
     assert "CDP attach/probe timing" in first_comment
@@ -4801,6 +4807,9 @@ def test_product_hunt_packet_uses_concrete_browser_use_failure_shape():
     assert "Browser Use agent saw the right plus icon" in maker_comment
     assert "tooltip text was not" in maker_comment
     assert "target evidence" in maker_comment
+    assert "local HTML" in maker_comment
+    assert "attachment metadata" in maker_comment
+    assert "watchdog block reason" in maker_comment
     assert "persistent browser recovery" in maker_comment
     assert "Profile lock files" in maker_comment
     assert "CDP attach/probe" in maker_comment

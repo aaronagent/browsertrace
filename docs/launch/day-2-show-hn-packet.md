@@ -93,6 +93,11 @@ event-bus lock timing determines whether one bad session blocks others. That
 needs method timing and browser/session evidence, not just a generic timeout
 line.
 
+A third Browser Use failure shape happens before the browser step: a local HTML
+upload or attachment name can be misread as a navigation target, so the useful
+evidence is the task prompt, model-visible attachment context, raw model action,
+parsed action type, and watchdog block reason.
+
 For custom computer-use agents, I also keep seeing persistent browser recovery
 fail before screenshots or URLs exist. Profile lock files and process names are
 not enough; the useful trace boundary is session mode, a redacted profile id,

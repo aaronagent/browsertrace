@@ -54,7 +54,7 @@ https://aaronlab.github.io/browsertrace/
 Concrete failure patterns:
 https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html
 
-Examples covered there include Browser Use new-tab desync, Stagehand semantic verification boundary, and Skyvern VNC/CDP debug integration.
+Examples covered there include Browser Use new-tab desync, Browser Use local HTML upload navigation, Stagehand semantic verification boundary, and Skyvern VNC/CDP debug integration.
 
 No-install PyPI uvx path:
 uvx --from "browsertrace[ui]" browsertrace doctor
@@ -111,7 +111,7 @@ https://aaronlab.github.io/browsertrace/
 Failure patterns:
 https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html
 
-Examples covered there include Browser Use new-tab desync, Stagehand semantic verification boundary, and Skyvern VNC/CDP debug integration.
+Examples covered there include Browser Use new-tab desync, Browser Use local HTML upload navigation, Stagehand semantic verification boundary, and Skyvern VNC/CDP debug integration.
 
 GitHub:
 https://github.com/aaronlab/browsertrace

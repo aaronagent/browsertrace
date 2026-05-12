@@ -167,6 +167,11 @@ while a state-collection request never returns. If event-bus lock timing is part
 of the failure, you need method timing, browser/session IDs, and recovery state
 beside the failed step.
 
+Another Browser Use failure can happen before the page action itself: a local HTML
+upload or attachment name gets interpreted as a navigation target. The trace
+needs prompt context, model-visible attachment metadata, raw model action,
+parsed action type, and watchdog block reason.
+
 For custom computer-use agents, persistent browser recovery can fail before any
 screenshot or URL exists. Profile lock files and process names are not enough;
 the useful evidence is session mode, a redacted profile id, CDP attach/probe
