@@ -74,9 +74,51 @@
   </url>
   <url>
     <loc>https://aaronlab.github.io/browsertrace/launch/</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aaronlab.github.io/browsertrace/launch/channel-copy.md</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aaronlab.github.io/browsertrace/launch/day-1-publish-packet.md</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aaronlab.github.io/browsertrace/launch/day-2-show-hn-packet.md</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aaronlab.github.io/browsertrace/launch/day-4-product-hunt-packet.md</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aaronlab.github.io/browsertrace/launch/owner-social-post-packet.md</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aaronlab.github.io/browsertrace/launch/owner-email-send-packet.md</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aaronlab.github.io/browsertrace/launch/owner-launch-submission-packet.md</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://aaronlab.github.io/browsertrace/launch/press-kit.md</loc>

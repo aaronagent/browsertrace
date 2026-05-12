@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import re
 import tomllib
+import xml.etree.ElementTree as ET
 from pathlib import Path
 
 import browsertrace
@@ -3483,8 +3484,26 @@ def test_public_html_pages_have_open_graph_urls():
 def test_sitemap_lastmod_matches_current_launch_refresh():
     project_root = Path(__file__).resolve().parents[1]
     sitemap = (project_root / "docs" / "sitemap.xml").read_text()
+    root = ET.fromstring(sitemap)
+    namespace = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+    lastmod_by_url = {
+        url.find("sm:loc", namespace).text: url.find("sm:lastmod", namespace).text
+        for url in root.findall("sm:url", namespace)
+    }
 
-    assert "<lastmod>2026-05-11</lastmod>" in sitemap
+    for path in [
+        "launch/",
+        "launch/channel-copy.md",
+        "launch/day-1-publish-packet.md",
+        "launch/day-2-show-hn-packet.md",
+        "launch/day-4-product-hunt-packet.md",
+        "launch/owner-social-post-packet.md",
+        "launch/owner-email-send-packet.md",
+        "launch/owner-launch-submission-packet.md",
+    ]:
+        url = f"https://aaronlab.github.io/browsertrace/{path}"
+        assert lastmod_by_url[url] == "2026-05-12", path
+
     assert "<lastmod>2026-05-09</lastmod>" not in sitemap
 
 
@@ -5601,6 +5620,26 @@ def test_search_indexing_submission_includes_failure_patterns_url():
 
     assert f"| Failure patterns | `{url}` |" in submission
     assert f'"{url}"' in submission
+
+
+def test_search_indexing_submission_includes_latest_launch_packet_urls():
+    project_root = Path(__file__).resolve().parents[1]
+    submission = (
+        project_root / "docs" / "launch" / "search-indexing-submission.md"
+    ).read_text()
+    indexnow_payload = submission.split("```json", 1)[1].split("```", 1)[0]
+
+    for path in [
+        "launch/",
+        "launch/channel-copy.md",
+        "launch/day-1-publish-packet.md",
+        "launch/day-2-show-hn-packet.md",
+        "launch/day-4-product-hunt-packet.md",
+        "launch/owner-social-post-packet.md",
+        "launch/owner-email-send-packet.md",
+        "launch/owner-launch-submission-packet.md",
+    ]:
+        assert f'"https://aaronlab.github.io/browsertrace/{path}"' in indexnow_payload
 
 
 def test_bug_report_template_requests_json_cli_troubleshooting_checks():

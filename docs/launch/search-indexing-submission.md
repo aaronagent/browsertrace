@@ -61,7 +61,14 @@ Use this payload:
     "https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html",
     "https://aaronlab.github.io/browsertrace/computer-use-agent-debugging.html",
     "https://aaronlab.github.io/browsertrace/trace.html",
-    "https://aaronlab.github.io/browsertrace/launch/"
+    "https://aaronlab.github.io/browsertrace/launch/",
+    "https://aaronlab.github.io/browsertrace/launch/channel-copy.md",
+    "https://aaronlab.github.io/browsertrace/launch/day-1-publish-packet.md",
+    "https://aaronlab.github.io/browsertrace/launch/day-2-show-hn-packet.md",
+    "https://aaronlab.github.io/browsertrace/launch/day-4-product-hunt-packet.md",
+    "https://aaronlab.github.io/browsertrace/launch/owner-social-post-packet.md",
+    "https://aaronlab.github.io/browsertrace/launch/owner-email-send-packet.md",
+    "https://aaronlab.github.io/browsertrace/launch/owner-launch-submission-packet.md"
   ]
 }
 ```
