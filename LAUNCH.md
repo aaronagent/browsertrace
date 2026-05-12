@@ -117,7 +117,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T05:47:32+00:00 | 3 | 998 | 19 | 0 | 11 | 0 | 40 | current monitor pass after good-first issue #347 added for Browser Use empty model response parse failures: https://github.com/aaronlab/browsertrace/issues/347; star goal remains incomplete; traffic views 294/111 unique, clones 12398/2207 unique |
+| 2026-05-12T06:27:50+00:00 | 3 | 998 | 20 | 0 | 11 | 0 | 40 | current monitor pass after forks increased to 20; star goal remains incomplete; referrers github.com 76/22, goodfirstissues.com 19/5, aaronlab.github.io 10/4, github-help-wanted.com 4/1; traffic views 294/111 unique, clones 12398/2207 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
