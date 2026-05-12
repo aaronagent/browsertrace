@@ -4351,6 +4351,9 @@ def test_launch_monitoring_runbook_covers_current_targets():
 
     assert "agent-observability-standard|helmdeck" in runbook
     assert "## 5. Secondary Technical Threads" in runbook
+    assert "closed good-first issue" in runbook
+    assert "good%20first%20issue" in runbook
+    assert "stale replacement issue" in runbook
     assert "aaronlab/browsertrace#335" not in runbook
     assert "aaronlab/browsertrace#333" not in runbook
     assert "aaronlab/browsertrace#331" not in runbook

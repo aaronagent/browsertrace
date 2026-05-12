@@ -222,6 +222,10 @@ Use the source signal conservatively:
 
 - If `goodfirstissues.com` or `github-help-wanted.com` appears, keep a small
   queue of high-quality, non-duplicative good-first issues.
+- If a popular path is a closed good-first issue, check whether the latest
+  maintainer guidance points to a stale replacement issue. When it does, add one
+  maintenance comment that points visitors to the dynamic queue instead:
+  `https://github.com/aaronlab/browsertrace/labels/good%20first%20issue`.
 - If old `aaronagent` paths appear, audit redirect copy before adding more
   public links.
 - If the Pages homepage or guide pages appear, improve those pages only when a
