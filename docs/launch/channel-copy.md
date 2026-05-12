@@ -212,11 +212,9 @@ Repo: https://github.com/aaronlab/browsertrace
 Non-Premium-safe thread. Post each `text` block as one X post.
 
 ```text
-3 AM Browser Use debugging problem:
+Browser Use failed on a local `.html` upload: it navigated to the filename and the upload preview never appeared.
 
-The run failed. Logs say what code ran, but not what the agent saw, clicked, returned, or why the first red step happened.
-
-So I built BrowserTrace: a local replay debugger for Browser Use failures.
+I built BrowserTrace to replay what the agent saw, clicked, and returned before the first red step.
 
 No signup, no cloud, MIT.
 ```
@@ -230,7 +228,7 @@ It records failed Browser Use runs as local timelines:
 - model input/output
 - error
 
-Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
+Live demo: https://aaronlab.github.io/browsertrace/
 Repo: https://github.com/aaronlab/browsertrace
 ```
 
@@ -292,8 +290,11 @@ Browser Use is the primary path. Stagehand, Skyvern, Playwright + LLM scripts, a
 
 If you have one failed Browser Use run and one successful run for the same task, `browsertrace compare <failed_run_id> <success_run_id>` reports the first divergent action, URL, status, or error before you open the local UI.
 
+The live demo now replays the local HTML upload navigation failure: a Browser Use-shaped run tries to upload file:///tmp/browsertrace-report.html, navigates to the local file path instead, and the upload preview never appeared.
+
 Live demo: https://aaronlab.github.io/browsertrace/
 Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
+Failure patterns: https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html
 Repo: https://github.com/aaronlab/browsertrace
 
 I am looking for feedback from people debugging real Browser Use runs. What should it record that your current logs miss?

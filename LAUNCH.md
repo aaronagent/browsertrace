@@ -120,7 +120,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T23:37:29+00:00 | 3 | 998 | 21 | 0 | 11 | 0 | 9 | current monitor pass after owner X single-post fallback was sharpened to the Browser Use local .html upload failure story while keeping browsertrace compare in the copy; owner-channel publishing remains the blocker; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-12T23:40:36+00:00 | 3 | 998 | 21 | 0 | 11 | 0 | 9 | current monitor pass after channel-copy X thread and LinkedIn owner drafts were aligned with the Browser Use local .html upload failure story; owner-channel publishing remains the blocker; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
