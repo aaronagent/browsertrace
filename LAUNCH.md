@@ -120,7 +120,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T19:30:44+00:00 | 3 | 998 | 21 | 0 | 10 | 0 | 11 | current monitor pass after owner social X thread packet was shortened so every post fits the 280-character non-premium limit; owner-channel publishing remains the blocker; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-12T19:36:46+00:00 | 3 | 998 | 21 | 0 | 10 | 0 | 11 | current monitor pass after issue #9 owner unblock was refreshed with non-premium X thread lengths and current #365 good-first issue; owner-channel publishing remains the blocker; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
