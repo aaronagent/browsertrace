@@ -14,7 +14,8 @@ issue comment 都交给 Codex 继续处理：
 当前收录状态：已跟踪的外部 GitHub list 里已有一个接受 BrowserTrace：
 `Jenqyang/Awesome-AI-Agents#220` 已合并/已收录到默认分支。其余已跟踪的
 list 和 directory 投稿仍在 open。不要等这些 maintainer 全部合并后再发
-owner 渠道；先发个人账号内容和已经准备好的目录邮件。
+owner 渠道或 Show HN。新的目录提交优先级低于能直接触达 Browser Use 用户的
+帖子。
 
 最快的一条技术帖：先用 `docs/launch/channel-copy.md` 里的任意一个
 Browser Use angle，可以放在 Day 1 正式帖子之前或一起发：
@@ -31,21 +32,26 @@ session recovery。这些都是用具体失败场景来征集真实 workflow 反
    `docs/launch/day-1-publish-packet.md#media-alt-text` 里的
    `Media Alt Text`。最短复制版在
    `docs/launch/owner-social-post-packet.md`。
-2. 用 `docs/launch/directory-submission-sheet.md` 发送已经准备好的 owner
+2. 如果你接下来几个小时能在线回复技术评论，用
+   `docs/launch/owner-launch-submission-packet.md` 提交 Show HN。使用 repo
+   URL、准备好的标题和首条评论。只有能用你自己的语气及时回复时才发。
+3. owner 渠道帖子发完后，再用
+   `docs/launch/directory-submission-sheet.md` 发送已经准备好的 owner
    email 投稿：发给 console.dev 的 `hello@console.dev`，以及发给 AgDex 的
    `agdex.ai@gmail.com`。最短复制版在
    `docs/launch/owner-email-send-packet.md`。
-3. 如果还有第二小段时间，用 `docs/launch/directory-submission-sheet.md`
-   提交这些浏览器表单目录：4agent.dev、AgentKart、OSS AI Hub、FOSSHUNTER、
+4. 如果高意图渠道做完后还有第二小段时间，用
+   `docs/launch/directory-submission-sheet.md` 提交这些浏览器表单目录：
+   4agent.dev、AgentKart、OSS AI Hub、FOSSHUNTER、
    AgentsTide、BuilderAI Tools。AgentsTide 可用 `hello@agentstide.com`
    作为邮件兜底，BuilderAI Tools 分类用 `AI Observability & Evaluation`。
    这一批的字段已经整理在 `First Browser-Form Directory Field Notes`。如果
    AgentKart 或 AgentsTide 只接受可运行的 autonomous agent，不接受 agent
    开发工具，就跳过，不要把 BrowserTrace 硬归类成 agent。
-4. 如果这一批已经做完，继续用 `docs/launch/directory-submission-sheet.md`
+5. 如果这一批已经做完，继续用 `docs/launch/directory-submission-sheet.md`
    里的第二批目录字段说明提交 CLIHunt、DeepYard、OpenAgent.bot、
    ForgeIndex、AgentShelf。
-5. 如果还有时间做开发者工具目录，继续用同一个 sheet 提交 DevTool Center、
+6. 如果还有时间做开发者工具目录，继续用同一个 sheet 提交 DevTool Center、
    ToolHunter、ToolShelf。CLIs.dev 已提交：
    https://github.com/victorcheeney/clis/issues/3；CliHub registry PR 已打开：
    https://github.com/clihub-ai/clihub/pull/1。

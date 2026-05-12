@@ -4476,6 +4476,8 @@ def test_owner_short_checklists_surface_ready_email_submissions():
         unblock = text.split("## 10", 1)[1].split(next_heading, 1)[0]
 
         assert "docs/launch/directory-submission-sheet.md" in unblock, relpath
+        assert "docs/launch/owner-launch-submission-packet.md" in unblock, relpath
+        assert "Show HN" in unblock, relpath
         assert "console.dev" in unblock, relpath
         assert "hello@console.dev" in unblock, relpath
         assert "AgDex" in unblock, relpath
@@ -4490,6 +4492,7 @@ def test_owner_short_checklists_surface_ready_email_submissions():
         assert "fresh-browser-use-debugging-angle" in unblock, relpath
         assert "fresh-chinese-computer-use-recovery-angle" in unblock, relpath
         assert "Browser Use" in unblock, relpath
+        assert unblock.index("Show HN") < unblock.index("console.dev"), relpath
         assert "stars" not in unblock.lower(), relpath
         assert "upvotes" not in unblock.lower(), relpath
 

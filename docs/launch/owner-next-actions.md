@@ -17,7 +17,8 @@ Current listing status: one tracked external GitHub list has accepted
 BrowserTrace: `Jenqyang/Awesome-AI-Agents#220` is merged and listed on the
 default branch. The remaining tracked list and directory submissions are still
 open. Do not wait for those maintainers before publishing owner-channel posts
-or sending the prepared directory emails.
+or Show HN. New directory submissions are lower priority than posts that reach
+Browser Use users directly.
 
 Fastest fresh technical post: publish either Browser Use angle from
 `docs/launch/channel-copy.md` before or alongside the Day 1 posts:
@@ -36,12 +37,18 @@ post, use
    `docs/launch/day-1-publish-packet.md#media-alt-text`.
    The shortest copy/paste version is
    `docs/launch/owner-social-post-packet.md`.
-2. Send the ready owner-email submissions from
+2. If you can stay available for several hours to answer technical comments,
+   submit Show HN from `docs/launch/owner-launch-submission-packet.md`. Use the
+   repo URL, the prepared title, and the first comment. Skip this step until you
+   can reply in your own voice.
+3. After the owner-channel posts are live, send the ready owner-email
+   submissions from
    `docs/launch/directory-submission-sheet.md`:
    `hello@console.dev` and `agdex.ai@gmail.com` for console.dev and AgDex.
    The shortest copy/paste version is
    `docs/launch/owner-email-send-packet.md`.
-3. If you have a second short pass, submit the browser-form directories from
+4. If you have a second short pass after those higher-intent channels, submit
+   the browser-form directories from
    `docs/launch/directory-submission-sheet.md`:
    4agent.dev, AgentKart, OSS AI Hub, FOSSHUNTER, AgentsTide, and BuilderAI
    Tools. Use `hello@agentstide.com` as the AgentsTide email fallback and
@@ -49,10 +56,10 @@ post, use
    under `First Browser-Form Directory Field Notes`; skip AgentKart or
    AgentsTide if the target only accepts runnable autonomous agents rather than
    developer tools for agents.
-4. If that batch is already done, use the second-pass directory field notes in
+5. If that batch is already done, use the second-pass directory field notes in
    `docs/launch/directory-submission-sheet.md` for CLIHunt, DeepYard,
    OpenAgent.bot, ForgeIndex, and AgentShelf.
-5. If you still have time for developer-tool directories, use the same sheet for
+6. If you still have time for developer-tool directories, use the same sheet for
    DevTool Center, ToolHunter, and ToolShelf. CLIs.dev has already been
    submitted as https://github.com/victorcheeney/clis/issues/3, and the
    CliHub registry PR is open at https://github.com/clihub-ai/clihub/pull/1.
