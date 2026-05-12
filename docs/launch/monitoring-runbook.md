@@ -226,8 +226,12 @@ Use the source signal conservatively:
   maintainer guidance points to a stale replacement issue. When it does, add one
   maintenance comment that points visitors to the dynamic queue instead:
   `https://github.com/aaronlab/browsertrace/labels/good%20first%20issue`.
-- If old `aaronagent` paths appear, audit redirect copy before adding more
-  public links.
+- If old `aaronagent` paths appear, first verify whether they are only GitHub
+  rename redirects. No follow-up is needed when `curl -I -L
+  https://github.com/aaronagent/browsertrace` reaches
+  `https://github.com/aaronlab/browsertrace`, `gh repo view
+  aaronagent/browsertrace` resolves to `aaronlab/browsertrace`, and local/code
+  search has no public `aaronagent/browsertrace` launch links.
 - If the Pages homepage or guide pages appear, improve those pages only when a
   real layout, copy, or conversion problem is observed.
 - Do not open additional directory/list PRs from traffic alone; only use high-fit
