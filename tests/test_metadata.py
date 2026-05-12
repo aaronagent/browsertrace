@@ -297,6 +297,22 @@ def test_homepage_links_first_pr_recipe_for_small_contributions():
     assert "reposts" not in homepage.lower()
 
 
+def test_homepage_surfaces_first_awesome_list_inclusion_near_intro():
+    project_root = Path(__file__).resolve().parents[1]
+    homepage = (project_root / "docs" / "index.html").read_text()
+    intro = homepage.split('<section class="trace"', 1)[0]
+    normalized_intro = re.sub(r"\s+", " ", intro)
+
+    assert (
+        'Listed in <a href="https://github.com/Jenqyang/Awesome-AI-Agents">'
+        "Awesome-AI-Agents</a> under Applications -&gt; Tools."
+        in normalized_intro
+    )
+    assert "stars" not in normalized_intro.lower()
+    assert "upvotes" not in normalized_intro.lower()
+    assert "reposts" not in normalized_intro.lower()
+
+
 def test_homepage_names_current_adapter_surfaces():
     project_root = Path(__file__).resolve().parents[1]
     homepage = (project_root / "docs" / "index.html").read_text()
