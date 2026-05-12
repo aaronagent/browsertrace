@@ -75,12 +75,13 @@ Use this payload:
 }
 ```
 
-Latest submission, 2026-05-12 UTC: Codex refreshed the current public URL
-payload after the homepage started surfacing the accepted
-`Jenqyang/Awesome-AI-Agents` listing. The generic IndexNow endpoint and the Bing
-IndexNow endpoint both returned HTTP 200 with empty response bodies.
+Latest submission, 2026-05-12 UTC: Codex refreshed
+`https://aaronlab.github.io/browsertrace/browser-use-debugging.html` after the
+Browser Use guide added local HTML upload navigation and action schema
+validation boundaries. The generic IndexNow endpoint and the Bing IndexNow
+endpoint both returned HTTP 200 with empty response bodies.
 Tracking comment:
-`https://github.com/aaronlab/browsertrace/issues/16#issuecomment-4429832604`.
+`https://github.com/aaronlab/browsertrace/issues/16#issuecomment-4430299600`.
 
 ## Contribution Reply
 

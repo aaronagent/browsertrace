@@ -117,7 +117,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T11:56:22+00:00 | 3 | 998 | 20 | 0 | 10 | 0 | 40 | current monitor pass after #345 closed with Browser Use action schema validation docs coverage; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-12T12:03:21+00:00 | 3 | 998 | 20 | 0 | 10 | 0 | 40 | current monitor pass after IndexNow refresh for Browser Use guide updates: https://github.com/aaronlab/browsertrace/issues/16#issuecomment-4430299600; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
