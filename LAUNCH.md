@@ -85,8 +85,10 @@ Codex can prepare assets, update the repo, write copy, audit links, and monitor 
   reusable source asset for future launch previews.
 - Submit `https://aaronlab.github.io/browsertrace/sitemap.xml` in Google Search
   Console and Bing Webmaster Tools.
-- Monitor the sixteen open third-party awesome-list and directory PRs plus the
-  CLIs.dev submission issue, and respond only if maintainers ask for changes.
+- Monitor the fifteen still-open third-party awesome-list and directory PRs plus
+  the CLIs.dev submission issue; `Jenqyang/Awesome-AI-Agents#220` is merged and
+  BrowserTrace is listed on that default branch. Respond only if maintainers ask
+  for changes.
   Do not open additional list PRs unless the target is clearly high-fit and
   non-duplicative.
 - Publish X, LinkedIn, WeChat, Jike, Xiaohongshu, Reddit, Discord, and community posts.
@@ -115,7 +117,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T03:23:09+00:00 | 3 | 998 | 18 | 0 | 10 | 0 | 39 | current monitor pass after technical follow-up on browser-use/browser-use#4794 about local HTML upload filenames being misread as navigation targets, plus BrowserTrace issue #11 research note: https://github.com/browser-use/browser-use/issues/4794#issuecomment-4427063915 and https://github.com/aaronlab/browsertrace/issues/11#issuecomment-4427064771; star goal remains incomplete; traffic views 294/111 unique, clones 12398/2207 unique |
+| 2026-05-12T03:26:46+00:00 | 3 | 998 | 18 | 0 | 10 | 0 | 39 | current monitor pass after Jenqyang/Awesome-AI-Agents#220 merged and default-branch README now lists BrowserTrace; first tracked awesome-list inclusion verified at README line 116 and recorded in #18: https://github.com/aaronlab/browsertrace/issues/18#issuecomment-4427083303; remaining tracked external PRs are still open; star goal remains incomplete; traffic views 294/111 unique, clones 12398/2207 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 

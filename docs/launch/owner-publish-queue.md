@@ -23,10 +23,10 @@ Shortest owner social post packet: `docs/launch/owner-social-post-packet.md`
 Shortest owner email packet: `docs/launch/owner-email-send-packet.md`
 Shortest HN/Product Hunt packet: `docs/launch/owner-launch-submission-packet.md`
 
-Current listing status: the tracked external GitHub list and directory
-submissions are still open and have not listed BrowserTrace on their default
-branches yet. Owner-channel posts and the prepared directory emails should not
-wait for those merges.
+Current listing status: `Jenqyang/Awesome-AI-Agents#220` is merged and
+BrowserTrace is listed on that default branch. The remaining tracked external
+GitHub list and directory submissions are still open. Owner-channel posts and
+the prepared directory emails should not wait for those merges.
 
 ## Media
 
@@ -57,8 +57,9 @@ Use `docs/launch/day-1-publish-packet.md` as the single owner-facing checklist.
      in Google Search Console and Bing Webmaster Tools.
    - Search indexing tracking issue:
      https://github.com/aaronlab/browsertrace/issues/16
-   - External GitHub list/directory PRs: sixteen focused PRs are open, including
-     `steel-dev/awesome-web-agents#56` and
+   - External GitHub list/directory PRs: one focused PR is merged/listed
+     (`Jenqyang/Awesome-AI-Agents#220`), and the remaining focused PRs are
+     open, including `steel-dev/awesome-web-agents#56` and
      `ai-boost/awesome-harness-engineering#23`, plus
      `Agent-Tools/awesome-autonomous-web#21` and
      `e2b-dev/awesome-ai-sdks#187`, and the broader

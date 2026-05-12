@@ -223,14 +223,14 @@ GitHub awesome lists：
 docs/launch/github-awesome-list-submissions.md
 ```
 
-已经打开的 PR：
+已打开/已合并的 PR：
 
 | 目标 | PR |
 |---|---|
 | `bradvin/agentfirst.directory` | `https://github.com/bradvin/agentfirst.directory/pull/30`，enrichment check 已通过 |
 | `angrykoala/awesome-browser-automation` | `https://github.com/angrykoala/awesome-browser-automation/pull/112` |
 | `mxschmitt/awesome-playwright` | `https://github.com/mxschmitt/awesome-playwright/pull/136` |
-| `Jenqyang/Awesome-AI-Agents` | `https://github.com/Jenqyang/Awesome-AI-Agents/pull/220` |
+| `Jenqyang/Awesome-AI-Agents` | `https://github.com/Jenqyang/Awesome-AI-Agents/pull/220`，已合并/已收录 |
 | `wjhou/awesome-computer-use-agents` | `https://github.com/wjhou/awesome-computer-use-agents/pull/2` |
 | `cdxeve/awesome-computer-use-agents` | `https://github.com/cdxeve/awesome-computer-use-agents/pull/2` |
 | `steel-dev/awesome-web-agents` | `https://github.com/steel-dev/awesome-web-agents/pull/56` |

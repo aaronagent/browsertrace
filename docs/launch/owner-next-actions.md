@@ -13,10 +13,11 @@ Ask for workflow feedback from people building browser agents.
 If you only have one short session, do these in order and let Codex handle the
 follow-up verification, README updates, metrics, and issue comments:
 
-Current listing status: the tracked external GitHub list and directory
-submissions are still open and have not listed BrowserTrace on their default
-branches yet. Do not wait for those maintainers before publishing owner-channel
-posts or sending the prepared directory emails.
+Current listing status: one tracked external GitHub list has accepted
+BrowserTrace: `Jenqyang/Awesome-AI-Agents#220` is merged and listed on the
+default branch. The remaining tracked list and directory submissions are still
+open. Do not wait for those maintainers before publishing owner-channel posts
+or sending the prepared directory emails.
 
 Fastest fresh technical post: publish either Browser Use angle from
 `docs/launch/channel-copy.md` before or alongside the Day 1 posts:
@@ -222,7 +223,7 @@ Already-open GitHub listing PRs and issues:
 | `bradvin/agentfirst.directory` | `https://github.com/bradvin/agentfirst.directory/pull/30`, enrichment check passed |
 | `angrykoala/awesome-browser-automation` | `https://github.com/angrykoala/awesome-browser-automation/pull/112` |
 | `mxschmitt/awesome-playwright` | `https://github.com/mxschmitt/awesome-playwright/pull/136` |
-| `Jenqyang/Awesome-AI-Agents` | `https://github.com/Jenqyang/Awesome-AI-Agents/pull/220` |
+| `Jenqyang/Awesome-AI-Agents` | `https://github.com/Jenqyang/Awesome-AI-Agents/pull/220`, merged/listed |
 | `wjhou/awesome-computer-use-agents` | `https://github.com/wjhou/awesome-computer-use-agents/pull/2` |
 | `cdxeve/awesome-computer-use-agents` | `https://github.com/cdxeve/awesome-computer-use-agents/pull/2` |
 | `steel-dev/awesome-web-agents` | `https://github.com/steel-dev/awesome-web-agents/pull/56` |
@@ -250,12 +251,13 @@ Use:
 docs/launch/github-awesome-list-submissions.md
 ```
 
-Current open high-fit PRs:
+Current tracked high-fit PRs:
 
 - `bradvin/agentfirst.directory#30` - enrichment check passed.
 - `angrykoala/awesome-browser-automation#112`
 - `mxschmitt/awesome-playwright#136`
-- `Jenqyang/Awesome-AI-Agents#220`
+- `Jenqyang/Awesome-AI-Agents#220` - merged/listed; keep only for metrics and
+  default-branch inclusion checks.
 - `wjhou/awesome-computer-use-agents#2`
 - `cdxeve/awesome-computer-use-agents#2`
 - `steel-dev/awesome-web-agents#56`

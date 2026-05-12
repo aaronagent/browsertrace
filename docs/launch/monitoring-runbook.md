@@ -36,6 +36,11 @@ Tracked PR targets:
 - `browser-use/awesome-projects#6`
 - `clihub-ai/clihub#1`
 
+Current accepted listing:
+
+- `Jenqyang/Awesome-AI-Agents#220` merged on 2026-05-12, and the default
+  branch README lists BrowserTrace in `Applications` -> `Tools`.
+
 Use this jq null-safe loop so PRs with no comments do not fail the monitor pass:
 
 ```bash

@@ -64,7 +64,7 @@ workflow-specific debugging context:
 |---:|---|---|---|---|
 | 1 | `angrykoala/awesome-browser-automation` | Strong | `Tools` -> `AI` | Submitted: https://github.com/angrykoala/awesome-browser-automation/pull/112 |
 | 2 | `mxschmitt/awesome-playwright` | Medium | `Utils` | Submitted: https://github.com/mxschmitt/awesome-playwright/pull/136 |
-| 3 | `Jenqyang/Awesome-AI-Agents` | Medium | `Applications` -> `Tools` | Submitted: https://github.com/Jenqyang/Awesome-AI-Agents/pull/220 |
+| 3 | `Jenqyang/Awesome-AI-Agents` | Medium | `Applications` -> `Tools` | Merged/listed: https://github.com/Jenqyang/Awesome-AI-Agents/pull/220 |
 | 4 | `wjhou/awesome-computer-use-agents` | Strong | `frameworks/README.md` -> `Web/Browser Frameworks` | Submitted: https://github.com/wjhou/awesome-computer-use-agents/pull/2 |
 | 5 | `cdxeve/awesome-computer-use-agents` | Strong | `GUI-Based Agents` -> `Web Agents` | Submitted: https://github.com/cdxeve/awesome-computer-use-agents/pull/2 |
 | 6 | `steel-dev/awesome-web-agents` | Strong | `Dev Tools` | Submitted: https://github.com/steel-dev/awesome-web-agents/pull/56 |
@@ -178,7 +178,8 @@ Target:
 https://github.com/Jenqyang/Awesome-AI-Agents
 ```
 
-Status: submitted as https://github.com/Jenqyang/Awesome-AI-Agents/pull/220.
+Status: merged/listed via https://github.com/Jenqyang/Awesome-AI-Agents/pull/220.
+Default-branch README now includes BrowserTrace in `Applications` -> `Tools`.
 
 Fit notes:
 

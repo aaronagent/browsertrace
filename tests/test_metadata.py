@@ -1197,8 +1197,11 @@ def test_roadmap_records_current_launch_state():
 
     assert "`v0.1.17` is the current launch release." in roadmap
     assert 'pip install "browsertrace[ui]"' in roadmap
-    assert "Sixteen focused PRs are open" in roadmap
+    assert "One focused PR is merged/listed" in roadmap
+    assert "Jenqyang/Awesome-AI-Agents#220" in roadmap
+    assert "remaining focused PRs are open" in roadmap
     assert "E2B CLA check has passed" in roadmap
+    assert "Sixteen focused PRs are open" not in roadmap
     assert "`v0.1.15` is the current launch release." not in roadmap
     assert "Three focused PRs are open" not in roadmap
     assert "pre-PyPI UI dependency guidance" not in roadmap
@@ -3842,8 +3845,12 @@ def test_owner_publish_queue_includes_aos_mapping_reply_note():
 def test_owner_publish_queue_records_current_awesome_list_pr_count():
     project_root = Path(__file__).resolve().parents[1]
     queue = (project_root / "docs" / "launch" / "owner-publish-queue.md").read_text()
+    queue_inline = " ".join(queue.split())
 
-    assert "sixteen focused PRs are open" in queue
+    assert "one focused PR is merged/listed" in queue_inline
+    assert "Jenqyang/Awesome-AI-Agents#220" in queue
+    assert "remaining focused PRs are open" in queue_inline
+    assert "sixteen focused PRs are open" not in queue
     assert "the three prepared PRs" not in queue
     assert "ai-boost/awesome-harness-engineering#23" in queue
     assert "Agent-Tools/awesome-autonomous-web#21" in queue
@@ -4091,10 +4098,9 @@ def test_directory_submission_sheet_avoids_stale_awesome_list_pr_count():
     project_root = Path(__file__).resolve().parents[1]
     sheet = (project_root / "docs" / "launch" / "directory-submission-sheet.md").read_text()
 
-    assert (
-        "Tracked PRs are open, including browser-use/awesome-projects#6; monitor feedback; e2b CLA passed"
-        in sheet
-    )
+    assert "Jenqyang/Awesome-AI-Agents#220 is merged/listed" in sheet
+    assert "remaining tracked PRs are open, including browser-use/awesome-projects#6" in sheet
+    assert "e2b CLA passed" in sheet
     assert "12 PRs open" not in sheet
     assert "3 PRs open" not in sheet
     assert "github-awesome-list-submissions.md" in sheet
@@ -5123,7 +5129,7 @@ def test_chinese_owner_next_actions_preserves_external_awesome_list_pr_numbers()
     checklist = (
         project_root / "docs" / "launch" / "owner-next-actions.zh-CN.md"
     ).read_text()
-    awesome_prs = checklist.split("已经打开的 PR：", 1)[1].split(
+    awesome_prs = checklist.split("已打开/已合并的 PR：", 1)[1].split(
         "目录/newsletter 跟踪 issue", 1
     )[0]
 
@@ -5474,7 +5480,9 @@ def test_outreach_targets_records_current_awesome_list_pr_count():
     project_root = Path(__file__).resolve().parents[1]
     targets = (project_root / "docs" / "launch" / "outreach-targets.md").read_text()
 
-    assert "Sixteen focused PRs are already open" in targets
+    assert "One tracked PR is merged/listed" in targets
+    assert "remaining focused PRs are open" in targets
+    assert "Sixteen focused PRs are already open" not in targets
     assert "E2B CLA check has passed" in targets
     assert "Three focused PRs" not in targets
     assert "Do not open more list PRs unless the target is clearly high-fit" in targets
