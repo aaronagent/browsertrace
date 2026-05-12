@@ -92,6 +92,7 @@ A healthy `browsertrace --help` output should list the main commands, including
 |---|---|---:|---|
 | `no_api_failure_demo.py` | You want the fastest failing trace | None | `python examples/no_api_failure_demo.py` |
 | `browser_use_callback_demo.py` | You want to see Browser Use-shaped step callbacks recorded | None | `python examples/browser_use_callback_demo.py` |
+| `browser_use_run_hooks_demo.py` | You want to see Browser Use `agent.run(...)` lifecycle hooks recorded | None | `python examples/browser_use_run_hooks_demo.py` |
 | `stagehand_wrapper_example.py` | You want to see Stagehand-style `act` and `extract` calls recorded | None | `python examples/stagehand_wrapper_example.py` |
 | `skyvern_wrapper_example.py` | You want to see Skyvern-style task calls recorded | None | `python examples/skyvern_wrapper_example.py` |
 | `playwright_llm_loop_example.py` | You want Playwright + LLM-shaped prompt, DOM, selector, retry, and failure fields without a browser | None | `python examples/playwright_llm_loop_example.py` |
@@ -119,7 +120,8 @@ Browser Use users who pass run hooks directly to
 `agent.run(on_step_start=..., on_step_end=...)` should use
 `create_run_hooks`; see the
 [Browser Use debugging guide](https://aaronlab.github.io/browsertrace/browser-use-debugging.html)
-for the current run-hook path.
+for the current run-hook path. To try that path without installing Browser Use,
+run `python examples/browser_use_run_hooks_demo.py` from a source checkout.
 
 If you are adapting the no-service wrapper examples, see the
 [Stagehand debugging guide](https://aaronlab.github.io/browsertrace/stagehand-debugging.html)

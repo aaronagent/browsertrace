@@ -112,6 +112,42 @@ def test_browser_use_callback_demo_creates_completed_trace(tmp_path, monkeypatch
     assert json.loads(steps[1][3])["thought"] == "open the first useful result"
 
 
+def test_browser_use_run_hooks_demo_creates_completed_trace(tmp_path, monkeypatch):
+    monkeypatch.setenv("BROWSERTRACE_HOME", str(tmp_path))
+
+    runpy.run_path("examples/browser_use_run_hooks_demo.py", run_name="__main__")
+
+    with sqlite3.connect(tmp_path / "db.sqlite") as c:
+        run = c.execute(
+            "SELECT id, name, status, error FROM runs ORDER BY started_at DESC LIMIT 1"
+        ).fetchone()
+        steps = c.execute(
+            "SELECT action, url, status, model_input, model_output, metadata "
+            "FROM steps WHERE run_id=? ORDER BY step_index",
+            (run[0],),
+        ).fetchall()
+
+    assert run[1] == "demo: browser-use run hooks flow"
+    assert run[2] == "completed"
+    assert run[3] is None
+    assert [step[0] for step in steps] == [
+        "search_google(query=BrowserTrace)",
+        "click(selector=#result-1)",
+    ]
+    assert steps[0][1] == "https://example.com/search"
+    assert steps[1][1] == "https://example.com/results"
+
+    model_input = json.loads(steps[0][3])
+    model_output = json.loads(steps[1][4])
+    metadata = json.loads(steps[1][5])
+
+    assert model_input["task"] == "Find BrowserTrace with Browser Use hooks"
+    assert model_input["browser_state"]["title"] == "Search"
+    assert model_output["thought"] == "open the first useful result"
+    assert model_output["extracted_content"] == "BrowserTrace repository"
+    assert metadata["hook"] == "browser_use_run_hooks"
+
+
 def test_computer_use_loop_example_creates_failed_trace(tmp_path, monkeypatch):
     monkeypatch.setenv("BROWSERTRACE_HOME", str(tmp_path))
 
