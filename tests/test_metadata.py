@@ -334,6 +334,7 @@ def test_homepage_and_readme_link_failure_patterns_page():
     )
     assert "browser-agent-failure-patterns.html" in readme
     assert "Browser Use new-tab desync" in readme
+    assert "Browser Use local HTML upload navigation mistakes" in readme
     assert "Browser Use remote CDP hangs" in readme
     assert "Stagehand semantic verification boundary" in readme
     assert "Skyvern multi-session VNC control drift" in readme

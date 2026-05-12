@@ -48,8 +48,9 @@ computer-use agents.
 [launch discussion](https://github.com/aaronlab/browsertrace/discussions/6)
 
 Concrete failure patterns now covered include Browser Use new-tab desync,
-Browser Use remote CDP hangs, Stagehand semantic verification boundary,
-Skyvern VNC/CDP debug integration, and Skyvern multi-session VNC control drift.
+Browser Use local HTML upload navigation mistakes, Browser Use remote CDP hangs,
+Stagehand semantic verification boundary, Skyvern VNC/CDP debug integration,
+and Skyvern multi-session VNC control drift.
 
 For AI/coding agents, [`llms.txt`](llms.txt) provides concise project context,
 links, and troubleshooting prompts. The hosted copy lives at
