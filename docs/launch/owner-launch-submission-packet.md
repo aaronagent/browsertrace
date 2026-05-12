@@ -14,6 +14,13 @@ Primary links:
 - Failure patterns: https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html
 - Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.17/browsertrace-demo-public.html
 
+Optional credibility note:
+
+- BrowserTrace is listed in `Jenqyang/Awesome-AI-Agents` under `Applications`
+  -> `Tools`. Use this only if someone asks whether the project appears in
+  external AI-agent tooling lists; do not ask for votes, stars, reposts, or
+  reciprocal promotion.
+
 ## Show HN
 
 Submission URL:

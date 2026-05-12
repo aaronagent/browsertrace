@@ -13,6 +13,12 @@ Primary links:
 - Live demo: https://aaronlab.github.io/browsertrace/
 - Failure patterns: https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html
 
+Optional credibility note:
+
+- BrowserTrace is now listed in `Jenqyang/Awesome-AI-Agents` under
+  `Applications` -> `Tools`. Use this only as social proof when useful; do not
+  ask for stars, votes, reposts, or reciprocal promotion.
+
 ## X
 
 Post as a short thread.
