@@ -251,6 +251,7 @@ docs/launch/github-awesome-list-submissions.md
 | `caramaschiHG/awesome-ai-agents-2026` | `https://github.com/caramaschiHG/awesome-ai-agents-2026/pull/244`，AI agent observability 列表 PR 已打开 |
 | `InftyAI/Awesome-LLMOps` | `https://github.com/InftyAI/Awesome-LLMOps/issues/430`，bot PR `https://github.com/InftyAI/Awesome-LLMOps/pull/431`，Runtime/Observation request |
 | `clihub-ai/clihub` | `https://github.com/clihub-ai/clihub/pull/1`，registry PR 已打开，forked PR CI 需要维护者批准后才能运行 |
+| `backblaze-labs/awesome-agent-infrastructure` | `https://github.com/backblaze-labs/awesome-agent-infrastructure/pull/4`，agent infrastructure observability list PR 已打开 |
 | `victorcheeney/clis` | `https://github.com/victorcheeney/clis/issues/3`，CLIs.dev 目录 issue 已打开 |
 
 现在只监控维护者反馈；不要再追加新的 awesome-list PR，除非先确认目标高度匹配、非重复，并且不会变成低质量群发。

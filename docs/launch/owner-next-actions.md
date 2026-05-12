@@ -243,6 +243,7 @@ Already-open GitHub listing PRs and issues:
 | `caramaschiHG/awesome-ai-agents-2026` | `https://github.com/caramaschiHG/awesome-ai-agents-2026/pull/244`, AI agent observability list PR |
 | `InftyAI/Awesome-LLMOps` | `https://github.com/InftyAI/Awesome-LLMOps/issues/430`, bot PR `https://github.com/InftyAI/Awesome-LLMOps/pull/431`, Runtime/Observation request |
 | `clihub-ai/clihub` | `https://github.com/clihub-ai/clihub/pull/1`, forked PR CI needs maintainer approval before it can run |
+| `backblaze-labs/awesome-agent-infrastructure` | `https://github.com/backblaze-labs/awesome-agent-infrastructure/pull/4`, agent infrastructure observability list PR |
 | `victorcheeney/clis` | `https://github.com/victorcheeney/clis/issues/3`, CLIs.dev directory issue opened |
 
 Monitor maintainer feedback only. Do not open more awesome-list PRs unless the
@@ -285,6 +286,8 @@ Current tracked high-fit PRs:
   request issue is `InftyAI/Awesome-LLMOps#430`.
 - `clihub-ai/clihub#1` - registry PR is open; forked PR CI needs
   maintainer approval before it can run.
+- `backblaze-labs/awesome-agent-infrastructure#4` - agent infrastructure
+  observability list PR is open.
 - `victorcheeney/clis#3` - CLIs.dev directory issue is open.
 
 Monitor maintainer feedback and do not open additional list PRs unless a target

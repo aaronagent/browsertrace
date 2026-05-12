@@ -91,6 +91,7 @@ workflow-specific debugging context:
 | 17 | `tensorchord/Awesome-LLMOps` | Strong | `Observability` | Submitted: https://github.com/tensorchord/Awesome-LLMOps/pull/470 |
 | 18 | `caramaschiHG/awesome-ai-agents-2026` | Strong | `Observability and Evaluation` -> `Tracing and Monitoring` | Submitted: https://github.com/caramaschiHG/awesome-ai-agents-2026/pull/244 |
 | 19 | `InftyAI/Awesome-LLMOps` | Strong | `Runtime` -> `Observation` | Project request: https://github.com/InftyAI/Awesome-LLMOps/issues/430; bot PR: https://github.com/InftyAI/Awesome-LLMOps/pull/431 |
+| 20 | `backblaze-labs/awesome-agent-infrastructure` | Strong | `Observability and Evaluation` | Submitted: https://github.com/backblaze-labs/awesome-agent-infrastructure/pull/4 |
 | Skip | `e2b-dev/awesome-ai-agents` | Weak | n/a | Main list is for agents, not tools |
 | Skip | `supernalintelligence/Awesome-Gui-Agents` | Weak | n/a | Main list catalogs GUI agents, not developer/debugging tools; referenced contribution file is missing |
 | Skip | `ZJU-REAL/Awesome-GUI-Agents` | Weak | n/a | Strong topic match, but current README is primarily papers, datasets, and benchmarks rather than developer/debugging tools |
@@ -770,6 +771,58 @@ Project name: BrowserTrace
 Github URL: https://github.com/aaronlab/browsertrace
 Homepage URL: https://aaronlab.github.io/browsertrace/
 Category: Runtime / Observation
+```
+
+## 20. Backblaze Awesome Agent Infrastructure
+
+Target:
+
+```text
+https://github.com/backblaze-labs/awesome-agent-infrastructure
+```
+
+Status: submitted as https://github.com/backblaze-labs/awesome-agent-infrastructure/pull/4.
+
+Fit notes:
+
+- The list is maintained by Backblaze Labs and explicitly covers agent
+  infrastructure for observability, tracing, browser/computer use, and
+  evaluation.
+- The contributing guide accepts observability, tracing, and evaluation tools
+  and asks contributors to edit `entries.yaml` only.
+- BrowserTrace fits `Observability and Evaluation` because it is a local-first
+  trace viewer for AI browser-agent failures, not an agent runtime or a generic
+  browser automation framework.
+
+Submitted entry:
+
+```yaml
+- name: BrowserTrace
+  url: https://aaronlab.github.io/browsertrace/
+  docs_url: https://github.com/aaronlab/browsertrace
+  description: Local-first trace viewer for AI browser-agent failures, with screenshots, model I/O, URLs, actions, errors, and public-safe HTML exports.
+  category: observability-and-evaluation
+  github: aaronlab/browsertrace
+  license: MIT
+  sdks:
+    - {language: 'Python (pip install "browsertrace[ui]")'}
+  b2_integration: ""
+  last_verified: 2026-05-12
+```
+
+Verification:
+
+```bash
+python3 - <<'PY'
+from pathlib import Path
+import yaml
+entries = yaml.safe_load(Path("entries.yaml").read_text())
+categories = {item["slug"] for item in yaml.safe_load(Path("categories.yaml").read_text())}
+matching = [item for item in entries if item.get("name") == "BrowserTrace"]
+assert len(matching) == 1
+assert matching[0]["category"] in categories
+PY
+git diff --check
 ```
 
 ## Skip List

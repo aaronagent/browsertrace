@@ -40,6 +40,7 @@ Tracked PR targets:
 - `caramaschiHG/awesome-ai-agents-2026#244`
 - `InftyAI/Awesome-LLMOps#431`
 - `clihub-ai/clihub#1`
+- `backblaze-labs/awesome-agent-infrastructure#4`
 
 Current accepted listing:
 
@@ -92,6 +93,7 @@ tensorchord/Awesome-LLMOps 470
 caramaschiHG/awesome-ai-agents-2026 244
 InftyAI/Awesome-LLMOps 431
 clihub-ai/clihub 1
+backblaze-labs/awesome-agent-infrastructure 4
 EOF
 ```
 
