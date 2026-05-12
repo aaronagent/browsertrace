@@ -7,6 +7,9 @@ Owner account: `aaronlab`
 ## Current State
 
 - Repo is public, MIT licensed, and positioned as a local replay debugger for Browser Use failures.
+- GitHub repo description is Browser Use-first:
+  `Local replay debugger for Browser Use failures with screenshots, model I/O,
+  failed-step timelines, and public-safe HTML exports.`
 - Current account and repo are `aaronlab/browsertrace`; do not use the old
   `aaronagent` name in new launch links.
 - PyPI publishing is complete for `browsertrace==0.1.17`.
@@ -117,7 +120,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T15:47:02+00:00 | 3 | 998 | 21 | 0 | 10 | 0 | 40 | current monitor pass after owner action checklist prioritizes Browser Use posts and Show HN before directory emails; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-12T15:50:18+00:00 | 3 | 998 | 21 | 0 | 10 | 0 | 40 | current monitor pass after GitHub repo description switched to Browser Use-first positioning; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
