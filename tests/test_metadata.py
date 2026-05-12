@@ -3284,6 +3284,22 @@ def test_llms_txt_includes_troubleshooting_prompt_snippet():
     assert "hosted sharing" not in llms
 
 
+def test_llms_txt_includes_browser_use_no_service_demo_expected_output():
+    project_root = Path(__file__).resolve().parents[1]
+    llms = (project_root / "docs" / "llms.txt").read_text()
+
+    assert "## Browser Use No-Service Demo Checks" in llms
+    assert "python examples/browser_use_callback_demo.py" in llms
+    assert "python examples/browser_use_run_hooks_demo.py" in llms
+    assert "demo: browser-use callback flow" in llms
+    assert "demo: browser-use run hooks flow" in llms
+    assert "browsertrace show <run_id>" in llms
+    assert "search_google(query=BrowserTrace)" in llms
+    assert "click(selector=#result-1)" in llms
+    assert "stars" not in llms.lower()
+    assert "upvotes" not in llms.lower()
+
+
 def test_llms_txt_includes_browser_use_icon_only_failure_shape():
     project_root = Path(__file__).resolve().parents[1]
     llms = (project_root / "docs" / "llms.txt").read_text()

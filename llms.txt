@@ -139,6 +139,29 @@ requiring an existing database.
 
 Then open `http://127.0.0.1:3000` and inspect the failed checkout-agent run.
 
+## Browser Use No-Service Demo Checks
+
+From a source checkout, run the Browser Use-shaped demos without installing
+Browser Use or calling a model service:
+
+```bash
+python examples/browser_use_callback_demo.py
+python examples/browser_use_run_hooks_demo.py
+browsertrace list --limit 5
+browsertrace show <run_id>
+```
+
+Expected run names:
+
+- `demo: browser-use callback flow`
+- `demo: browser-use run hooks flow`
+
+Expected demo step labels when viewing either run with
+`browsertrace show <run_id>`:
+
+- `search_google(query=BrowserTrace)`
+- `click(selector=#result-1)`
+
 ## Troubleshooting Prompt
 
 Use this prompt when helping a user debug a BrowserTrace first run:
