@@ -117,6 +117,7 @@ then inspect any recently claimed issue or open contributor PR. Current focused
 targets:
 
 - `aaronlab/browsertrace#344`
+- `aaronlab/browsertrace#345`
 
 ```bash
 gh issue list --repo aaronlab/browsertrace --state open --limit 40 \
@@ -125,7 +126,7 @@ gh issue list --repo aaronlab/browsertrace --state open --limit 40 \
 gh pr list --repo aaronlab/browsertrace --state open --limit 20 \
   --json number,title,author,updatedAt,url,isDraft
 
-for num in 344; do
+for num in 344 345; do
   gh issue view "$num" --repo aaronlab/browsertrace \
     --json number,title,state,comments,updatedAt,url
 done
