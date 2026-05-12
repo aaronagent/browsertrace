@@ -19,7 +19,7 @@ Latest verification, 2026-05-13 UTC:
   below; do not use the paid advertising route unless you intentionally want a
   sponsored campaign.
 - AgDex still shows a Developer Tools & Observability section, says it indexes
-  550+ AI tools, does not list BrowserTrace, and publishes `agdex.ai@gmail.com`
+  500+ AI tools, does not list BrowserTrace, and publishes `agdex.ai@gmail.com`
   as its contact email.
 - BrowserTrace is now listed in `Jenqyang/Awesome-AI-Agents` under
   `Applications` -> `Tools`; mention this only if a reviewer wants a quick
