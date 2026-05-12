@@ -89,6 +89,7 @@ workflow-specific debugging context:
 | 15 | `danielrosehill/AI-Browser-Tools` | Strong | `Developer Tools & Utilities` | Submitted: https://github.com/danielrosehill/AI-Browser-Tools/pull/1 |
 | 16 | `adriannovegil/awesome-observability` | Strong | `LLM & AI Observability` -> `Instrumentation & SDKs` | Submitted: https://github.com/adriannovegil/awesome-observability/pull/71 |
 | 17 | `tensorchord/Awesome-LLMOps` | Strong | `Observability` | Submitted: https://github.com/tensorchord/Awesome-LLMOps/pull/470 |
+| 18 | `caramaschiHG/awesome-ai-agents-2026` | Strong | `Observability and Evaluation` -> `Tracing and Monitoring` | Submitted: https://github.com/caramaschiHG/awesome-ai-agents-2026/pull/244 |
 | Skip | `e2b-dev/awesome-ai-agents` | Weak | n/a | Main list is for agents, not tools |
 | Skip | `supernalintelligence/Awesome-Gui-Agents` | Weak | n/a | Main list catalogs GUI agents, not developer/debugging tools; referenced contribution file is missing |
 | Skip | `ZJU-REAL/Awesome-GUI-Agents` | Weak | n/a | Strong topic match, but current README is primarily papers, datasets, and benchmarks rather than developer/debugging tools |
@@ -703,6 +704,36 @@ Submitted entry:
 
 ```markdown
 | [BrowserTrace](https://github.com/aaronlab/browsertrace) | Local-first trace viewer for failed AI browser-agent runs. Captures screenshots, URLs, actions, model I/O, errors, and public-safe HTML exports. | ![GitHub Badge](https://img.shields.io/github/stars/aaronlab/browsertrace.svg?style=flat-square) |
+```
+
+Verification:
+
+```bash
+git diff --check
+```
+
+## 18. Awesome AI Agents 2026
+
+Target:
+
+```text
+https://github.com/caramaschiHG/awesome-ai-agents-2026
+```
+
+Status: submitted as https://github.com/caramaschiHG/awesome-ai-agents-2026/pull/244.
+
+Fit notes:
+
+- The list explicitly accepts AI agent tools from 2025-2026 and has an
+  `Observability and Evaluation` section.
+- BrowserTrace fits `Tracing and Monitoring` as a local-first trace viewer for
+  failed AI browser-agent runs, not as an agent runtime.
+- The PR is a single README row and uses factual, non-promotional copy.
+
+Submitted entry:
+
+```markdown
+| [BrowserTrace](https://github.com/aaronlab/browsertrace) | Local-first trace viewer for AI browser-agent failures. Captures screenshots, URLs, actions, model I/O, errors, and public-safe HTML exports for Browser Use, Stagehand, Skyvern, and Playwright + LLM scripts. |
 ```
 
 Verification:

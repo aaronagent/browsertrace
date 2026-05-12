@@ -37,6 +37,7 @@ Tracked PR targets:
 - `danielrosehill/AI-Browser-Tools#1`
 - `adriannovegil/awesome-observability#71`
 - `tensorchord/Awesome-LLMOps#470`
+- `caramaschiHG/awesome-ai-agents-2026#244`
 - `clihub-ai/clihub#1`
 
 Current accepted listing:
@@ -87,6 +88,7 @@ browser-use/awesome-projects 6
 danielrosehill/AI-Browser-Tools 1
 adriannovegil/awesome-observability 71
 tensorchord/Awesome-LLMOps 470
+caramaschiHG/awesome-ai-agents-2026 244
 clihub-ai/clihub 1
 EOF
 ```
