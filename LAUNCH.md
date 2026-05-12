@@ -120,7 +120,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T20:00:07+00:00 | 3 | 998 | 21 | 0 | 10 | 0 | 11 | current monitor pass after IndexNow refresh for owner X single-post fallback returned HTTP 200 from generic and Bing endpoints; owner-channel publishing remains the blocker; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-12T20:02:31+00:00 | 3 | 998 | 21 | 0 | 10 | 0 | 11 | current monitor pass after issue #9 owner unblock refreshed with 1-minute X single-post fallback: https://github.com/aaronlab/browsertrace/issues/9#issuecomment-4434304944; owner-channel publishing remains the blocker; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
