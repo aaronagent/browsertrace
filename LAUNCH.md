@@ -117,7 +117,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T13:06:01+00:00 | 3 | 998 | 21 | 0 | 10 | 0 | 40 | current monitor pass after owner-facing social, email, Show HN, and Product Hunt packets added the Browser Use local HTML upload navigation failure pattern; current pinned good-first issue is #358; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-12T13:10:31+00:00 | 3 | 998 | 21 | 0 | 10 | 0 | 40 | current monitor pass after owner-action issues #9 and #10 were refreshed with the updated social/email packets and current metrics: https://github.com/aaronlab/browsertrace/issues/9#issuecomment-4430804562 and https://github.com/aaronlab/browsertrace/issues/10#issuecomment-4430804580; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
