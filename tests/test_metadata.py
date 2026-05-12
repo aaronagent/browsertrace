@@ -3804,6 +3804,38 @@ def test_browser_use_guide_documents_empty_model_responses():
     assert "browser-use/browser-use#4786" in page
 
 
+def test_browser_use_guide_documents_compare_run_metadata_checklist():
+    project_root = Path(__file__).resolve().parents[1]
+    page = (project_root / "docs" / "browser-use-debugging.html").read_text()
+
+    assert 'id="compare-run-metadata-checklist"' in page
+    assert "Compare failed and successful Browser Use runs" in page
+    assert "aaronlab/browsertrace/issues/369" in page
+
+    section = page.split('id="compare-run-metadata-checklist"', 1)[1].split(
+        "</section>",
+        1,
+    )[0]
+
+    for expected in [
+        "stable task or run id",
+        "Browser Use version",
+        "BrowserTrace version",
+        "model/provider",
+        "prompt/template version",
+        "URL/title/action summary",
+        "selected element or target summary",
+        "extracted content or final result summary",
+        "error boundary for the first failed step",
+    ]:
+        assert expected in section
+
+    assert "does not implement run comparison" in section
+    assert "stars" not in section.lower()
+    assert "upvotes" not in section.lower()
+    assert "reposts" not in section.lower()
+
+
 def test_stagehand_guide_documents_custom_tool_replay_gaps():
     project_root = Path(__file__).resolve().parents[1]
     page = (project_root / "docs" / "stagehand-debugging.html").read_text()

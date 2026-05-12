@@ -387,6 +387,21 @@ with hooks:
     </section>
 
     <section>
+      <h2 id="compare-run-metadata-checklist">Compare failed and successful Browser Use runs</h2>
+      <p>A future compare view is most useful when the failed run and a known successful run carry enough shared metadata to explain where they diverged. This checklist does not implement run comparison; it only describes what to preserve today so a later comparison can be meaningful.</p>
+      <ul>
+        <li>Keep a stable task or run id when Browser Use or your app exposes one.</li>
+        <li>Record the Browser Use version and BrowserTrace version for each run.</li>
+        <li>Capture model/provider and prompt/template version when known.</li>
+        <li>Preserve URL/title/action summary for each step.</li>
+        <li>Include selected element or target summary when Browser Use exposes it.</li>
+        <li>Store extracted content or final result summary when available.</li>
+        <li>Mark the error boundary for the first failed step instead of only the final exception.</li>
+      </ul>
+      <p>Feature tracker: <a href="https://github.com/aaronlab/browsertrace/issues/369">aaronlab/browsertrace#369</a>.</p>
+    </section>
+
+    <section>
       <h2>Share only what is safe</h2>
       <pre><code>browsertrace list
 browsertrace export &lt;run_id&gt; -o full.html
