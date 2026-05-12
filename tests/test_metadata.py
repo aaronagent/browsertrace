@@ -4393,6 +4393,8 @@ def test_launch_monitoring_runbook_covers_current_targets():
     assert "gh search issues 'BrowserTrace'" in runbook
     assert "gh search prs 'BrowserTrace'" in runbook
     assert "gh search issues 'aaronlab/browsertrace'" in runbook
+    assert '"\\\\bBrowserTrace\\\\b"' in runbook
+    assert "--json repository,title,body,number,state,url,author,updatedAt,commentsCount,isPullRequest" in runbook
     assert "Do not use public search results as a reason to promote BrowserTrace" in runbook
     assert "2026-05-11T17:00:00Z" not in runbook
 

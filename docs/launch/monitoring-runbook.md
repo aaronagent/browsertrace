@@ -151,16 +151,16 @@ and relevant browser-agent debugging threads that may not create notifications.
 
 ```bash
 gh search issues 'BrowserTrace' --limit 50 \
-  --json repository,title,number,state,url,author,updatedAt,commentsCount,isPullRequest \
-  --jq '[.[] | {repo:.repository.nameWithOwner, number, title, isPullRequest, state, url, author:.author.login, updatedAt, commentsCount}]'
+  --json repository,title,body,number,state,url,author,updatedAt,commentsCount,isPullRequest \
+  --jq '[.[] | select((((.title // "") + " " + (.body // "")) | test("\\bBrowserTrace\\b"; "i"))) | {repo:.repository.nameWithOwner, number, title, isPullRequest, state, url, author:.author.login, updatedAt, commentsCount}]'
 
 gh search prs 'BrowserTrace' --limit 50 \
-  --json repository,title,number,state,url,author,updatedAt,commentsCount,isDraft \
-  --jq '[.[] | {repo:.repository.nameWithOwner, number, title, state, url, author:.author.login, updatedAt, commentsCount, isDraft}]'
+  --json repository,title,body,number,state,url,author,updatedAt,commentsCount,isDraft \
+  --jq '[.[] | select((((.title // "") + " " + (.body // "")) | test("\\bBrowserTrace\\b"; "i"))) | {repo:.repository.nameWithOwner, number, title, state, url, author:.author.login, updatedAt, commentsCount, isDraft}]'
 
 gh search issues 'aaronlab/browsertrace' --limit 50 \
-  --json repository,title,number,state,url,author,updatedAt,commentsCount,isPullRequest \
-  --jq '[.[] | {repo:.repository.nameWithOwner, number, title, isPullRequest, state, url, author:.author.login, updatedAt, commentsCount}]'
+  --json repository,title,body,number,state,url,author,updatedAt,commentsCount,isPullRequest \
+  --jq '[.[] | select((((.title // "") + " " + (.body // "")) | test("\\bBrowserTrace\\b"; "i"))) | {repo:.repository.nameWithOwner, number, title, isPullRequest, state, url, author:.author.login, updatedAt, commentsCount}]'
 ```
 
 Do not use public search results as a reason to promote BrowserTrace. Reply only
