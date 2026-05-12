@@ -26,7 +26,7 @@ Open these in a browser:
 - https://aaronlab.github.io/browsertrace/debug-browser-agent-failure.html
 - https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html
 - https://aaronlab.github.io/browsertrace/browser-use-debugging.html
-- https://github.com/aaronlab/browsertrace/releases/download/v0.1.17/browsertrace-demo-public.html
+- https://github.com/aaronlab/browsertrace/releases/download/v0.1.18/browsertrace-demo-public.html
 
 Optional credibility note:
 
@@ -122,7 +122,7 @@ https://aaronlab.github.io/browsertrace/browser-use-debugging.html
 
 And a public-safe downloadable export with prompts, model output, screenshots,
 and URLs omitted:
-https://github.com/aaronlab/browsertrace/releases/download/v0.1.17/browsertrace-demo-public.html
+https://github.com/aaronlab/browsertrace/releases/download/v0.1.18/browsertrace-demo-public.html
 
 I would especially value feedback from people building Browser Use workflows.
 What state do you wish your traces captured when a run fails? Stagehand,

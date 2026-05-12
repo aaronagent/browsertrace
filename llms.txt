@@ -31,8 +31,8 @@ custom computer-use agents are supported as secondary integrations.
 - Examples: https://github.com/aaronlab/browsertrace/tree/main/examples
 - Launch kit: https://aaronlab.github.io/browsertrace/launch/
 - Press kit: https://aaronlab.github.io/browsertrace/launch/press-kit.md
-- Release: https://github.com/aaronlab/browsertrace/releases/tag/v0.1.17
-- Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.17/browsertrace-demo-public.html
+- Release: https://github.com/aaronlab/browsertrace/releases/tag/v0.1.18
+- Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.18/browsertrace-demo-public.html
 - External listing: https://github.com/Jenqyang/Awesome-AI-Agents
   (Applications -> Tools)
 - Launch discussion: https://github.com/aaronlab/browsertrace/discussions/6
@@ -180,7 +180,7 @@ https://github.com/aaronlab/browsertrace/issues/237
 
 BrowserTrace is not a hosted observability platform. It is a Browser Use-first,
 local-first, open-source debugging tool for the browser state and model
-decisions around failed AI browser-agent runs.
+decisions around failed Browser Use runs.
 
 It complements raw CDP capture tools such as the Browserbase browser-trace
 skill. That skill records DevTools events, screenshots, DOM dumps, and per-page

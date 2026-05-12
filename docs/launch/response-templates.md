@@ -30,12 +30,12 @@ No by default. The local tracer stores SQLite data and screenshots under `~/.bro
 
 ## Maintainer asks whether it fits this list
 
-Thanks for taking a look. The intended category is developer tools for AI browser agents, browser automation, or computer-use debugging.
+Thanks for taking a look. The intended category is developer tools for Browser Use debugging, browser automation, or computer-use workflows.
 
 BrowserTrace is not an autonomous agent and not a hosted browser runtime. It is
-a local debugging/observability tool for failed browser-agent runs: screenshots,
-URL, action, model input/output, status, and error in one timeline, with
-standalone HTML exports for review.
+a local replay debugger for failed Browser Use runs and related browser-agent
+workflows: screenshots, URL, action, model input/output, status, and error in
+one timeline, with standalone HTML exports for review.
 
 If that is too narrow for this list, no problem. A better fit is a list section
 for debugging, observability, browser automation tooling, Browser Use/Stagehand/

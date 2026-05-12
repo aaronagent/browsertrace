@@ -1,6 +1,6 @@
 # BrowserTrace Directory And Newsletter Submission Sheet
 
-Use this sheet after `v0.1.17`. Submit only where the target accepts tool
+Use this sheet after `v0.1.18`. Submit only where the target accepts tool
 suggestions, launches, or editorial pitches. Do not ask for stars, votes,
 upvotes, swaps, or artificial engagement.
 
@@ -15,8 +15,8 @@ upvotes, swaps, or artificial engagement.
 - Stagehand guide: https://aaronlab.github.io/browsertrace/stagehand-debugging.html
 - Skyvern guide: https://aaronlab.github.io/browsertrace/skyvern-debugging.html
 - Playwright + LLM guide: https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html
-- Release: https://github.com/aaronlab/browsertrace/releases/tag/v0.1.17
-- Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.17/browsertrace-demo-public.html
+- Release: https://github.com/aaronlab/browsertrace/releases/tag/v0.1.18
+- Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.18/browsertrace-demo-public.html
 
 ## Try-It Commands
 
@@ -49,7 +49,7 @@ as secondary integrations.
 BrowserTrace is an MIT-licensed local debugger for Browser Use failures. It
 records each Browser Use step as a timeline with screenshot, URL, action, model
 input/output, status, and error, then exports a standalone HTML trace with
-optional redaction. The `v0.1.17` release includes the public-safe
+optional redaction. The `v0.1.18` release includes the public-safe
 `browsertrace export --public` mode, a packaged `browsertrace demo` command,
 Browser Use/Stagehand/Skyvern/Playwright guides, and a no-dependency Browser
 Use-shaped callback demo.
@@ -188,10 +188,10 @@ Tool Name: BrowserTrace
 Website URL: https://aaronlab.github.io/browsertrace/
 GitHub URL: https://github.com/aaronlab/browsertrace
 Description:
-BrowserTrace is an MIT-licensed local debugger for failed AI browser-agent
+BrowserTrace is an MIT-licensed local replay debugger for failed Browser Use
 runs. It records screenshots, URLs, actions, model I/O, status, errors, and
-exports public-safe HTML traces for Browser Use, Stagehand, Skyvern,
-Playwright + LLM, and custom computer-use workflows.
+exports public-safe HTML traces. Stagehand, Skyvern, Playwright + LLM, and
+custom computer-use workflows are secondary integrations.
 Category: AI Observability & Evaluation
 Tags: browser agents, debugging, observability, Playwright, open source
 Your Email: use the owner's email address
@@ -206,7 +206,7 @@ CLIHunt:
 
 ```text
 Name: BrowserTrace
-Tagline: Local trace viewer for AI browser agents
+Tagline: Replay failed Browser Use runs locally
 GitHub URL or Website: https://github.com/aaronlab/browsertrace
 Category: Other
 Install Command: uvx --from "browsertrace[ui]" browsertrace
@@ -273,11 +273,12 @@ Category: AI & LLM Tools
 Install Command: pip install "browsertrace[ui]"
 Website or Docs URL: https://aaronlab.github.io/browsertrace/
 Description:
-BrowserTrace is an MIT-licensed local CLI and web UI for debugging AI
-browser-agent failures. It records Browser Use, Stagehand, Skyvern,
-Playwright + LLM, and custom computer-use runs as timelines with screenshots,
+BrowserTrace is an MIT-licensed local CLI and web UI for replaying failed
+Browser Use runs. It records Browser Use steps as timelines with screenshots,
 URLs, action labels, model input/output, status, errors, and public-safe HTML
-exports. It is useful for humans and agents because `browsertrace doctor
+exports. Stagehand, Skyvern, Playwright + LLM, and custom computer-use
+workflows are secondary integrations. It is useful for humans and agents
+because `browsertrace doctor
 --json`, `browsertrace list --json`, and `browsertrace show <run_id> --json`
 provide machine-readable diagnostics, while the local UI helps inspect the
 failed browser step.
@@ -349,10 +350,10 @@ redaction.
 Maker comment:
 
 ```text
-I built BrowserTrace because browser-agent failures are usually not explained by
-logs alone. When a Browser Use, Stagehand, Skyvern, or Playwright + LLM run
-fails, I want the screenshot, URL, action, model decision, and first error in
-one local timeline.
+I built BrowserTrace because Browser Use failures are usually not explained by
+logs alone. When a Browser Use run fails, I want the screenshot, URL, action,
+model decision, and first error in one local timeline. Stagehand, Skyvern, and
+Playwright + LLM workflows are secondary integrations.
 
 The current release is intentionally small and OSS. The most useful feedback is:
 what browser state do your current agent logs miss at failure time?
@@ -380,9 +381,9 @@ custom computer-use agents.
 
 Repo: https://github.com/aaronlab/browsertrace
 Live demo: https://aaronlab.github.io/browsertrace/
-Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.17/browsertrace-demo-public.html
+Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.18/browsertrace-demo-public.html
 Comparison: https://aaronlab.github.io/browsertrace/compare-browser-agent-debugging.html
-Release: https://github.com/aaronlab/browsertrace/releases/tag/v0.1.17
+Release: https://github.com/aaronlab/browsertrace/releases/tag/v0.1.18
 ```
 
 ## console.dev Email Draft
@@ -428,7 +429,7 @@ Repo: https://github.com/aaronlab/browsertrace
 Live demo: https://aaronlab.github.io/browsertrace/
 Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
 Comparison: https://aaronlab.github.io/browsertrace/compare-browser-agent-debugging.html
-Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.17/browsertrace-demo-public.html
+Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.18/browsertrace-demo-public.html
 
 This is not a sponsored review request. I would value any editorial feedback if
 it is not a fit.
@@ -466,7 +467,7 @@ timing and browser/session evidence matter as much as the final timeout.
 
 Repository: https://github.com/aaronlab/browsertrace
 Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
-Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.17/browsertrace-demo-public.html
+Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.18/browsertrace-demo-public.html
 Comparison: https://aaronlab.github.io/browsertrace/compare-browser-agent-debugging.html
 ```
 

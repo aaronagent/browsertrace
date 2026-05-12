@@ -129,9 +129,9 @@ Feedback wanted: local traces for failed Browser Use runs
 Body:
 
 ```text
-I'm building BrowserTrace, a small local trace viewer for browser-agent failures:
-screenshots, URL, action, model input/output, status, and failed-step errors in
-one timeline.
+I'm building BrowserTrace, a small local replay debugger for Browser Use
+failures: screenshots, URL, action, model input/output, status, and failed-step
+errors in one timeline.
 
 The debugging problem I want to solve for Browser Use users is: the agent fails
 deep into a run, but the logs do not show what the browser looked like or which
@@ -182,9 +182,9 @@ Would a local timeline help debug failed Stagehand act/extract runs?
 Body:
 
 ```text
-I'm building BrowserTrace, a local debugger for AI browser-agent runs. It records
-each step as a timeline: screenshot, URL, action, model input/output, status,
-and error.
+I'm building BrowserTrace, a local replay debugger for Browser Use failures
+with secondary Stagehand support. It records each step as a timeline:
+screenshot, URL, action, model input/output, status, and error.
 
 For Stagehand users, I'm trying to understand which calls are most important to
 wrap first:
@@ -273,9 +273,9 @@ Feedback wanted: what should a Skyvern trace adapter capture?
 Body:
 
 ```text
-I'm building BrowserTrace, a local timeline/debugger for failed AI browser-agent
-runs. It records screenshots, URL, action, model input/output, status, and
-failed-step errors.
+I'm building BrowserTrace, a local replay debugger for failed Browser Use runs
+with secondary Skyvern support. It records screenshots, URL, action,
+model input/output, status, and failed-step errors.
 
 BrowserTrace now has a basic Skyvern wrapper for high-level task/workflow calls.
 I want to know what a deeper adapter should capture to debug failed workflows:
@@ -344,7 +344,7 @@ uv run --python 3.11 python scripts/launch_metrics.py --append --note "after com
 
 ## Directories And Newsletters
 
-Use these after `v0.1.17` because the release has the packaged demo command and
+Use these after `v0.1.18` because the release has the packaged demo command and
 safer redacted export path.
 
 Use `docs/launch/directory-submission-sheet.md` for exact entry points, link
@@ -389,11 +389,12 @@ Best targets:
 Pitch:
 
 ````text
-BrowserTrace is an MIT local debugger for AI browser agents. It records each
-Browser Use / Stagehand / Skyvern / Playwright + LLM step as a timeline:
-screenshot, URL, action, model input/output, status, and error.
+BrowserTrace is an MIT local replay debugger for Browser Use failures. It
+records each Browser Use step as a timeline: screenshot, URL, action, model
+input/output, status, and error. Stagehand, Skyvern, and Playwright + LLM
+workflows are secondary integrations.
 
-The v0.1.17 release includes `browsertrace demo` for first-run onboarding,
+The v0.1.18 release includes `browsertrace demo` for first-run onboarding,
 `browsertrace export --public` for public-safe sharing, and individual
 redaction flags when users want to keep some fields visible.
 
@@ -407,9 +408,9 @@ uvx --from "browsertrace[ui]" browsertrace
 
 Repo: https://github.com/aaronlab/browsertrace
 Live demo: https://aaronlab.github.io/browsertrace/
-Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.17/browsertrace-demo-public.html
+Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.18/browsertrace-demo-public.html
 Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
-Release: https://github.com/aaronlab/browsertrace/releases/tag/v0.1.17
+Release: https://github.com/aaronlab/browsertrace/releases/tag/v0.1.18
 ````
 
 Metrics:

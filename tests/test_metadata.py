@@ -15,7 +15,7 @@ def test_package_version_matches_module_version():
     project_root = Path(__file__).resolve().parents[1]
     pyproject = tomllib.loads((project_root / "pyproject.toml").read_text())
 
-    assert pyproject["project"]["version"] == "0.1.17"
+    assert pyproject["project"]["version"] == "0.1.18"
     assert pyproject["project"]["version"] == browsertrace.__version__
 
 
@@ -75,6 +75,18 @@ def test_pyproject_has_launch_discovery_metadata():
     assert urls["Changelog"] == "https://github.com/aaronlab/browsertrace/blob/main/CHANGELOG.md"
     assert urls["Roadmap"] == "https://github.com/aaronlab/browsertrace/blob/main/ROADMAP.md"
     assert urls["Discussions"] == "https://github.com/aaronlab/browsertrace/discussions/6"
+
+
+def test_readme_intro_is_browser_use_first_for_pypi_description():
+    project_root = Path(__file__).resolve().parents[1]
+    readme = (project_root / "README.md").read_text()
+    intro = readme.split("## See a failure trace in 60 seconds", 1)[0]
+
+    assert "> Local replay debugger for Browser Use failures." in intro
+    assert "Your Browser Use agent failed." in intro
+    assert "Browser Use is the primary path." in intro
+    assert "Local flight recorder" not in intro
+    assert "AI browser agents" not in intro
 
 
 def test_social_preview_source_uses_browser_use_first_positioning():
@@ -1095,16 +1107,15 @@ def test_changelog_links_first_pr_recipe_for_small_docs_fixes():
     assert "reposts" not in changelog.lower()
 
 
-def test_changelog_tracks_017_export_discovery_and_stagehand_updates():
+def test_changelog_tracks_018_browser_use_first_metadata_refresh():
     project_root = Path(__file__).resolve().parents[1]
     changelog = (project_root / "CHANGELOG.md").read_text()
-    release_notes = changelog.split("## 0.1.17", 1)[1].split("## 0.1.16", 1)[0]
+    release_notes = changelog.split("## 0.1.18", 1)[1].split("## 0.1.17", 1)[0]
+    normalized_notes = re.sub(r"\s+", " ", release_notes)
 
-    assert "stagehand_evidence" in release_notes
-    assert "standalone HTML exports" in release_notes
-    assert "viewport" in release_notes
-    assert "Open Graph URL" in release_notes
-    assert "JSON-LD" in release_notes
+    assert "Browser Use-first failure replay/debugging story" in normalized_notes
+    assert "PyPI long description" in normalized_notes
+    assert "`v0.1.18` patch release" in release_notes
 
 
 def test_code_of_conduct_links_first_pr_recipe_for_small_docs_fixes():
@@ -1418,7 +1429,7 @@ def test_roadmap_records_current_launch_state():
     project_root = Path(__file__).resolve().parents[1]
     roadmap = (project_root / "ROADMAP.md").read_text()
 
-    assert "`v0.1.17` is the current launch release." in roadmap
+    assert "`v0.1.18` is the current launch release." in roadmap
     assert 'pip install "browsertrace[ui]"' in roadmap
     assert "One focused PR is merged/listed" in roadmap
     assert "Jenqyang/Awesome-AI-Agents#220" in roadmap
@@ -1632,10 +1643,10 @@ def test_readme_links_release_notes_near_install_tag():
     )[0]
 
     assert (
-        "https://github.com/aaronlab/browsertrace/releases/tag/v0.1.17"
+        "https://github.com/aaronlab/browsertrace/releases/tag/v0.1.18"
         in install_section
     )
-    assert "v0.1.17 release notes" in install_section
+    assert "v0.1.18 release notes" in install_section
     assert "https://pypi.org/project/browsertrace/" in install_section
     assert 'pip install "browsertrace[ui]"' in install_section
     assert "hosted sharing" not in readme
@@ -1649,11 +1660,11 @@ def test_readme_explains_release_notes_near_install_checks():
     )[0]
 
     assert (
-        "https://github.com/aaronlab/browsertrace/releases/tag/v0.1.17"
+        "https://github.com/aaronlab/browsertrace/releases/tag/v0.1.18"
         in install_section
     )
     assert (
-        "The v0.1.17 release notes summarize what changed in the current release"
+        "The v0.1.18 release notes summarize what changed in the current release"
     ) in install_section
     assert 'pip install "browsertrace[ui]"' in install_section
     assert "hosted sharing" not in readme
@@ -1807,7 +1818,7 @@ def test_readme_links_static_demo_near_install_tag():
 
     assert "https://aaronlab.github.io/browsertrace/" in install_section
     assert (
-        "https://github.com/aaronlab/browsertrace/releases/download/v0.1.17/"
+        "https://github.com/aaronlab/browsertrace/releases/download/v0.1.18/"
         "browsertrace-demo-public.html"
     ) in install_section
     assert (
@@ -2387,7 +2398,7 @@ def test_readme_groups_install_tips_as_compact_list():
         "- The first-run troubleshooting checklist walks through `browsertrace doctor`, `browsertrace demo`, `browsertrace list`, `browsertrace show`, and public-safe export",
         "- The live static demo and public-safe demo export let you inspect a trace before installing anything",
         "- The command cheat sheet summarizes `browsertrace doctor`, `browsertrace demo`, `browsertrace list`, `browsertrace show`, and public-safe export commands",
-        "- The v0.1.17 release notes summarize what changed in the current release",
+        "- The v0.1.18 release notes summarize what changed in the current release",
         "- The PyPI package page is the canonical package listing after publishing",
         "- `uvx` can run the PyPI package without a persistent install, and `pip install` is the persistent install path",
         "- Install `[ui]` for the local web UI; SDK-only installs are enough for trace capture integrations and terminal commands like `browsertrace list`, `browsertrace show`, and `browsertrace export",
@@ -3928,7 +3939,7 @@ def test_response_templates_include_listing_fit_reply():
         1
     ].split("## Does it work with Browser Use?", 1)[0]
 
-    assert "developer tools for AI browser agents" in reply
+    assert "developer tools for Browser Use debugging" in reply
     assert "not an autonomous agent" in reply
     assert "not a hosted browser runtime" in reply
     assert "debugging, observability, browser automation tooling" in reply
@@ -4208,7 +4219,7 @@ def test_owner_docs_mark_pypi_publish_complete():
         assert "https://pypi.org/project/browsertrace/" in text
         assert "https://pypi.org/pypi/browsertrace/json" in text
         assert "HTTP 200" in text or "已发布" in text
-        assert "0.1.17" in text
+        assert "0.1.18" in text
 
 
 def test_day_1_publish_packet_includes_json_cli_reply_shortcut():
@@ -6501,7 +6512,7 @@ def test_awesome_list_submission_notes_record_autonomous_web_pr():
     assert "Agent-Tools/awesome-autonomous-web" in notes
     assert "https://github.com/Agent-Tools/awesome-autonomous-web/pull/21" in notes
     assert "Debugging & Trace Viewers" in notes
-    assert "AI browser-agent runs" in notes
+    assert "Browser Use-first debugging and replay tool" in notes
     assert "awesome-lint README.md" in notes
 
 
@@ -6581,7 +6592,7 @@ def test_awesome_list_submission_notes_record_ai_browser_tools_pr():
     assert "danielrosehill/AI-Browser-Tools" in notes
     assert "https://github.com/danielrosehill/AI-Browser-Tools/pull/1" in notes
     assert "Developer Tools & Utilities" in section
-    assert "Local trace viewer for failed AI browser-agent runs" in section
+    assert "Local replay debugger for failed Browser Use runs" in section
     assert "git diff --check" in section
     assert "upvotes" not in section.lower()
     assert "reposts" not in section.lower()

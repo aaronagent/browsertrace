@@ -130,7 +130,7 @@ Stack-specific guide links:
 ## 1. PyPI Published
 
 PyPI is no longer the install blocker. BrowserTrace is published as version
-`0.1.17`:
+`0.1.18`:
 
 ```text
 https://pypi.org/project/browsertrace/

@@ -12,8 +12,8 @@ Use these links only when a maintainer asks for more context. Keep the PR itself
 small and formatted to the target list.
 
 - Live demo: https://aaronlab.github.io/browsertrace/
-- Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.17/browsertrace-demo-public.html
-- Release: https://github.com/aaronlab/browsertrace/releases/tag/v0.1.17
+- Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.18/browsertrace-demo-public.html
+- Release: https://github.com/aaronlab/browsertrace/releases/tag/v0.1.18
 
 The lightest local trial is the PyPI package with `uvx`:
 
@@ -118,7 +118,7 @@ Contribution rules observed:
 Suggested entry:
 
 ```markdown
-* [BrowserTrace](https://github.com/aaronlab/browsertrace) - Local flight recorder for AI browser agents with step timelines, screenshots, model I/O, errors, and public-safe HTML exports.
+* [BrowserTrace](https://github.com/aaronlab/browsertrace) - Local replay debugger for Browser Use failures with step timelines, screenshots, model I/O, errors, and public-safe HTML exports.
 ```
 
 Suggested PR title:
@@ -132,7 +132,7 @@ Suggested PR body:
 ```text
 Adds BrowserTrace under the AI section.
 
-BrowserTrace is a local debugging tool for AI browser-agent runs. It records
+BrowserTrace is a local debugging tool for Browser Use runs. It records
 failed Browser Use, Stagehand, Skyvern, Playwright + LLM, and custom
 computer-use runs as step timelines with screenshots, URLs, actions, model
 input/output, status, errors, and standalone HTML exports.
@@ -213,7 +213,7 @@ Applications -> Tools
 Suggested entry:
 
 ```markdown
-- [BrowserTrace](https://github.com/aaronlab/browsertrace) - Local flight recorder for AI browser agents with screenshots, URLs, model I/O, failure timelines, and public-safe HTML exports. ![GitHub Repo stars](https://img.shields.io/github/stars/aaronlab/browsertrace?style=social)
+- [BrowserTrace](https://github.com/aaronlab/browsertrace) - Local replay debugger for Browser Use failures with screenshots, URLs, model I/O, failure timelines, and public-safe HTML exports. ![GitHub Repo stars](https://img.shields.io/github/stars/aaronlab/browsertrace?style=social)
 ```
 
 Suggested PR title:
@@ -227,7 +227,7 @@ Suggested PR body:
 ```text
 Adds BrowserTrace to the Tools section.
 
-BrowserTrace is an MIT-licensed local debugger for AI browser agents. It is
+BrowserTrace is an MIT-licensed local debugger for Browser Use and browser-automation debugging. It is
 useful for Browser Use, Stagehand, Skyvern, Playwright + LLM scripts, and custom
 computer-use agents when a run fails and the developer needs screenshots, URLs,
 model I/O, selected actions, status, and errors in one timeline.
@@ -260,7 +260,7 @@ Submitted entry:
 - **Link**: [GitHub](https://github.com/aaronlab/browsertrace)
 - **Tags**: `web` `python` `debugging` `observability`
 
-Local flight recorder for AI browser agents.
+Local replay debugger for Browser Use failures.
 ```
 
 Verification:
@@ -356,7 +356,7 @@ Fit notes:
 Submitted entry:
 
 ```markdown
-- [BrowserTrace](https://github.com/aaronlab/browsertrace) — Local-first trace viewer for failed AI browser-agent and computer-use runs: captures screenshots, URLs, model I/O, actions, errors, and public-safe HTML exports. Useful when web-agent failures need browser state and model decisions in one inspectable timeline rather than separate logs and screenshots. ![Stars](https://img.shields.io/github/stars/aaronlab/browsertrace?style=flat-square&label=%E2%98%85&color=yellow)
+- [BrowserTrace](https://github.com/aaronlab/browsertrace) — Browser Use-first local replay debugger for failed Browser Use runs and secondary computer-use workflows: captures screenshots, URLs, model I/O, actions, errors, and public-safe HTML exports. Useful when web-agent failures need browser state and model decisions in one inspectable timeline rather than separate logs and screenshots. ![Stars](https://img.shields.io/github/stars/aaronlab/browsertrace?style=flat-square&label=%E2%98%85&color=yellow)
 ```
 
 Verification:
@@ -380,16 +380,16 @@ Status: submitted as https://github.com/Agent-Tools/awesome-autonomous-web/pull/
 Fit notes:
 
 - The list is focused on tools that empower AI agents to interact with the web.
-- BrowserTrace fits as a debugging and trace-viewer tool for AI browser-agent
-  runs, adjacent to Browser Use, Stagehand, Skyvern, Playwright MCP, and other
-  browser automation stacks already listed.
+- BrowserTrace fits as a Browser Use-first debugging and replay tool, adjacent
+  to Stagehand, Skyvern, Playwright MCP, and other browser automation stacks
+  already listed.
 - The PR adds a narrow `Debugging & Trace Viewers` section rather than placing
   BrowserTrace among agent runtimes or automation frameworks.
 
 Submitted entry:
 
 ```markdown
-- **[BrowserTrace](https://github.com/aaronlab/browsertrace)** — Local-first trace viewer for AI browser agents. Records screenshots, URLs, actions, model I/O, status, and errors; exports redacted standalone HTML traces. Open-source.
+- **[BrowserTrace](https://github.com/aaronlab/browsertrace)** — Browser Use-first local replay debugger. Records screenshots, URLs, actions, model I/O, status, and errors; exports redacted standalone HTML traces. Open-source.
 ```
 
 Verification:
@@ -419,7 +419,7 @@ Fit notes:
 
 - The README describes the list as SDKs, frameworks, libraries, and tools for
   creating, monitoring, debugging and deploying autonomous AI agents.
-- BrowserTrace fits as a debugging tool for failed AI browser-agent runs rather
+- BrowserTrace fits as a debugging tool for failed Browser Use runs rather
   than as an agent runtime.
 - The PR follows the target README's existing top-level entry plus expandable
   `Links` format.
@@ -428,7 +428,7 @@ Submitted entry:
 
 ```markdown
 ## [BrowserTrace](https://github.com/aaronlab/browsertrace)
-BrowserTrace is a local-first trace viewer for AI browser agents. It records screenshots, URLs, actions, model input/output, status, and errors, then exports redacted standalone HTML traces for debugging failed browser-agent runs.
+BrowserTrace is a local-first trace viewer for Browser Use and browser-automation debugging. It records screenshots, URLs, actions, model input/output, status, and errors, then exports redacted standalone HTML traces for debugging failed browser-agent runs.
 
 <details>
 
@@ -469,7 +469,7 @@ Fit notes:
 
 - The target list has a broad `Building` -> `Tools` section with existing
   observability, tracing, debugging, and browser-agent infrastructure entries.
-- BrowserTrace fits only as an AI browser-agent failure inspection tool, not as
+- BrowserTrace fits only as a Browser Use failure replay/debugging tool, not as
   a general agent runtime or consumer AI app.
 - The PR keeps the change to one README entry and uses the target list's
   existing one-line `name + link + description` format.
@@ -477,7 +477,7 @@ Fit notes:
 Submitted entry:
 
 ```markdown
-- [BrowserTrace](https://github.com/aaronlab/browsertrace) - Local-first trace viewer for Browser Use, Stagehand, Skyvern, Playwright + LLM, and custom browser-agent runs with screenshots, URLs, model I/O, errors, and shareable HTML exports. [github](https://github.com/aaronlab/browsertrace) | [demo](https://aaronlab.github.io/browsertrace/)
+- [BrowserTrace](https://github.com/aaronlab/browsertrace) - Browser Use-first local replay debugger with screenshots, URLs, model I/O, errors, and shareable HTML exports. Stagehand, Skyvern, Playwright + LLM, and custom browser-agent workflows are secondary integrations. [github](https://github.com/aaronlab/browsertrace) | [demo](https://aaronlab.github.io/browsertrace/)
 ```
 
 Verification:
@@ -508,7 +508,7 @@ Fit notes:
 Submitted entry:
 
 ```markdown
-- [BrowserTrace](https://github.com/aaronlab/browsertrace) - Local-first trace viewer for debugging failed AI browser-agent and computer-use runs with screenshots, URLs, actions, model I/O, errors, and redacted HTML exports.
+- [BrowserTrace](https://github.com/aaronlab/browsertrace) - Browser Use-first local replay debugger for failed Browser Use runs and secondary computer-use workflows with screenshots, URLs, actions, model I/O, errors, and redacted HTML exports.
 ```
 
 Verification:
@@ -576,7 +576,7 @@ Fit notes:
 Submitted entry:
 
 ```markdown
-- [BrowserTrace](https://github.com/aaronlab/browsertrace) - Local-first trace viewer for debugging failed AI browser-agent and computer-use runs with screenshots, URLs, actions, model output, status, and redacted shareable exports.
+- [BrowserTrace](https://github.com/aaronlab/browsertrace) - Browser Use-first local replay debugger for failed Browser Use runs and secondary computer-use workflows with screenshots, URLs, actions, model output, status, and redacted shareable exports.
 ```
 
 Verification:
@@ -639,12 +639,12 @@ Fit notes:
 - The list already includes browser-use, Stagehand, and Skyvern, while
   `Developer Tools & Utilities` is specifically for building and debugging AI
   browser applications.
-- BrowserTrace fits as a local trace viewer for failed AI browser-agent runs.
+- BrowserTrace fits as a local replay debugger for failed Browser Use runs.
 
 Submitted entry:
 
 ```markdown
-| [BrowserTrace](https://github.com/aaronlab/browsertrace) | ![Stars](https://img.shields.io/github/stars/aaronlab/browsertrace?style=social) | Local trace viewer for failed AI browser-agent runs |
+| [BrowserTrace](https://github.com/aaronlab/browsertrace) | ![Stars](https://img.shields.io/github/stars/aaronlab/browsertrace?style=social) | Local replay debugger for failed Browser Use runs |
 ```
 
 Verification:
@@ -674,7 +674,7 @@ Fit notes:
 Submitted entry:
 
 ```markdown
-- [BrowserTrace](https://github.com/aaronlab/browsertrace) - Local-first trace viewer for AI browser-agent failures, capturing screenshots, URLs, actions, model I/O, status, errors, and public-safe HTML exports.
+- [BrowserTrace](https://github.com/aaronlab/browsertrace) - Browser Use-first local replay debugger for Browser Use failures, capturing screenshots, URLs, actions, model I/O, status, errors, and public-safe HTML exports.
 ```
 
 Verification:
@@ -698,15 +698,15 @@ Fit notes:
 - The list has an `Observability` table for LLMOps tools, including runtime
   monitoring, tracing, debugging, and benchmarking tools for LLM and agent
   systems.
-- BrowserTrace fits as a local-first observability/debugging tool for failed AI
-  browser-agent runs.
+- BrowserTrace fits as a local-first observability/debugging tool for failed
+  Browser Use runs and related browser-agent workflows.
 - The contribution guidelines require individual PRs, duplicate checks, star
   badges when needed, and alphabetical ordering inside categories.
 
 Submitted entry:
 
 ```markdown
-| [BrowserTrace](https://github.com/aaronlab/browsertrace) | Local-first trace viewer for failed AI browser-agent runs. Captures screenshots, URLs, actions, model I/O, errors, and public-safe HTML exports. | ![GitHub Badge](https://img.shields.io/github/stars/aaronlab/browsertrace.svg?style=flat-square) |
+| [BrowserTrace](https://github.com/aaronlab/browsertrace) | Local-first trace viewer for failed Browser Use runs. Captures screenshots, URLs, actions, model I/O, errors, and public-safe HTML exports. | ![GitHub Badge](https://img.shields.io/github/stars/aaronlab/browsertrace.svg?style=flat-square) |
 ```
 
 Verification:
@@ -730,13 +730,13 @@ Fit notes:
 - The list explicitly accepts AI agent tools from 2025-2026 and has an
   `Observability and Evaluation` section.
 - BrowserTrace fits `Tracing and Monitoring` as a local-first trace viewer for
-  failed AI browser-agent runs, not as an agent runtime.
+  failed Browser Use runs, not as an agent runtime.
 - The PR is a single README row and uses factual, non-promotional copy.
 
 Submitted entry:
 
 ```markdown
-| [BrowserTrace](https://github.com/aaronlab/browsertrace) | Local-first trace viewer for AI browser-agent failures. Captures screenshots, URLs, actions, model I/O, errors, and public-safe HTML exports for Browser Use, Stagehand, Skyvern, and Playwright + LLM scripts. |
+| [BrowserTrace](https://github.com/aaronlab/browsertrace) | Browser Use-first local replay debugger for Browser Use failures. Captures screenshots, URLs, actions, model I/O, errors, and public-safe HTML exports for Browser Use, Stagehand, Skyvern, and Playwright + LLM scripts. |
 ```
 
 Verification:
@@ -761,7 +761,7 @@ Fit notes:
 - The repository recommends Project Request issues and has automation that
   creates a PR.
 - BrowserTrace fits `Runtime` -> `Observation` because it is a local-first trace
-  viewer for failed AI browser-agent runs, not an agent runtime.
+  viewer for failed Browser Use runs, not an agent runtime.
 - The bot-created PR is `OPEN` / `CLEAN`; build passed and auto-merge workflow
   checks passed or skipped as expected.
 
@@ -792,7 +792,7 @@ Fit notes:
 - The contributing guide accepts observability, tracing, and evaluation tools
   and asks contributors to edit `entries.yaml` only.
 - BrowserTrace fits `Observability and Evaluation` because it is a local-first
-  trace viewer for AI browser-agent failures, not an agent runtime or a generic
+  trace viewer for Browser Use failures, not an agent runtime or a generic
   browser automation framework.
 
 Submitted entry:
@@ -801,7 +801,7 @@ Submitted entry:
 - name: BrowserTrace
   url: https://aaronlab.github.io/browsertrace/
   docs_url: https://github.com/aaronlab/browsertrace
-  description: Local-first trace viewer for AI browser-agent failures, with screenshots, model I/O, URLs, actions, errors, and public-safe HTML exports.
+  description: Browser Use-first local replay debugger for Browser Use failures, with screenshots, model I/O, URLs, actions, errors, and public-safe HTML exports.
   category: observability-and-evaluation
   github: aaronlab/browsertrace
   license: MIT

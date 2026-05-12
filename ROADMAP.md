@@ -1,12 +1,13 @@
 # BrowserTrace Roadmap
 
-BrowserTrace is a local flight recorder for AI browser agents. The roadmap
-prioritizes work that makes failed Browser Use, Stagehand, Skyvern, Playwright +
-LLM, and computer-use runs easier to inspect, export, and discuss.
+BrowserTrace is a local replay debugger for Browser Use failures. The roadmap
+keeps Browser Use as the primary path while making Stagehand, Skyvern,
+Playwright + LLM, and computer-use runs easier to inspect, export, and discuss
+as secondary integrations.
 
 ## Current Release
 
-`v0.1.17` is the current launch release.
+`v0.1.18` is the current launch release.
 
 Shipped:
 
@@ -43,11 +44,11 @@ Completed launch prep:
 
 - [#13 GitHub profile README](https://github.com/aaronlab/browsertrace/issues/13)
   now points the `aaronlab` profile at BrowserTrace.
-- GitHub Release `v0.1.17` includes the wheel, sdist, full demo export,
+- GitHub Release `v0.1.18` includes the wheel, sdist, full demo export,
   public-safe demo export, demo video, poster, and GIF.
-- PyPI is live as `browsertrace==0.1.17`, with
+- PyPI is live as `browsertrace==0.1.18`, with
   `pip install "browsertrace[ui]"` as the canonical persistent install path.
-- `v0.1.17` keeps the `browsertrace doctor` onboarding fix and packaged
+- `v0.1.18` keeps the `browsertrace doctor` onboarding fix and packaged
   `browsertrace demo` path.
 - IndexNow submission is prepared and submitted for the main GitHub Pages
   launch URLs.

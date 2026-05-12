@@ -9,7 +9,7 @@ As of 2026-05-10:
 
 - PyPI returns HTTP 200 for `https://pypi.org/pypi/browsertrace/json`.
 - The package is published at `https://pypi.org/project/browsertrace/`.
-- Current PyPI version: `0.1.17`.
+- Current PyPI version: `0.1.18`.
 - The GitHub repository has a `pypi` environment.
 - The `Publish` workflow succeeded on run `25630390661`.
 - The `publish` job has `contents: read` and `id-token: write`, so it can

@@ -10,7 +10,7 @@ upvotes, or artificial engagement.
 - Live demo: https://aaronlab.github.io/browsertrace/
 - Walkthrough: https://aaronlab.github.io/browsertrace/debug-browser-agent-failure.html
 - Failure patterns: https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html
-- Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.17/browsertrace-demo-public.html
+- Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.18/browsertrace-demo-public.html
 - Launch discussion: https://github.com/aaronlab/browsertrace/discussions/6
 - Primary media: `docs/demo.mp4`
 - Backup image: `docs/demo-poster.png`
@@ -88,7 +88,7 @@ browsertrace
 Then open http://127.0.0.1:3000 and click the failed checkout demo.
 
 If someone only wants to inspect a share-safe export first, send:
-https://github.com/aaronlab/browsertrace/releases/download/v0.1.17/browsertrace-demo-public.html
+https://github.com/aaronlab/browsertrace/releases/download/v0.1.18/browsertrace-demo-public.html
 ```
 
 Privacy:

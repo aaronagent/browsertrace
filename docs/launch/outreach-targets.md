@@ -32,7 +32,7 @@ Post only where the community rules allow it. The ask is feedback from people bu
 | CLIs.dev | Developers discovering CLI tools for AI agents and automation | `https://clis.dev/` | Submitted | CLI directory issue | Monitor https://github.com/victorcheeney/clis/issues/3 | Open directory for CLI discovery, automation, and agent workflows; submitted with PyPI install and JSON command examples |
 | CliHub | AI agents discovering and installing CLI tools from structured metadata | `https://github.com/clihub-ai/clihub` | Submitted | Registry PR | Monitor https://github.com/clihub-ai/clihub/pull/1 | PR adds BrowserTrace as a PyPI CLI with `agent_hints`; forked PR CI awaits maintainer approval |
 | DevTool Center | Developer Tools directory readers | `https://www.devtool.center/submit` | Day 4+ | Directory submission | Submit from owner browser | Submit Tool form asks for name, description, URL, category, pricing, and tags |
-| ToolHunter | Developers browsing AI agents, open-source CLIs, and productivity tools | `https://www.toolhunter.cc/` | Day 4+ | Directory submission | Submit from owner browser | Submit a Tool; lead with local-first AI browser-agent debugging and PyPI install |
+| ToolHunter | Developers browsing AI agents, open-source CLIs, and productivity tools | `https://www.toolhunter.cc/` | Day 4+ | Directory submission | Submit from owner browser | Submit a Tool; lead with Browser Use-first local debugging and PyPI install |
 | ToolShelf | Developers comparing CLI, AI coding, and Developer Productivity tools | `https://toolshelf.dev/` | Day 4+ | Directory submission | Submit from owner browser | Submit a Tool; ToolShelf reviews submissions and enriches them with quality data |
 | GitHub awesome lists | Developers browsing curated browser automation and AI-agent tool lists | `docs/launch/github-awesome-list-submissions.md` | Monitoring | One tracked PR is merged/listed; remaining focused PRs are open | Watch maintainer feedback | E2B CLA check has passed; Do not open more list PRs unless the target is clearly high-fit and non-duplicative |
 | console.dev | Devtools newsletter readers | `https://console.dev/` | Day 5 | Short editorial pitch | Contact from owner email/account | Lead with local-first browser-agent debugging, self-service live demo/PyPI trial, and the redacted export release |
@@ -44,7 +44,7 @@ Post only where the community rules allow it. The ask is feedback from people bu
 2. Hacker News once the first-run path is clearly understandable.
 3. Browser Use and Stagehand communities because they match the product.
 4. Reddit only with a useful write-up and after checking local rules.
-5. Directory/newsletter submissions after `v0.1.17` links are stable. Use
+5. Directory/newsletter submissions after `v0.1.18` links are stable. Use
    `docs/launch/directory-submission-sheet.md` as the queue.
 6. Product Hunt after the visual assets are strong enough for a broader audience.
 
@@ -60,17 +60,18 @@ the subject concrete and do not ask for stars.
 Subject:
 
 ```text
-BrowserTrace: local flight recorder for AI browser agents
+BrowserTrace: replay failed Browser Use runs locally
 ```
 
 Body:
 
 ```text
-BrowserTrace is an MIT-licensed local debugger for AI browser agents.
+BrowserTrace is an MIT-licensed local replay debugger for Browser Use
+failures.
 
-It records each browser-agent step as a timeline with screenshots, URL, action,
+It records each Browser Use step as a timeline with screenshots, URL, action,
 model input/output, status, and errors, then exports a standalone HTML trace.
-The v0.1.17 release includes `browsertrace demo` for first-run onboarding,
+The v0.1.18 release includes `browsertrace demo` for first-run onboarding,
 `browsertrace export --public` for public-safe sharing, and individual
 redaction flags when users want to keep some fields visible.
 
@@ -87,9 +88,9 @@ computer-use agents.
 
 Repo: https://github.com/aaronlab/browsertrace
 Live demo: https://aaronlab.github.io/browsertrace/
-Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.17/browsertrace-demo-public.html
+Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.18/browsertrace-demo-public.html
 Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
-Release: https://github.com/aaronlab/browsertrace/releases/tag/v0.1.17
+Release: https://github.com/aaronlab/browsertrace/releases/tag/v0.1.18
 ```
 
 Submission notes:

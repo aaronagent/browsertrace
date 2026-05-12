@@ -118,7 +118,7 @@ Stack 调试指南：
 
 ## 1. PyPI 已发布
 
-PyPI 已经不再是安装阻塞。BrowserTrace 已发布为 `0.1.17`：
+PyPI 已经不再是安装阻塞。BrowserTrace 已发布为 `0.1.18`：
 
 ```text
 https://pypi.org/project/browsertrace/

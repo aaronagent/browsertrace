@@ -9,6 +9,13 @@ to keep the first contribution small and reviewable.
 
 ## Unreleased
 
+## 0.1.18 - 2026-05-13
+
+- Refreshed the packaged README and PyPI long description around the Browser
+  Use-first failure replay/debugging story.
+- Updated current release links in launch copy and package metadata for the
+  `v0.1.18` patch release.
+
 ## 0.1.17 - 2026-05-10
 
 - Added compact `stagehand_evidence` summaries for Stagehand observe/action

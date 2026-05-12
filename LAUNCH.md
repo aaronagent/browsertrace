@@ -1,7 +1,7 @@
 # BrowserTrace Launch Control Room
 
 Canonical repo: https://github.com/aaronlab/browsertrace
-Current release: `v0.1.17`
+Current release: `v0.1.18`
 Owner account: `aaronlab`
 
 ## Current State
@@ -12,7 +12,7 @@ Owner account: `aaronlab`
   failed-step timelines, and public-safe HTML exports.`
 - Current account and repo are `aaronlab/browsertrace`; do not use the old
   `aaronagent` name in new launch links.
-- PyPI publishing is complete for `browsertrace==0.1.17`.
+- PyPI publishing is complete for `browsertrace==0.1.18`.
 - Public install command:
 
 ```bash
@@ -42,8 +42,8 @@ gh repo view aaronlab/browsertrace --json stargazerCount,forkCount,watchers,url,
 - README animation: `docs/demo.gif`
 - Static poster: `docs/demo-poster.png`
 - Live zero-install demo: https://aaronlab.github.io/browsertrace/
-- Downloadable demo trace: `browsertrace-demo.html` attached to release `v0.1.17`
-- Public-safe demo trace: `browsertrace-demo-public.html` attached to release `v0.1.17`
+- Downloadable demo trace: `browsertrace-demo.html` attached to release `v0.1.18`
+- Public-safe demo trace: `browsertrace-demo-public.html` attached to release `v0.1.18`
 - Launch discussion: https://github.com/aaronlab/browsertrace/discussions/6
 
 ## Day 0 Asset Checklist
