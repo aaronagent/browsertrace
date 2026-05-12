@@ -824,6 +824,20 @@ def test_failure_walkthrough_links_first_pr_recipe_for_small_contributions():
     assert "reposts" not in guide.lower()
 
 
+def test_failure_walkthrough_demo_video_has_accessible_context():
+    project_root = Path(__file__).resolve().parents[1]
+    guide = (project_root / "docs" / "debug-browser-agent-failure.html").read_text()
+    video_block = re.search(r"<figure.*?</figure>", guide, re.S)
+
+    assert video_block is not None
+    block = video_block.group(0)
+    assert '<video controls muted playsinline poster="./demo-poster.png"' in block
+    assert "<figcaption>" in block
+    assert "BrowserTrace" in block
+    assert "failed browser-agent trace timeline" in block
+    assert "first red step" in block
+
+
 def test_comparison_page_links_first_pr_recipe_for_small_contributions():
     project_root = Path(__file__).resolve().parents[1]
     page = (project_root / "docs" / "compare-browser-agent-debugging.html").read_text()

@@ -99,6 +99,21 @@
       margin: 24px 0 28px;
     }
 
+    .demo-video {
+      margin: 24px 0 28px;
+    }
+
+    .demo-video video {
+      margin: 0;
+    }
+
+    figcaption {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
     section {
       border-top: 1px solid var(--line);
       padding-top: 26px;
@@ -199,10 +214,13 @@
     <p class="dek">When a browser agent fails, logs usually show tool calls and stack traces. They rarely show what the model saw, which page state changed, or where the first wrong assumption entered the run.</p>
     <p>Improving this walkthrough or a browser-agent debugging note? Use the <a href="https://github.com/aaronlab/browsertrace/blob/main/CONTRIBUTING.md#first-pr-recipe">First PR Recipe</a> to keep the first contribution small and reviewable.</p>
 
-    <video controls muted playsinline poster="./demo-poster.png">
-      <source src="./demo.mp4" type="video/mp4">
-      <a href="./demo.mp4">Download the BrowserTrace demo video</a>
-    </video>
+    <figure class="demo-video">
+      <video controls muted playsinline poster="./demo-poster.png">
+        <source src="./demo.mp4" type="video/mp4">
+        <a href="./demo.mp4">Download the BrowserTrace demo video</a>
+      </video>
+      <figcaption>BrowserTrace replay of a failed browser-agent trace timeline, with the first red step highlighted alongside the screenshot, URL, action, model output, and status.</figcaption>
+    </figure>
 
     <section>
       <h2>The failure pattern</h2>
