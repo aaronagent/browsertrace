@@ -120,7 +120,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T17:14:10+00:00 | 3 | 998 | 21 | 0 | 10 | 0 | 40 | current monitor pass after README demo alt text fix, #361 closed, #362 opened as current good-first issue; external PRs and tracked discussions have no actionable feedback; owner-channel publishing remains the blocker; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-12T17:22:40+00:00 | 3 | 998 | 21 | 0 | 10 | 0 | 40 | current monitor pass after short owner social packet gained Media Alt Text for docs/demo.mp4 and docs/demo-poster.png; owner-channel publishing remains the blocker; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
