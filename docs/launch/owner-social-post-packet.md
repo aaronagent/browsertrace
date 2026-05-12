@@ -15,6 +15,13 @@ Primary links:
 - Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
 - Failure patterns: https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html
 
+Current demo angle:
+
+- The live demo now replays the local HTML upload navigation failure: a Browser
+  Use-shaped run tries to upload `file:///tmp/browsertrace-report.html`, but
+  the page navigates to the local file path and the upload preview never
+  appeared. Use this as the concrete story in the first post when possible.
+
 Optional credibility note:
 
 - BrowserTrace is now listed in `Jenqyang/Awesome-AI-Agents` under
@@ -59,6 +66,14 @@ Live demo: https://aaronlab.github.io/browsertrace/
 ```
 
 ```text
+The live demo now replays one concrete failure:
+
+Browser Use tried to upload file:///tmp/browsertrace-report.html, navigated to the local file path instead, and the upload preview never appeared.
+
+That is the kind of bug where URL + action + model output matter.
+```
+
+```text
 Concrete Browser Use failure patterns:
 https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html
 
@@ -87,6 +102,8 @@ BrowserTrace records each step as a local timeline:
 
 Browser Use is the primary path. Stagehand, Skyvern, Playwright + LLM scripts, and custom computer-use agents are supported as secondary integrations.
 
+The live demo now replays the local HTML upload navigation failure: a Browser Use-shaped run tries to upload file:///tmp/browsertrace-report.html, navigates to the local file path instead, and the upload preview never appeared.
+
 Live demo: https://aaronlab.github.io/browsertrace/
 Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
 Failure patterns: https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html
@@ -113,6 +130,8 @@ BrowserTrace 会本地记录每一步：
 
 本地跑，不上云，MIT 开源。
 
+现在 live demo 展示的是一个具体 Browser Use 失败：它想上传 file:///tmp/browsertrace-report.html，但页面跳到了本地文件路径，upload preview never appeared。
+
 Live demo: https://aaronlab.github.io/browsertrace/
 Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
 Failure patterns: https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html
@@ -131,6 +150,8 @@ GitHub: https://github.com/aaronlab/browsertrace
 以前 Browser Use 挂了，只能看一堆 log，很难知道它当时看到了什么、为什么点错、哪一步开始偏了。
 
 BrowserTrace 会把每一步录成 timeline：截图、URL、动作、模型输入输出、错误信息。打开本地 UI 就能直接跳到失败步骤。
+
+现在 live demo 回放的就是 local HTML upload navigation failure：Browser Use 想上传 file:///tmp/browsertrace-report.html，但实际跳到了本地文件路径，upload preview never appeared。
 
 先适合 Browser Use，也保留 Stagehand / Skyvern / Playwright + LLM / computer-use 这些 secondary integrations。
 

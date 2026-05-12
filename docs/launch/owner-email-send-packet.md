@@ -46,6 +46,10 @@ The current failure-patterns page covers concrete Browser Use cases such as
 Browser Use new-tab desync, Browser Use local HTML upload navigation, remote
 CDP hangs, and icon-only target mismatch.
 
+The live demo now replays the local HTML upload navigation failure: a Browser
+Use-shaped run tries to upload file:///tmp/browsertrace-report.html, navigates
+to the local file path instead, and the upload preview never appeared.
+
 Browser Use guide:
 https://aaronlab.github.io/browsertrace/browser-use-debugging.html
 
@@ -85,6 +89,11 @@ secondary integrations.
 
 Concrete cases covered include Browser Use new-tab desync, Browser Use local
 HTML upload navigation, remote CDP hangs, and icon-only target mismatch.
+
+Live demo use case:
+The live demo now replays the local HTML upload navigation failure: a Browser
+Use-shaped run tries to upload file:///tmp/browsertrace-report.html, navigates
+to the local file path instead, and the upload preview never appeared.
 
 Browser Use guide:
 https://aaronlab.github.io/browsertrace/browser-use-debugging.html

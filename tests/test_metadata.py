@@ -4602,6 +4602,9 @@ def test_owner_email_send_packet_is_short_and_linked():
     assert "browser-agent-failure-patterns.html" in packet
     assert "Browser Use new-tab desync" in packet
     assert "Browser Use local HTML upload navigation" in packet
+    assert "live demo now replays the local HTML upload navigation failure" in packet
+    assert "file:///tmp/browsertrace-report.html" in packet
+    assert "upload preview never appeared" in packet
     assert "secondary integrations" in packet
     assert "Stagehand" in packet
     assert "Skyvern" in packet
@@ -4634,6 +4637,9 @@ def test_owner_social_post_packet_is_short_and_linked():
     assert "browser-agent-failure-patterns.html" in packet
     assert "Browser Use new-tab desync" in packet
     assert "Browser Use local HTML upload navigation" in packet
+    assert "live demo now replays the local HTML upload navigation failure" in packet
+    assert "file:///tmp/browsertrace-report.html" in packet
+    assert "upload preview never appeared" in packet
     assert "secondary integrations" in packet
     assert "Stagehand" in packet
     assert "Skyvern" in packet
