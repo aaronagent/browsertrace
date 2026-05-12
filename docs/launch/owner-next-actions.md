@@ -173,6 +173,10 @@ https://aaronlab.github.io/browsertrace/sitemap.xml
 https://aaronlab.github.io/browsertrace/robots.txt
 ```
 
+IndexNow has already been submitted by Codex for the current launch surface.
+The owner-only remaining action is to submit the sitemap in Google Search
+Console and Bing Webmaster Tools.
+
 Use:
 
 ```text

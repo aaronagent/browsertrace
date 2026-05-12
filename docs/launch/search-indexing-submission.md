@@ -66,6 +66,10 @@ Use this payload:
 }
 ```
 
+Latest submission, 2026-05-12 UTC: Codex submitted the current 12-URL launch
+surface to IndexNow and received HTTP 200 with an empty response body. Tracking
+comment: `https://github.com/aaronlab/browsertrace/issues/16#issuecomment-4426947785`.
+
 ## Contribution Reply
 
 Use this when someone asks for a small first contribution while discussing

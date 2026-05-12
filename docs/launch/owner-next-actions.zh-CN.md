@@ -167,6 +167,9 @@ https://aaronlab.github.io/browsertrace/sitemap.xml
 https://aaronlab.github.io/browsertrace/robots.txt
 ```
 
+IndexNow 已由 Codex 提交当前 launch 页面。现在剩下的 owner-only 动作是：
+用你的账号在 Google Search Console 和 Bing Webmaster Tools 里提交 sitemap。
+
 按这个文件操作：
 
 ```text
