@@ -1084,6 +1084,9 @@ def test_github_profile_draft_links_current_trial_and_contribution_paths():
     ).read_text()
 
     assert "https://github.com/aaronlab/browsertrace" in profile_draft
+    assert "Local replay debugger for Browser Use failures." in profile_draft
+    assert "BrowserTrace helps Browser Use builders debug failed runs" in profile_draft
+    assert "Local replay debugger for Browser Use failures" in profile_draft
     assert "https://aaronlab.github.io/browsertrace/browser-use-debugging.html" in profile_draft
     assert "https://aaronlab.github.io/browsertrace/stagehand-debugging.html" in profile_draft
     assert "https://aaronlab.github.io/browsertrace/skyvern-debugging.html" in profile_draft

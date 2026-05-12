@@ -19,20 +19,22 @@ workflows.
 
 ### BrowserTrace
 
-Local flight recorder for AI browser agents.
+Local replay debugger for Browser Use failures.
 
 ![BrowserTrace social preview](https://raw.githubusercontent.com/aaronlab/browsertrace/main/docs/social-preview.png)
 
-BrowserTrace helps Browser Use, Stagehand, Skyvern, Playwright + LLM, and
-custom computer-use builders debug failed browser-agent runs with local step
-timelines.
+BrowserTrace helps Browser Use builders debug failed runs with local step
+timelines: what the agent saw, clicked, returned, and where the first red step
+happened. Stagehand, Skyvern, Playwright + LLM, and custom computer-use
+workflows are supported as secondary integrations.
 
 - Records screenshots, URLs, actions, model input/output, status, and errors.
 - Opens failed runs in a local web UI.
 - Exports standalone HTML traces.
 - Supports public-safe exports that omit prompts, model I/O, screenshots, and
   URLs.
-- Supports Browser Use run hooks, the Stagehand wrapper, and the Skyvern task/workflow wrapper.
+- Browser Use run hooks are the primary integration path.
+- Supports the Stagehand wrapper and the Skyvern task/workflow wrapper.
 - Includes Playwright + LLM examples and custom computer-use examples.
 - Listed in Awesome-AI-Agents under Applications -> Tools.
 - MIT licensed and local-first.
@@ -106,7 +108,7 @@ workflow-specific debugging question:
 
 ## Current Focus
 
-- AI browser-agent debugging
+- Browser Use failure debugging
 - Browser automation and computer-use agents
 - LLM observability for local workflows
 - Agent evaluation and tool reliability
@@ -115,7 +117,7 @@ workflow-specific debugging question:
 
 | Project | Focus |
 |---|---|
-| [browsertrace](https://github.com/aaronlab/browsertrace) | Local traces for failed AI browser-agent runs |
+| [browsertrace](https://github.com/aaronlab/browsertrace) | Local replay debugger for Browser Use failures |
 | [claude-code-source-analysis](https://github.com/aaronlab/claude-code-source-analysis) | Claude Code source analysis and learning notes |
 | [agent-bench-lite](https://github.com/aaronlab/agent-bench-lite) | Lightweight AI agent evaluation benchmark |
 | [mcp-shield](https://github.com/aaronlab/mcp-shield) | MCP server security audit tooling |
@@ -123,12 +125,12 @@ workflow-specific debugging question:
 
 ## Feedback
 
-If you build browser agents, the most useful BrowserTrace feedback is:
+If you build with Browser Use, the most useful BrowserTrace feedback is:
 
-- Which framework do you use?
+- Which Browser Use failure shape hurts most?
 - What context is missing when a run fails?
 - Are local HTML exports enough, or do you need hosted share links?
-- Which adapter should be improved first?
+- Which secondary adapter should be improved first?
 
 Launch discussion:
 https://github.com/aaronlab/browsertrace/discussions/6
