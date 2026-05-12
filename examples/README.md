@@ -72,7 +72,7 @@ browsertrace export <run_id> --public -o public.html
 ```
 
 A healthy `browsertrace --help` output should list the main commands, including
-`serve`, `doctor`, `demo`, `list`, `show`, and `export`.
+`serve`, `doctor`, `demo`, `list`, `show`, `compare`, and `export`.
 `browsertrace export --help` should mention public-safe export options such as
 `--public` and an output path like `-o public.html` or `--out public.html`.
 
@@ -84,6 +84,7 @@ A healthy `browsertrace --help` output should list the main commands, including
 | `browsertrace demo` | Create a deterministic failed run |
 | `browsertrace list` | Find recent run IDs |
 | `browsertrace show <run_id>` | Inspect a run timeline in the terminal |
+| `browsertrace compare <failed_run_id> <success_run_id>` | Find the first step divergence between a failed run and a known-good run |
 | `browsertrace export <run_id> --public -o public.html` | Create a public-safe HTML export |
 
 ## Example Matrix

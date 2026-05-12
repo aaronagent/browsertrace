@@ -113,6 +113,7 @@ Useful local checks:
 - `browsertrace list --json` prints recent runs as JSON with id, name, status, and created timestamp.
 - `browsertrace list --status failed` filters recent runs by status; combine with JSON, for example `browsertrace list --status completed --json`.
 - `browsertrace demo` prints a `Run ID:` line you can copy into `browsertrace show` or `browsertrace export`.
+- `browsertrace compare <failed_run_id> <success_run_id>` finds the first step divergence between a failed Browser Use run and a known-good run; add `--json` for automation with `browsertrace compare <failed_run_id> <success_run_id> --json`.
 
 For scripts, CI, or AI/coding-agent troubleshooting, use the JSON CLI checks:
 
@@ -121,6 +122,10 @@ browsertrace doctor --json
 browsertrace list --status failed --json
 browsertrace show <run_id> --json
 ```
+
+When you have a failed run and a known-good run for the same Browser Use task,
+use `browsertrace compare <failed_run_id> <success_run_id> --json` to locate
+the first divergent action, URL, status, or error field.
 
 For automation-oriented usage notes, see
 [JSON CLI checks for automation](examples/#json-cli-checks-for-automation).

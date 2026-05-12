@@ -388,7 +388,12 @@ with hooks:
 
     <section>
       <h2 id="compare-run-metadata-checklist">Compare failed and successful Browser Use runs</h2>
-      <p>A future compare view is most useful when the failed run and a known successful run carry enough shared metadata to explain where they diverged. This checklist does not implement run comparison; it only describes what to preserve today so a later comparison can be meaningful.</p>
+      <p>When the same Browser Use task has one failed run and one known-good run, compare them from the terminal to find the first divergent step before opening the local UI.</p>
+      <pre><code>browsertrace list
+browsertrace compare &lt;failed_run_id&gt; &lt;success_run_id&gt;
+browsertrace compare &lt;failed_run_id&gt; &lt;success_run_id&gt; --json</code></pre>
+      <p>The CLI compares action, URL, status, and error fields and reports the first divergent step. It does not replace the local UI: use the comparison to locate the boundary, then open the failed run timeline to inspect screenshots, model input/output, and surrounding context.</p>
+      <p>Run comparison is most useful when the failed run and a successful run carry enough shared metadata to explain where they diverged. Preserve these fields when you can:</p>
       <ul>
         <li>Keep a stable task or run id when Browser Use or your app exposes one.</li>
         <li>Record the Browser Use version and BrowserTrace version for each run.</li>

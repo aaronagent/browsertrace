@@ -40,6 +40,44 @@ def _seed(tmp_path, name, fail=False):
     return run.id
 
 
+def _seed_compare_runs(tmp_path):
+    tracer = Tracer(home=tmp_path)
+
+    with tracer.run("browser-use success") as run:
+        run.step(
+            action="navigate",
+            url="https://example.com/start",
+            model_output={"thought": "open start"},
+        )
+        run.step(
+            action="click(selector=#checkout)",
+            url="https://example.com/done",
+            model_output={"result": "checkout complete"},
+        )
+        success_id = run.id
+
+    try:
+        with tracer.run("browser-use failure") as run:
+            run.step(
+                action="navigate",
+                url="https://example.com/start",
+                model_output={"thought": "open start"},
+            )
+            run.step(
+                action="click(selector=#cancel)",
+                url="https://example.com/cart",
+                status="error",
+                error="wrong target",
+                model_output={"result": "cancelled"},
+            )
+            failed_id = run.id
+            raise RuntimeError("wrong target")
+    except RuntimeError:
+        pass
+
+    return failed_id, success_id
+
+
 def test_cli_module_compiles_on_python311():
     """Guard against Python 3.11 f-string syntax regressions.
 
@@ -147,6 +185,71 @@ def test_cli_show_json_prints_run_and_steps_as_json(cli):
     assert payload["steps"][0]["step_index"] == 0
     assert payload["steps"][0]["url"] == "https://example.com"
     assert payload["steps"][0]["status"] == "ok"
+
+
+def test_cli_compare_json_reports_first_divergent_step(cli):
+    cli_mod, tmp_path = cli
+    failed_id, success_id = _seed_compare_runs(tmp_path)
+
+    buf = StringIO()
+    with redirect_stdout(buf):
+        rc = cli_mod.main(["compare", failed_id[:8], success_id[:8], "--json"])
+
+    payload = json.loads(buf.getvalue())
+
+    assert rc == 0
+    assert payload["left"]["id"] == failed_id
+    assert payload["left"]["status"] == "failed"
+    assert payload["right"]["id"] == success_id
+    assert payload["right"]["status"] == "completed"
+    assert payload["first_divergence"]["step_index"] == 1
+    assert payload["first_divergence"]["left_step"]["action"] == "click(selector=#cancel)"
+    assert payload["first_divergence"]["right_step"]["action"] == "click(selector=#checkout)"
+    assert payload["first_divergence"]["fields"]["action"] == {
+        "left": "click(selector=#cancel)",
+        "right": "click(selector=#checkout)",
+    }
+    assert payload["first_divergence"]["fields"]["url"] == {
+        "left": "https://example.com/cart",
+        "right": "https://example.com/done",
+    }
+    assert payload["first_divergence"]["fields"]["error"] == {
+        "left": "wrong target",
+        "right": None,
+    }
+
+
+def test_cli_compare_human_output_mentions_first_divergence(cli):
+    cli_mod, tmp_path = cli
+    failed_id, success_id = _seed_compare_runs(tmp_path)
+
+    buf = StringIO()
+    with redirect_stdout(buf):
+        rc = cli_mod.main(["compare", failed_id[:8], success_id[:8]])
+
+    out = buf.getvalue()
+
+    assert rc == 0
+    assert "First divergence at step 1" in out
+    assert "action:" in out
+    assert "click(selector=#cancel)" in out
+    assert "click(selector=#checkout)" in out
+    assert not out.lstrip().startswith("{")
+
+
+def test_cli_compare_json_reports_no_divergence_for_same_run(cli):
+    cli_mod, tmp_path = cli
+    run_id = _seed(tmp_path, "same-run")
+
+    buf = StringIO()
+    with redirect_stdout(buf):
+        rc = cli_mod.main(["compare", run_id, run_id, "--json"])
+
+    payload = json.loads(buf.getvalue())
+
+    assert rc == 0
+    assert payload["first_divergence"] is None
+    assert payload["step_counts"] == {"left": 1, "right": 1}
 
 
 def test_cli_show_unknown_run_id_returns_2(cli):

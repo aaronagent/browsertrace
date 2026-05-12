@@ -5,6 +5,7 @@ Usage:
     browsertrace demo            # create a deterministic failed demo run
     browsertrace list            # list runs in the terminal
     browsertrace show <run_id>   # print a run's timeline
+    browsertrace compare <failed_id> <success_id>  # find the first step divergence
     browsertrace doctor          # print local install and trace-store status
     browsertrace export <id>     # write a portable HTML bundle to ./<id>.html
     browsertrace export <id> --redact  # omit model I/O from the HTML export
@@ -251,6 +252,126 @@ def cmd_show(args) -> int:
     return 0
 
 
+def _run_summary(run: sqlite3.Row) -> dict[str, str]:
+    return {
+        "id": run["id"],
+        "name": run["name"] or "",
+        "status": run["status"],
+    }
+
+
+def _step_for_compare(step: sqlite3.Row | None) -> dict[str, object] | None:
+    if step is None:
+        return None
+    return {
+        "step_index": step["step_index"],
+        "action": step["action"] or "",
+        "url": step["url"] or "",
+        "status": step["status"] or "ok",
+        "error": step["error"],
+    }
+
+
+def _compare_runs(
+    left_run: sqlite3.Row,
+    left_steps: list[sqlite3.Row],
+    right_run: sqlite3.Row,
+    right_steps: list[sqlite3.Row],
+) -> dict[str, object]:
+    payload: dict[str, object] = {
+        "left": _run_summary(left_run),
+        "right": _run_summary(right_run),
+        "step_counts": {"left": len(left_steps), "right": len(right_steps)},
+        "first_divergence": None,
+    }
+
+    fields = ["action", "url", "status", "error"]
+    for i in range(max(len(left_steps), len(right_steps))):
+        left_step = _step_for_compare(left_steps[i] if i < len(left_steps) else None)
+        right_step = _step_for_compare(right_steps[i] if i < len(right_steps) else None)
+
+        if left_step is None or right_step is None:
+            payload["first_divergence"] = {
+                "step_index": i,
+                "fields": {
+                    "presence": {
+                        "left": left_step is not None,
+                        "right": right_step is not None,
+                    }
+                },
+                "left_step": left_step,
+                "right_step": right_step,
+            }
+            break
+
+        changed = {
+            field: {"left": left_step[field], "right": right_step[field]}
+            for field in fields
+            if left_step[field] != right_step[field]
+        }
+        if changed:
+            payload["first_divergence"] = {
+                "step_index": left_step["step_index"],
+                "fields": changed,
+                "left_step": left_step,
+                "right_step": right_step,
+            }
+            break
+
+    return payload
+
+
+def _print_compare_human(payload: dict[str, object]) -> None:
+    left = payload["left"]
+    right = payload["right"]
+    assert isinstance(left, dict)
+    assert isinstance(right, dict)
+
+    print(f"Left:   {left['id']}  {_fmt_status(str(left['status']))}  {left['name'] or '(unnamed)'}")
+    print(f"Right:  {right['id']}  {_fmt_status(str(right['status']))}  {right['name'] or '(unnamed)'}")
+    step_counts = payload["step_counts"]
+    assert isinstance(step_counts, dict)
+    print(f"Steps:  left={step_counts['left']} right={step_counts['right']}")
+
+    divergence = payload["first_divergence"]
+    if divergence is None:
+        print("No step divergence found.")
+        return
+
+    assert isinstance(divergence, dict)
+    print(f"First divergence at step {divergence['step_index']}")
+    fields = divergence["fields"]
+    assert isinstance(fields, dict)
+    for field, values in fields.items():
+        assert isinstance(values, dict)
+        print(f"{field}:")
+        print(f"  left:  {values['left']}")
+        print(f"  right: {values['right']}")
+
+
+def cmd_compare(args) -> int:
+    with _open() as c:
+        left_run, rc = _find_run(c, args.left_run_id)
+        if left_run is None:
+            return rc
+        right_run, rc = _find_run(c, args.right_run_id)
+        if right_run is None:
+            return rc
+        left_steps = c.execute(
+            "SELECT * FROM steps WHERE run_id=? ORDER BY step_index", (left_run["id"],)
+        ).fetchall()
+        right_steps = c.execute(
+            "SELECT * FROM steps WHERE run_id=? ORDER BY step_index", (right_run["id"],)
+        ).fetchall()
+
+    payload = _compare_runs(left_run, left_steps, right_run, right_steps)
+    if args.json:
+        print(json.dumps(payload, indent=2))
+    else:
+        _print_compare_human(payload)
+    return 0
+
+
 def cmd_export(args) -> int:
     """Write a self-contained HTML bundle for a run (screenshots inline as base64)."""
     import base64
@@ -395,6 +516,12 @@ def main(argv: Optional[list[str]] = None) -> int:
     p_show.add_argument("run_id", help="Full id or unique prefix")
     p_show.add_argument("--json", action="store_true", help="Print the run timeline as JSON")
     p_show.set_defaults(func=cmd_show)
+
+    p_compare = sub.add_parser("compare", help="Compare two run timelines")
+    p_compare.add_argument("left_run_id", help="Full id or unique prefix for the left run")
+    p_compare.add_argument("right_run_id", help="Full id or unique prefix for the right run")
+    p_compare.add_argument("--json", action="store_true", help="Print the comparison as JSON")
+    p_compare.set_defaults(func=cmd_compare)
 
     p_export = sub.add_parser("export", help="Write a self-contained HTML bundle for a run")
     p_export.add_argument("run_id")

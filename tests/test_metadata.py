@@ -2033,6 +2033,20 @@ def test_readme_explains_list_status_filter_near_install_checks():
     assert "hosted sharing" not in readme
 
 
+def test_readme_explains_compare_near_install_checks():
+    project_root = Path(__file__).resolve().parents[1]
+    readme = (project_root / "README.md").read_text()
+    install_section = readme.split("## Install From PyPI", 1)[1].split(
+        "For a walkthrough", 1
+    )[0]
+
+    assert "`browsertrace compare <failed_run_id> <success_run_id>`" in install_section
+    assert "finds the first step divergence" in install_section
+    assert "`browsertrace compare <failed_run_id> <success_run_id> --json`" in install_section
+    assert "`browsertrace show <run_id> --json`" in install_section
+    assert "hosted sharing" not in readme
+
+
 def test_readme_includes_json_cli_automation_recipe_near_install_checks():
     project_root = Path(__file__).resolve().parents[1]
     readme = (project_root / "README.md").read_text()
@@ -2510,6 +2524,7 @@ def test_readme_groups_install_tips_as_compact_list():
         "- `browsertrace list --json` prints recent runs as JSON",
         "- `browsertrace list --status failed` filters recent runs by status",
         "- `browsertrace demo` prints a `Run ID:` line",
+        "- `browsertrace compare <failed_run_id> <success_run_id>` finds the first step divergence between a failed Browser Use run and a known-good run",
         "- The first-run troubleshooting checklist walks through `browsertrace doctor`, `browsertrace demo`, `browsertrace list`, `browsertrace show`, and public-safe export",
         "- The live static demo and public-safe demo export let you inspect a trace before installing anything",
         "- The command cheat sheet summarizes `browsertrace doctor`, `browsertrace demo`, `browsertrace list`, `browsertrace show`, and public-safe export commands",
@@ -3084,6 +3099,7 @@ def test_examples_readme_includes_command_cheat_sheet():
     assert "`browsertrace demo`" in examples_readme
     assert "`browsertrace list`" in examples_readme
     assert "`browsertrace show <run_id>`" in examples_readme
+    assert "`browsertrace compare <failed_run_id> <success_run_id>`" in examples_readme
     assert "`browsertrace export <run_id> --public -o public.html`" in examples_readme
     assert 'pip install "browsertrace[ui]"' in examples_readme
     assert "hosted sharing" not in examples_readme
@@ -3816,6 +3832,8 @@ def test_browser_use_guide_documents_compare_run_metadata_checklist():
         "</section>",
         1,
     )[0]
+    assert "browsertrace compare &lt;failed_run_id&gt; &lt;success_run_id&gt;" in section
+    assert "first divergent step" in section
 
     for expected in [
         "stable task or run id",
@@ -3830,7 +3848,7 @@ def test_browser_use_guide_documents_compare_run_metadata_checklist():
     ]:
         assert expected in section
 
-    assert "does not implement run comparison" in section
+    assert "does not replace the local UI" in section
     assert "stars" not in section.lower()
     assert "upvotes" not in section.lower()
     assert "reposts" not in section.lower()
