@@ -77,6 +77,16 @@ def test_pyproject_has_launch_discovery_metadata():
     assert urls["Discussions"] == "https://github.com/aaronlab/browsertrace/discussions/6"
 
 
+def test_social_preview_source_uses_browser_use_first_positioning():
+    project_root = Path(__file__).resolve().parents[1]
+    svg = (project_root / "docs" / "social-preview.svg").read_text()
+
+    assert "Local replay debugger for Browser Use failures" in svg
+    assert "Replay failed Browser Use runs locally" in svg
+    assert "Local flight recorder" not in svg
+    assert "AI browser agents" not in svg
+
+
 def test_publish_workflow_is_ready_for_trusted_publishing():
     project_root = Path(__file__).resolve().parents[1]
     workflow = (project_root / ".github" / "workflows" / "publish.yml").read_text()
