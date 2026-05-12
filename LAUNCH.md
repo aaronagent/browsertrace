@@ -120,7 +120,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T22:40:20+00:00 | 3 | 998 | 21 | 0 | 11 | 0 | 16 | current monitor pass after #370 Browser Use compare-run metadata checklist documented; owner-channel publishing remains the blocker; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-12T22:41:46+00:00 | 3 | 998 | 21 | 0 | 10 | 0 | 16 | current monitor pass after #370 closed by eac3637 and Browser Use compare-run metadata checklist reached main; owner-channel publishing remains the blocker; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
