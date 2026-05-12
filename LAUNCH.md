@@ -120,7 +120,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-12T20:33:38+00:00 | 3 | 998 | 21 | 0 | 9 | 0 | 16 | current monitor pass after CONTRIBUTING Browser Use no-service demo checks landed in 2685ac1 and #368 closed; owner-channel publishing remains the blocker; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-12T20:41:43+00:00 | 3 | 998 | 21 | 0 | 9 | 0 | 16 | current monitor pass after docs/demo.mp4 was re-encoded to 30fps H.264 for social upload readiness in 89607d0; CI 25760955564 and Pages 25760955548 succeeded; owner-channel publishing remains the blocker; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
