@@ -421,6 +421,14 @@ with hooks:
       <pre><code>browsertrace list
 browsertrace compare &lt;failed_run_id&gt; &lt;success_run_id&gt;
 browsertrace compare &lt;failed_run_id&gt; &lt;success_run_id&gt; --json</code></pre>
+      <p>Example compare output:</p>
+      <pre><code>$ browsertrace compare failed-local-html-upload good-local-html-upload
+First divergent step: 3
+action: navigate
+url: file:///tmp/browsertrace-report.html
+status: failed
+error: upload preview did not appear</code></pre>
+      <p>Use <code>--json</code> when you need structured comparison output for automation or CI checks.</p>
       <p>The CLI compares action, URL, status, and error fields and reports the first divergent step. It does not replace the local UI: use the comparison to locate the boundary, then open the failed run timeline to inspect screenshots, model input/output, and surrounding context.</p>
       <p>Run comparison is most useful when the failed run and a successful run carry enough shared metadata to explain where they diverged. Preserve these fields when you can:</p>
       <ul>

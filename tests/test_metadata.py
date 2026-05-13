@@ -3976,6 +3976,14 @@ def test_browser_use_guide_documents_compare_run_metadata_checklist():
     )[0]
     assert "browsertrace compare &lt;failed_run_id&gt; &lt;success_run_id&gt;" in section
     assert "first divergent step" in section
+    assert "Example compare output:" in section
+    assert "$ browsertrace compare failed-local-html-upload good-local-html-upload" in section
+    assert "First divergent step: 3" in section
+    assert "action: navigate" in section
+    assert "url: file:///tmp/browsertrace-report.html" in section
+    assert "status: failed" in section
+    assert "error: upload preview did not appear" in section
+    assert "structured comparison output" in " ".join(section.split())
 
     for expected in [
         "stable task or run id",
