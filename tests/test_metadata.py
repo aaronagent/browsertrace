@@ -5989,6 +5989,34 @@ def test_owner_next_actions_preserves_external_awesome_list_pr_numbers():
     assert "Jenqyang/Awesome-AI-Agents#222" not in awesome_prs
 
 
+def test_owner_next_actions_surface_browser_use_cla_blocker():
+    project_root = Path(__file__).resolve().parents[1]
+    expected = [
+        (
+            "docs/launch/owner-next-actions.md",
+            "Browser Use official example PR",
+            "license/cla",
+            "https://cla-assistant.io/browser-use/browser-use?pullRequest=4826",
+            "https://cla-assistant.io/check/browser-use/browser-use?pullRequest=4826",
+        ),
+        (
+            "docs/launch/owner-next-actions.zh-CN.md",
+            "Browser Use 官方 example PR",
+            "license/cla",
+            "https://cla-assistant.io/browser-use/browser-use?pullRequest=4826",
+            "https://cla-assistant.io/check/browser-use/browser-use?pullRequest=4826",
+        ),
+    ]
+
+    for relpath, heading, status_name, sign_url, recheck_url in expected:
+        checklist = (project_root / relpath).read_text(encoding="utf-8")
+        assert heading in checklist, relpath
+        assert "browser-use/browser-use#4826" in checklist, relpath
+        assert status_name in checklist, relpath
+        assert sign_url in checklist, relpath
+        assert recheck_url in checklist, relpath
+
+
 def test_chinese_owner_next_actions_preserves_external_awesome_list_pr_numbers():
     project_root = Path(__file__).resolve().parents[1]
     checklist = (

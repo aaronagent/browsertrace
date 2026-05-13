@@ -31,13 +31,15 @@ Browser Use run 对比。
 如果有人问怎么贡献，当前 open good-first issue 是
 `https://github.com/aaronlab/browsertrace/issues/371`。
 
-需要你确认的 Codex-side 下一步：准备一个很小的 `browser-use/browser-use` PR，
-新增 `examples/observability/browsertrace.py`。这个比继续投泛目录更值得，因为
-Browser Use 官方 repo 里已经有 `examples/observability/openLLMetry.py` 这个自然位置。
-PR 必须保持 optional、non-invasive：不改 Browser Use 核心代码，不往
-`pyproject.toml` 加依赖，用 import guard 提示 BrowserTrace 安装命令，并展示
-`create_run_hooks(...)` 接到
-`agent.run(on_step_start=..., on_step_end=...)`。你明确确认前，不开这个 PR。
+Browser Use 官方 example PR：`browser-use/browser-use#4826` 已打开，内容是可选的
+`examples/observability/browsertrace.py` 示例。这个比继续投泛目录更值得，因为
+Browser Use 官方 repo 里已有 observability examples 区域。当前状态：
+code-style、type-checker、tests、GitGuardian 和 review checks 都通过；剩下的
+唯一阻塞是 `license/cla`。Owner 动作：用你的 GitHub 账号签 CLA：
+`https://cla-assistant.io/browser-use/browser-use?pullRequest=4826`。如果签完后
+状态仍然 pending，用 recheck 链接：
+`https://cla-assistant.io/check/browser-use/browser-use?pullRequest=4826`。
+Codex 可以在你签完后继续检查 PR 状态，但不能替你签。
 
 ## 10 分钟 Owner 解锁顺序
 
@@ -61,7 +63,11 @@ session recovery。这些都是用具体失败场景来征集真实 workflow 反
 回复现有讨论，而不是发一个新帖，用
 `docs/launch/day-3-targeted-communities-packet.md#current-reddit-reply-opportunities`。
 
-1. 先只发 X single-post fallback，主素材用 `docs/demo.mp4`。平台支持 alt
+1. 如果你已经登录 GitHub，先给 `browser-use/browser-use#4826` 签 Browser Use
+   CLA：`https://cla-assistant.io/browser-use/browser-use?pullRequest=4826`。
+   这是目前最强的生态 PR 卡点。签完如果 `license/cla` 仍然 pending，用：
+   `https://cla-assistant.io/check/browser-use/browser-use?pullRequest=4826`。
+2. 先只发 X single-post fallback，主素材用 `docs/demo.mp4`。平台支持 alt
    text 时，用 `docs/launch/day-1-publish-packet.md#media-alt-text` 里的
    `Media Alt Text`。不要把这一步和 LinkedIn、微信群、即刻、Show HN 或目录投稿
    绑在一起等。复制版在 `docs/launch/owner-social-post-packet.md`：
@@ -74,17 +80,17 @@ session recovery。这些都是用具体失败场景来征集真实 workflow 反
    What should it capture?
    https://github.com/aaronlab/browsertrace
    ```
-2. X URL 记录后，再用 `docs/launch/day-1-publish-packet.md` 把同一个故事同步到
+3. X URL 记录后，再用 `docs/launch/day-1-publish-packet.md` 把同一个故事同步到
    LinkedIn、一两个真正相关的微信群和即刻。
-3. 如果你接下来几个小时能在线回复技术评论，用
+4. 如果你接下来几个小时能在线回复技术评论，用
    `docs/launch/owner-launch-submission-packet.md` 提交 Show HN。使用 repo
    URL、准备好的标题和首条评论。只有能用你自己的语气及时回复时才发。
-4. owner 渠道帖子发完后，再用
+5. owner 渠道帖子发完后，再用
    `docs/launch/directory-submission-sheet.md` 发送已经准备好的 owner
    email 投稿：发给 console.dev 的 `hello@console.dev`，以及发给 AgDex 的
    `agdex.ai@gmail.com`。最短复制版在
    `docs/launch/owner-email-send-packet.md`。
-5. 如果高意图渠道做完后还有第二小段时间，用
+6. 如果高意图渠道做完后还有第二小段时间，用
    `docs/launch/directory-submission-sheet.md` 提交这些浏览器表单目录：
    4agent.dev、AgentKart、OSS AI Hub、FOSSHUNTER、
    AgentsTide、BuilderAI Tools。AgentsTide 可用 `hello@agentstide.com`
@@ -92,10 +98,10 @@ session recovery。这些都是用具体失败场景来征集真实 workflow 反
    这一批的字段已经整理在 `First Browser-Form Directory Field Notes`。如果
    AgentKart 或 AgentsTide 只接受可运行的 autonomous agent，不接受 agent
    开发工具，就跳过，不要把 BrowserTrace 硬归类成 agent。
-6. 如果这一批已经做完，继续用 `docs/launch/directory-submission-sheet.md`
+7. 如果这一批已经做完，继续用 `docs/launch/directory-submission-sheet.md`
    里的第二批目录字段说明提交 CLIHunt、DeepYard、OpenAgent.bot、
    ForgeIndex、AgentShelf。
-7. 如果还有时间做开发者工具目录，继续用同一个 sheet 提交 DevTool Center、
+8. 如果还有时间做开发者工具目录，继续用同一个 sheet 提交 DevTool Center、
    ToolHunter、ToolShelf。CLIs.dev 已提交：
    https://github.com/victorcheeney/clis/issues/3；CliHub registry PR 已打开：
    https://github.com/clihub-ai/clihub/pull/1。

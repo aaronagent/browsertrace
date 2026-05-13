@@ -38,15 +38,16 @@ failed-vs-good Browser Use runs.
 The current open good-first issue for contributor replies is
 `https://github.com/aaronlab/browsertrace/issues/371`.
 
-Codex-side next action that needs owner approval: prepare a small
-`browser-use/browser-use` PR adding `examples/observability/browsertrace.py`.
-The fit is stronger than more broad directory submissions because Browser Use
-has an existing `examples/observability/openLLMetry.py` slot. Keep the PR
-optional and non-invasive: no Browser Use core changes, no new dependency in
-`pyproject.toml`, an import guard that prints the BrowserTrace install command,
-and a `create_run_hooks(...)` example for
-`agent.run(on_step_start=..., on_step_end=...)`. Do not open this PR until the
-owner explicitly confirms it.
+Browser Use official example PR: `browser-use/browser-use#4826` is open with an
+optional `examples/observability/browsertrace.py` example. The fit is stronger
+than more broad directory submissions because Browser Use has an existing
+observability examples area. Current state: code-style, type-checker, tests,
+GitGuardian, and review checks pass; the remaining blocker is `license/cla`.
+Owner action: sign the CLA at
+`https://cla-assistant.io/browser-use/browser-use?pullRequest=4826`. If the
+status stays pending after signing, use the recheck link:
+`https://cla-assistant.io/check/browser-use/browser-use?pullRequest=4826`.
+Codex can re-check the PR after you finish, but cannot sign this for you.
 
 ## 10-Minute Owner Unblock
 
@@ -72,7 +73,13 @@ modes. If you prefer replying to an existing discussion instead of making a new
 post, use
 `docs/launch/day-3-targeted-communities-packet.md#current-reddit-reply-opportunities`.
 
-1. Publish only the X single-post fallback first, using `docs/demo.mp4`. When
+1. If you are already logged into GitHub, sign the Browser Use CLA for
+   `browser-use/browser-use#4826` first:
+   `https://cla-assistant.io/browser-use/browser-use?pullRequest=4826`. This
+   unblocks the strongest ecosystem PR. If the CLA remains pending after
+   signing, use
+   `https://cla-assistant.io/check/browser-use/browser-use?pullRequest=4826`.
+2. Publish only the X single-post fallback first, using `docs/demo.mp4`. When
    the platform supports alt text, use `Media Alt Text` from
    `docs/launch/day-1-publish-packet.md#media-alt-text`. Do not batch this with
    LinkedIn, WeChat, Jike, Show HN, or directory submissions. The copy/paste
@@ -86,19 +93,19 @@ post, use
    What should it capture?
    https://github.com/aaronlab/browsertrace
    ```
-2. After the X URL is logged, mirror the same story to LinkedIn, one or two
+3. After the X URL is logged, mirror the same story to LinkedIn, one or two
    relevant WeChat groups, and Jike from `docs/launch/day-1-publish-packet.md`.
-3. If you can stay available for several hours to answer technical comments,
+4. If you can stay available for several hours to answer technical comments,
    submit Show HN from `docs/launch/owner-launch-submission-packet.md`. Use the
    repo URL, the prepared title, and the first comment. Skip this step until you
    can reply in your own voice.
-4. After the owner-channel posts are live, send the ready owner-email
+5. After the owner-channel posts are live, send the ready owner-email
    submissions from
    `docs/launch/directory-submission-sheet.md`:
    `hello@console.dev` and `agdex.ai@gmail.com` for console.dev and AgDex.
    The shortest copy/paste version is
    `docs/launch/owner-email-send-packet.md`.
-5. If you have a second short pass after those higher-intent channels, submit
+6. If you have a second short pass after those higher-intent channels, submit
    the browser-form directories from
    `docs/launch/directory-submission-sheet.md`:
    4agent.dev, AgentKart, OSS AI Hub, FOSSHUNTER, AgentsTide, and BuilderAI
@@ -107,10 +114,10 @@ post, use
    under `First Browser-Form Directory Field Notes`; skip AgentKart or
    AgentsTide if the target only accepts runnable autonomous agents rather than
    developer tools for agents.
-6. If that batch is already done, use the second-pass directory field notes in
+7. If that batch is already done, use the second-pass directory field notes in
    `docs/launch/directory-submission-sheet.md` for CLIHunt, DeepYard,
    OpenAgent.bot, ForgeIndex, and AgentShelf.
-7. If you still have time for developer-tool directories, use the same sheet for
+8. If you still have time for developer-tool directories, use the same sheet for
    DevTool Center, ToolHunter, and ToolShelf. CLIs.dev has already been
    submitted as https://github.com/victorcheeney/clis/issues/3, and the
    CliHub registry PR is open at https://github.com/clihub-ai/clihub/pull/1.
