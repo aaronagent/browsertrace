@@ -17,13 +17,15 @@ feedback.
 
 The current growth blocker is owner-channel publishing:
 
-1. Publish X, LinkedIn, WeChat, and Jike first from
-   `docs/launch/owner-social-post-packet.md`. Start with the X single-post
-   fallback if you only have one minute. Use the thread only if you have a few
-   more minutes.
-2. Submit Show HN from `docs/launch/owner-launch-submission-packet.md` only if
+1. If you only have one minute, publish only the X single-post fallback from
+   `docs/launch/owner-social-post-packet.md` with `docs/demo.mp4` attached.
+   Do not wait until LinkedIn, WeChat, Jike, Show HN, or directories are also
+   ready.
+2. After that URL is logged, optionally mirror the same Browser Use-first story
+   to LinkedIn, one or two relevant WeChat groups, and Jike.
+3. Submit Show HN from `docs/launch/owner-launch-submission-packet.md` only if
    you can stay available for several hours to answer technical comments.
-3. After any channel goes live, send the post URL, group name, or send note to
+4. After any channel goes live, send the post URL, group name, or send note to
    Codex so metrics can be logged and replies can be monitored.
 
 Do not open new low-conversion directory PRs just to create activity. Wait for
@@ -60,12 +62,11 @@ modes. If you prefer replying to an existing discussion instead of making a new
 post, use
 `docs/launch/day-3-targeted-communities-packet.md#current-reddit-reply-opportunities`.
 
-1. Publish the Day 1 X/LinkedIn/WeChat/Jike posts from
-   `docs/launch/day-1-publish-packet.md`, using `docs/demo.mp4`. When the
-   platform supports alt text, use `Media Alt Text` from
-   `docs/launch/day-1-publish-packet.md#media-alt-text`.
-   The shortest copy/paste version is the X single-post fallback in
-   `docs/launch/owner-social-post-packet.md`:
+1. Publish only the X single-post fallback first, using `docs/demo.mp4`. When
+   the platform supports alt text, use `Media Alt Text` from
+   `docs/launch/day-1-publish-packet.md#media-alt-text`. Do not batch this with
+   LinkedIn, WeChat, Jike, Show HN, or directory submissions. The copy/paste
+   version is in `docs/launch/owner-social-post-packet.md`:
 
    ```text
    Browser Use failed on a local `.html` upload: it navigated to the filename and the upload preview never appeared.
@@ -75,17 +76,19 @@ post, use
    What should it capture?
    https://github.com/aaronlab/browsertrace
    ```
-2. If you can stay available for several hours to answer technical comments,
+2. After the X URL is logged, mirror the same story to LinkedIn, one or two
+   relevant WeChat groups, and Jike from `docs/launch/day-1-publish-packet.md`.
+3. If you can stay available for several hours to answer technical comments,
    submit Show HN from `docs/launch/owner-launch-submission-packet.md`. Use the
    repo URL, the prepared title, and the first comment. Skip this step until you
    can reply in your own voice.
-3. After the owner-channel posts are live, send the ready owner-email
+4. After the owner-channel posts are live, send the ready owner-email
    submissions from
    `docs/launch/directory-submission-sheet.md`:
    `hello@console.dev` and `agdex.ai@gmail.com` for console.dev and AgDex.
    The shortest copy/paste version is
    `docs/launch/owner-email-send-packet.md`.
-4. If you have a second short pass after those higher-intent channels, submit
+5. If you have a second short pass after those higher-intent channels, submit
    the browser-form directories from
    `docs/launch/directory-submission-sheet.md`:
    4agent.dev, AgentKart, OSS AI Hub, FOSSHUNTER, AgentsTide, and BuilderAI
@@ -94,10 +97,10 @@ post, use
    under `First Browser-Form Directory Field Notes`; skip AgentKart or
    AgentsTide if the target only accepts runnable autonomous agents rather than
    developer tools for agents.
-5. If that batch is already done, use the second-pass directory field notes in
+6. If that batch is already done, use the second-pass directory field notes in
    `docs/launch/directory-submission-sheet.md` for CLIHunt, DeepYard,
    OpenAgent.bot, ForgeIndex, and AgentShelf.
-6. If you still have time for developer-tool directories, use the same sheet for
+7. If you still have time for developer-tool directories, use the same sheet for
    DevTool Center, ToolHunter, and ToolShelf. CLIs.dev has already been
    submitted as https://github.com/victorcheeney/clis/issues/3, and the
    CliHub registry PR is open at https://github.com/clihub-ai/clihub/pull/1.

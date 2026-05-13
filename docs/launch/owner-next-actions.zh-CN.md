@@ -13,12 +13,13 @@ Browser Use-first 定位，已有一个外部列表收录，其余列表 PR 继�
 
 现在真正卡住增长的是 owner 渠道发布：
 
-1. 先发 X、LinkedIn、微信群和即刻，用
-   `docs/launch/owner-social-post-packet.md`。如果只有 1 分钟，先用里面的
-   X single-post fallback；有多几分钟再发 thread。
-2. 如果接下来能连续在线几个小时回复技术评论，再提交 Show HN，用
+1. 如果只有 1 分钟，先只发 X single-post fallback，附件用 `docs/demo.mp4`。
+   不要等 LinkedIn、微信群、即刻、Show HN 或目录投稿都准备好再发。
+2. 发完并记录 URL 后，再把同一个 Browser Use-first 故事同步到 LinkedIn、
+   一两个真正相关的微信群和即刻。
+3. 如果接下来能连续在线几个小时回复技术评论，再提交 Show HN，用
    `docs/launch/owner-launch-submission-packet.md`。
-3. 发完任意渠道后，把帖子 URL、群名或发送备注给 Codex；Codex 继续记录指标、
+4. 发完任意渠道后，把帖子 URL、群名或发送备注给 Codex；Codex 继续记录指标、
    监控回复，并且只在有真实问题时协助回复。
 
 不要为了“看起来在推进”继续开新的低转化目录 PR；等维护者反馈再处理已有 PR。
@@ -52,12 +53,10 @@ session recovery。这些都是用具体失败场景来征集真实 workflow 反
 回复现有讨论，而不是发一个新帖，用
 `docs/launch/day-3-targeted-communities-packet.md#current-reddit-reply-opportunities`。
 
-1. 用 `docs/launch/day-1-publish-packet.md` 发 X、LinkedIn、微信群、即刻，
-   主素材用 `docs/demo.mp4`。平台支持 alt text 时，用
-   `docs/launch/day-1-publish-packet.md#media-alt-text` 里的
-   `Media Alt Text`。最短复制版是
-   `docs/launch/owner-social-post-packet.md` 里的 X single-post fallback；完整版本在
-   `docs/launch/owner-social-post-packet.md`。最短版如下：
+1. 先只发 X single-post fallback，主素材用 `docs/demo.mp4`。平台支持 alt
+   text 时，用 `docs/launch/day-1-publish-packet.md#media-alt-text` 里的
+   `Media Alt Text`。不要把这一步和 LinkedIn、微信群、即刻、Show HN 或目录投稿
+   绑在一起等。复制版在 `docs/launch/owner-social-post-packet.md`：
 
    ```text
    Browser Use failed on a local `.html` upload: it navigated to the filename and the upload preview never appeared.
@@ -67,15 +66,17 @@ session recovery。这些都是用具体失败场景来征集真实 workflow 反
    What should it capture?
    https://github.com/aaronlab/browsertrace
    ```
-2. 如果你接下来几个小时能在线回复技术评论，用
+2. X URL 记录后，再用 `docs/launch/day-1-publish-packet.md` 把同一个故事同步到
+   LinkedIn、一两个真正相关的微信群和即刻。
+3. 如果你接下来几个小时能在线回复技术评论，用
    `docs/launch/owner-launch-submission-packet.md` 提交 Show HN。使用 repo
    URL、准备好的标题和首条评论。只有能用你自己的语气及时回复时才发。
-3. owner 渠道帖子发完后，再用
+4. owner 渠道帖子发完后，再用
    `docs/launch/directory-submission-sheet.md` 发送已经准备好的 owner
    email 投稿：发给 console.dev 的 `hello@console.dev`，以及发给 AgDex 的
    `agdex.ai@gmail.com`。最短复制版在
    `docs/launch/owner-email-send-packet.md`。
-4. 如果高意图渠道做完后还有第二小段时间，用
+5. 如果高意图渠道做完后还有第二小段时间，用
    `docs/launch/directory-submission-sheet.md` 提交这些浏览器表单目录：
    4agent.dev、AgentKart、OSS AI Hub、FOSSHUNTER、
    AgentsTide、BuilderAI Tools。AgentsTide 可用 `hello@agentstide.com`
@@ -83,10 +84,10 @@ session recovery。这些都是用具体失败场景来征集真实 workflow 反
    这一批的字段已经整理在 `First Browser-Form Directory Field Notes`。如果
    AgentKart 或 AgentsTide 只接受可运行的 autonomous agent，不接受 agent
    开发工具，就跳过，不要把 BrowserTrace 硬归类成 agent。
-5. 如果这一批已经做完，继续用 `docs/launch/directory-submission-sheet.md`
+6. 如果这一批已经做完，继续用 `docs/launch/directory-submission-sheet.md`
    里的第二批目录字段说明提交 CLIHunt、DeepYard、OpenAgent.bot、
    ForgeIndex、AgentShelf。
-6. 如果还有时间做开发者工具目录，继续用同一个 sheet 提交 DevTool Center、
+7. 如果还有时间做开发者工具目录，继续用同一个 sheet 提交 DevTool Center、
    ToolHunter、ToolShelf。CLIs.dev 已提交：
    https://github.com/victorcheeney/clis/issues/3；CliHub registry PR 已打开：
    https://github.com/clihub-ai/clihub/pull/1。
