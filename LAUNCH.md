@@ -120,7 +120,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-13T02:53:14+00:00 | 3 | 998 | 21 | 0 | 11 | 0 | 21 | current monitor pass after owner next-action checklist was narrowed to a single X post unblock in f98f811; CI 25775279154 and Pages 25775279159 succeeded; stars remain 3 and owner-channel publishing remains the blocker; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-13T03:03:00+00:00 | 3 | 998 | 21 | 0 | 11 | 0 | 21 | current monitor pass after demo.mp4 demo.gif and demo-poster.png were refreshed to the Browser Use local HTML upload failure story in 254f843; CI 25775629096 and Pages 25775629069 succeeded; stars remain 3 and owner-channel publishing remains the blocker; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
