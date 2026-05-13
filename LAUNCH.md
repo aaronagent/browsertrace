@@ -120,7 +120,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-13T07:24:36+00:00 | 3 | 998 | 22 | 0 | 10 | 0 | 0 | current monitor pass after live aaronlab profile README public-safe demo export link was updated to v0.1.20; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-13T07:40:17+00:00 | 3 | 998 | 22 | 0 | 11 | 0 | 0 | current monitor pass after opening good-first issue #378 for compare API curl response-template docs; contributor queue is non-empty again; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
