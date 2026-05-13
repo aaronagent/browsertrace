@@ -120,7 +120,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-13T06:40:45+00:00 | 3 | 998 | 22 | 0 | 10 | 0 | 27 | current monitor pass after press kit Product Hunt and proof-point copy added browsertrace compare; Browser Use PR #4826 remains CLA-blocked; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-13T06:47:01+00:00 | 3 | 998 | 22 | 0 | 10 | 0 | 27 | current monitor pass after owner blocker issue #9 refreshed with forks 22, CI/Pages success, and Browser Use CLA still pending: https://github.com/aaronlab/browsertrace/issues/9#issuecomment-4438125943; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
