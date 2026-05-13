@@ -75,10 +75,22 @@ browsertrace compare <failed_run_id> <success_run_id>
 browsertrace compare <failed_run_id> <success_run_id> --json
 ```
 
+Compact output looks like this:
+
+```text
+$ browsertrace compare failed-local-html-upload good-local-html-upload
+First divergent step: 3
+action: navigate
+url: file:///tmp/browsertrace-report.html
+status: failed
+error: upload preview did not appear
+```
+
 The comparison reports the first divergent step across the existing `action`,
 `url`, `status`, and `error` fields. It is intentionally explicit in v0.1.19:
 you choose the failed run and the good run instead of relying on automatic
-baseline selection.
+baseline selection. Use `--json` when you need structured output for automation
+or CI checks without pasting a large JSON blob into a reply.
 
 Guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html#compare-run-metadata-checklist
 
