@@ -120,7 +120,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-13T00:10:20+00:00 | 3 | 998 | 21 | 0 | 11 | 0 | 9 | current monitor pass after Browser Use discussion #3856 followed up on stable selector recording as pre-action evidence plus validated locator synthesis; owner-channel publishing remains the blocker; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-13T00:26:14+00:00 | 3 | 998 | 21 | 0 | 11 | 0 | 15 | current monitor pass after v0.1.19 release downloads increased to 15 while stars remain 3; external PRs/discussions have no actionable maintainer feedback; owner-channel publishing remains the blocker; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
