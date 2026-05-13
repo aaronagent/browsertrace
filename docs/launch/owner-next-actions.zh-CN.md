@@ -30,8 +30,10 @@ Browser Use-first 定位，已有一个外部列表收录，其余列表 PR 继�
 直接发 `docs/launch/owner-social-post-packet.md#x` 里的 X single-post fallback。
 它已经改成 local `.html` upload 失败故事，并提到 `browsertrace compare` 用于
 failed-vs-good Browser Use run 对比。
-如果有人问怎么贡献，当前 open good-first issue 是
-`https://github.com/aaronlab/browsertrace/issues/372`。
+如果有人问怎么贡献，先看实时 good-first issue 队列：
+`https://github.com/aaronlab/browsertrace/labels/good%20first%20issue`。
+发链接前先确认队列是否为空；如果为空，不要把已经关闭的 issue 说成当前任务，
+改为让贡献者先看 `CONTRIBUTING.md`。
 
 Browser Use 官方 example PR：`browser-use/browser-use#4826` 已打开，内容是可选的
 `examples/observability/browsertrace.py` 示例。这个比继续投泛目录更值得，因为

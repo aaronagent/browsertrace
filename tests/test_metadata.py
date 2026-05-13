@@ -7226,6 +7226,28 @@ def test_owner_docs_mark_social_preview_uploaded():
     )
 
 
+def test_owner_docs_use_live_good_first_queue_not_closed_issue():
+    project_root = Path(__file__).resolve().parents[1]
+    docs = {
+        relpath: (project_root / relpath).read_text()
+        for relpath in [
+            "docs/launch/owner-next-actions.md",
+            "docs/launch/owner-next-actions.zh-CN.md",
+            "docs/launch/owner-publish-queue.md",
+        ]
+    }
+    combined = "\n".join(docs.values())
+
+    assert "https://github.com/aaronlab/browsertrace/labels/good%20first%20issue" in combined
+    assert "https://github.com/aaronlab/browsertrace/issues/372" not in combined
+    assert "Current good-first issue:" not in docs["docs/launch/owner-publish-queue.md"]
+    assert "The current open good-first issue" not in docs["docs/launch/owner-next-actions.md"]
+    assert "当前 open good-first issue" not in docs["docs/launch/owner-next-actions.zh-CN.md"]
+    assert "Check this live before linking" in docs["docs/launch/owner-publish-queue.md"]
+    assert "Check it before linking" in docs["docs/launch/owner-next-actions.md"]
+    assert "发链接前先确认队列是否为空" in docs["docs/launch/owner-next-actions.zh-CN.md"]
+
+
 def test_launch_control_room_has_current_audit_and_uvx_fallback():
     project_root = Path(__file__).resolve().parents[1]
     pypi_spec = (

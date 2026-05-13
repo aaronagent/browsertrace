@@ -38,8 +38,10 @@ or immediately after signing, publish the X single-post fallback from
 `docs/launch/owner-social-post-packet.md#x`. It now leads with the local
 `.html` upload failure story and mentions `browsertrace compare` for
 failed-vs-good Browser Use runs.
-The current open good-first issue for contributor replies is
-`https://github.com/aaronlab/browsertrace/issues/372`.
+For contributor replies, use the live good-first issue queue:
+`https://github.com/aaronlab/browsertrace/labels/good%20first%20issue`.
+Check it before linking. If the queue is empty, say there is no current small
+issue and point contributors to `CONTRIBUTING.md` instead of a closed issue.
 
 Browser Use official example PR: `browser-use/browser-use#4826` is open with an
 optional `examples/observability/browsertrace.py` example. The fit is stronger
