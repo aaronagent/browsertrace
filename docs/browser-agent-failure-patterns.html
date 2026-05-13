@@ -259,6 +259,19 @@
     </section>
 
     <section class="pattern">
+      <h2 id="debug-multi-step-form-drift">Browser Use multi-step form drift</h2>
+      <p>One long browser-agent run over a complex form can hide the first bad boundary. The visible failure may be a later submit, while the useful evidence is an earlier dependent field, delayed validation message, or checkpoint that should have stopped the run.</p>
+      <h3>Trace evidence to keep</h3>
+      <ul>
+        <li>Canonical form payload outside the agent plus the fields assigned to the current segment.</li>
+        <li>URL, title, field labels, visible validation errors, submit state, retry count, and checkpoint id after each step.</li>
+        <li>Screenshot reference, selected element summary, and model/tool output for the action that moved the form forward.</li>
+        <li>Whether recovery resumed from the last checkpoint or restarted the whole form.</li>
+      </ul>
+      <p>Related community case: <a href="https://github.com/browser-use/browser-use/discussions/4476">browser-use/browser-use#4476</a>. BrowserTrace guide: <a href="./browser-use-debugging.html#debug-multi-step-form-drift">Debug multi-step form drift</a>.</p>
+    </section>
+
+    <section class="pattern">
       <h2 id="debug-local-html-upload-navigation">Browser Use local HTML upload navigation</h2>
       <p>A local HTML file can be described in the task prompt as an attachment to inspect, but the model may turn that attachment context into a navigation target. The failure looks like a bad URL action even though the useful evidence starts before step 0, when file metadata first becomes model-visible.</p>
       <h3>Trace evidence to keep</h3>

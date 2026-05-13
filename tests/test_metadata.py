@@ -1021,10 +1021,11 @@ def test_failure_patterns_page_h2_headings_have_stable_id_anchors():
     project_root = Path(__file__).resolve().parents[1]
     page = (project_root / "docs" / "browser-agent-failure-patterns.html").read_text()
 
-    # The 11 failure pattern headings must each carry a stable id anchor
+    # The failure pattern headings must each carry a stable id anchor
     expected_ids = [
         "debug-icon-only-click-targets",
         "debug-new-tab-desync",
+        "debug-multi-step-form-drift",
         "debug-local-html-upload-navigation",
         "debug-remote-cdp-hangs",
         "debug-screenshot-blob-context",
@@ -1050,6 +1051,16 @@ def test_failure_patterns_page_includes_local_html_upload_navigation_pattern():
     assert "https://github.com/browser-use/browser-use/issues/4794" in page
     assert "./browser-use-debugging.html#debug-local-html-upload-navigation" in page
     assert "Raw model action before validation" in page
+
+
+def test_failure_patterns_page_includes_multi_step_form_drift_pattern():
+    project_root = Path(__file__).resolve().parents[1]
+    page = (project_root / "docs" / "browser-agent-failure-patterns.html").read_text()
+
+    assert "Browser Use multi-step form drift" in page
+    assert "https://github.com/browser-use/browser-use/discussions/4476" in page
+    assert "./browser-use-debugging.html#debug-multi-step-form-drift" in page
+    assert "checkpoint id after each step" in page
 
 
 def test_launch_kit_page_links_first_pr_recipe_for_small_contributions():
@@ -3492,6 +3503,18 @@ def test_llms_txt_includes_browser_use_new_tab_desync_shape():
     assert "upvotes" not in llms.lower()
 
 
+def test_llms_txt_includes_browser_use_multi_step_form_drift_shape():
+    project_root = Path(__file__).resolve().parents[1]
+    llms = (project_root / "docs" / "llms.txt").read_text()
+
+    assert "Browser Use multi-step form drift" in llms
+    assert "first bad boundary" in llms
+    assert "canonical form payload outside the agent" in llms
+    assert "checkpoint id" in llms
+    assert "stars" not in llms.lower()
+    assert "upvotes" not in llms.lower()
+
+
 def test_llms_txt_includes_browser_use_local_html_upload_navigation_shape():
     project_root = Path(__file__).resolve().parents[1]
     llms = (project_root / "docs" / "llms.txt").read_text()
@@ -3837,6 +3860,25 @@ def test_browser_use_guide_documents_stable_selector_replay_gaps():
     assert "browser-use/browser-use#3856" in page
 
     section = page.split("Debug stable selector replay gaps", 1)[1].split(
+        "</section>",
+        1,
+    )[0]
+    assert "stars" not in section.lower()
+    assert "upvotes" not in section.lower()
+    assert "reposts" not in section.lower()
+
+
+def test_browser_use_guide_documents_multi_step_form_drift():
+    project_root = Path(__file__).resolve().parents[1]
+    page = (project_root / "docs" / "browser-use-debugging.html").read_text()
+
+    assert "Debug multi-step form drift" in page
+    assert "canonical form payload outside the agent" in page
+    assert "submit disabled/enabled state" in page
+    assert "checkpoint id" in page
+    assert "browser-use/browser-use#4476" in page
+
+    section = page.split("Debug multi-step form drift", 1)[1].split(
         "</section>",
         1,
     )[0]

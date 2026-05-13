@@ -56,9 +56,10 @@ and custom computer-use agents stay supported as secondary integrations.
 [launch discussion](https://github.com/aaronlab/browsertrace/discussions/6)
 
 Concrete Browser Use failure patterns now covered include new-tab desync,
-local HTML upload navigation mistakes, remote CDP hangs, and icon-only target
-mismatches. Secondary integration patterns cover Stagehand semantic verification boundary,
-Skyvern VNC/CDP debug integration, and Skyvern multi-session VNC control drift.
+multi-step form drift, local HTML upload navigation mistakes, remote CDP hangs,
+and icon-only target mismatches. Secondary integration patterns cover
+Stagehand semantic verification boundary, Skyvern VNC/CDP debug integration,
+and Skyvern multi-session VNC control drift.
 
 For AI/coding agents, [`llms.txt`](llms.txt) provides concise project context,
 links, and troubleshooting prompts. The hosted copy lives at

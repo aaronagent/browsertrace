@@ -330,6 +330,21 @@ with hooks:
     </section>
 
     <section>
+      <h2 id="debug-multi-step-form-drift">Debug multi-step form drift</h2>
+      <p>Long Browser Use form runs tend to fail after the useful state has already moved on. A dependent dropdown may not resolve, a validation message may appear after the next action, or one wrong field can poison the rest of a 20-step transcript.</p>
+      <p>Treat each committed form step as its own trace boundary instead of relying on one long prompt to explain everything.</p>
+      <ul>
+        <li>Keep the canonical form payload outside the agent and pass only the fields needed for the current segment.</li>
+        <li>Record URL, title, submitted field labels, visible validation errors, and submit disabled/enabled state after each segment.</li>
+        <li>Capture screenshot reference, selected element summary, model/tool output, status, retry count, and checkpoint id.</li>
+        <li>Store whether the next step started from the previous checkpoint or restarted from the beginning.</li>
+        <li>Compare failed and known-good runs to find the first form segment where URL, status, validation text, or target evidence diverged.</li>
+      </ul>
+      <p>In BrowserTrace terms, a good failure report should say "country selection passed, tax-id stayed disabled" instead of "the agent failed after 24 actions".</p>
+      <p>Related community case: <a href="https://github.com/browser-use/browser-use/discussions/4476">browser-use/browser-use#4476</a>.</p>
+    </section>
+
+    <section>
       <h2 id="debug-new-tab-desync">Debug new-tab desync</h2>
       <p>If a click or Enter action opens a new tab, Browser Use may keep reasoning from the stale page context unless the action result makes that browser-state delta explicit. The symptom is usually repeated retries against the old page while the expected element exists in the new tab.</p>
       <ul>
