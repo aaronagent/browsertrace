@@ -4382,6 +4382,12 @@ def test_response_templates_include_compare_run_reply():
 
     assert "browsertrace compare <failed_run_id> <success_run_id>" in reply
     assert "browsertrace compare <failed_run_id> <success_run_id> --json" in reply
+    assert (
+        "curl http://127.0.0.1:3000/api/compare/<failed_run_id>/<success_run_id>"
+        in reply
+    )
+    assert "local BrowserTrace UI is running" in reply
+    assert "same first-divergence payload" in reply
     assert "known-good run" in reply
     assert "Compact output looks like this:" in reply
     assert "$ browsertrace compare failed-local-html-upload good-local-html-upload" in reply

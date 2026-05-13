@@ -75,6 +75,13 @@ browsertrace compare <failed_run_id> <success_run_id>
 browsertrace compare <failed_run_id> <success_run_id> --json
 ```
 
+While the local BrowserTrace UI is running, local wrappers and tools can request
+the same first-divergence payload through the web API:
+
+```bash
+curl http://127.0.0.1:3000/api/compare/<failed_run_id>/<success_run_id>
+```
+
 Compact output looks like this:
 
 ```text
