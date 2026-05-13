@@ -428,6 +428,10 @@ def test_homepage_intro_uses_mobile_friendly_copy():
     assert "@media (max-width: 420px)" in homepage
     assert "text-wrap: wrap" in homepage
     assert ".story" in homepage
+    assert "overflow-wrap: normal" in homepage
+    assert "min-width: max-content" in homepage
+    assert ".meta span" in homepage
+    assert "flex: 0 0 auto" in homepage
 
 
 def test_homepage_surfaces_failed_vs_good_compare_value():

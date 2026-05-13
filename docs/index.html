@@ -152,7 +152,9 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      flex: 0 0 auto;
       min-height: 40px;
+      min-width: max-content;
       padding: 0 14px;
       border: 1px solid var(--line);
       border-radius: 8px;
@@ -179,10 +181,14 @@
     }
 
     .meta span {
+      flex: 0 0 auto;
+      min-width: max-content;
       padding: 4px 8px;
       border: 1px solid var(--line);
       border-radius: 999px;
       background: var(--panel);
+      overflow-wrap: normal;
+      white-space: nowrap;
     }
 
     .listing {
