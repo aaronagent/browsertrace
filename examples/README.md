@@ -87,6 +87,28 @@ A healthy `browsertrace --help` output should list the main commands, including
 | `browsertrace compare <failed_run_id> <success_run_id>` | Find the first step divergence between a failed run and a known-good run |
 | `browsertrace export <run_id> --public -o public.html` | Create a public-safe HTML export |
 
+Example compare output:
+
+```text
+$ browsertrace compare failed-local-html-upload good-local-html-upload
+First divergent step: 3
+
+failed:
+  action: navigate
+  url: file:///tmp/browsertrace-report.html
+  status: failed
+  error: upload preview did not appear
+
+good:
+  action: upload_file
+  url: https://example.test/upload
+  status: ok
+```
+
+Use `browsertrace compare <failed_run_id> <success_run_id> --json` when a
+script, CI check, or AI/coding-agent troubleshooting flow needs structured
+comparison output.
+
 ## Example Matrix
 
 | Example | Use when | Extra services | Command |

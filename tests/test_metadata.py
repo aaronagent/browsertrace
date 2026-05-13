@@ -3184,6 +3184,15 @@ def test_examples_readme_includes_command_cheat_sheet():
     assert "`browsertrace show <run_id>`" in examples_readme
     assert "`browsertrace compare <failed_run_id> <success_run_id>`" in examples_readme
     assert "`browsertrace export <run_id> --public -o public.html`" in examples_readme
+    assert "Example compare output:" in examples_readme
+    assert "$ browsertrace compare failed-local-html-upload good-local-html-upload" in examples_readme
+    assert "First divergent step: 3" in examples_readme
+    assert "action: navigate" in examples_readme
+    assert "url: file:///tmp/browsertrace-report.html" in examples_readme
+    assert "status: failed" in examples_readme
+    assert "error: upload preview did not appear" in examples_readme
+    assert "`browsertrace compare <failed_run_id> <success_run_id> --json`" in examples_readme
+    assert "structured comparison output" in " ".join(examples_readme.split())
     assert 'pip install "browsertrace[ui]"' in examples_readme
     assert "hosted sharing" not in examples_readme
 

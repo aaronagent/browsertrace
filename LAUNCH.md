@@ -120,7 +120,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-13T04:17:06+00:00 | 3 | 998 | 20 | 0 | 11 | 0 | 27 | current monitor pass after open tracking issues #3 and #18 were refreshed from older release links to v0.1.19 Browser Use-first copy; Browser Use PR #4826 remains CLA-blocked; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-13T04:30:47+00:00 | 3 | 998 | 20 | 0 | 11 | 0 | 27 | current monitor pass after examples guide added browsertrace compare expected-output example for issue #371; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
