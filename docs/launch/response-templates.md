@@ -28,6 +28,22 @@ Detailed comparison: https://aaronlab.github.io/browsertrace/compare-browser-age
 
 No by default. The local tracer stores SQLite data and screenshots under `~/.browsertrace/` unless you override `BROWSERTRACE_HOME`. The optional AI summary endpoint only calls an OpenAI-compatible API if you configure an API key and request a summary.
 
+## Is this only for local HTML files?
+
+No. The local `.html` upload is just the current Browser Use failure story: the
+agent treated a local file path as a navigation target instead of an upload
+payload.
+
+BrowserTrace is for browser-agent traces, not HTML files specifically. It can
+record Browser Use runs, Playwright + LLM scripts, Stagehand-shaped page calls,
+Skyvern-shaped task/workflow calls, or custom computer-use loops when those
+workflows expose a step boundary.
+
+Separate that from export format: `browsertrace export` writes a self-contained
+HTML report because HTML is easy to inspect and attach to issues. The exported
+HTML file is the sharing format, not the only kind of browser task BrowserTrace
+can debug.
+
 ## Maintainer asks whether it fits this list
 
 Thanks for taking a look. The intended category is developer tools for Browser Use debugging, browser automation, or computer-use workflows.

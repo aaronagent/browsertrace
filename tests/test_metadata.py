@@ -4281,6 +4281,29 @@ def test_response_templates_include_listing_fit_reply():
     assert "reposts" not in reply.lower()
 
 
+def test_response_templates_clarify_not_only_for_html_files():
+    project_root = Path(__file__).resolve().parents[1]
+    templates = (
+        project_root / "docs" / "launch" / "response-templates.md"
+    ).read_text()
+
+    assert "## Is this only for local HTML files?" in templates
+    reply = templates.split("## Is this only for local HTML files?", 1)[1].split(
+        "## Maintainer asks whether it fits this list", 1
+    )[0]
+    normalized = re.sub(r"\s+", " ", reply)
+
+    assert "local `.html` upload is just the current Browser Use failure story" in reply
+    assert "browser-agent traces, not HTML files specifically" in reply
+    assert "Playwright + LLM scripts" in reply
+    assert "Stagehand-shaped page calls" in reply
+    assert "Skyvern-shaped task/workflow calls" in reply
+    assert "exported HTML file is the sharing format" in normalized
+    assert "stars" not in reply.lower()
+    assert "upvotes" not in reply.lower()
+    assert "reposts" not in reply.lower()
+
+
 def test_response_templates_include_compare_run_reply():
     project_root = Path(__file__).resolve().parents[1]
     templates = (
