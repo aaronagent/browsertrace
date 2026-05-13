@@ -120,7 +120,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-13T08:50:27+00:00 | 3 | 998 | 22 | 0 | 11 | 0 | 0 | current monitor pass after opening good-first issue #380 for adding the compare API curl snippet to the Browser Use guide; no open PRs; Browser Use PR #4826 remains owner CLA-blocked; star goal remains incomplete; traffic views 433/155 unique, clones 19128/3205 unique |
+| 2026-05-13T08:54:54+00:00 | 3 | 998 | 22 | 0 | 11 | 0 | 0 | current monitor pass after replacing closed pinned good-first issue #372 with open #380 so contributor entry points stay current; external PRs and community discussions have no new actionable feedback; Browser Use PR #4826 remains owner CLA-blocked; star goal remains incomplete; traffic views 433/155 unique, clones 19128/3205 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
