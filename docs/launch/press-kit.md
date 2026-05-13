@@ -54,7 +54,8 @@ supported as secondary integrations.
 
 BrowserTrace records each Browser Use step locally: screenshot, URL, action,
 model input/output, status, and error. Open a timeline, jump to the failed
-step, and export a shareable HTML trace.
+step, compare a failed run against a known-good run, and export a shareable
+HTML trace.
 
 ## Trial Path
 
@@ -110,6 +111,8 @@ browsertrace
 - Exports a self-contained HTML trace.
 - Includes a no-API-key deterministic failure demo.
 - Browser Use run hooks are the primary integration path.
+- `browsertrace compare` reports the first divergent action, URL, status, or
+  error between a failed Browser Use run and a known-good run.
 - Works with generic Python code and has Stagehand, Skyvern, Playwright, and
   computer-use examples or wrappers.
 - External contributor PRs have started landing.
