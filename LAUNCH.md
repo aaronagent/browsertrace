@@ -120,7 +120,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-13T03:13:07+00:00 | 3 | 998 | 20 | 0 | 11 | 0 | 21 | current monitor pass after v0.1.19 release media assets demo.mp4 demo.gif and demo-poster.png were replaced with the refreshed Browser Use local HTML upload failure assets; release media SHA-256 matches docs assets; owner-channel publishing remains the blocker; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-13T03:22:28+00:00 | 3 | 998 | 20 | 0 | 11 | 0 | 24 | current monitor pass after owner issue #9 clarified the current Browser Use local HTML upload X post copy: https://github.com/aaronlab/browsertrace/issues/9#issuecomment-4436865340; owner-channel publishing remains the blocker; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
