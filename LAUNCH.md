@@ -120,7 +120,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-13T02:26:24+00:00 | 3 | 998 | 21 | 0 | 11 | 0 | 21 | current monitor pass after v0.1.19 release downloads increased from 18 to 21 while stars remain 3; owner-channel publishing remains the blocker; no repo/docs changes needed after Browser Use official repo and failure-pattern coverage review; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-13T02:38:00+00:00 | 3 | 998 | 21 | 0 | 11 | 0 | 21 | current monitor pass after GitHub code search found additional public external references beyond the accepted Awesome-AI-Agents listing: royavrahami/quality-manager-intelligence-agent reports and HIDORAKAI002/ai-workspace-archive mirror; stars remain 3 and owner-channel publishing remains the blocker; no actionable maintainer feedback; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
