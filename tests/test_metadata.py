@@ -4375,11 +4375,16 @@ def test_response_templates_include_compare_run_reply():
     assert "browsertrace compare <failed_run_id> <success_run_id>" in reply
     assert "browsertrace compare <failed_run_id> <success_run_id> --json" in reply
     assert "known-good run" in reply
+    assert "Compact output looks like this:" in reply
+    assert "$ browsertrace compare failed-local-html-upload good-local-html-upload" in reply
+    assert "First divergent step: 3" in reply
     assert "first divergent step" in reply
+    assert "upload preview did not appear" in reply
     assert "action" in reply
     assert "url" in reply
     assert "status" in reply
     assert "error" in reply
+    assert "large JSON blob" in reply
     assert "compare-run-metadata-checklist" in reply
     assert "stars" not in reply.lower()
     assert "upvotes" not in reply.lower()
