@@ -203,6 +203,46 @@ def test_api_run_404_for_unknown_run(isolated_server):
     assert r.status_code == 404
 
 
+# ---------- /api/compare/{left}/{right} ----------
+
+def test_api_compare_returns_first_divergence(isolated_server):
+    _, tracer, client = isolated_server
+    with tracer.run("browser-use success") as run:
+        run.step(action="navigate", url="https://example.com/start")
+        run.step(action="click(selector=#checkout)", url="https://example.com/done")
+        success_id = run.id
+
+    try:
+        with tracer.run("browser-use failure") as run:
+            run.step(action="navigate", url="https://example.com/start")
+            run.step(
+                action="click(selector=#cancel)",
+                url="https://example.com/cart",
+                status="error",
+                error="wrong target",
+            )
+            failed_id = run.id
+            raise RuntimeError("wrong target")
+    except RuntimeError:
+        pass
+
+    r = client.get(f"/api/compare/{failed_id}/{success_id}")
+
+    assert r.status_code == 200
+    data = r.json()
+    assert data["left"]["id"] == failed_id
+    assert data["right"]["id"] == success_id
+    assert data["first_divergence"]["step_index"] == 1
+    assert data["first_divergence"]["fields"]["action"] == {
+        "left": "click(selector=#cancel)",
+        "right": "click(selector=#checkout)",
+    }
+    assert data["first_divergence"]["fields"]["url"] == {
+        "left": "https://example.com/cart",
+        "right": "https://example.com/done",
+    }
+
+
 # ---------- /screenshot path-traversal guard ----------
 
 def test_screenshot_rejects_traversal_run_id(isolated_server):

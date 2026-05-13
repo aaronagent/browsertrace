@@ -205,7 +205,12 @@ error: upload preview did not appear
 ```
 
 Use `browsertrace compare <failed_run_id> <success_run_id> --json` when an
-agent, script, or CI check needs structured comparison output.
+agent, script, or CI check needs structured comparison output. If the local UI
+is already running, the same comparison is available from:
+
+```bash
+curl http://127.0.0.1:3000/api/compare/<failed_run_id>/<success_run_id>
+```
 
 Stack-specific troubleshooting links:
 

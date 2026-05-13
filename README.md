@@ -487,12 +487,18 @@ curl 'http://127.0.0.1:3000/api/runs?status=failed&q=tokyo&limit=20'
 # Full timeline for one run
 curl http://127.0.0.1:3000/api/run/<run_id>
 
+# First divergence between a failed run and a known-good run
+curl http://127.0.0.1:3000/api/compare/<failed_run_id>/<success_run_id>
+
 # AI root-cause summary (set OPENAI_API_KEY first)
 curl http://127.0.0.1:3000/api/run/<run_id>/summary
 ```
 
 Each run JSON includes the run, every step, model I/O, status, errors, relative
 timestamps, and `first_error_index` so an LLM can jump straight to what broke.
+The compare JSON API returns the same first divergent action, URL, status, or
+error that `browsertrace compare <failed_run_id> <success_run_id> --json`
+prints in the terminal.
 
 ## Command line
 

@@ -13,6 +13,7 @@ from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import FileResponse, HTMLResponse, JSONResponse
 from fastapi.templating import Jinja2Templates
 
+from .compare import compare_runs
 from .tracer import DEFAULT_HOME
 
 app = FastAPI(title="BrowserTrace", docs_url=None, redoc_url=None)
@@ -256,6 +257,24 @@ def api_run_summary(run_id: str, force: bool = False) -> JSONResponse:
 
     _SUMMARY_CACHE[run_id] = summary
     return JSONResponse({"run_id": run_id, "summary": summary, "cached": False})
+
+
+@app.get("/api/compare/{left_run_id}/{right_run_id}")
+def api_compare(left_run_id: str, right_run_id: str) -> JSONResponse:
+    """Compare two runs and return the first divergent action, URL, status, or error."""
+    with _db() as c:
+        left_run = c.execute("SELECT * FROM runs WHERE id=?", (left_run_id,)).fetchone()
+        right_run = c.execute("SELECT * FROM runs WHERE id=?", (right_run_id,)).fetchone()
+        if left_run is None or right_run is None:
+            raise HTTPException(404, "Run not found")
+        left_steps = c.execute(
+            "SELECT * FROM steps WHERE run_id=? ORDER BY step_index", (left_run["id"],)
+        ).fetchall()
+        right_steps = c.execute(
+            "SELECT * FROM steps WHERE run_id=? ORDER BY step_index", (right_run["id"],)
+        ).fetchall()
+
+    return JSONResponse(compare_runs(left_run, left_steps, right_run, right_steps))
 
 
 class _LLMUnavailable(RuntimeError):
