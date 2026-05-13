@@ -187,6 +187,26 @@ browsertrace list --status failed --json
 browsertrace show <run_id> --json
 ```
 
+When a user has one failed Browser Use run and one known-good run for the same
+task, suggest the compare CLI before opening the local UI:
+
+```bash
+browsertrace compare <failed_run_id> <success_run_id>
+```
+
+Expected compact compare output:
+
+```text
+First divergent step: 3
+action: navigate
+url: file:///tmp/browsertrace-report.html
+status: failed
+error: upload preview did not appear
+```
+
+Use `browsertrace compare <failed_run_id> <success_run_id> --json` when an
+agent, script, or CI check needs structured comparison output.
+
 Stack-specific troubleshooting links:
 
 - Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html

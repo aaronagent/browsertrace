@@ -3679,6 +3679,14 @@ browsertrace show <run_id> --json
 
     assert "For scripts, CI, or AI/coding-agent troubleshooting" in troubleshooting_prompt
     assert recipe in troubleshooting_prompt
+    assert "browsertrace compare <failed_run_id> <success_run_id>" in troubleshooting_prompt
+    assert "First divergent step: 3" in troubleshooting_prompt
+    assert "action: navigate" in troubleshooting_prompt
+    assert "url: file:///tmp/browsertrace-report.html" in troubleshooting_prompt
+    assert "status: failed" in troubleshooting_prompt
+    assert "error: upload preview did not appear" in troubleshooting_prompt
+    assert "browsertrace compare <failed_run_id> <success_run_id> --json" in troubleshooting_prompt
+    assert "structured comparison output" in " ".join(troubleshooting_prompt.split())
     assert "Good first issue: https://github.com/aaronlab/browsertrace/labels/good%20first%20issue" in llms
     assert "https://github.com/aaronlab/browsertrace/issues/213" not in llms
     assert 'pip install "browsertrace[ui]"' in llms
