@@ -102,6 +102,10 @@ BrowserTrace records each Browser Use step locally: screenshot, URL, action,
 model input, model output, status, and error. You open the local UI, click a
 run, and jump straight to the failed step.
 
+If you have one failed Browser Use run and one known-good run for the same
+task, `browsertrace compare <failed_run_id> <success_run_id>` reports the first
+divergent action, URL, status, or error before you open the UI.
+
 It is MIT licensed, local-first, and has a deterministic no-API demo. The quickest trial is uvx from PyPI:
 
 uvx --from "browsertrace[ui]" browsertrace doctor

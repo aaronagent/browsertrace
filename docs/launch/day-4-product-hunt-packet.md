@@ -179,6 +179,9 @@ BrowserTrace keeps the missing context locally:
 - actions
 - model input/output
 - failed-step errors
+- failed-vs-good comparison with
+  `browsertrace compare <failed_run_id> <success_run_id>`, which reports the
+  first divergent action, URL, status, or error when you have a known-good run
 - exportable HTML traces, including public-safe exports that omit prompts,
   model output, screenshots, and URLs
 

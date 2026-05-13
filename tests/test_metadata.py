@@ -5338,6 +5338,7 @@ def test_show_hn_packet_uses_concrete_browser_use_failure_shape():
     first_comment = packet.split("## First Comment Draft", 1)[1].split(
         "## Response Rules", 1
     )[0]
+    normalized_first_comment = re.sub(r"\s+", " ", first_comment)
 
     assert "https://aaronlab.github.io/browsertrace/browser-use-debugging.html" in packet
     assert "screenshot shows the right plus icon" in first_comment
@@ -5346,6 +5347,15 @@ def test_show_hn_packet_uses_concrete_browser_use_failure_shape():
     assert "local HTML" in first_comment
     assert "attachment context" in first_comment
     assert "watchdog block reason" in first_comment
+    assert (
+        "browsertrace compare <failed_run_id> <success_run_id>"
+        in normalized_first_comment
+    )
+    assert "known-good run" in normalized_first_comment
+    assert (
+        "first divergent action, URL, status, or error"
+        in normalized_first_comment
+    )
     assert "Browser Use workflows" in first_comment
     assert "secondary integrations" in first_comment
     assert "stars" not in first_comment.lower()
@@ -5477,6 +5487,9 @@ def test_product_hunt_packet_uses_concrete_browser_use_failure_shape():
     assert "local HTML" in maker_comment
     assert "attachment metadata" in maker_comment
     assert "watchdog block reason" in maker_comment
+    assert "browsertrace compare <failed_run_id> <success_run_id>" in maker_comment
+    assert "known-good run" in maker_comment
+    assert "first divergent action, URL, status, or error" in maker_comment
     assert "Browser Use is the primary path" in maker_comment
     assert "secondary" in maker_comment
     assert "stars" not in maker_comment.lower()
