@@ -1158,6 +1158,17 @@ def test_launch_kit_page_surfaces_current_x_single_post_unblock():
     )[0]
 
     assert "Current owner unblock" in current_unblock
+    assert "Browser Use CLA" in current_unblock
+    assert "browser-use/browser-use#4826" in current_unblock
+    assert "license/cla" in current_unblock
+    assert (
+        "https://cla-assistant.io/browser-use/browser-use?pullRequest=4826"
+        in current_unblock
+    )
+    assert (
+        "https://cla-assistant.io/check/browser-use/browser-use?pullRequest=4826"
+        in current_unblock
+    )
     assert "one-minute X post" in current_unblock
     assert "docs/demo.mp4" in current_unblock
     assert "owner-social-post-packet.md" in current_unblock
@@ -4119,18 +4130,19 @@ def test_sitemap_lastmod_matches_current_launch_refresh():
         for url in root.findall("sm:url", namespace)
     }
 
-    for path in [
-        "launch/",
-        "launch/channel-copy.md",
-        "launch/day-1-publish-packet.md",
-        "launch/day-2-show-hn-packet.md",
-        "launch/day-4-product-hunt-packet.md",
-        "launch/owner-social-post-packet.md",
-        "launch/owner-email-send-packet.md",
-        "launch/owner-launch-submission-packet.md",
-    ]:
+    expected_lastmod = {
+        "launch/": "2026-05-13",
+        "launch/channel-copy.md": "2026-05-12",
+        "launch/day-1-publish-packet.md": "2026-05-12",
+        "launch/day-2-show-hn-packet.md": "2026-05-12",
+        "launch/day-4-product-hunt-packet.md": "2026-05-12",
+        "launch/owner-social-post-packet.md": "2026-05-12",
+        "launch/owner-email-send-packet.md": "2026-05-12",
+        "launch/owner-launch-submission-packet.md": "2026-05-12",
+    }
+    for path, expected in expected_lastmod.items():
         url = f"https://aaronlab.github.io/browsertrace/{path}"
-        assert lastmod_by_url[url] == "2026-05-12", path
+        assert lastmod_by_url[url] == expected, path
 
     assert "<lastmod>2026-05-09</lastmod>" not in sitemap
 
