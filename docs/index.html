@@ -125,10 +125,18 @@
 
     .dek {
       margin: 14px 0 0;
-      max-width: 780px;
+      max-width: 760px;
       color: var(--muted);
       font-size: 19px;
       line-height: 1.45;
+    }
+
+    .story {
+      margin: 10px 0 0;
+      max-width: 820px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.5;
     }
 
     .actions {
@@ -333,6 +341,10 @@
         line-height: 1.5;
       }
 
+      .story {
+        font-size: 15px;
+      }
+
       .meta {
         gap: 8px;
         font-size: 13px;
@@ -386,7 +398,9 @@
     <section class="intro" aria-labelledby="title">
       <div>
         <h1 id="title">Browser Use failed?</h1>
-        <p class="dek">BrowserTrace replays what the agent saw, clicked, and returned: screenshots, URLs, actions, model output, status, and the first red step. Use <code>browsertrace compare</code> to find the first divergent action, URL, status, or error against a known-good run. Stagehand, Skyvern, Playwright&nbsp;+&nbsp;LLM, and computer-use&nbsp;workflows remain secondary integrations.</p>
+        <p class="dek">BrowserTrace replays a failed Browser Use run as a local timeline: screenshot, URL, action, model output, status, and the first red step.</p>
+        <p class="story">Demo story: Browser Use tries to upload <code>file:///tmp/browsertrace-report.html</code>, navigates to the local file path, and the upload preview never appears.</p>
+        <p class="story">Use <code>browsertrace compare</code> to find the first divergent action, URL, status, or error against a known-good run.</p>
         <div class="meta" aria-label="Project details">
           <span>MIT</span>
           <span>Local-first</span>

@@ -120,7 +120,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-13T06:06:05+00:00 | 3 | 998 | 22 | 0 | 10 | 0 | 27 | current monitor pass after Show HN and Product Hunt drafts surfaced browsertrace compare in main owner copy; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-13T06:13:06+00:00 | 3 | 998 | 22 | 0 | 10 | 0 | 27 | current monitor pass after homepage first-screen demo story split for Browser Use-first positioning; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 

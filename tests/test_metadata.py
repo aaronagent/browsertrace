@@ -409,7 +409,11 @@ def test_homepage_intro_uses_mobile_friendly_copy():
 
     assert "Browser Use failed?" in homepage
     assert "Replay an AI browser-agent failure</h1>" not in homepage
-    assert "BrowserTrace replays what the agent saw, clicked, and returned" in homepage
+    assert (
+        "BrowserTrace replays a failed Browser Use run as a local timeline" in homepage
+    )
+    assert "Demo story: Browser Use tries to upload" in homepage
+    assert "upload preview never appears" in homepage
     assert (
         'aria-label="Primary Browser Use run hooks" title="Primary Browser Use run hooks">Browser Use-first</span>'
         in homepage
@@ -423,6 +427,7 @@ def test_homepage_intro_uses_mobile_friendly_copy():
     assert "@media (max-width: 620px)" in homepage
     assert "@media (max-width: 420px)" in homepage
     assert "text-wrap: wrap" in homepage
+    assert ".story" in homepage
 
 
 def test_homepage_surfaces_failed_vs_good_compare_value():
@@ -467,8 +472,11 @@ def test_homepage_intro_uses_natural_title_wrapping():
     assert dek_html is not None
     assert '<h1 id="title">Browser Use failed?</h1>' in homepage
     assert "text-wrap: balance" in h1_css.group("body")
-    assert "Playwright&nbsp;+&nbsp;LLM" in dek_html.group("body")
-    assert "and computer-use&nbsp;workflows" in dek_html.group("body")
+    assert "BrowserTrace replays a failed Browser Use run as a local timeline" in dek_html.group(
+        "body"
+    )
+    assert "Stagehand, Skyvern, Playwright + LLM" in homepage
+    assert "and custom computer-use workflows" in homepage
     assert "custom&nbsp;computer-use&nbsp;agents" not in dek_html.group("body")
     assert 'class="title-line"' not in homepage
     assert ".title-line" not in homepage
