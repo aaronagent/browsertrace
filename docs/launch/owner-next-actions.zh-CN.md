@@ -79,7 +79,7 @@ session recovery。这些都是用具体失败场景来征集真实 workflow 反
    ```text
    Browser Use failed on a local `.html` upload: it navigated to the filename and the upload preview never appeared.
 
-   BrowserTrace replays the run and v0.1.19 adds `browsertrace compare` for failed vs good runs.
+   BrowserTrace replays the run and compares failed vs good runs to show the first divergent step.
 
    What should it capture?
    https://github.com/aaronlab/browsertrace
@@ -156,7 +156,7 @@ Stack 调试指南：
 
 ## 1. PyPI 已发布
 
-PyPI 已经不再是安装阻塞。BrowserTrace 已发布为 `0.1.19`：
+PyPI 已经不再是安装阻塞。BrowserTrace 已发布为 `0.1.20`：
 
 ```text
 https://pypi.org/project/browsertrace/

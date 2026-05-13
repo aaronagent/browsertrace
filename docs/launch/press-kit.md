@@ -13,8 +13,8 @@ or short descriptions for people who want to share BrowserTrace.
 - Live demo: https://aaronlab.github.io/browsertrace/
 - Walkthrough: https://aaronlab.github.io/browsertrace/debug-browser-agent-failure.html
 - Failure patterns: https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html
-- Release: https://github.com/aaronlab/browsertrace/releases/tag/v0.1.19
-- Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.19/browsertrace-demo-public.html
+- Release: https://github.com/aaronlab/browsertrace/releases/tag/v0.1.20
+- Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.20/browsertrace-demo-public.html
 - Feedback discussion: https://github.com/aaronlab/browsertrace/discussions/6
 
 ## Stack-Specific Guides

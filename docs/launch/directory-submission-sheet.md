@@ -15,8 +15,8 @@ upvotes, swaps, or artificial engagement.
 - Stagehand guide: https://aaronlab.github.io/browsertrace/stagehand-debugging.html
 - Skyvern guide: https://aaronlab.github.io/browsertrace/skyvern-debugging.html
 - Playwright + LLM guide: https://aaronlab.github.io/browsertrace/playwright-llm-debugging.html
-- Release: https://github.com/aaronlab/browsertrace/releases/tag/v0.1.19
-- Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.19/browsertrace-demo-public.html
+- Release: https://github.com/aaronlab/browsertrace/releases/tag/v0.1.20
+- Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.20/browsertrace-demo-public.html
 
 ## Try-It Commands
 
@@ -381,9 +381,9 @@ custom computer-use agents.
 
 Repo: https://github.com/aaronlab/browsertrace
 Live demo: https://aaronlab.github.io/browsertrace/
-Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.19/browsertrace-demo-public.html
+Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.20/browsertrace-demo-public.html
 Comparison: https://aaronlab.github.io/browsertrace/compare-browser-agent-debugging.html
-Release: https://github.com/aaronlab/browsertrace/releases/tag/v0.1.19
+Release: https://github.com/aaronlab/browsertrace/releases/tag/v0.1.20
 ```
 
 ## console.dev Email Draft
@@ -429,7 +429,7 @@ Repo: https://github.com/aaronlab/browsertrace
 Live demo: https://aaronlab.github.io/browsertrace/
 Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
 Comparison: https://aaronlab.github.io/browsertrace/compare-browser-agent-debugging.html
-Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.19/browsertrace-demo-public.html
+Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.20/browsertrace-demo-public.html
 
 This is not a sponsored review request. I would value any editorial feedback if
 it is not a fit.
@@ -467,7 +467,7 @@ timing and browser/session evidence matter as much as the final timeout.
 
 Repository: https://github.com/aaronlab/browsertrace
 Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
-Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.19/browsertrace-demo-public.html
+Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.20/browsertrace-demo-public.html
 Comparison: https://aaronlab.github.io/browsertrace/compare-browser-agent-debugging.html
 ```
 

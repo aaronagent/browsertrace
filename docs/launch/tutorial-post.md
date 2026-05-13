@@ -37,7 +37,7 @@ If you only want to inspect a share-safe export before installing anything, use
 the public-safe demo HTML:
 
 ```text
-https://github.com/aaronlab/browsertrace/releases/download/v0.1.19/browsertrace-demo-public.html
+https://github.com/aaronlab/browsertrace/releases/download/v0.1.20/browsertrace-demo-public.html
 ```
 
 For a compact list of browser-agent failure patterns and trace evidence to
@@ -155,6 +155,6 @@ Repo: https://github.com/aaronlab/browsertrace
 
 Live demo: https://aaronlab.github.io/browsertrace/
 
-Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.19/browsertrace-demo-public.html
+Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.20/browsertrace-demo-public.html
 
 If you are building with Browser Use, Stagehand, Playwright + LLM scripts, Skyvern, or custom computer-use agents, the most useful feedback is: what state do you wish your traces captured at failure time?

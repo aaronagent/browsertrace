@@ -24,8 +24,9 @@ Current demo angle:
 
 Current compare angle:
 
-- `v0.1.19` adds `browsertrace compare <failed_run_id> <success_run_id>` for
-  Browser Use runs with a known-good baseline. It reports the first divergent
+- BrowserTrace supports `browsertrace compare <failed_run_id>
+  <success_run_id>` and `/api/compare/<failed_run_id>/<success_run_id>` for
+  Browser Use runs with a known-good baseline. Both report the first divergent
   action, URL, status, or error before the user opens the local UI.
 
 Optional credibility note:
@@ -53,7 +54,7 @@ Use this if you only have one minute. Attach `docs/demo.mp4`.
 ```text
 Browser Use failed on a local `.html` upload: it navigated to the filename and the upload preview never appeared.
 
-BrowserTrace replays the run and v0.1.19 adds `browsertrace compare` for failed vs good runs.
+BrowserTrace replays the run and compares failed vs good runs to show the first divergent step.
 
 What should it capture?
 https://github.com/aaronlab/browsertrace
@@ -87,7 +88,9 @@ Live demo: https://aaronlab.github.io/browsertrace/
 ```
 
 ```text
-v0.1.19 adds `browsertrace compare`: give it a failed Browser Use run and a known-good run, and it reports the first divergent action, URL, status, or error.
+BrowserTrace can compare a failed Browser Use run with a known-good run and show the first divergent action, URL, status, or error.
+
+v0.1.20 exposes that payload through a local JSON endpoint too.
 
 That is the fastest path from "the agent failed" to "this is where it drifted."
 ```

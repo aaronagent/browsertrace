@@ -88,9 +88,9 @@ computer-use agents.
 
 Repo: https://github.com/aaronlab/browsertrace
 Live demo: https://aaronlab.github.io/browsertrace/
-Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.19/browsertrace-demo-public.html
+Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.20/browsertrace-demo-public.html
 Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html
-Release: https://github.com/aaronlab/browsertrace/releases/tag/v0.1.19
+Release: https://github.com/aaronlab/browsertrace/releases/tag/v0.1.20
 ```
 
 Submission notes:

@@ -9,6 +9,8 @@ to keep the first contribution small and reviewable.
 
 ## Unreleased
 
+## 0.1.20 - 2026-05-13
+
 - Added `/api/compare/<failed_run_id>/<success_run_id>` so local tools and
   agents can fetch the same first-divergence payload as
   `browsertrace compare --json` while the web UI is running.

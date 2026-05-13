@@ -93,7 +93,7 @@ post, use
    ```text
    Browser Use failed on a local `.html` upload: it navigated to the filename and the upload preview never appeared.
 
-   BrowserTrace replays the run and v0.1.19 adds `browsertrace compare` for failed vs good runs.
+   BrowserTrace replays the run and compares failed vs good runs to show the first divergent step.
 
    What should it capture?
    https://github.com/aaronlab/browsertrace
@@ -174,7 +174,7 @@ Stack-specific guide links:
 ## 1. PyPI Published
 
 PyPI is no longer the install blocker. BrowserTrace is published as version
-`0.1.19`:
+`0.1.20`:
 
 ```text
 https://pypi.org/project/browsertrace/

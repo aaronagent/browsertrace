@@ -22,7 +22,7 @@ https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html
 
 Public-safe demo export for privacy-sensitive replies:
 
-https://github.com/aaronlab/browsertrace/releases/download/v0.1.19/browsertrace-demo-public.html
+https://github.com/aaronlab/browsertrace/releases/download/v0.1.20/browsertrace-demo-public.html
 
 Optional external-listing credibility note:
 
@@ -233,7 +233,9 @@ Repo: https://github.com/aaronlab/browsertrace
 ```
 
 ```text
-v0.1.19 adds `browsertrace compare`: give it a failed Browser Use run and a known-good run, and it reports the first divergent action, URL, status, or error.
+BrowserTrace can compare a failed Browser Use run with a known-good run and show the first divergent action, URL, status, or error.
+
+v0.1.20 exposes that payload through a local JSON endpoint too.
 
 That is the fastest path from "the agent failed" to "this is where it drifted."
 ```
