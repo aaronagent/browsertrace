@@ -94,10 +94,11 @@ error: upload preview did not appear
 ```
 
 The comparison reports the first divergent step across the existing `action`,
-`url`, `status`, and `error` fields. It is intentionally explicit in v0.1.19:
+`url`, `status`, and `error` fields. It is intentionally explicit in v0.1.20:
 you choose the failed run and the good run instead of relying on automatic
-baseline selection. Use `--json` when you need structured output for automation
-or CI checks without pasting a large JSON blob into a reply.
+baseline selection. Use `--json` or the local `/api/compare/<failed>/<good>`
+endpoint when you need structured output for automation or UI checks without
+pasting a large JSON blob into a reply.
 
 Guide: https://aaronlab.github.io/browsertrace/browser-use-debugging.html#compare-run-metadata-checklist
 

@@ -44,7 +44,7 @@ Post only where the community rules allow it. The ask is feedback from people bu
 2. Hacker News once the first-run path is clearly understandable.
 3. Browser Use and Stagehand communities because they match the product.
 4. Reddit only with a useful write-up and after checking local rules.
-5. Directory/newsletter submissions after `v0.1.19` links are stable. Use
+5. Directory/newsletter submissions after `v0.1.20` links are stable. Use
    `docs/launch/directory-submission-sheet.md` as the queue.
 6. Product Hunt after the visual assets are strong enough for a broader audience.
 
@@ -71,9 +71,11 @@ failures.
 
 It records each Browser Use step as a timeline with screenshots, URL, action,
 model input/output, status, and errors, then exports a standalone HTML trace.
-The v0.1.19 release includes `browsertrace demo` for first-run onboarding,
-`browsertrace export --public` for public-safe sharing, and individual
-redaction flags when users want to keep some fields visible.
+The v0.1.20 release includes `browsertrace compare` for failed-vs-good run
+pairs, a local `/api/compare/<failed>/<good>` JSON endpoint, `browsertrace demo`
+for first-run onboarding, `browsertrace export --public` for public-safe
+sharing, and individual redaction flags when users want to keep some fields
+visible.
 
 Try locally from PyPI:
 

@@ -1,6 +1,6 @@
 # BrowserTrace Directory And Newsletter Submission Sheet
 
-Use this sheet after `v0.1.19`. Submit only where the target accepts tool
+Use this sheet after `v0.1.20`. Submit only where the target accepts tool
 suggestions, launches, or editorial pitches. Do not ask for stars, votes,
 upvotes, swaps, or artificial engagement.
 
@@ -49,10 +49,11 @@ as secondary integrations.
 BrowserTrace is an MIT-licensed local debugger for Browser Use failures. It
 records each Browser Use step as a timeline with screenshot, URL, action, model
 input/output, status, and error, then exports a standalone HTML trace with
-optional redaction. The `v0.1.19` release includes the public-safe
-`browsertrace export --public` mode, a packaged `browsertrace demo` command,
-Browser Use/Stagehand/Skyvern/Playwright guides, and a no-dependency Browser
-Use-shaped callback demo.
+optional redaction. The `v0.1.20` release includes `browsertrace compare` for
+failed-vs-good run pairs, a local `/api/compare/<failed>/<good>` JSON endpoint,
+the public-safe `browsertrace export --public` mode, a packaged
+`browsertrace demo` command, Browser Use/Stagehand/Skyvern/Playwright guides,
+and a no-dependency Browser Use-shaped callback demo.
 
 ## Submission Queue
 

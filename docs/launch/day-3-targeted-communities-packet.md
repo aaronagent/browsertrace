@@ -344,8 +344,9 @@ uv run --python 3.11 python scripts/launch_metrics.py --append --note "after com
 
 ## Directories And Newsletters
 
-Use these after `v0.1.19` because the release has the packaged demo command and
-safer redacted export path.
+Use these after `v0.1.20` because the release has the packaged demo command,
+failed-vs-good compare output, local compare API, and safer redacted export
+path.
 
 Use `docs/launch/directory-submission-sheet.md` for exact entry points, link
 order, owner-only notes, and tracking instructions.
@@ -394,9 +395,11 @@ records each Browser Use step as a timeline: screenshot, URL, action, model
 input/output, status, and error. Stagehand, Skyvern, and Playwright + LLM
 workflows are secondary integrations.
 
-The v0.1.19 release includes `browsertrace demo` for first-run onboarding,
-`browsertrace export --public` for public-safe sharing, and individual
-redaction flags when users want to keep some fields visible.
+The v0.1.20 release includes `browsertrace compare` for failed-vs-good run
+pairs, a local `/api/compare/<failed>/<good>` JSON endpoint,
+`browsertrace demo` for first-run onboarding, `browsertrace export --public`
+for public-safe sharing, and individual redaction flags when users want to keep
+some fields visible.
 
 Try locally from PyPI:
 
