@@ -421,6 +421,8 @@ with hooks:
       <pre><code>browsertrace list
 browsertrace compare &lt;failed_run_id&gt; &lt;success_run_id&gt;
 browsertrace compare &lt;failed_run_id&gt; &lt;success_run_id&gt; --json</code></pre>
+      <p>While the local BrowserTrace UI is running, local wrappers and tools can request the same first-divergence payload through the web API:</p>
+      <pre><code>curl http://127.0.0.1:3000/api/compare/&lt;failed_run_id&gt;/&lt;success_run_id&gt;</code></pre>
       <p>Example compare output:</p>
       <pre><code>$ browsertrace compare failed-local-html-upload good-local-html-upload
 First divergent step: 3
