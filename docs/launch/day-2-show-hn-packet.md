@@ -82,21 +82,21 @@ runs. Logs showed tool calls, but not what the model saw in the browser, which
 screenshot led to the decision, or where the first wrong assumption entered the
 run.
 
-One concrete failure shape: the screenshot shows the right plus icon, but the
-agent clicks a nearby toolbar button because the tooltip text is not an
-accessible name. That needs screenshot, URL, action, model decision, and
-target evidence in one place; a normal stack trace usually cannot explain it.
+The live demo focuses on a concrete Browser Use failure: a local HTML upload or
+attachment name gets misread as a navigation target. The useful evidence is the
+task prompt, model-visible attachment context, raw model action, parsed action
+type, URL, screenshot, and watchdog block reason.
 
-Another failure shape is remote CDP state collection: a stale remote browser can
+Another failure shape: the screenshot shows the right plus icon, but the agent
+clicks a nearby toolbar button because the tooltip text is not an accessible
+name. That needs screenshot, URL, action, model decision, and target evidence
+in one place; a normal stack trace usually cannot explain it.
+
+A third failure shape is remote CDP state collection: a stale remote browser can
 leave the websocket looking open while one CDP request never returns, and
 event-bus lock timing determines whether one bad session blocks others. That
 needs method timing and browser/session evidence, not just a generic timeout
 line.
-
-A third Browser Use failure shape happens before the browser step: a local HTML
-upload or attachment name can be misread as a navigation target, so the useful
-evidence is the task prompt, model-visible attachment context, raw model action,
-parsed action type, and watchdog block reason.
 
 BrowserTrace records each Browser Use step locally: screenshot, URL, action,
 model input, model output, status, and error. You open the local UI, click a

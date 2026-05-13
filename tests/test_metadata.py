@@ -5349,6 +5349,10 @@ def test_show_hn_packet_uses_concrete_browser_use_failure_shape():
     normalized_first_comment = re.sub(r"\s+", " ", first_comment)
 
     assert "https://aaronlab.github.io/browsertrace/browser-use-debugging.html" in packet
+    assert "The live demo focuses on a concrete Browser Use failure" in first_comment
+    assert first_comment.index("local HTML") < first_comment.index(
+        "right plus icon"
+    )
     assert "screenshot shows the right plus icon" in first_comment
     assert "tooltip text is not an" in first_comment
     assert "target evidence" in first_comment
@@ -5489,7 +5493,11 @@ def test_product_hunt_packet_uses_concrete_browser_use_failure_shape():
     )[0]
 
     assert "https://aaronlab.github.io/browsertrace/browser-use-debugging.html" in packet
-    assert "Browser Use agent saw the right plus icon" in maker_comment
+    assert "The live demo focuses on a recent failure shape" in maker_comment
+    assert maker_comment.index("local HTML") < maker_comment.index(
+        "right plus icon"
+    )
+    assert "agent saw the right plus icon" in maker_comment
     assert "tooltip text was not" in maker_comment
     assert "target evidence" in maker_comment
     assert "local HTML" in maker_comment

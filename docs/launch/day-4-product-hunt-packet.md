@@ -157,20 +157,20 @@ from logs alone.
 The agent would fail at step 47, but by then the browser state was gone. I
 could see which code ran, but not what the model saw, clicked, or returned.
 
-One recent failure shape: a Browser Use agent saw the right plus icon in the
+The live demo focuses on a recent failure shape: a Browser Use local HTML
+upload or attachment name gets interpreted as a navigation target. The trace
+needs prompt context, model-visible attachment metadata, raw model action,
+parsed action type, URL, screenshot, and watchdog block reason.
+
+Another Browser Use failure shape: the agent saw the right plus icon in the
 screenshot, but clicked a nearby toolbar button because the tooltip text was not
 an accessible name. That is the kind of bug where screenshot, URL, action,
 model decision, and target evidence need to sit together.
 
-Another recent failure shape: a remote browser session over CDP can look alive
-while a state-collection request never returns. If event-bus lock timing is part
-of the failure, you need method timing, browser/session IDs, and recovery state
-beside the failed step.
-
-Another Browser Use failure can happen before the page action itself: a local HTML
-upload or attachment name gets interpreted as a navigation target. The trace
-needs prompt context, model-visible attachment metadata, raw model action,
-parsed action type, and watchdog block reason.
+A third failure shape: a remote browser session over CDP can look alive while a
+state-collection request never returns. If event-bus lock timing is part of the
+failure, you need method timing, browser/session IDs, and recovery state beside
+the failed step.
 
 BrowserTrace keeps the missing context locally:
 
