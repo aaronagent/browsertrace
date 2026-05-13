@@ -15,25 +15,28 @@ BrowserTrace has already been repositioned Browser Use-first, one external list
 has accepted it, and the remaining list PRs should wait for maintainer
 feedback.
 
-The current growth blocker is owner-channel publishing:
+The current growth blocker is owner-controlled distribution, in this order:
 
-1. If you only have one minute, publish only the X single-post fallback from
-   `docs/launch/owner-social-post-packet.md` with `docs/demo.mp4` attached.
-   Do not wait until LinkedIn, WeChat, Jike, Show HN, or directories are also
-   ready.
-2. After that URL is logged, optionally mirror the same Browser Use-first story
+1. First, sign the Browser Use CLA for `browser-use/browser-use#4826`. This
+   unblocks the strongest ecosystem PR and cannot be done by Codex.
+2. If you only have one minute after signing, publish only the X single-post
+   fallback from `docs/launch/owner-social-post-packet.md` with `docs/demo.mp4`
+   attached. Do not wait until LinkedIn, WeChat, Jike, Show HN, or directories
+   are also ready.
+3. After that URL is logged, optionally mirror the same Browser Use-first story
    to LinkedIn, one or two relevant WeChat groups, and Jike.
-3. Submit Show HN from `docs/launch/owner-launch-submission-packet.md` only if
+4. Submit Show HN from `docs/launch/owner-launch-submission-packet.md` only if
    you can stay available for several hours to answer technical comments.
-4. After any channel goes live, send the post URL, group name, or send note to
+5. After any channel goes live, send the post URL, group name, or send note to
    Codex so metrics can be logged and replies can be monitored.
 
 Do not open new low-conversion directory PRs just to create activity. Wait for
 maintainer feedback on the existing PRs and respond only to concrete requests.
 
-Current one-minute unblock: publish the X single-post fallback from
-`docs/launch/owner-social-post-packet.md#x`. It now leads with the
-local `.html` upload failure story and mentions `browsertrace compare` for
+Current one-minute unblock: sign the Browser Use CLA. If it is already signed
+or immediately after signing, publish the X single-post fallback from
+`docs/launch/owner-social-post-packet.md#x`. It now leads with the local
+`.html` upload failure story and mentions `browsertrace compare` for
 failed-vs-good Browser Use runs.
 The current open good-first issue for contributor replies is
 `https://github.com/aaronlab/browsertrace/issues/371`.

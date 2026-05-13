@@ -11,23 +11,25 @@ browser agent 的人，失败时最缺什么调试信息？
 截至 2026-05-13，继续投泛目录不是最高优先级。BrowserTrace 已经完成
 Browser Use-first 定位，已有一个外部列表收录，其余列表 PR 继续等待维护者反馈。
 
-现在真正卡住增长的是 owner 渠道发布：
+现在真正卡住增长的是 owner 才能做的分发动作，顺序如下：
 
-1. 如果只有 1 分钟，先只发 X single-post fallback，附件用 `docs/demo.mp4`。
-   不要等 LinkedIn、微信群、即刻、Show HN 或目录投稿都准备好再发。
-2. 发完并记录 URL 后，再把同一个 Browser Use-first 故事同步到 LinkedIn、
+1. 先给 `browser-use/browser-use#4826` 签 Browser Use CLA。这会解锁最强的
+   生态 PR，而且 Codex 不能替你完成。
+2. 签完后如果只有 1 分钟，先只发 X single-post fallback，附件用
+   `docs/demo.mp4`。不要等 LinkedIn、微信群、即刻、Show HN 或目录投稿都准备好再发。
+3. 发完并记录 URL 后，再把同一个 Browser Use-first 故事同步到 LinkedIn、
    一两个真正相关的微信群和即刻。
-3. 如果接下来能连续在线几个小时回复技术评论，再提交 Show HN，用
+4. 如果接下来能连续在线几个小时回复技术评论，再提交 Show HN，用
    `docs/launch/owner-launch-submission-packet.md`。
-4. 发完任意渠道后，把帖子 URL、群名或发送备注给 Codex；Codex 继续记录指标、
+5. 发完任意渠道后，把帖子 URL、群名或发送备注给 Codex；Codex 继续记录指标、
    监控回复，并且只在有真实问题时协助回复。
 
 不要为了“看起来在推进”继续开新的低转化目录 PR；等维护者反馈再处理已有 PR。
 
-当前 1 分钟解锁动作：直接发
-`docs/launch/owner-social-post-packet.md#x` 里的 X single-post fallback。它已经改成
-local `.html` upload 失败故事，并提到 `browsertrace compare` 用于 failed-vs-good
-Browser Use run 对比。
+当前 1 分钟解锁动作：先签 Browser Use CLA。如果已经签完，或者刚签完后还有时间，
+直接发 `docs/launch/owner-social-post-packet.md#x` 里的 X single-post fallback。
+它已经改成 local `.html` upload 失败故事，并提到 `browsertrace compare` 用于
+failed-vs-good Browser Use run 对比。
 如果有人问怎么贡献，当前 open good-first issue 是
 `https://github.com/aaronlab/browsertrace/issues/371`。
 
