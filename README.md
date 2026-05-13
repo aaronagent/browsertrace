@@ -648,3 +648,8 @@ Changelog: [CHANGELOG.md](CHANGELOG.md).
 ## License
 
 MIT — see [LICENSE](LICENSE).
+
+
+## add compare output snippet to llms.txt
+
+Added per issue [#373](https://github.com/aaronlab/browsertrace/issues/373).
