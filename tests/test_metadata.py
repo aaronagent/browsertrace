@@ -5880,6 +5880,35 @@ browsertrace show <run_id> --json
     assert "reposts" not in reply.lower()
 
 
+def test_chinese_tutorial_post_is_browser_use_first_near_intro():
+    project_root = Path(__file__).resolve().parents[1]
+    tutorial = (
+        project_root / "docs" / "launch" / "chinese-tutorial-post.md"
+    ).read_text()
+    title_options = tutorial.split("## Title Options", 1)[1].split(
+        "## Article", 1
+    )[0]
+    intro = tutorial.split("## Article", 1)[1].split(
+        "## 为什么不是只看 Playwright Trace Viewer？", 1
+    )[0]
+
+    assert "Browser Use 跑挂了，为什么日志还是不够用？" in title_options
+    assert (
+        "Browser Use 失败了？我想直接回放它看到什么、点了什么"
+        in title_options
+    )
+    assert "调试 Browser Use：除了 log，还需要看到它当时看见了什么" in title_options
+    assert "最近我在调试 Browser Use" in intro
+    assert "先给 Browser Use 失败调试用的本地回放工具" in intro
+    assert "browsertrace compare <failed_run_id> <success_run_id>" in intro
+    assert "第一处 action、URL、status 或 error 分歧" in intro
+    assert "AI browser agent 的本地飞行记录仪" not in title_options
+    assert "AI browser agent 的本地飞行记录仪" not in intro
+    assert "stars" not in intro.lower()
+    assert "upvotes" not in intro.lower()
+    assert "reposts" not in intro.lower()
+
+
 def test_chinese_tutorial_post_links_security_policy_for_sensitive_reports():
     project_root = Path(__file__).resolve().parents[1]
     tutorial = (

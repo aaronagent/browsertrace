@@ -10,20 +10,20 @@ workflow feedback from people who actually build browser agents.
 ## Title Options
 
 ```text
-Browser agent 跑挂了，为什么日志还是不够用？
+Browser Use 跑挂了，为什么日志还是不够用？
 ```
 
 ```text
-我做了一个 AI browser agent 的本地飞行记录仪
+Browser Use 失败了？我想直接回放它看到什么、点了什么
 ```
 
 ```text
-调试 AI browser agent：除了 log，还需要看到它当时看见了什么
+调试 Browser Use：除了 log，还需要看到它当时看见了什么
 ```
 
 ## Article
 
-最近我在调试 browser agent 的时候，一直遇到一个很具体的问题：
+最近我在调试 Browser Use 的时候，一直遇到一个很具体的问题：
 
 agent 跑了几十步，最后失败了。
 
@@ -35,7 +35,7 @@ agent 跑了几十步，最后失败了。
 - 模型输入和模型输出分别是什么？
 - 它是哪一步开始理解错页面状态的？
 
-普通日志会告诉你“代码做了什么”，但 browser agent 的失败很多时候不是代码分支错了，而是 agent 在某一个浏览器状态下理解错了页面、点错了元素、或者基于一张过期截图继续推理。
+普通日志会告诉你“代码做了什么”，但 Browser Use 的失败很多时候不是代码分支错了，而是 agent 在某一个浏览器状态下理解错了页面、点错了元素、或者基于一张过期截图继续推理。
 
 所以我做了一个开源小工具：BrowserTrace。
 
@@ -59,7 +59,7 @@ https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html
 
 ## BrowserTrace 是什么
 
-BrowserTrace 可以理解成 AI browser agent 的本地飞行记录仪。
+BrowserTrace 是一个先给 Browser Use 失败调试用的本地回放工具。
 
 它会把一次 agent run 记录成 timeline，每一步包含：
 
@@ -72,6 +72,14 @@ BrowserTrace 可以理解成 AI browser agent 的本地飞行记录仪。
 - error
 
 失败之后，你打开本地 UI，就可以直接跳到出错步骤，看 agent 当时到底看到了什么、模型返回了什么、浏览器在哪个页面、错误发生在哪一步。
+
+如果同一个 Browser Use 任务有一条 failed run 和一条 known-good run，也可以先用：
+
+```bash
+browsertrace compare <failed_run_id> <success_run_id>
+```
+
+它会在命令行里报告第一处 action、URL、status 或 error 分歧，再决定要不要打开本地 UI 看完整 timeline。
 
 它是 MIT 开源、本地优先的工具，不需要注册账号，不需要上传 trace 到云端。
 
@@ -200,7 +208,7 @@ browsertrace export <run_id> --public -o public.html
 
 browser agent 失败以后，我能不能马上看到它当时看到的页面状态和模型决策？
 
-如果你在做 Browser Use、Stagehand、Playwright + LLM、Skyvern 或 computer-use agent，我想知道：
+如果你在做 Browser Use，或者在做 Stagehand、Playwright + LLM、Skyvern、自研 computer-use agent 这类 secondary integration，我想知道：
 
 - 你的 agent 失败时，当前日志最缺哪类信息？
 - screenshot、DOM、selector、model input/output、workflow state，哪个最关键？
