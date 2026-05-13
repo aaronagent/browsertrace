@@ -120,7 +120,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-13T05:05:38+00:00 | 3 | 998 | 20 | 0 | 11 | 0 | 27 | current monitor pass after Browser Use guide added compact browsertrace compare output in d17a08c, #372 was closed, and #373 opened as the next good-first docs issue; CI 25779466494 and Pages 25779466517 succeeded; Browser Use PR #4826 remains CLA-blocked; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-13T05:08:47+00:00 | 3 | 998 | 21 | 0 | 11 | 0 | 27 | current monitor pass after fork count increased to 21; contributor PR #374 for #373 was closed because it changed README instead of docs/llms.txt and lacked the requested metadata test; corrected maintainer guidance was posted, #373 remains open as the current good-first issue; Browser Use PR #4826 remains CLA-blocked; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
