@@ -40,7 +40,15 @@ uv run --python 3.11 python scripts/launch_metrics.py --append --note "before Da
 
 ## Publish Order
 
-1. X
+1. Browser Use CLA
+   - Sign the CLA for `browser-use/browser-use#4826`; this is the official
+     Browser Use example PR and all code checks pass.
+   - Current blocker: `license/cla`.
+   - Sign at
+     `https://cla-assistant.io/browser-use/browser-use?pullRequest=4826`.
+   - If it stays pending after signing, use
+     `https://cla-assistant.io/check/browser-use/browser-use?pullRequest=4826`.
+2. X
    - Attach `docs/demo.mp4`.
    - If you only have one minute, publish the X single-post fallback from
      `docs/launch/owner-social-post-packet.md#single-post`.
@@ -49,15 +57,15 @@ uv run --python 3.11 python scripts/launch_metrics.py --append --note "before Da
    - Post each `## X Follow-Up` text block 30-90 minutes later, or sooner if
      someone asks how to try it.
    - Pin only if the post gets real replies.
-2. LinkedIn
+3. LinkedIn
    - Attach `docs/demo.mp4` or `docs/demo-poster.png`.
    - Paste the `## LinkedIn` draft.
    - Reply to comments with the live demo first, then the repo.
-3. WeChat groups
+4. WeChat groups
    - Post to one or two relevant AI-builder groups only.
    - Paste the `## WeChat Group` draft.
    - Do not post to generic groups where people are not building agents.
-4. Jike
+5. Jike
    - Paste the `## Jike` draft.
    - Keep replies conversational and ask which agent stack people use.
 

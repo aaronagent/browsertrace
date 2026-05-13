@@ -4133,7 +4133,7 @@ def test_sitemap_lastmod_matches_current_launch_refresh():
     expected_lastmod = {
         "launch/": "2026-05-13",
         "launch/channel-copy.md": "2026-05-12",
-        "launch/day-1-publish-packet.md": "2026-05-12",
+        "launch/day-1-publish-packet.md": "2026-05-13",
         "launch/day-2-show-hn-packet.md": "2026-05-12",
         "launch/day-4-product-hunt-packet.md": "2026-05-12",
         "launch/owner-social-post-packet.md": "2026-05-12",
@@ -4682,6 +4682,11 @@ def test_day_1_publish_packet_prioritizes_x_single_post_fallback():
         "After each post", 1
     )[0]
 
+    assert "Browser Use CLA" in publish_order
+    assert "browser-use/browser-use#4826" in publish_order
+    assert "license/cla" in publish_order
+    assert "https://cla-assistant.io/browser-use/browser-use?pullRequest=4826" in publish_order
+    assert "https://cla-assistant.io/check/browser-use/browser-use?pullRequest=4826" in publish_order
     assert "X single-post fallback" in publish_order
     assert "docs/launch/owner-social-post-packet.md#single-post" in publish_order
     assert "only if you can stay online for replies" in publish_order
