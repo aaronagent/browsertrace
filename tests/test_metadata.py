@@ -931,6 +931,9 @@ def test_comparison_page_links_first_pr_recipe_for_small_contributions():
     assert "stars" not in page.lower()
     assert "upvotes" not in page.lower()
     assert "reposts" not in page.lower()
+    assert "browsertrace compare &lt;failed_run_id&gt; &lt;success_run_id&gt;" in page
+    assert "failed run and one known-good run" in page
+    assert "divergent action, URL, status, or error" in page
 
 
 def test_trace_demo_page_links_first_pr_recipe_for_small_contributions():

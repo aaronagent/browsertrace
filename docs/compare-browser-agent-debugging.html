@@ -251,6 +251,9 @@
           </tr>
         </tbody>
       </table>
+      <div class="note" style="margin-top: 18px">
+        <p><strong>Quick win:</strong> if you have one failed run and one known-good run, run <code>browsertrace compare &lt;failed_run_id&gt; &lt;success_run_id&gt;</code> to find the first divergent action, URL, status, or error before opening the full local UI. This complements Playwright Trace Viewer and LLM observability tools by narrowing the diff to the first meaningful browser-agent divergence.</p>
+      </div>
     </section>
 
     <section>
