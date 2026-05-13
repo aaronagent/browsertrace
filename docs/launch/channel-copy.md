@@ -321,7 +321,7 @@ Hi HN,
 
 I've been building with Browser Use and kept hitting the same debugging loop: a multi-minute run fails, the logs show tool calls, but I cannot see what the agent actually saw at the browser step where things went wrong.
 
-Concrete Browser Use failure shapes include new-tab desync, local HTML upload navigation being misread as a URL, remote CDP hangs, and icon-only buttons where the screenshot looks obvious but the accessible target is missing.
+Concrete Browser Use failure shapes include new-tab desync, multi-step form drift, local HTML upload navigation being misread as a URL, remote CDP hangs, and icon-only buttons where the screenshot looks obvious but the accessible target is missing.
 
 BrowserTrace is a small Python library plus local web UI that records each Browser Use step: screenshot, URL, action, model input, model output, status, and error. You open localhost:3000, click the run, and jump to the failed step. If you have a known-good run for the same task, `browsertrace compare <failed_run_id> <success_run_id>` reports the first divergent action, URL, status, or error before you open the UI.
 

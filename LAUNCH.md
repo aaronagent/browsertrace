@@ -120,7 +120,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-13T00:57:27+00:00 | 3 | 998 | 21 | 0 | 11 | 0 | 15 | current monitor pass after owner action issue #9 refreshed with current CI/Pages, Browser Use #4476 docs status, and the one-minute X post blocker: https://github.com/aaronlab/browsertrace/issues/9#issuecomment-4436094210; owner-channel publishing remains the blocker; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-13T01:07:26+00:00 | 3 | 998 | 21 | 0 | 11 | 0 | 15 | current monitor pass after owner social/next-action copy was synced with the Browser Use #4476 multi-step form drift failure pattern; owner-channel publishing remains the blocker; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 

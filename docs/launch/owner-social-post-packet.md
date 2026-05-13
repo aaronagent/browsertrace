@@ -137,7 +137,7 @@ Browser Use guide: https://aaronlab.github.io/browsertrace/browser-use-debugging
 Failure patterns: https://aaronlab.github.io/browsertrace/browser-agent-failure-patterns.html
 Repo: https://github.com/aaronlab/browsertrace
 
-The failure-patterns page includes Browser Use new-tab desync, Browser Use local HTML upload navigation, remote CDP hangs, and icon-only target mismatch. Secondary examples cover Stagehand semantic verification and Skyvern VNC/CDP debug.
+The failure-patterns page includes Browser Use new-tab desync, Browser Use multi-step form drift, Browser Use local HTML upload navigation, remote CDP hangs, and icon-only target mismatch. Secondary examples cover Stagehand semantic verification and Skyvern VNC/CDP debug.
 
 I am looking for feedback from people debugging real Browser Use runs. What should it record that your current logs miss?
 ```

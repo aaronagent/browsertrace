@@ -50,7 +50,8 @@ Browser Use users directly.
 
 Fastest fresh technical post: publish either Browser Use angle from
 `docs/launch/channel-copy.md` before or alongside the Day 1 posts:
-`#fresh-browser-use-debugging-angle` for icon-only target failures, or
+`#fresh-browser-use-debugging-angle` for icon-only target failures,
+the multi-step form drift copy around Browser Use #4476, or
 `#fresh-browser-use-remote-cdp-angle` for remote-CDP hangs and event-bus lock
 timing. If your audience builds custom computer-use agents, use
 `#fresh-computer-use-persistent-browser-recovery-angle` for persistent browser

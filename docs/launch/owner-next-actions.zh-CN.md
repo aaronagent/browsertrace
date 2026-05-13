@@ -44,6 +44,7 @@ owner 渠道或 Show HN。新的目录提交优先级低于能直接触达 Brows
 最快的一条技术帖：先用 `docs/launch/channel-copy.md` 里的任意一个
 Browser Use angle，可以放在 Day 1 正式帖子之前或一起发：
 `#fresh-browser-use-debugging-angle` 针对 icon-only target 失败，
+也可以用 Browser Use #4476 对应的 multi-step form drift 文案，
 `#fresh-browser-use-remote-cdp-angle` 针对 remote-CDP hang 和 event-bus lock
 timing。如果你的受众在做 custom computer-use agents，用
 `#fresh-computer-use-persistent-browser-recovery-angle` 针对 persistent browser
