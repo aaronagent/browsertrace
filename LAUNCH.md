@@ -120,7 +120,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-13T08:24:08+00:00 | 3 | 998 | 22 | 0 | 11 | 0 | 0 | current monitor pass after traffic increased to 433 views / 155 unique and 19128 clones / 3205 unique while stars remain 3; Browser Use PR #4826 remains CLA-blocked; no new external feedback requires action; traffic views 433/155 unique, clones 19128/3205 unique |
+| 2026-05-13T08:45:54+00:00 | 3 | 998 | 22 | 0 | 10 | 0 | 0 | current monitor pass after contributor PR #379 merged for compare API response-template docs, #378 closed, and homepage hero token wrapping fix a83299d deployed; CI 25788370513 and Pages 25788370440 succeeded; Browser Use PR #4826 remains owner CLA-blocked; star goal remains incomplete; traffic views 433/155 unique, clones 19128/3205 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
