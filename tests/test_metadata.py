@@ -374,8 +374,8 @@ def test_homepage_names_current_adapter_surfaces():
 
     assert "Browser Use run hooks" in homepage
     assert (
-        "Also supports Stagehand, Skyvern, Playwright + LLM, and custom computer-use workflows "
-        "as secondary integrations."
+        "Secondary integrations: Stagehand, Skyvern, Playwright + LLM, and custom "
+        "computer-use workflows."
         in homepage
     )
 
@@ -407,9 +407,9 @@ def test_homepage_intro_uses_mobile_friendly_copy():
     project_root = Path(__file__).resolve().parents[1]
     homepage = (project_root / "docs" / "index.html").read_text()
 
-    assert "Debug Browser Use failures" in homepage
+    assert "Browser Use failed?" in homepage
     assert "Replay an AI browser-agent failure</h1>" not in homepage
-    assert "Replay what a Browser Use agent saw, clicked, and returned" in homepage
+    assert "BrowserTrace replays what the agent saw, clicked, and returned" in homepage
     assert (
         'aria-label="Primary Browser Use run hooks" title="Primary Browser Use run hooks">Browser Use-first</span>'
         in homepage
@@ -418,7 +418,7 @@ def test_homepage_intro_uses_mobile_friendly_copy():
     assert "Stagehand</span>" not in intro
     assert "Skyvern</span>" not in intro
     assert "Playwright + LLM</span>" not in intro
-    assert "Also supports Stagehand, Skyvern, Playwright + LLM" in intro
+    assert "Secondary integrations: Stagehand, Skyvern, Playwright + LLM" in intro
     assert "font-size: clamp(34px, 6vw, 60px)" not in homepage
     assert "@media (max-width: 620px)" in homepage
     assert "@media (max-width: 420px)" in homepage
@@ -465,7 +465,7 @@ def test_homepage_intro_uses_natural_title_wrapping():
 
     assert h1_css is not None
     assert dek_html is not None
-    assert '<h1 id="title">Debug Browser Use failures</h1>' in homepage
+    assert '<h1 id="title">Browser Use failed?</h1>' in homepage
     assert "text-wrap: balance" in h1_css.group("body")
     assert "Playwright&nbsp;+&nbsp;LLM" in dek_html.group("body")
     assert "and computer-use&nbsp;workflows" in dek_html.group("body")
@@ -520,6 +520,25 @@ def test_homepage_intro_actions_do_not_squeeze_copy_column():
     assert "justify-content: flex-start" in actions_css.group("body")
     assert "justify-self: start" in actions_css.group("body")
     assert "width: 100%" in actions_css.group("body")
+
+
+def test_homepage_intro_keeps_mobile_action_count_focused():
+    project_root = Path(__file__).resolve().parents[1]
+    homepage = (project_root / "docs" / "index.html").read_text()
+    actions = re.search(
+        r'<div class="actions" aria-label="Actions">(?P<body>.*?)</div>',
+        homepage,
+        re.S,
+    )
+
+    assert actions is not None
+    body = actions.group("body")
+
+    assert 'href="./browser-use-debugging.html">Browser Use guide</a>' in body
+    assert 'href="./compare-browser-agent-debugging.html">Compare runs</a>' in body
+    assert 'href="https://github.com/aaronlab/browsertrace">View repo</a>' in body
+    assert 'href="./debug-browser-agent-failure.html">Replay walkthrough</a>' not in body
+    assert 'href="./browser-agent-failure-patterns.html">Failure patterns</a>' not in body
 
 
 def test_homepage_mobile_nav_stays_scrollable_and_actions_wrap_compactly():
@@ -4126,13 +4145,14 @@ def test_sitemap_lastmod_tracks_recent_public_page_refreshes():
         for url in root.findall("sm:url", namespace)
     }
 
-    for path in [
-        "",
-        "browser-use-debugging.html",
-        "integrations.html",
-    ]:
+    expected_lastmod = {
+        "": "2026-05-13",
+        "browser-use-debugging.html": "2026-05-12",
+        "integrations.html": "2026-05-12",
+    }
+    for path, expected in expected_lastmod.items():
         url = f"https://aaronlab.github.io/browsertrace/{path}"
-        assert lastmod_by_url[url] == "2026-05-12", path or "homepage"
+        assert lastmod_by_url[url] == expected, path or "homepage"
 
 
 def test_launch_copy_includes_pypi_trial_after_publish():

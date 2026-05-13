@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Debug Browser Use failures by replaying screenshots, URLs, actions, model output, status, the first red step, and failed-vs-good run differences locally.">
-  <meta property="og:title" content="BrowserTrace for Browser Use failures">
-  <meta property="og:description" content="Replay what a failed Browser Use agent saw, clicked, and returned, then compare failed and known-good runs from the CLI.">
+  <meta name="description" content="Browser Use failed? BrowserTrace replays screenshots, URLs, actions, model output, status, the first red step, and failed-vs-good run differences locally.">
+  <meta property="og:title" content="Browser Use failed? Replay it with BrowserTrace">
+  <meta property="og:description" content="Replay what the failed Browser Use agent saw, clicked, and returned, then compare failed and known-good runs from the CLI.">
   <meta property="og:image" content="https://aaronlab.github.io/browsertrace/social-preview.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://aaronlab.github.io/browsertrace/">
@@ -38,7 +38,7 @@
     ]
   }
   </script>
-  <title>BrowserTrace for Browser Use failures</title>
+  <title>Browser Use failed? Replay it with BrowserTrace</title>
   <style>
     :root {
       color-scheme: light;
@@ -385,23 +385,21 @@
   <main>
     <section class="intro" aria-labelledby="title">
       <div>
-        <h1 id="title">Debug Browser Use failures</h1>
-        <p class="dek">Replay what a Browser Use agent saw, clicked, and returned: screenshots, URLs, actions, model output, status, and the first red step. When you have a known-good run, <code>browsertrace compare</code> points to the first divergent action, URL, status, or error. Stagehand, Skyvern, Playwright&nbsp;+&nbsp;LLM, and computer-use&nbsp;workflows stay supported as secondary integrations.</p>
+        <h1 id="title">Browser Use failed?</h1>
+        <p class="dek">BrowserTrace replays what the agent saw, clicked, and returned: screenshots, URLs, actions, model output, status, and the first red step. Use <code>browsertrace compare</code> to find the first divergent action, URL, status, or error against a known-good run. Stagehand, Skyvern, Playwright&nbsp;+&nbsp;LLM, and computer-use&nbsp;workflows remain secondary integrations.</p>
         <div class="meta" aria-label="Project details">
           <span>MIT</span>
           <span>Local-first</span>
           <span>No signup</span>
           <span aria-label="Primary Browser Use run hooks" title="Primary Browser Use run hooks">Browser Use-first</span>
         </div>
-        <p class="listing">Also supports Stagehand, Skyvern, Playwright + LLM, and custom computer-use workflows as secondary integrations.</p>
+        <p class="listing">Secondary integrations: Stagehand, Skyvern, Playwright + LLM, and custom computer-use workflows.</p>
         <p class="listing">Listed in <a href="https://github.com/Jenqyang/Awesome-AI-Agents">Awesome-AI-Agents</a> under Applications -&gt; Tools.</p>
       </div>
       <div class="actions" aria-label="Actions">
         <a class="button primary" href="./browser-use-debugging.html">Browser Use guide</a>
         <a class="button" href="./compare-browser-agent-debugging.html">Compare runs</a>
         <a class="button" href="https://github.com/aaronlab/browsertrace">View repo</a>
-        <a class="button" href="./debug-browser-agent-failure.html">Replay walkthrough</a>
-        <a class="button" href="./browser-agent-failure-patterns.html">Failure patterns</a>
       </div>
     </section>
 
