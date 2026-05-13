@@ -120,7 +120,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-13T07:03:45+00:00 | 3 | 998 | 22 | 0 | 10 | 0 | 27 | current monitor pass after local JSON API added /api/compare for Browser Use failed-vs-good run divergence; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-13T07:17:35+00:00 | 3 | 998 | 22 | 0 | 10 | 0 | 0 | current monitor pass after v0.1.20 PyPI publish and GitHub release completed with compare JSON API assets; CI, Pages, and Publish workflows succeeded; Browser Use official PR #4826 remains owner CLA-blocked; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
