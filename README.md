@@ -648,3 +648,8 @@ Changelog: [CHANGELOG.md](CHANGELOG.md).
 ## License
 
 MIT — see [LICENSE](LICENSE).
+
+
+## add compare output snippet to response templates
+
+Added per issue [#375](https://github.com/aaronlab/browsertrace/issues/375).
