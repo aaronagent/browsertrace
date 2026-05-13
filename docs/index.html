@@ -400,6 +400,7 @@
         <h1 id="title">Browser Use failed?</h1>
         <p class="dek">BrowserTrace replays a failed Browser Use run as a local timeline: screenshot, URL, action, model output, status, and the first red step.</p>
         <p class="story">Demo story: Browser Use tries to upload <code>file:///tmp/browsertrace-report.html</code>, navigates to the local file path, and the upload preview never appears.</p>
+        <p class="story">That <code>.html</code> upload is the demo failure, not the product boundary: BrowserTrace also records Stagehand, Skyvern, Playwright + LLM, and custom computer-use runs.</p>
         <p class="story">Use <code>browsertrace compare</code> to find the first divergent action, URL, status, or error against a known-good run.</p>
         <div class="meta" aria-label="Project details">
           <span>MIT</span>

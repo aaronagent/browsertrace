@@ -77,9 +77,9 @@ session recovery。这些都是用具体失败场景来征集真实 workflow 反
    绑在一起等。复制版在 `docs/launch/owner-social-post-packet.md`：
 
    ```text
-   Browser Use failed on a local `.html` upload: it navigated to the filename and the upload preview never appeared.
+   Browser Use failed on a local `.html` upload: the upload preview never appeared.
 
-   BrowserTrace replays the run and compares failed vs good runs to show the first divergent step.
+   That `.html` case is just the demo. BrowserTrace replays browser-agent runs and compares failed vs good runs.
 
    What should it capture?
    https://github.com/aaronlab/browsertrace

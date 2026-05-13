@@ -91,9 +91,9 @@ post, use
    version is in `docs/launch/owner-social-post-packet.md`:
 
    ```text
-   Browser Use failed on a local `.html` upload: it navigated to the filename and the upload preview never appeared.
+   Browser Use failed on a local `.html` upload: the upload preview never appeared.
 
-   BrowserTrace replays the run and compares failed vs good runs to show the first divergent step.
+   That `.html` case is just the demo. BrowserTrace replays browser-agent runs and compares failed vs good runs.
 
    What should it capture?
    https://github.com/aaronlab/browsertrace

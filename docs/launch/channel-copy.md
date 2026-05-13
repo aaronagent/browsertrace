@@ -214,7 +214,7 @@ Non-Premium-safe thread. Post each `text` block as one X post.
 ```text
 Browser Use failed on a local `.html` upload: it navigated to the filename and the upload preview never appeared.
 
-I built BrowserTrace to replay what the agent saw, clicked, and returned before the first red step.
+That `.html` case is just the demo. BrowserTrace replays what the agent saw, clicked, and returned before the first red step.
 
 No signup, no cloud, MIT.
 ```

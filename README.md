@@ -26,6 +26,10 @@ The current demo story is concrete: Browser Use tries to upload
 `file:///tmp/browsertrace-report.html`, navigates to the local file path
 instead, and the upload preview never appears.
 
+The `.html` upload is just the demo failure, not the product boundary.
+BrowserTrace also records Browser Use, Stagehand, Skyvern, Playwright + LLM,
+and custom computer-use runs.
+
 BrowserTrace records each Browser Use step as a local timeline: screenshot,
 URL, action, model input, model output, status, and error. Open the local UI
 and jump straight to the failed browser state.

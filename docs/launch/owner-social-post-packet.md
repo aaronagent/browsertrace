@@ -52,9 +52,9 @@ action, model output, status, and the failed step highlighted in red.
 Use this if you only have one minute. Attach `docs/demo.mp4`.
 
 ```text
-Browser Use failed on a local `.html` upload: it navigated to the filename and the upload preview never appeared.
+Browser Use failed on a local `.html` upload: the upload preview never appeared.
 
-BrowserTrace replays the run and compares failed vs good runs to show the first divergent step.
+That `.html` case is just the demo. BrowserTrace replays browser-agent runs and compares failed vs good runs.
 
 What should it capture?
 https://github.com/aaronlab/browsertrace
