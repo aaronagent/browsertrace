@@ -4616,6 +4616,18 @@ def test_owner_publish_queue_records_current_awesome_list_pr_count():
     assert "steel-dev/awesome-web-agents#56" in queue
 
 
+def test_owner_publish_queue_surfaces_browser_use_cla_before_posts():
+    project_root = Path(__file__).resolve().parents[1]
+    queue = (project_root / "docs" / "launch" / "owner-publish-queue.md").read_text()
+    preflight = queue.split("0. GitHub pre-flight", 1)[1].split("1. X", 1)[0]
+
+    assert "Browser Use official example PR" in preflight
+    assert "browser-use/browser-use#4826" in preflight
+    assert "license/cla" in preflight
+    assert "https://cla-assistant.io/browser-use/browser-use?pullRequest=4826" in preflight
+    assert "https://cla-assistant.io/check/browser-use/browser-use?pullRequest=4826" in preflight
+
+
 def test_owner_docs_mark_pypi_publish_complete():
     project_root = Path(__file__).resolve().parents[1]
     docs = [

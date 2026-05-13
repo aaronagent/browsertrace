@@ -58,6 +58,12 @@ Use `docs/launch/day-1-publish-packet.md` as the single owner-facing checklist.
      in Google Search Console and Bing Webmaster Tools.
    - Search indexing tracking issue:
      https://github.com/aaronlab/browsertrace/issues/16
+   - Browser Use official example PR: `browser-use/browser-use#4826` is open
+     and all code checks pass. The only current blocker is `license/cla`.
+     Sign the CLA at
+     `https://cla-assistant.io/browser-use/browser-use?pullRequest=4826`.
+     If it stays pending after signing, use the recheck link:
+     `https://cla-assistant.io/check/browser-use/browser-use?pullRequest=4826`.
    - External GitHub list/directory PRs: one focused PR is merged/listed
      (`Jenqyang/Awesome-AI-Agents#220`), and the remaining focused PRs are
      open, including `steel-dev/awesome-web-agents#56` and
