@@ -120,7 +120,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-13T04:30:47+00:00 | 3 | 998 | 20 | 0 | 11 | 0 | 27 | current monitor pass after examples guide added browsertrace compare expected-output example for issue #371; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-13T04:34:30+00:00 | 3 | 998 | 20 | 0 | 11 | 0 | 27 | current monitor pass after good-first issue rotated from closed #371 to pinned #372 for Browser Use guide compare output docs; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 

@@ -31,7 +31,7 @@ Browser Use-first 定位，已有一个外部列表收录，其余列表 PR 继�
 它已经改成 local `.html` upload 失败故事，并提到 `browsertrace compare` 用于
 failed-vs-good Browser Use run 对比。
 如果有人问怎么贡献，当前 open good-first issue 是
-`https://github.com/aaronlab/browsertrace/issues/371`。
+`https://github.com/aaronlab/browsertrace/issues/372`。
 
 Browser Use 官方 example PR：`browser-use/browser-use#4826` 已打开，内容是可选的
 `examples/observability/browsertrace.py` 示例。这个比继续投泛目录更值得，因为

@@ -39,7 +39,7 @@ or immediately after signing, publish the X single-post fallback from
 `.html` upload failure story and mentions `browsertrace compare` for
 failed-vs-good Browser Use runs.
 The current open good-first issue for contributor replies is
-`https://github.com/aaronlab/browsertrace/issues/371`.
+`https://github.com/aaronlab/browsertrace/issues/372`.
 
 Browser Use official example PR: `browser-use/browser-use#4826` is open with an
 optional `examples/observability/browsertrace.py` example. The fit is stronger

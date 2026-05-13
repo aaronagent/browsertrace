@@ -17,7 +17,7 @@ people building browser agents.
 - Public-safe demo export: https://github.com/aaronlab/browsertrace/releases/download/v0.1.19/browsertrace-demo-public.html
 - Launch discussion: https://github.com/aaronlab/browsertrace/discussions/6
 - Feedback issue: https://github.com/aaronlab/browsertrace/issues/3
-- Current good-first issue: https://github.com/aaronlab/browsertrace/issues/371
+- Current good-first issue: https://github.com/aaronlab/browsertrace/issues/372
 
 Shortest owner checklist: `docs/launch/owner-next-actions.md`
 Shortest owner social post packet: `docs/launch/owner-social-post-packet.md`
