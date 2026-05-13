@@ -38,6 +38,16 @@ failed-vs-good Browser Use runs.
 The current open good-first issue for contributor replies is
 `https://github.com/aaronlab/browsertrace/issues/371`.
 
+Codex-side next action that needs owner approval: prepare a small
+`browser-use/browser-use` PR adding `examples/observability/browsertrace.py`.
+The fit is stronger than more broad directory submissions because Browser Use
+has an existing `examples/observability/openLLMetry.py` slot. Keep the PR
+optional and non-invasive: no Browser Use core changes, no new dependency in
+`pyproject.toml`, an import guard that prints the BrowserTrace install command,
+and a `create_run_hooks(...)` example for
+`agent.run(on_step_start=..., on_step_end=...)`. Do not open this PR until the
+owner explicitly confirms it.
+
 ## 10-Minute Owner Unblock
 
 If you only have one short session, do these in order and let Codex handle the

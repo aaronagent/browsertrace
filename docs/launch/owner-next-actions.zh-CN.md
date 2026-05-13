@@ -31,6 +31,14 @@ Browser Use run 对比。
 如果有人问怎么贡献，当前 open good-first issue 是
 `https://github.com/aaronlab/browsertrace/issues/371`。
 
+需要你确认的 Codex-side 下一步：准备一个很小的 `browser-use/browser-use` PR，
+新增 `examples/observability/browsertrace.py`。这个比继续投泛目录更值得，因为
+Browser Use 官方 repo 里已经有 `examples/observability/openLLMetry.py` 这个自然位置。
+PR 必须保持 optional、non-invasive：不改 Browser Use 核心代码，不往
+`pyproject.toml` 加依赖，用 import guard 提示 BrowserTrace 安装命令，并展示
+`create_run_hooks(...)` 接到
+`agent.run(on_step_start=..., on_step_end=...)`。你明确确认前，不开这个 PR。
+
 ## 10 分钟 Owner 解锁顺序
 
 如果你只有一小段时间，按这个顺序做；后面的验证、README 更新、指标记录和
