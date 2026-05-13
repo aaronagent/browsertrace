@@ -120,7 +120,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-13T03:09:06+00:00 | 3 | 998 | 20 | 0 | 11 | 0 | 21 | current monitor pass after response template clarified BrowserTrace is not only for local HTML files in 4226568; CI 25775818722 and Pages 25775818712 succeeded; fork count is now 20 and owner-channel publishing remains the blocker; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-13T03:13:07+00:00 | 3 | 998 | 20 | 0 | 11 | 0 | 21 | current monitor pass after v0.1.19 release media assets demo.mp4 demo.gif and demo-poster.png were replaced with the refreshed Browser Use local HTML upload failure assets; release media SHA-256 matches docs assets; owner-channel publishing remains the blocker; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
