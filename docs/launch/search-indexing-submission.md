@@ -75,14 +75,13 @@ Use this payload:
 }
 ```
 
-Latest submission, 2026-05-12 UTC: Codex refreshed the homepage, sitemap,
-comparison page, Browser Use guide, launch kit, channel copy, owner social
-post packet, owner email packet, and owner HN/Product Hunt packet after the
-compare-first Browser Use positioning update. The generic IndexNow endpoint
-and the Bing IndexNow endpoint both returned HTTP 200 with empty response
-bodies.
+Latest submission, 2026-05-13 UTC: Codex refreshed the Browser Use guide,
+failure patterns page, and `llms.txt` after the Browser Use multi-step form
+drift docs update from browser-use/browser-use#4476. The generic IndexNow
+endpoint and the Bing IndexNow endpoint both returned HTTP 200 with empty
+response bodies.
 Tracking comment:
-`https://github.com/aaronlab/browsertrace/issues/16#issuecomment-4435611515`.
+`https://github.com/aaronlab/browsertrace/issues/16#issuecomment-4436073906`.
 
 ## Contribution Reply
 

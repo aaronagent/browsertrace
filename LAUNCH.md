@@ -120,7 +120,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-13T00:51:40+00:00 | 3 | 998 | 21 | 0 | 11 | 0 | 15 | current monitor pass after Browser Use multi-step form drift docs were added from discussion #4476 to the Browser Use guide, failure patterns page, README, and llms.txt; owner-channel publishing remains the blocker; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
+| 2026-05-13T00:54:10+00:00 | 3 | 998 | 21 | 0 | 11 | 0 | 15 | current monitor pass after live Pages verified Browser Use multi-step form drift docs and IndexNow refresh returned HTTP 200 from generic and Bing endpoints: https://github.com/aaronlab/browsertrace/issues/16#issuecomment-4436073906; owner-channel publishing remains the blocker; star goal remains incomplete; traffic views 354/132 unique, clones 16382/2819 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
