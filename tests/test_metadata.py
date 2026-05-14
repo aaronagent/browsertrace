@@ -4004,6 +4004,8 @@ def test_browser_use_guide_documents_compare_run_metadata_checklist():
     )
     assert "local BrowserTrace UI is running" in section
     assert "same first-divergence payload" in section
+    assert "local dashboards, scripts, or automation preflight checks" in section
+    assert "same first-divergence JSON payload" in section
     assert "first divergent step" in section
     assert "Example compare output:" in section
     assert "$ browsertrace compare failed-local-html-upload good-local-html-upload" in section
