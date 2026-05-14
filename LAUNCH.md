@@ -120,7 +120,7 @@ Current latest audit:
 
 | Captured at | Stars | To 1001 | Forks | Watchers | Issues | PRs | Release downloads | Note |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-05-13T09:43:30+00:00 | 3 | 998 | 23 | 0 | 11 | 0 | 0 | current monitor pass after Browser Use discussion #4816 followed up with v0.1.20 local compare API and feedback request: https://github.com/browser-use/browser-use/discussions/4816#discussioncomment-16902984; Browser Use PR #4826 remains CLA-blocked; star goal remains incomplete; traffic views 433/155 unique, clones 19128/3205 unique |
+| 2026-05-14T09:42:36+00:00 | 3 | 998 | 23 | 0 | 11 | 0 | 0 | current monitor pass after PR #385 merged for #384, duplicate PR #386 closed, and replacement good-first issue #387 opened and pinned for examples guide compare API docs; CI 25853145596 and Pages 25853145618 succeeded; star goal remains incomplete; traffic views 437/157 unique, clones 20487/3387 unique |
 
 The active objective is incomplete until `stargazerCount > 1000`.
 
