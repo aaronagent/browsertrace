@@ -423,6 +423,7 @@ browsertrace compare &lt;failed_run_id&gt; &lt;success_run_id&gt;
 browsertrace compare &lt;failed_run_id&gt; &lt;success_run_id&gt; --json</code></pre>
       <p>While the local BrowserTrace UI is running, local wrappers and tools can request the same first-divergence payload through the web API:</p>
       <pre><code>curl http://127.0.0.1:3000/api/compare/&lt;failed_run_id&gt;/&lt;success_run_id&gt;</code></pre>
+      <p>Prefer the local API endpoint over the CLI output when a script, dashboard, or automation preflight check needs the first-divergence payload as JSON — for example, a CI step that reports the exact divergent action back to a tracking system, or a local debugging UI that visualises the diff without shelling out.</p>
       <p>Example compare output:</p>
       <pre><code>$ browsertrace compare failed-local-html-upload good-local-html-upload
 First divergent step: 3

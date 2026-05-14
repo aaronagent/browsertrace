@@ -4028,6 +4028,11 @@ def test_browser_use_guide_documents_compare_run_metadata_checklist():
         assert expected in section
 
     assert "does not replace the local UI" in section
+    assert (
+        "script, dashboard, or automation preflight check" in section
+        or "local dashboards, scripts, or automation" in section
+        or "preflight" in section
+    )
     assert "stars" not in section.lower()
     assert "upvotes" not in section.lower()
     assert "reposts" not in section.lower()
