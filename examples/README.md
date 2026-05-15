@@ -266,6 +266,11 @@ Expected output:
 - `browsertrace list --status failed --json` prints recent failed runs as JSON, including run IDs and status values you can feed into automation.
 - `browsertrace show <run_id> --json` prints one run as JSON, including run details and step timeline data for that run.
 
+When the local BrowserTrace UI is running, scripts, dashboards, or automation
+checks can also call `GET /api/compare/<failed_run_id>/<success_run_id>` for
+the same first-divergence JSON payload shown by
+`browsertrace compare <failed_run_id> <success_run_id> --json`.
+
 For compact AI/coding-agent troubleshooting context, use
 [`docs/llms.txt`](../docs/llms.txt); it includes JSON CLI checks, project links,
 and prompts.
