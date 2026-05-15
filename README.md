@@ -140,7 +140,7 @@ When you have a failed run and a known-good run for the same Browser Use task,
 use `browsertrace compare <failed_run_id> <success_run_id> --json` to locate
 the first divergent action, URL, status, or error field.
 
-For automation-oriented usage notes, see
+For the complete automation recipe, see
 [JSON CLI checks for automation](examples/#json-cli-checks-for-automation).
 
 For compact AI/coding-agent troubleshooting context, use
@@ -638,8 +638,8 @@ For concise contributor expectations and a welcoming baseline, read
 To choose the right bug, feature, integration, or cloud/team template, use the
 [issue template chooser](https://github.com/aaronlab/browsertrace/issues/new/choose).
 Before opening a PR, use the [pull request template](.github/PULL_REQUEST_TEMPLATE.md)
-and include a linked issue and test commands. It also asks you to inspect
-`git diff --stat` and `git diff --summary` for unexpected deleted or renamed files.
+and include a linked issue and test commands, plus a quick `git diff --stat` and
+`git diff --summary` review for unexpected deleted or renamed files.
 For security-sensitive reports or private trace data, follow
 [SECURITY.md](SECURITY.md) before sharing details publicly.
 

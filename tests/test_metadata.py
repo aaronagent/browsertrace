@@ -665,13 +665,15 @@ def test_integrations_page_includes_aos_mapping_research_table():
     assert rows["Action label or tool call"][2] == "partially mapped"
     assert rows["Status and error"][1] == "steps/toolCallResult with isError"
     assert rows["Status and error"][2] == "partially mapped"
-    assert "research-only toolCallResult result shape" in rows["Status and error"][3]
+    assert "research-only" in rows["Status and error"][3]
+    assert "toolCallResult" in rows["Status and error"][3]
+    assert "result shape" in rows["Status and error"][3]
     assert "run status" in rows["Status and error"][3]
     assert "step status" in rows["Status and error"][3]
-    assert "error message/type" in rows["Status and error"][3]
-    assert "action/tool label" in rows["Status and error"][3]
+    assert "error type/message" in rows["Status and error"][3]
+    assert "action or tool label" in rows["Status and error"][3]
     assert "step id" in rows["Status and error"][3]
-    assert "public export/redaction state" in rows["Status and error"][3]
+    assert "redaction/export state" in rows["Status and error"][3]
     assert "not an AOS compliance claim" in rows["Status and error"][3]
     assert rows["Screenshot or future video artifact"][1] == (
         "FileWithUri preferred over inline FileWithBytes"
@@ -1635,6 +1637,9 @@ def test_readme_links_contributor_guide_near_contributing():
     assert "Before starting a good first issue" in contributing_section
     assert "comment on it first" in contributing_section
     assert "maintainers can treat it as claimed" in contributing_section
+    assert "[pull request template](.github/PULL_REQUEST_TEMPLATE.md)" in contributing_section
+    assert "git diff --stat" in contributing_section
+    assert "git diff --summary" in contributing_section
     assert "[good first issue queue]" in contributing_section
     assert good_first_issue_url in contributing_section
     assert contributing_section.count(good_first_issue_url) == 1
@@ -2558,6 +2563,10 @@ def test_readme_explains_isolated_trace_storage_near_install_tag():
         "By default, BrowserTrace stores local traces under `~/.browsertrace/`; "
         "set `BROWSERTRACE_HOME` to use an isolated trace store"
     ) in install_section
+    assert (
+        "[isolated trace storage recipe](examples/#testing-with-isolated-trace-storage)"
+        in install_section
+    )
     assert 'pip install "browsertrace[ui]"' in install_section
     assert "hosted sharing" not in readme
 
@@ -3168,6 +3177,9 @@ browsertrace show <run_id> --json
 
     assert "### JSON CLI checks for automation" in troubleshooting_section
     assert "scripts, CI, or AI/coding-agent troubleshooting" in troubleshooting_section
+    assert "GET /api/compare/<failed_run_id>/<success_run_id>" in troubleshooting_section
+    assert "first-divergence JSON payload" in troubleshooting_section
+    assert "browsertrace compare <failed_run_id> <success_run_id> --json" in troubleshooting_section
     assert recipe in troubleshooting_section
     assert 'pip install "browsertrace[ui]"' in examples_readme
     assert "hosted sharing" not in examples_readme
