@@ -78,6 +78,51 @@ def _seed_compare_runs(tmp_path):
     return failed_id, success_id
 
 
+def _seed_compare_runs_with_metadata(tmp_path):
+    tracer = Tracer(home=tmp_path)
+
+    with tracer.run("browser-use success metadata") as run:
+        run.step(
+            action="navigate",
+            url="https://example.com/start",
+            metadata={
+                "browser_use_version": "0.1.45",
+                "browsertrace_version": "0.1.19",
+                "model_provider": "openai",
+                "model": "gpt-4o-mini",
+                "prompt_template_version": "prompt-v3",
+            },
+        )
+        run.step(action="click(selector=#checkout)", url="https://example.com/done")
+        success_id = run.id
+
+    try:
+        with tracer.run("browser-use failure metadata") as run:
+            run.step(
+                action="navigate",
+                url="https://example.com/start",
+                model_input={
+                    "browser_use_version": "0.1.46",
+                    "browsertrace_version": "0.1.19",
+                    "model_provider": "openai",
+                    "model": "gpt-4.1-mini",
+                    "prompt_template_version": "prompt-v4",
+                },
+            )
+            run.step(
+                action="click(selector=#cancel)",
+                url="https://example.com/cart",
+                status="error",
+                error="wrong target",
+            )
+            failed_id = run.id
+            raise RuntimeError("wrong target")
+    except RuntimeError:
+        pass
+
+    return failed_id, success_id
+
+
 def test_cli_module_compiles_on_python311():
     """Guard against Python 3.11 f-string syntax regressions.
 
@@ -202,6 +247,14 @@ def test_cli_compare_json_reports_first_divergent_step(cli):
     assert payload["left"]["status"] == "failed"
     assert payload["right"]["id"] == success_id
     assert payload["right"]["status"] == "completed"
+    assert payload["compare_metadata"]["left"] == {
+        "browser_use_version": "",
+        "browsertrace_version": "",
+        "model_provider": "",
+        "model": "",
+        "prompt_template_version": "",
+    }
+    assert payload["compare_metadata"]["differences"] == {}
     assert payload["first_divergence"]["step_index"] == 1
     assert payload["first_divergence"]["left_step"]["action"] == "click(selector=#cancel)"
     assert payload["first_divergence"]["right_step"]["action"] == "click(selector=#checkout)"
@@ -216,6 +269,38 @@ def test_cli_compare_json_reports_first_divergent_step(cli):
     assert payload["first_divergence"]["fields"]["error"] == {
         "left": "wrong target",
         "right": None,
+    }
+
+
+def test_cli_compare_json_includes_compare_metadata_and_differences(cli):
+    cli_mod, tmp_path = cli
+    failed_id, success_id = _seed_compare_runs_with_metadata(tmp_path)
+
+    buf = StringIO()
+    with redirect_stdout(buf):
+        rc = cli_mod.main(["compare", failed_id[:8], success_id[:8], "--json"])
+
+    payload = json.loads(buf.getvalue())
+
+    assert rc == 0
+    assert payload["compare_metadata"]["left"] == {
+        "browser_use_version": "0.1.46",
+        "browsertrace_version": "0.1.19",
+        "model_provider": "openai",
+        "model": "gpt-4.1-mini",
+        "prompt_template_version": "prompt-v4",
+    }
+    assert payload["compare_metadata"]["right"] == {
+        "browser_use_version": "0.1.45",
+        "browsertrace_version": "0.1.19",
+        "model_provider": "openai",
+        "model": "gpt-4o-mini",
+        "prompt_template_version": "prompt-v3",
+    }
+    assert payload["compare_metadata"]["differences"] == {
+        "browser_use_version": {"left": "0.1.46", "right": "0.1.45"},
+        "model": {"left": "gpt-4.1-mini", "right": "gpt-4o-mini"},
+        "prompt_template_version": {"left": "prompt-v4", "right": "prompt-v3"},
     }
 
 
