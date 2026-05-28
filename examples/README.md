@@ -108,6 +108,9 @@ good:
 Use `browsertrace compare <failed_run_id> <success_run_id> --json` when a
 script, CI check, or AI/coding-agent troubleshooting flow needs structured
 comparison output.
+While the local UI is running, scripts, dashboards, or automation checks can
+also call `GET /api/compare/<failed_run_id>/<success_run_id>` for the same
+first-divergence JSON payload.
 
 ## Example Matrix
 

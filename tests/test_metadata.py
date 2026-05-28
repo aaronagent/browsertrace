@@ -3208,6 +3208,9 @@ def test_examples_readme_includes_command_cheat_sheet():
     assert "error: upload preview did not appear" in examples_readme
     assert "`browsertrace compare <failed_run_id> <success_run_id> --json`" in examples_readme
     assert "structured comparison output" in " ".join(examples_readme.split())
+    assert "`GET /api/compare/<failed_run_id>/<success_run_id>`" in examples_readme
+    assert "scripts, dashboards, or automation checks" in examples_readme
+    assert "same first-divergence JSON payload" in " ".join(examples_readme.split())
     assert 'pip install "browsertrace[ui]"' in examples_readme
     assert "hosted sharing" not in examples_readme
 
