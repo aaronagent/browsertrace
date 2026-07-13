@@ -26,15 +26,33 @@ class DemoStagehandPage:
 
     async def act(self, instruction: str) -> dict[str, str]:
         await asyncio.sleep(0)
-        return {"status": "completed", "instruction": instruction}
+        return {
+            "status": "completed",
+            "instruction": instruction,
+            "action": "click",
+            "selector": "button.checkout.primary",
+            "attempts": 1,
+        }
 
     async def extract(self, instruction: str) -> dict[str, str]:
         await asyncio.sleep(0)
         return {
             "status": "completed",
             "instruction": instruction,
-            "order_total": "$42.00",
+            "text": "Order total: $42.00",
+            "tool_calls": [{"name": "extract_text", "status": "ok"}],
         }
+
+    async def observe(self, instruction: str) -> list[dict[str, str]]:
+        await asyncio.sleep(0)
+        return [
+            {
+                "selector": "button.checkout.primary",
+                "description": "Checkout button",
+                "method": "click",
+                "instruction": instruction,
+            }
+        ]
 
 
 async def main() -> None:
@@ -45,12 +63,13 @@ async def main() -> None:
         name="demo: stagehand checkout flow",
     )
 
+    await page.observe("find the checkout button")
     await page.act("click the checkout button")
     await page.extract("extract the order total")
     page.bt_run.close()
 
     print(f"BrowserTrace run id: {page.bt_run.id}")
-    print("Recorded Stagehand calls: act, extract")
+    print("Recorded Stagehand calls: observe, act, extract")
     print("Open the local UI with: browsertrace")
 
 

@@ -382,6 +382,7 @@ stagehand = await Stagehand(...).init()
 page = wrap_stagehand(stagehand.page, tracer, name="my run")
 
 await page.goto("https://example.com")
+await page.observe("find the login button") # auto-recorded
 await page.act("click the login button")   # auto-recorded
 await page.extract("get the headline")      # auto-recorded
 page.bt_run.close()
@@ -389,6 +390,9 @@ page.bt_run.close()
 
 The wrapper records method args/kwargs as `model_input`, then writes the
 successful Stagehand return value back to the same step as `model_output`.
+It also summarizes Stagehand-shaped evidence such as observe candidates,
+selectors, extracted text, action/status fields, retries, and verification or
+tool-call metadata under `model_output["stagehand_evidence"]`.
 For Stagehand `act` and `extract` debugging, see
 [Debug Stagehand runs with BrowserTrace](https://aaronlab.github.io/browsertrace/stagehand-debugging.html).
 
