@@ -171,7 +171,8 @@ BROWSERTRACE_HOME=/tmp/browsertrace-demo browsertrace show <run_id>
 
 Expect `browsertrace list --limit 5` to show a recent
 `demo: stagehand checkout flow` run, and `browsertrace show <run_id>` to list
-two successful steps: `act: click the checkout button` and
+three successful steps: `observe: find the checkout button`,
+`act: click the checkout button`, and
 `extract: extract the order total`.
 
 For a no-service Browser Use-shaped callback demo, run:

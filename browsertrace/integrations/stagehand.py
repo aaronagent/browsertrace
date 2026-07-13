@@ -26,6 +26,7 @@ fall back to manual `run.snapshot(page, action=...)` calls.
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 from typing import Any, Optional
 
 from ..tracer import Run, Tracer
@@ -62,6 +63,8 @@ class _TracedPage:
                 url=getattr(self._page, "url", "") or "",
                 screenshot=shot,
                 model_input={"method": name, "args": list(args), "kwargs": kwargs},
+                stagehand_method=name,
+                instruction=str(instr),
             )
             try:
                 result = await fn(*args, **kwargs)
@@ -72,7 +75,7 @@ class _TracedPage:
                 raise
             output = _serialize_result(result)
             model_output = {"result": output}
-            evidence = _extract_stagehand_evidence(output)
+            evidence = _extract_stagehand_evidence(output, method=name)
             if evidence:
                 model_output["stagehand_evidence"] = evidence
             self.bt_run.update_step(step_id, model_output=model_output)
@@ -93,28 +96,53 @@ def wrap_stagehand(page: Any, tracer: Tracer, name: str = "stagehand run") -> _T
 
 
 def _serialize_result(result: Any) -> Any:
-    if hasattr(result, "model_dump"):
-        try:
-            return result.model_dump(exclude_none=True)
-        except Exception:
-            pass
-    if hasattr(result, "dict"):
-        try:
-            return result.dict()
-        except Exception:
-            pass
-    if isinstance(result, (dict, list, tuple, str, int, float, bool)) or result is None:
-        return result
-    if hasattr(result, "__dict__"):
-        return vars(result)
-    return str(result)
+    return _to_plain(result, set())
 
 
-def _extract_stagehand_evidence(output: Any) -> dict[str, Any]:
+def _to_plain(value: Any, seen: set[int]) -> Any:
+    if isinstance(value, (str, int, float, bool)) or value is None:
+        return value
+    if isinstance(value, bytes):
+        return repr(value)
+    value_id = id(value)
+    if value_id in seen:
+        return "<recursive>"
+    seen.add(value_id)
+
+    if hasattr(value, "model_dump"):
+        try:
+            return _to_plain(value.model_dump(exclude_none=True), seen)
+        except Exception:
+            pass
+    if hasattr(value, "dict"):
+        try:
+            return _to_plain(value.dict(), seen)
+        except Exception:
+            pass
+    if isinstance(value, Mapping):
+        return {str(key): _to_plain(child, seen) for key, child in value.items()}
+    if isinstance(value, (list, tuple, set)):
+        return [_to_plain(child, seen) for child in value]
+    if hasattr(value, "__dict__"):
+        return _to_plain(vars(value), seen)
+    return str(value)
+
+
+def _extract_stagehand_evidence(output: Any, *, method: str = "") -> dict[str, Any]:
     evidence: dict[str, Any] = {}
     selectors = _find_values(output, "selector", "selectors", "css_selector", "cssSelector")
     descriptions = _find_values(output, "description")
     methods = _find_values(output, "method")
+    elements = _find_values(output, "element", "elements", "target", "targets")
+    extracted_text = _find_values(
+        output, "text", "content", "extracted_text", "extractedText", "extracted_content"
+    )
+    actions = _find_values(output, "action", "actions")
+    statuses = _find_values(output, "status", "success", "ok")
+    attempts = _find_values(output, "attempt", "attempts", "retry_count", "retries")
+    verifications = _find_values(
+        output, "verification", "verified", "validation", "tool_call", "tool_calls", "toolCalls"
+    )
 
     if selectors:
         evidence["selectors"] = selectors
@@ -122,8 +150,40 @@ def _extract_stagehand_evidence(output: Any) -> dict[str, Any]:
         evidence["descriptions"] = descriptions
     if methods:
         evidence["methods"] = methods
+    if elements:
+        evidence["elements"] = elements
+    if extracted_text:
+        evidence["extracted_text"] = extracted_text
+    if actions:
+        evidence["actions"] = actions
+    if statuses:
+        evidence["statuses"] = statuses
+    if attempts:
+        evidence["attempts"] = attempts
+    if verifications:
+        evidence["verification"] = verifications
+    if method == "observe":
+        candidates = _observe_candidates(output)
+        if candidates:
+            evidence["observe_candidates"] = candidates
 
     return evidence
+
+
+def _observe_candidates(output: Any) -> list[dict[str, Any]]:
+    candidates = output if isinstance(output, list) else output.get("candidates", []) if isinstance(output, dict) else []
+    summary: list[dict[str, Any]] = []
+    for candidate in candidates:
+        if not isinstance(candidate, dict):
+            continue
+        item = {
+            key: candidate[key]
+            for key in ("selector", "description", "method", "action")
+            if candidate.get(key) is not None
+        }
+        if item:
+            summary.append(item)
+    return summary
 
 
 def _find_values(value: Any, *keys: str) -> list[str]:

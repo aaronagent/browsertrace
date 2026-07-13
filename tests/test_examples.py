@@ -67,7 +67,7 @@ def test_stagehand_wrapper_example_creates_completed_trace(tmp_path, monkeypatch
             "SELECT id, name, status, error FROM runs ORDER BY started_at DESC LIMIT 1"
         ).fetchone()
         steps = c.execute(
-            "SELECT action, url, status, model_input, screenshot_path "
+            "SELECT action, url, status, model_input, screenshot_path, model_output "
             "FROM steps WHERE run_id=? ORDER BY step_index",
             (run[0],),
         ).fetchall()
@@ -76,13 +76,17 @@ def test_stagehand_wrapper_example_creates_completed_trace(tmp_path, monkeypatch
     assert run[2] == "completed"
     assert run[3] is None
     assert [step[0] for step in steps] == [
+        "observe: find the checkout button",
         "act: click the checkout button",
         "extract: extract the order total",
     ]
     assert steps[0][1] == "https://shop.example.test/cart"
     assert steps[0][2] == "ok"
-    assert json.loads(steps[0][3])["method"] == "act"
+    assert json.loads(steps[0][3])["method"] == "observe"
     assert steps[0][4].endswith(".png")
+    assert json.loads(steps[0][5])["stagehand_evidence"]["selectors"] == [
+        "button.checkout.primary"
+    ]
 
 
 def test_browser_use_callback_demo_creates_completed_trace(tmp_path, monkeypatch):
