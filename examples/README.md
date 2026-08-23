@@ -109,6 +109,14 @@ Use `browsertrace compare <failed_run_id> <success_run_id> --json` when a
 script, CI check, or AI/coding-agent troubleshooting flow needs structured
 comparison output.
 
+The local compare API (`GET /api/compare/<failed_run_id>/<success_run_id>`) is
+useful for scripts, dashboards, or automation checks that need the same
+first-divergence JSON payload while the local UI is running:
+
+```bash
+curl http://127.0.0.1:3000/api/compare/<failed_run_id>/<success_run_id>
+```
+
 ## Example Matrix
 
 | Example | Use when | Extra services | Command |

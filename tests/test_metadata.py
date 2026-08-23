@@ -98,6 +98,15 @@ def test_readme_intro_is_browser_use_first_for_pypi_description():
     assert "AI browser agents" not in intro
 
 
+def test_examples_guide_documents_local_compare_api():
+    project_root = Path(__file__).resolve().parents[1]
+    examples = (project_root / "examples" / "README.md").read_text()
+
+    assert "local compare API" in examples
+    assert "scripts, dashboards, or automation checks" in examples
+    assert "GET /api/compare/<failed_run_id>/<success_run_id>" in examples
+
+
 def test_social_preview_source_uses_browser_use_first_positioning():
     project_root = Path(__file__).resolve().parents[1]
     svg = (project_root / "docs" / "social-preview.svg").read_text()
